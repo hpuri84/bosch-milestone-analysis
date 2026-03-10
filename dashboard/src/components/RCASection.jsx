@@ -1,19 +1,38 @@
 import { useState, useMemo } from 'react';
 import {
   ResponsiveContainer, BarChart, Bar, XAxis, YAxis,
-  CartesianGrid, Tooltip, Cell, ReferenceLine,
+  CartesianGrid, Tooltip, Cell,
 } from 'recharts';
 
 const SEVERITY_COLORS = {
-  critical: '#f87171',
-  warning: '#fbbf24',
-  ok: '#34d399',
+  critical: '#dc2626',
+  warning: '#d97706',
+  ok: '#16a34a',
 };
 
+function downloadCSV(rows, headers, headerLabels, filename) {
+  const csvRows = [headerLabels.join(',')];
+  rows.forEach(r => {
+    csvRows.push(headers.map(h => {
+      const val = r[h] ?? '';
+      const str = String(val);
+      return str.includes(',') || str.includes('"') || str.includes('\n')
+        ? `"${str.replace(/"/g, '""')}"` : str;
+    }).join(','));
+  });
+  const blob = new Blob([csvRows.join('\n')], { type: 'text/csv' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = filename;
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
 const SEVERITY_BG = {
-  critical: 'rgba(248,113,113,0.12)',
-  warning: 'rgba(251,191,36,0.08)',
-  ok: 'rgba(52,211,153,0.06)',
+  critical: 'rgba(220,38,38,0.08)',
+  warning: 'rgba(217,119,6,0.06)',
+  ok: 'rgba(22,163,74,0.06)',
 };
 
 function SeverityBadge({ severity }) {
@@ -36,10 +55,10 @@ function SeverityBadge({ severity }) {
 
 function SummaryCards({ data }) {
   const cards = [
-    { label: 'Critical', value: data.critical_issues, color: SEVERITY_COLORS.critical },
-    { label: 'Warning', value: data.warning_issues, color: SEVERITY_COLORS.warning },
-    { label: 'On Target', value: data.ok_issues, color: SEVERITY_COLORS.ok },
-    { label: 'Missing Statuses', value: data.total_missing, color: 'var(--text-primary)' },
+    { label: 'Critical', value: data.critical_issues, color: SEVERITY_COLORS.critical, bg: SEVERITY_BG.critical },
+    { label: 'Warning', value: data.warning_issues, color: SEVERITY_COLORS.warning, bg: SEVERITY_BG.warning },
+    { label: 'On Target', value: data.ok_issues, color: SEVERITY_COLORS.ok, bg: SEVERITY_BG.ok },
+    { label: 'Missing Statuses', value: data.total_missing, color: 'var(--text-primary)', bg: 'var(--bg-accent)' },
   ];
 
   return (
@@ -52,6 +71,8 @@ function SummaryCards({ data }) {
           padding: '14px 20px',
           minWidth: 140,
           flex: '1 1 140px',
+          boxShadow: 'var(--shadow-sm)',
+          borderLeft: `3px solid ${c.color}`,
         }}>
           <div style={{
             fontFamily: 'var(--font-display)',
@@ -99,6 +120,7 @@ function GapChart({ milestones, metric }) {
       border: '1px solid var(--border)',
       borderRadius: 8,
       padding: '20px 24px 12px',
+      boxShadow: 'var(--shadow-sm)',
     }}>
       <div style={{
         fontFamily: 'var(--font-display)',
@@ -111,7 +133,7 @@ function GapChart({ milestones, metric }) {
       </div>
       <ResponsiveContainer width="100%" height={Math.max(200, chartData.length * 28 + 40)}>
         <BarChart data={chartData} layout="vertical" margin={{ top: 5, right: 30, bottom: 5, left: 120 }}>
-          <CartesianGrid stroke="var(--border)" strokeDasharray="3 3" horizontal={false} />
+          <CartesianGrid stroke="#eee" strokeDasharray="3 3" horizontal={false} />
           <XAxis
             type="number"
             tick={{ fill: 'var(--text-muted)', fontFamily: 'var(--font-mono)', fontSize: 10 }}
@@ -133,12 +155,13 @@ function GapChart({ milestones, metric }) {
               const d = payload[0].payload;
               return (
                 <div style={{
-                  background: 'var(--bg-card)',
-                  border: '1px solid var(--border-accent)',
+                  background: '#fff',
+                  border: '1px solid var(--border)',
                   borderRadius: 6,
                   padding: '10px 14px',
                   fontFamily: 'var(--font-mono)',
                   fontSize: '0.75rem',
+                  boxShadow: 'var(--shadow-md)',
                 }}>
                   <div style={{ color: 'var(--text-primary)', marginBottom: 4, fontFamily: 'var(--font-display)' }}>{d.fullName}</div>
                   <div style={{ color: 'var(--text-secondary)' }}>Current: {d.value.toFixed(1)}%</div>
@@ -158,31 +181,93 @@ function GapChart({ milestones, metric }) {
   );
 }
 
-function MilestoneTable({ milestones, onSelectMilestone, selectedMilestone }) {
+const SORT_COLS = [
+  { key: 'code', label: 'Milestone' },
+  { key: 'required', label: 'Required' },
+  { key: 'completeness', label: 'Comp%' },
+  { key: 'timeliness', label: 'Time%' },
+  { key: 'missing', label: 'Missing' },
+  { key: 'late', label: 'Late' },
+];
+
+function MilestoneTable({ milestones, onSelectMilestone, selectedMilestone, sortConfig, onSort, selectedWeek }) {
+  const sortIndicator = (col) => {
+    if (sortConfig.key !== col) return '';
+    return sortConfig.dir === 'asc' ? ' ↑' : ' ↓';
+  };
+
   return (
     <div style={{
       background: 'var(--bg-card)',
       border: '1px solid var(--border)',
       borderRadius: 8,
       overflow: 'hidden',
+      boxShadow: 'var(--shadow-sm)',
     }}>
+      <div style={{
+        padding: '10px 16px',
+        borderBottom: '1px solid var(--border)',
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+      }}>
+        <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.8rem', fontWeight: 600, color: 'var(--text-primary)' }}>
+          Milestone Detail ({milestones.length} rows)
+        </span>
+        <button
+          onClick={() => {
+            const headers = ['scenario', 'code', 'name', 'type', 'is_critical', 'required', 'available', 'in_time', 'missing', 'late', 'completeness', 'timeliness', 'severity'];
+            const labels = ['Scenario', 'Code', 'Name', 'Type', 'Critical', 'Required', 'Available', 'In Time', 'Missing', 'Late', 'Completeness', 'Timeliness', 'Severity'];
+            const rows = milestones.map(m => ({
+              ...m,
+              completeness: (m.completeness * 100).toFixed(1) + '%',
+              timeliness: (m.timeliness * 100).toFixed(1) + '%',
+            }));
+            downloadCSV(rows, headers, labels, `milestone_rca_${selectedWeek}.csv`);
+          }}
+          style={{
+            fontFamily: 'var(--font-display)', fontSize: '0.7rem', fontWeight: 500,
+            color: '#fff', background: 'var(--accent-blue)', border: 'none',
+            borderRadius: 5, padding: '5px 12px', cursor: 'pointer',
+          }}
+        >Export CSV</button>
+      </div>
       <div style={{ overflowX: 'auto' }}>
         <table style={{ width: '100%', borderCollapse: 'collapse', minWidth: 900 }}>
           <thead>
-            <tr style={{ borderBottom: '1px solid var(--border-accent)' }}>
-              {['#', 'Milestone', 'Scenario', 'Type', 'Required', 'Available', 'In Time', 'Comp%', 'Time%', 'Missing', 'Late', 'Severity'].map(h => (
-                <th key={h} style={{
-                  fontFamily: 'var(--font-display)',
-                  fontSize: '0.65rem',
-                  fontWeight: 500,
-                  color: 'var(--text-muted)',
-                  textTransform: 'uppercase',
-                  letterSpacing: '0.06em',
-                  padding: '10px 10px',
-                  textAlign: h === 'Milestone' ? 'left' : 'right',
-                  whiteSpace: 'nowrap',
-                }}>
-                  {h}
+            <tr style={{ borderBottom: '2px solid var(--border)' }}>
+              {[
+                { key: null, label: '#', align: 'right', sortable: false },
+                { key: 'code', label: 'Milestone', align: 'left', sortable: true },
+                { key: null, label: 'Scenario', align: 'right', sortable: false },
+                { key: null, label: 'Type', align: 'right', sortable: false },
+                { key: 'required', label: 'Required', align: 'right', sortable: true },
+                { key: 'available', label: 'Available', align: 'right', sortable: true },
+                { key: 'in_time', label: 'In Time', align: 'right', sortable: true },
+                { key: 'completeness', label: 'Comp%', align: 'right', sortable: true },
+                { key: 'timeliness', label: 'Time%', align: 'right', sortable: true },
+                { key: 'missing', label: 'Missing', align: 'right', sortable: true },
+                { key: 'late', label: 'Late', align: 'right', sortable: true },
+                { key: 'severity', label: 'Severity', align: 'right', sortable: true },
+              ].map(h => (
+                <th
+                  key={h.label}
+                  onClick={h.sortable ? () => onSort(h.key) : undefined}
+                  style={{
+                    fontFamily: 'var(--font-display)',
+                    fontSize: '0.65rem',
+                    fontWeight: 600,
+                    color: sortConfig.key === h.key ? 'var(--accent-blue)' : 'var(--text-muted)',
+                    textTransform: 'uppercase',
+                    letterSpacing: '0.06em',
+                    padding: '10px 10px',
+                    textAlign: h.align,
+                    whiteSpace: 'nowrap',
+                    cursor: h.sortable ? 'pointer' : 'default',
+                    userSelect: 'none',
+                  }}
+                >
+                  {h.label}{h.sortable ? sortIndicator(h.key) : ''}
                 </th>
               ))}
             </tr>
@@ -203,7 +288,7 @@ function MilestoneTable({ milestones, onSelectMilestone, selectedMilestone }) {
                     background: isSelected ? 'var(--bg-accent)' : 'transparent',
                   }}
                   onMouseEnter={e => {
-                    if (!isSelected) e.currentTarget.style.background = 'rgba(255,255,255,0.02)';
+                    if (!isSelected) e.currentTarget.style.background = '#f8f9fb';
                   }}
                   onMouseLeave={e => {
                     if (!isSelected) e.currentTarget.style.background = 'transparent';
@@ -224,7 +309,7 @@ function MilestoneTable({ milestones, onSelectMilestone, selectedMilestone }) {
                         borderRadius: 3,
                         padding: '0 4px',
                         verticalAlign: 'middle',
-                        opacity: 0.7,
+                        opacity: 0.8,
                       }}>KEY</span>
                     )}
                   </td>
@@ -285,7 +370,7 @@ function pctColor(val, target) {
   return 'var(--accent-red)';
 }
 
-function ShipmentDrilldown({ milestone }) {
+function ShipmentDrilldown({ milestone, searchTerm, setSearchTerm }) {
   if (!milestone || !milestone.missing_shipments?.length) {
     return (
       <div style={{
@@ -297,6 +382,7 @@ function ShipmentDrilldown({ milestone }) {
         color: 'var(--text-muted)',
         fontFamily: 'var(--font-display)',
         fontSize: '0.85rem',
+        boxShadow: 'var(--shadow-sm)',
       }}>
         {milestone
           ? `No missing shipments for ${milestone.scenario} ${milestone.code} (${milestone.type})`
@@ -306,6 +392,16 @@ function ShipmentDrilldown({ milestone }) {
   }
 
   const issc4 = milestone.scenario === 'SC4';
+  const term = searchTerm.toLowerCase();
+  const filtered = term
+    ? milestone.missing_shipments.filter(s =>
+        (s.hbl || '').toLowerCase().includes(term) ||
+        (s.mbl || '').toLowerCase().includes(term) ||
+        (s.consignment || '').toLowerCase().includes(term) ||
+        (s.load_to || '').toLowerCase().includes(term) ||
+        (s.service || '').toLowerCase().includes(term)
+      )
+    : milestone.missing_shipments;
 
   return (
     <div style={{
@@ -313,6 +409,7 @@ function ShipmentDrilldown({ milestone }) {
       border: '1px solid var(--border)',
       borderRadius: 8,
       overflow: 'hidden',
+      boxShadow: 'var(--shadow-sm)',
     }}>
       <div style={{
         padding: '14px 20px',
@@ -334,23 +431,42 @@ function ShipmentDrilldown({ milestone }) {
           </span>
           {' '}{milestone.name} ({milestone.type}) — Missing Shipments
         </div>
-        <div style={{
-          fontFamily: 'var(--font-mono)',
-          fontSize: '0.75rem',
-          color: 'var(--text-muted)',
-        }}>
-          Showing {milestone.missing_shipments.length} of {milestone.total_missing_shipments}
+        <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+          <input
+            type="text"
+            placeholder="Search HBL, MBL..."
+            value={searchTerm}
+            onChange={e => setSearchTerm(e.target.value)}
+            style={{
+              fontFamily: 'var(--font-mono)',
+              fontSize: '0.75rem',
+              padding: '5px 10px',
+              border: '1px solid var(--border)',
+              borderRadius: 5,
+              background: 'var(--bg-primary)',
+              color: 'var(--text-primary)',
+              outline: 'none',
+              width: 180,
+            }}
+          />
+          <div style={{
+            fontFamily: 'var(--font-mono)',
+            fontSize: '0.75rem',
+            color: 'var(--text-muted)',
+          }}>
+            {filtered.length} of {milestone.total_missing_shipments}
+          </div>
         </div>
       </div>
       <div style={{ overflowX: 'auto', maxHeight: 400 }}>
         <table style={{ width: '100%', borderCollapse: 'collapse' }}>
           <thead>
-            <tr style={{ borderBottom: '1px solid var(--border-accent)', position: 'sticky', top: 0, background: 'var(--bg-card)' }}>
+            <tr style={{ borderBottom: '2px solid var(--border)', position: 'sticky', top: 0, background: 'var(--bg-card)' }}>
               {['#', 'HBL', issc4 ? 'MBL' : 'MBL', issc4 ? 'Consignment' : 'Load/TO', 'Service'].map(h => (
                 <th key={h} style={{
                   fontFamily: 'var(--font-display)',
                   fontSize: '0.65rem',
-                  fontWeight: 500,
+                  fontWeight: 600,
                   color: 'var(--text-muted)',
                   textTransform: 'uppercase',
                   letterSpacing: '0.06em',
@@ -363,9 +479,9 @@ function ShipmentDrilldown({ milestone }) {
             </tr>
           </thead>
           <tbody>
-            {milestone.missing_shipments.map((s, i) => (
+            {filtered.map((s, i) => (
               <tr key={i} style={{ borderBottom: '1px solid var(--border)' }}
-                onMouseEnter={e => e.currentTarget.style.background = 'rgba(255,255,255,0.02)'}
+                onMouseEnter={e => e.currentTarget.style.background = '#f8f9fb'}
                 onMouseLeave={e => e.currentTarget.style.background = 'transparent'}
               >
                 <td style={{ ...shipCell, color: 'var(--text-muted)' }}>{i + 1}</td>
@@ -378,7 +494,7 @@ function ShipmentDrilldown({ milestone }) {
                   <span style={{
                     fontFamily: 'var(--font-mono)',
                     fontSize: '0.65rem',
-                    color: 'var(--text-muted)',
+                    color: 'var(--text-secondary)',
                     background: 'var(--bg-accent)',
                     padding: '2px 6px',
                     borderRadius: 3,
@@ -400,14 +516,14 @@ const shipCell = {
   color: 'var(--text-secondary)',
 };
 
-// Filters component
 function Filters({ filters, setFilters }) {
   const btnStyle = (active) => ({
-    fontFamily: 'var(--font-mono)',
+    fontFamily: 'var(--font-display)',
     fontSize: '0.7rem',
-    color: active ? 'var(--text-primary)' : 'var(--text-muted)',
-    background: active ? 'var(--bg-accent)' : 'transparent',
-    border: active ? '1px solid var(--border-accent)' : '1px solid transparent',
+    fontWeight: active ? 600 : 400,
+    color: active ? '#fff' : 'var(--text-muted)',
+    background: active ? 'var(--accent-blue)' : 'transparent',
+    border: active ? 'none' : '1px solid var(--border)',
     borderRadius: 5,
     padding: '4px 10px',
     cursor: 'pointer',
@@ -421,26 +537,32 @@ function Filters({ filters, setFilters }) {
       flexWrap: 'wrap',
       alignItems: 'center',
       marginBottom: 16,
+      padding: '12px 16px',
+      background: 'var(--bg-card)',
+      border: '1px solid var(--border)',
+      borderRadius: 8,
+      boxShadow: 'var(--shadow-sm)',
     }}>
-      {/* Scenario filter */}
       <div style={{ display: 'flex', gap: 3, alignItems: 'center' }}>
-        <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.68rem', color: 'var(--text-muted)', marginRight: 4 }}>Scenario:</span>
+        <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.68rem', color: 'var(--text-muted)', marginRight: 4, fontWeight: 500 }}>Scenario:</span>
         {['All', 'SC3', 'SC4'].map(s => (
           <button key={s} style={btnStyle(filters.scenario === s)}
             onClick={() => setFilters(f => ({ ...f, scenario: s }))}>{s}</button>
         ))}
       </div>
 
-      {/* Type filter */}
+      <div style={{ width: 1, height: 20, background: 'var(--border)' }} />
+
       <div style={{ display: 'flex', gap: 3, alignItems: 'center' }}>
-        <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.68rem', color: 'var(--text-muted)', marginRight: 4 }}>Type:</span>
+        <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.68rem', color: 'var(--text-muted)', marginRight: 4, fontWeight: 500 }}>Type:</span>
         {['All', 'Actual', 'Estimated'].map(t => (
           <button key={t} style={btnStyle(filters.type === t)}
             onClick={() => setFilters(f => ({ ...f, type: t }))}>{t}</button>
         ))}
       </div>
 
-      {/* Critical only */}
+      <div style={{ width: 1, height: 20, background: 'var(--border)' }} />
+
       <div style={{ display: 'flex', gap: 3, alignItems: 'center' }}>
         <button style={btnStyle(filters.criticalOnly)}
           onClick={() => setFilters(f => ({ ...f, criticalOnly: !f.criticalOnly }))}>
@@ -448,9 +570,10 @@ function Filters({ filters, setFilters }) {
         </button>
       </div>
 
-      {/* Severity filter */}
+      <div style={{ width: 1, height: 20, background: 'var(--border)' }} />
+
       <div style={{ display: 'flex', gap: 3, alignItems: 'center' }}>
-        <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.68rem', color: 'var(--text-muted)', marginRight: 4 }}>Severity:</span>
+        <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.68rem', color: 'var(--text-muted)', marginRight: 4, fontWeight: 500 }}>Severity:</span>
         {['All', 'critical', 'warning', 'ok'].map(s => (
           <button key={s} style={btnStyle(filters.severity === s)}
             onClick={() => setFilters(f => ({ ...f, severity: s }))}>
@@ -465,15 +588,24 @@ function Filters({ filters, setFilters }) {
 
 export default function RCASection({ rcaData, selectedWeek }) {
   const [selectedMilestone, setSelectedMilestone] = useState(null);
+  const [searchTerm, setSearchTerm] = useState('');
   const [filters, setFilters] = useState({
     scenario: 'All',
     type: 'All',
     criticalOnly: false,
     severity: 'All',
   });
+  const [sortConfig, setSortConfig] = useState({ key: 'missing', dir: 'desc' });
 
   const weekData = rcaData?.find(d => d.week === selectedWeek);
   if (!weekData) return null;
+
+  const handleSort = (key) => {
+    setSortConfig(prev => ({
+      key,
+      dir: prev.key === key && prev.dir === 'desc' ? 'asc' : 'desc',
+    }));
+  };
 
   const filteredMilestones = useMemo(() => {
     let ms = weekData.milestones;
@@ -481,15 +613,26 @@ export default function RCASection({ rcaData, selectedWeek }) {
     if (filters.type !== 'All') ms = ms.filter(m => m.type === filters.type);
     if (filters.criticalOnly) ms = ms.filter(m => m.is_critical);
     if (filters.severity !== 'All') ms = ms.filter(m => m.severity === filters.severity);
-    return ms;
-  }, [weekData, filters]);
+
+    // Sort
+    const { key, dir } = sortConfig;
+    const sorted = [...ms].sort((a, b) => {
+      let va = a[key], vb = b[key];
+      if (typeof va === 'string') {
+        va = va.toLowerCase();
+        vb = (vb || '').toLowerCase();
+        return dir === 'asc' ? va.localeCompare(vb) : vb.localeCompare(va);
+      }
+      return dir === 'asc' ? (va ?? 0) - (vb ?? 0) : (vb ?? 0) - (va ?? 0);
+    });
+    return sorted;
+  }, [weekData, filters, sortConfig]);
 
   return (
     <div>
       <SummaryCards data={weekData} />
       <Filters filters={filters} setFilters={setFilters} />
 
-      {/* Gap charts */}
       <div style={{
         display: 'grid',
         gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))',
@@ -500,17 +643,22 @@ export default function RCASection({ rcaData, selectedWeek }) {
         <GapChart milestones={filteredMilestones} metric="timeliness" />
       </div>
 
-      {/* Milestone table */}
       <div style={{ marginBottom: 20 }}>
         <MilestoneTable
           milestones={filteredMilestones}
           onSelectMilestone={setSelectedMilestone}
           selectedMilestone={selectedMilestone}
+          sortConfig={sortConfig}
+          onSort={handleSort}
+          selectedWeek={selectedWeek}
         />
       </div>
 
-      {/* Shipment drilldown */}
-      <ShipmentDrilldown milestone={selectedMilestone} />
+      <ShipmentDrilldown
+        milestone={selectedMilestone}
+        searchTerm={searchTerm}
+        setSearchTerm={setSearchTerm}
+      />
     </div>
   );
 }

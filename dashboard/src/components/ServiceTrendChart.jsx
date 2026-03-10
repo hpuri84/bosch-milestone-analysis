@@ -4,23 +4,24 @@ import {
 } from 'recharts';
 
 const SVC_STYLES = {
-  FCL: { color: '#3b82f6', dash: undefined },
-  BCO: { color: '#a78bfa', dash: '6 3' },
-  LCL: { color: '#22d3ee', dash: '2 2' },
+  FCL: { color: '#2563eb', dash: undefined },
+  BCO: { color: '#7c3aed', dash: '6 3' },
+  LCL: { color: '#0891b2', dash: '2 2' },
 };
 
 function CustomTooltip({ active, payload, label }) {
   if (!active || !payload?.length) return null;
   return (
     <div style={{
-      background: 'var(--bg-card)',
-      border: '1px solid var(--border-accent)',
+      background: '#fff',
+      border: '1px solid var(--border)',
       borderRadius: 6,
       padding: '12px 16px',
       fontFamily: 'var(--font-mono)',
       fontSize: '0.8rem',
+      boxShadow: 'var(--shadow-md)',
     }}>
-      <div style={{ color: 'var(--text-secondary)', marginBottom: 8, fontFamily: 'var(--font-display)', fontWeight: 500 }}>{label}</div>
+      <div style={{ color: 'var(--text-primary)', marginBottom: 8, fontFamily: 'var(--font-display)', fontWeight: 500 }}>{label}</div>
       {payload.map((p, i) => (
         <div key={i} style={{ color: p.color, marginBottom: 3, display: 'flex', justifyContent: 'space-between', gap: 16 }}>
           <span>{p.name}</span>
@@ -44,7 +45,6 @@ export default function ServiceTrendChart({ data, scenario, metric = 'completene
     return point;
   });
 
-  // Check if there's any non-zero data
   const hasData = chartData.some(d => services.some(s => d[s] > 0));
   if (!hasData) return null;
 
@@ -54,6 +54,7 @@ export default function ServiceTrendChart({ data, scenario, metric = 'completene
       border: '1px solid var(--border)',
       borderRadius: 8,
       padding: '20px 24px 12px',
+      boxShadow: 'var(--shadow-sm)',
     }}>
       <div style={{
         fontFamily: 'var(--font-display)',
@@ -87,7 +88,7 @@ export default function ServiceTrendChart({ data, scenario, metric = 'completene
       </div>
       <ResponsiveContainer width="100%" height={height}>
         <LineChart data={chartData} margin={{ top: 5, right: 10, bottom: 5, left: -10 }}>
-          <CartesianGrid stroke="var(--border)" strokeDasharray="3 3" vertical={false} />
+          <CartesianGrid stroke="#eee" strokeDasharray="3 3" vertical={false} />
           <XAxis
             dataKey="week"
             tick={{ fill: 'var(--text-muted)', fontFamily: 'var(--font-mono)', fontSize: 11 }}

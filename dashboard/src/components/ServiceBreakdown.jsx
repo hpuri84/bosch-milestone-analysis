@@ -4,23 +4,24 @@ import {
 } from 'recharts';
 
 const SVC_COLORS = {
-  FCL: '#3b82f6',
-  BCO: '#a78bfa',
-  LCL: '#22d3ee',
+  FCL: '#2563eb',
+  BCO: '#7c3aed',
+  LCL: '#0891b2',
 };
 
 function CustomTooltip({ active, payload, label }) {
   if (!active || !payload?.length) return null;
   return (
     <div style={{
-      background: 'var(--bg-card)',
-      border: '1px solid var(--border-accent)',
+      background: '#fff',
+      border: '1px solid var(--border)',
       borderRadius: 6,
       padding: '12px 16px',
       fontFamily: 'var(--font-mono)',
       fontSize: '0.8rem',
+      boxShadow: 'var(--shadow-md)',
     }}>
-      <div style={{ color: 'var(--text-secondary)', marginBottom: 8, fontFamily: 'var(--font-display)', fontWeight: 500 }}>{label}</div>
+      <div style={{ color: 'var(--text-primary)', marginBottom: 8, fontFamily: 'var(--font-display)', fontWeight: 500 }}>{label}</div>
       {payload.map((p, i) => (
         <div key={i} style={{ color: p.fill || p.color, marginBottom: 3, display: 'flex', justifyContent: 'space-between', gap: 16 }}>
           <span>{p.name}</span>
@@ -49,6 +50,7 @@ export default function ServiceBreakdown({ weekData, scenario, metric = 'complet
       border: '1px solid var(--border)',
       borderRadius: 8,
       padding: '20px 24px 12px',
+      boxShadow: 'var(--shadow-sm)',
     }}>
       <div style={{
         fontFamily: 'var(--font-display)',
@@ -71,7 +73,7 @@ export default function ServiceBreakdown({ weekData, scenario, metric = 'complet
       </div>
       <ResponsiveContainer width="100%" height={200}>
         <BarChart data={barData} barGap={4} margin={{ top: 5, right: 10, bottom: 5, left: -10 }}>
-          <CartesianGrid stroke="var(--border)" strokeDasharray="3 3" vertical={false} />
+          <CartesianGrid stroke="#eee" strokeDasharray="3 3" vertical={false} />
           <XAxis
             dataKey="service"
             tick={{ fill: 'var(--text-muted)', fontFamily: 'var(--font-mono)', fontSize: 11 }}
@@ -89,7 +91,7 @@ export default function ServiceBreakdown({ weekData, scenario, metric = 'complet
           <Legend wrapperStyle={{ fontFamily: 'var(--font-display)', fontSize: '0.7rem' }} />
           <Bar dataKey="value" name="All" radius={[3, 3, 0, 0]} maxBarSize={40}>
             {barData.map((d, i) => (
-              <Cell key={i} fill={SVC_COLORS[d.service] || 'var(--accent-blue)'} opacity={0.7} />
+              <Cell key={i} fill={SVC_COLORS[d.service] || 'var(--accent-blue)'} opacity={0.5} />
             ))}
           </Bar>
           <Bar dataKey="critical" name="Critical" radius={[3, 3, 0, 0]} maxBarSize={40}>

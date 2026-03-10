@@ -6,7 +6,8 @@ const styles = {
     padding: '20px 24px',
     position: 'relative',
     overflow: 'hidden',
-    transition: 'border-color 0.2s, background 0.2s',
+    transition: 'border-color 0.2s, box-shadow 0.2s',
+    boxShadow: 'var(--shadow-sm)',
   },
   label: {
     fontFamily: 'var(--font-display)',
@@ -61,14 +62,14 @@ export default function KPICard({ label, value, prevValue, color = 'var(--accent
       }}
       onMouseEnter={e => {
         e.currentTarget.style.borderColor = color;
-        e.currentTarget.style.background = 'var(--bg-card-hover)';
+        e.currentTarget.style.boxShadow = 'var(--shadow-md)';
       }}
       onMouseLeave={e => {
         e.currentTarget.style.borderColor = 'var(--border)';
-        e.currentTarget.style.background = 'var(--bg-card)';
+        e.currentTarget.style.boxShadow = 'var(--shadow-sm)';
       }}
     >
-      <div style={{ ...styles.bar, width: barPercent ? `${barPercent * 100}%` : '0%', background: color, opacity: 0.6 }} />
+      <div style={{ ...styles.bar, width: barPercent ? `${barPercent * 100}%` : '0%', background: color, opacity: 0.7 }} />
       <div style={styles.label}>{label}</div>
       <div style={{ ...styles.value, color }}>{fmtPct(value)}</div>
       {delta != null && (

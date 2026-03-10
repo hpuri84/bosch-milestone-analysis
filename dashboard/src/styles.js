@@ -1,28 +1,31 @@
 // Global styles injected into document head
 const GLOBAL_CSS = `
-@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Outfit:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap');
 
 :root {
-  --bg-primary: #0a0e14;
-  --bg-secondary: #111820;
-  --bg-card: #151c27;
-  --bg-card-hover: #1a2233;
-  --bg-accent: #1c2536;
-  --border: #1e2a3a;
-  --border-accent: #2a3a50;
-  --text-primary: #e8edf4;
-  --text-secondary: #8494a7;
-  --text-muted: #556373;
-  --accent-blue: #3b82f6;
-  --accent-cyan: #22d3ee;
-  --accent-green: #34d399;
-  --accent-amber: #fbbf24;
-  --accent-red: #f87171;
-  --accent-purple: #a78bfa;
+  --bg-primary: #f5f6f8;
+  --bg-secondary: #ebedf2;
+  --bg-card: #ffffff;
+  --bg-card-hover: #f8f9fb;
+  --bg-accent: #eef1f6;
+  --border: #e2e6ed;
+  --border-accent: #cdd3de;
+  --text-primary: #1a1f36;
+  --text-secondary: #4a5568;
+  --text-muted: #8896a6;
+  --accent-blue: #2563eb;
+  --accent-cyan: #0891b2;
+  --accent-green: #16a34a;
+  --accent-amber: #d97706;
+  --accent-red: #dc2626;
+  --accent-purple: #7c3aed;
   --accent-maersk: #00a1de;
   --accent-bosch: #ea0016;
-  --font-display: 'Outfit', sans-serif;
-  --font-mono: 'DM Mono', monospace;
+  --font-display: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'IBM Plex Mono', 'SF Mono', Menlo, monospace;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+  --shadow-md: 0 2px 8px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+  --shadow-lg: 0 4px 16px rgba(0,0,0,0.08);
 }
 
 *, *::before, *::after {

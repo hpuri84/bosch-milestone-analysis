@@ -18,9 +18,9 @@ export default function WeekSelector({ weeks, selected, onSelect }) {
               fontFamily: 'var(--font-mono)',
               fontSize: '0.75rem',
               fontWeight: active ? 500 : 400,
-              color: active ? 'var(--text-primary)' : 'var(--text-muted)',
-              background: active ? 'var(--bg-accent)' : 'transparent',
-              border: active ? '1px solid var(--border-accent)' : '1px solid transparent',
+              color: active ? '#fff' : 'var(--text-muted)',
+              background: active ? 'var(--accent-blue)' : 'transparent',
+              border: 'none',
               borderRadius: 6,
               padding: '6px 14px',
               cursor: 'pointer',
@@ -28,10 +28,16 @@ export default function WeekSelector({ weeks, selected, onSelect }) {
               letterSpacing: '0.02em',
             }}
             onMouseEnter={e => {
-              if (!active) e.currentTarget.style.color = 'var(--text-secondary)';
+              if (!active) {
+                e.currentTarget.style.color = 'var(--text-primary)';
+                e.currentTarget.style.background = 'var(--bg-accent)';
+              }
             }}
             onMouseLeave={e => {
-              if (!active) e.currentTarget.style.color = 'var(--text-muted)';
+              if (!active) {
+                e.currentTarget.style.color = 'var(--text-muted)';
+                e.currentTarget.style.background = 'transparent';
+              }
             }}
           >
             {w}

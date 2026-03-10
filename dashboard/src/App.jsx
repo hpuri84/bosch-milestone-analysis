@@ -7,6 +7,8 @@ import ServiceTrendChart from './components/ServiceTrendChart';
 import DataTable from './components/DataTable';
 import WeekSelector from './components/WeekSelector';
 import RCASection from './components/RCASection';
+import ETARefRCA from './components/ETARefRCA';
+import PlausibilityRCA from './components/PlausibilityRCA';
 
 injectGlobalStyles();
 
@@ -88,7 +90,6 @@ export default function App() {
   const current = data[currentIdx];
   const prev = currentIdx > 0 ? data[currentIdx - 1] : null;
 
-  // Prepare trend data
   const mainTrend = data.map(d => ({
     week: d.week,
     'Completeness (All)': d.all.completeness * 100,
@@ -112,18 +113,6 @@ export default function App() {
 
   return (
     <div style={LAYOUT.page}>
-      {/* Ambient glow */}
-      <div style={{
-        position: 'fixed',
-        top: -200,
-        right: -200,
-        width: 600,
-        height: 600,
-        background: 'radial-gradient(circle, rgba(0,161,222,0.06) 0%, transparent 70%)',
-        pointerEvents: 'none',
-        zIndex: 0,
-      }} />
-
       {/* Header */}
       <div style={LAYOUT.header}>
         <div>
@@ -181,11 +170,13 @@ export default function App() {
         display: 'flex',
         gap: 0,
         marginBottom: 28,
-        borderBottom: '1px solid var(--border)',
+        borderBottom: '2px solid var(--border)',
       }}>
         {[
           { key: 'overview', label: 'Overview' },
-          { key: 'rca', label: 'Root Cause Analysis' },
+          { key: 'rca', label: 'Milestone RCA' },
+          { key: 'eta_ref', label: 'ETA & Reference' },
+          { key: 'plausibility', label: 'Plausibility' },
         ].map(tab => (
           <button
             key={tab.key}
@@ -194,13 +185,14 @@ export default function App() {
               fontFamily: 'var(--font-display)',
               fontSize: '0.85rem',
               fontWeight: activeTab === tab.key ? 600 : 400,
-              color: activeTab === tab.key ? 'var(--text-primary)' : 'var(--text-muted)',
+              color: activeTab === tab.key ? 'var(--accent-blue)' : 'var(--text-muted)',
               background: 'transparent',
               border: 'none',
               borderBottom: activeTab === tab.key ? '2px solid var(--accent-blue)' : '2px solid transparent',
               padding: '10px 20px',
               cursor: 'pointer',
               transition: 'all 0.15s',
+              marginBottom: -2,
             }}
             onMouseEnter={e => {
               if (activeTab !== tab.key) e.currentTarget.style.color = 'var(--text-secondary)';
@@ -214,13 +206,33 @@ export default function App() {
         ))}
       </div>
 
-      {/* ===== RCA TAB ===== */}
+      {/* ===== MILESTONE RCA TAB ===== */}
       {activeTab === 'rca' && (
         <div style={LAYOUT.section}>
           <div style={LAYOUT.sectionTitle}>
             {selectedWeek} — Milestone Breakdown & Root Cause Analysis
           </div>
           <RCASection rcaData={rcaData} selectedWeek={selectedWeek} />
+        </div>
+      )}
+
+      {/* ===== ETA & REFERENCE TAB ===== */}
+      {activeTab === 'eta_ref' && (
+        <div style={LAYOUT.section}>
+          <div style={LAYOUT.sectionTitle}>
+            {selectedWeek} — ETA Accuracy & Reference Completeness RCA
+          </div>
+          <ETARefRCA rcaData={rcaData} selectedWeek={selectedWeek} />
+        </div>
+      )}
+
+      {/* ===== PLAUSIBILITY TAB ===== */}
+      {activeTab === 'plausibility' && (
+        <div style={LAYOUT.section}>
+          <div style={LAYOUT.sectionTitle}>
+            {selectedWeek} — Milestone Plausibility & Sequence Violations
+          </div>
+          <PlausibilityRCA rcaData={rcaData} selectedWeek={selectedWeek} />
         </div>
       )}
 
@@ -283,7 +295,7 @@ export default function App() {
             label="ETA 2D (±48h Delivery)"
             value={current.eta_2d}
             prevValue={prev?.eta_2d}
-            color="#f472b6"
+            color="#db2777"
             barPercent={current.eta_2d}
             delay={0.25}
           />
@@ -291,7 +303,7 @@ export default function App() {
             label="Reference Completeness"
             value={current.ref_comp}
             prevValue={prev?.ref_comp}
-            color="#fb923c"
+            color="#ea580c"
             barPercent={current.ref_comp}
             delay={0.3}
           />
@@ -304,6 +316,7 @@ export default function App() {
             flexDirection: 'column',
             justifyContent: 'center',
             animation: 'fadeInUp 0.4s ease-out 0.35s both',
+            boxShadow: 'var(--shadow-sm)',
           }}>
             <div style={{
               fontFamily: 'var(--font-display)',
@@ -318,19 +331,19 @@ export default function App() {
             </div>
             <div style={{ display: 'flex', gap: 16 }}>
               <div>
-                <div style={{ fontFamily: 'var(--font-mono)', fontSize: '1.1rem', color: 'var(--text-primary)' }}>
+                <div style={{ fontFamily: 'var(--font-mono)', fontSize: '1.1rem', color: 'var(--text-primary)', fontWeight: 500 }}>
                   {current.all.required.toLocaleString()}
                 </div>
                 <div style={{ fontFamily: 'var(--font-display)', fontSize: '0.65rem', color: 'var(--text-muted)' }}>Required</div>
               </div>
               <div>
-                <div style={{ fontFamily: 'var(--font-mono)', fontSize: '1.1rem', color: 'var(--accent-blue)' }}>
+                <div style={{ fontFamily: 'var(--font-mono)', fontSize: '1.1rem', color: 'var(--accent-blue)', fontWeight: 500 }}>
                   {current.all.available.toLocaleString()}
                 </div>
                 <div style={{ fontFamily: 'var(--font-display)', fontSize: '0.65rem', color: 'var(--text-muted)' }}>Available</div>
               </div>
               <div>
-                <div style={{ fontFamily: 'var(--font-mono)', fontSize: '1.1rem', color: 'var(--accent-green)' }}>
+                <div style={{ fontFamily: 'var(--font-mono)', fontSize: '1.1rem', color: 'var(--accent-green)', fontWeight: 500 }}>
                   {current.all.in_time.toLocaleString()}
                 </div>
                 <div style={{ fontFamily: 'var(--font-display)', fontSize: '0.65rem', color: 'var(--text-muted)' }}>In Time</div>
@@ -348,8 +361,8 @@ export default function App() {
             data={mainTrend}
             title="Completeness Trend"
             lines={[
-              { key: 'Completeness (Critical)', name: 'Critical', color: '#3b82f6' },
-              { key: 'Completeness (All)', name: 'All', color: '#a78bfa' },
+              { key: 'Completeness (Critical)', name: 'Critical', color: '#2563eb' },
+              { key: 'Completeness (All)', name: 'All', color: '#7c3aed' },
             ]}
             target={90}
           />
@@ -357,8 +370,8 @@ export default function App() {
             data={mainTrend}
             title="Timeliness Trend"
             lines={[
-              { key: 'Timeliness (Critical)', name: 'Critical', color: '#22d3ee' },
-              { key: 'Timeliness (All)', name: 'All', color: '#34d399' },
+              { key: 'Timeliness (Critical)', name: 'Critical', color: '#0891b2' },
+              { key: 'Timeliness (All)', name: 'All', color: '#16a34a' },
             ]}
             target={70}
           />
@@ -372,17 +385,17 @@ export default function App() {
             data={sc3vs4Trend}
             title="SC3 vs SC4 Completeness"
             lines={[
-              { key: 'SC3', name: 'SC3', color: '#22d3ee' },
-              { key: 'SC4', name: 'SC4', color: '#3b82f6' },
+              { key: 'SC3', name: 'SC3', color: '#0891b2' },
+              { key: 'SC4', name: 'SC4', color: '#2563eb' },
             ]}
           />
           <TrendChart
             data={etaTrend}
             title="ETA Accuracy & Reference"
             lines={[
-              { key: 'ETA 2P (Port)', name: 'ETA 2P', color: '#fbbf24' },
-              { key: 'ETA 2D (Delivery)', name: 'ETA 2D', color: '#f472b6' },
-              { key: 'Reference', name: 'Ref Comp', color: '#fb923c' },
+              { key: 'ETA 2P (Port)', name: 'ETA 2P', color: '#d97706' },
+              { key: 'ETA 2D (Delivery)', name: 'ETA 2D', color: '#db2777' },
+              { key: 'Reference', name: 'Ref Comp', color: '#ea580c' },
             ]}
           />
         </div>
