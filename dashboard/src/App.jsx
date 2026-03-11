@@ -14,6 +14,7 @@ import TaskTracker from './components/TaskTracker';
 import HBLAnalysis from './components/HBLAnalysis';
 import CancellationAnalysis from './components/CancellationAnalysis';
 import TransmissionGapAnalysis from './components/TransmissionGapAnalysis';
+import SeeburgerAnalysis from './components/SeeburgerAnalysis';
 
 injectGlobalStyles();
 
@@ -65,6 +66,7 @@ export default function App() {
   const [cancelledHBLs, setCancelledHBLs] = useState([]);
   const [cancellationImpact, setCancellationImpact] = useState(null);
   const [transmissionGap, setTransmissionGap] = useState(null);
+  const [seeburgerData, setSeeburgerData] = useState(null);
   const [selectedWeek, setSelectedWeek] = useState(null);
   const [activeTab, setActiveTab] = useState('overview');
 
@@ -76,13 +78,15 @@ export default function App() {
       fetch('/cancelled_hbls.json').then(r => r.json()).catch(() => ({ hbls: [] })),
       fetch('/cancellation_impact.json').then(r => r.json()).catch(() => null),
       fetch('/transmission_gap.json').then(r => r.json()).catch(() => null),
-    ]).then(([kpi, rca, tasks, cancelled, impact, gap]) => {
+      fetch('/seeburger_analysis.json').then(r => r.json()).catch(() => null),
+    ]).then(([kpi, rca, tasks, cancelled, impact, gap, seeburger]) => {
       setData(kpi);
       setRcaData(rca);
       setTaskData(tasks);
       setCancelledHBLs(cancelled.hbls || []);
       setCancellationImpact(impact);
       setTransmissionGap(gap);
+      setSeeburgerData(seeburger);
       setSelectedWeek(kpi[kpi.length - 1]?.week);
     });
   }, []);
@@ -198,6 +202,7 @@ export default function App() {
           { key: 'hbl', label: 'HBL Impact' },
           { key: 'cancellations', label: 'Cancellations' },
           { key: 'transmission', label: 'EDI Gap' },
+          { key: 'seeburger', label: 'Seeburger' },
           { key: 'tasks', label: 'Tasks' },
         ].map(tab => (
           <button
@@ -282,6 +287,16 @@ export default function App() {
             Cancellation Impact Analysis — What-If Cancelled Shipments Were Excluded
           </div>
           <CancellationAnalysis impactData={cancellationImpact} selectedWeek={selectedWeek} />
+        </div>
+      )}
+
+      {/* ===== SEEBURGER TAB ===== */}
+      {activeTab === 'seeburger' && (
+        <div style={LAYOUT.section}>
+          <div style={LAYOUT.sectionTitle}>
+            Seeburger EDI Gateway — Message Filtering Analysis
+          </div>
+          <SeeburgerAnalysis seeburgerData={seeburgerData} />
         </div>
       )}
 

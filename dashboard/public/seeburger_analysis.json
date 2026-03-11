@@ -1,0 +1,1637 @@
+{
+  "week": "CW08",
+  "source": "Bosch PROD SB IFTSTA Error Report mar 11.xlsx",
+  "summary": {
+    "total_error_records": 16306,
+    "unique_hbls_filtered": 3890,
+    "sc3_errors": 1092,
+    "sc3_hbls": 182,
+    "sc4_errors": 15214,
+    "sc4_hbls": 3710,
+    "total_edi_gap": 1072,
+    "seeburger_explains": 730,
+    "seeburger_explains_pct": 68.1,
+    "completeness_current": 0.7849,
+    "completeness_if_fixed": 0.8663,
+    "completeness_improvement": 0.0814
+  },
+  "error_categories": [
+    {
+      "error": "Deliver to party is missing",
+      "count": 4647
+    },
+    {
+      "error": "Discharge port is missing",
+      "count": 3806
+    },
+    {
+      "error": "Pick-up from party is missing",
+      "count": 3040
+    },
+    {
+      "error": "Load port is missing",
+      "count": 2656
+    },
+    {
+      "error": "S00 delivery DTM is missing",
+      "count": 1313
+    },
+    {
+      "error": "HBL DLV Mode is missing",
+      "count": 1095
+    },
+    {
+      "error": "S00 pick-up DTM is missing",
+      "count": 884
+    },
+    {
+      "error": "TSR details are missing",
+      "count": 556
+    },
+    {
+      "error": "TO number is too long",
+      "count": 551
+    },
+    {
+      "error": "Package is missing",
+      "count": 104
+    },
+    {
+      "error": "HKHKG/RORZK S00/BKG Package is missing",
+      "count": 1
+    },
+    {
+      "error": "HKHKG/HUHAT S00/BKG HBL DLV Mode is missing",
+      "count": 1
+    },
+    {
+      "error": "S10/REC Discharge port is missing",
+      "count": 1
+    },
+    {
+      "error": "S45/DDE Discharge port is missing",
+      "count": 1
+    }
+  ],
+  "event_stats": [
+    {
+      "event": "S31/POD_EST",
+      "count": 3029
+    },
+    {
+      "event": "S07/ETA",
+      "count": 2256
+    },
+    {
+      "event": "S04/ETD",
+      "count": 1978
+    },
+    {
+      "event": "S02/PUP",
+      "count": 1724
+    },
+    {
+      "event": "S00/S00",
+      "count": 1321
+    },
+    {
+      "event": "S45/DDE",
+      "count": 710
+    },
+    {
+      "event": "S16/BCF",
+      "count": 688
+    },
+    {
+      "event": "S10/REC",
+      "count": 593
+    },
+    {
+      "event": "S00/BKG",
+      "count": 577
+    },
+    {
+      "event": "S46/AED",
+      "count": 530
+    },
+    {
+      "event": "S04/DEP",
+      "count": 455
+    },
+    {
+      "event": "S07/ARR",
+      "count": 410
+    },
+    {
+      "event": "S31/POD",
+      "count": 316
+    },
+    {
+      "event": "S11/S11",
+      "count": 298
+    },
+    {
+      "event": "S13/S13",
+      "count": 234
+    },
+    {
+      "event": "S04/VD",
+      "count": 193
+    },
+    {
+      "event": "S12/CAV",
+      "count": 157
+    },
+    {
+      "event": "S26/ECC",
+      "count": 131
+    },
+    {
+      "event": "S07/VA",
+      "count": 122
+    },
+    {
+      "event": "S17/S17",
+      "count": 103
+    }
+  ],
+  "milestones": [
+    {
+      "scenario": "SC4",
+      "code": "S05",
+      "name": "In delivery",
+      "type": "Actual",
+      "is_critical": false,
+      "required": 475,
+      "available": 100,
+      "missing": 375,
+      "edi_recoverable": 340,
+      "genuinely_missing": 20,
+      "seeburger_filtered": 16,
+      "seeburger_overlap": 16,
+      "old_completeness": 0.2105,
+      "new_completeness": 0.9263,
+      "comp_improvement": 0.7158,
+      "edi_gap_pct": 90.7,
+      "gap_by_service": {
+        "FCL": 54,
+        "BCO": 22,
+        "LCL": 264
+      },
+      "top_errors": [
+        {
+          "error": "Deliver to party is missing",
+          "count": 7
+        },
+        {
+          "error": "Pick-up from party is missing",
+          "count": 6
+        },
+        {
+          "error": "HBL DLV Mode is missing",
+          "count": 3
+        }
+      ]
+    },
+    {
+      "scenario": "SC4",
+      "code": "S00",
+      "name": "Shipment created",
+      "type": "Actual",
+      "is_critical": true,
+      "required": 593,
+      "available": 452,
+      "missing": 141,
+      "edi_recoverable": 136,
+      "genuinely_missing": 0,
+      "seeburger_filtered": 1505,
+      "seeburger_overlap": 136,
+      "old_completeness": 0.7622,
+      "new_completeness": 0.9916,
+      "comp_improvement": 0.2294,
+      "edi_gap_pct": 96.5,
+      "gap_by_service": {
+        "FCL": 47,
+        "BCO": 31,
+        "LCL": 58
+      },
+      "top_errors": [
+        {
+          "error": "S00 delivery DTM is missing",
+          "count": 1313
+        },
+        {
+          "error": "S00 pick-up DTM is missing",
+          "count": 884
+        },
+        {
+          "error": "Pick-up from party is missing",
+          "count": 322
+        },
+        {
+          "error": "Deliver to party is missing",
+          "count": 231
+        },
+        {
+          "error": "HBL DLV Mode is missing",
+          "count": 160
+        }
+      ]
+    },
+    {
+      "scenario": "SC3",
+      "code": "S31",
+      "name": "Delivered",
+      "type": "Estimated",
+      "is_critical": true,
+      "required": 277,
+      "available": 197,
+      "missing": 80,
+      "edi_recoverable": 61,
+      "genuinely_missing": 0,
+      "seeburger_filtered": 99,
+      "seeburger_overlap": 61,
+      "old_completeness": 0.7112,
+      "new_completeness": 0.9314,
+      "comp_improvement": 0.2202,
+      "edi_gap_pct": 76.2,
+      "gap_by_service": {
+        "FCL": 24,
+        "BCO": 26,
+        "LCL": 11
+      },
+      "top_errors": [
+        {
+          "error": "TSR details are missing",
+          "count": 117
+        },
+        {
+          "error": "TO number is too long",
+          "count": 98
+        }
+      ]
+    },
+    {
+      "scenario": "SC4",
+      "code": "S46",
+      "name": "Full Container loaded on vessel",
+      "type": "Actual",
+      "is_critical": false,
+      "required": 593,
+      "available": 488,
+      "missing": 105,
+      "edi_recoverable": 60,
+      "genuinely_missing": 23,
+      "seeburger_filtered": 525,
+      "seeburger_overlap": 60,
+      "old_completeness": 0.8229,
+      "new_completeness": 0.9241,
+      "comp_improvement": 0.1012,
+      "edi_gap_pct": 57.1,
+      "gap_by_service": {
+        "FCL": 13,
+        "BCO": 14,
+        "LCL": 33
+      },
+      "top_errors": [
+        {
+          "error": "Load port is missing",
+          "count": 183
+        },
+        {
+          "error": "Pick-up from party is missing",
+          "count": 179
+        },
+        {
+          "error": "Discharge port is missing",
+          "count": 122
+        },
+        {
+          "error": "Deliver to party is missing",
+          "count": 121
+        },
+        {
+          "error": "HBL DLV Mode is missing",
+          "count": 16
+        }
+      ]
+    },
+    {
+      "scenario": "SC3",
+      "code": "S05",
+      "name": "In delivery",
+      "type": "Actual",
+      "is_critical": false,
+      "required": 277,
+      "available": 192,
+      "missing": 85,
+      "edi_recoverable": 48,
+      "genuinely_missing": 16,
+      "seeburger_filtered": 38,
+      "seeburger_overlap": 38,
+      "old_completeness": 0.6931,
+      "new_completeness": 0.8664,
+      "comp_improvement": 0.1733,
+      "edi_gap_pct": 56.5,
+      "gap_by_service": {
+        "FCL": 14,
+        "BCO": 23,
+        "LCL": 11
+      },
+      "top_errors": [
+        {
+          "error": "TO number is too long",
+          "count": 27
+        },
+        {
+          "error": "TSR details are missing",
+          "count": 23
+        }
+      ]
+    },
+    {
+      "scenario": "SC4",
+      "code": "S04",
+      "name": "Vessel/flight departed",
+      "type": "Actual",
+      "is_critical": true,
+      "required": 593,
+      "available": 528,
+      "missing": 65,
+      "edi_recoverable": 43,
+      "genuinely_missing": 0,
+      "seeburger_filtered": 378,
+      "seeburger_overlap": 43,
+      "old_completeness": 0.8904,
+      "new_completeness": 0.9629,
+      "comp_improvement": 0.0725,
+      "edi_gap_pct": 66.2,
+      "gap_by_service": {
+        "FCL": 15,
+        "BCO": 1,
+        "LCL": 27
+      },
+      "top_errors": [
+        {
+          "error": "Deliver to party is missing",
+          "count": 364
+        },
+        {
+          "error": "Pick-up from party is missing",
+          "count": 155
+        },
+        {
+          "error": "Discharge port is missing",
+          "count": 119
+        },
+        {
+          "error": "HBL DLV Mode is missing",
+          "count": 49
+        },
+        {
+          "error": "Package is missing",
+          "count": 4
+        }
+      ]
+    },
+    {
+      "scenario": "SC4",
+      "code": "S02",
+      "name": "Collected",
+      "type": "Estimated",
+      "is_critical": true,
+      "required": 394,
+      "available": 349,
+      "missing": 45,
+      "edi_recoverable": 35,
+      "genuinely_missing": 4,
+      "seeburger_filtered": 1102,
+      "seeburger_overlap": 35,
+      "old_completeness": 0.8858,
+      "new_completeness": 0.9746,
+      "comp_improvement": 0.0888,
+      "edi_gap_pct": 77.8,
+      "gap_by_service": {
+        "FCL": 15,
+        "BCO": 7,
+        "LCL": 13
+      },
+      "top_errors": [
+        {
+          "error": "Load port is missing",
+          "count": 506
+        },
+        {
+          "error": "Discharge port is missing",
+          "count": 479
+        },
+        {
+          "error": "Deliver to party is missing",
+          "count": 474
+        },
+        {
+          "error": "Pick-up from party is missing",
+          "count": 327
+        },
+        {
+          "error": "HBL DLV Mode is missing",
+          "count": 54
+        }
+      ]
+    },
+    {
+      "scenario": "SC3",
+      "code": "S04",
+      "name": "Vessel/flight departed",
+      "type": "Estimated",
+      "is_critical": true,
+      "required": 319,
+      "available": 265,
+      "missing": 54,
+      "edi_recoverable": 33,
+      "genuinely_missing": 0,
+      "seeburger_filtered": 51,
+      "seeburger_overlap": 33,
+      "old_completeness": 0.8307,
+      "new_completeness": 0.9342,
+      "comp_improvement": 0.1035,
+      "edi_gap_pct": 61.1,
+      "gap_by_service": {
+        "FCL": 19,
+        "BCO": 1,
+        "LCL": 13
+      },
+      "top_errors": [
+        {
+          "error": "TSR details are missing",
+          "count": 122
+        },
+        {
+          "error": "TO number is too long",
+          "count": 116
+        }
+      ]
+    },
+    {
+      "scenario": "SC4",
+      "code": "S45",
+      "name": "Handover to broker",
+      "type": "Actual",
+      "is_critical": false,
+      "required": 118,
+      "available": 3,
+      "missing": 115,
+      "edi_recoverable": 31,
+      "genuinely_missing": 75,
+      "seeburger_filtered": 322,
+      "seeburger_overlap": 31,
+      "old_completeness": 0.0254,
+      "new_completeness": 0.2881,
+      "comp_improvement": 0.2627,
+      "edi_gap_pct": 27.0,
+      "gap_by_service": {
+        "BCO": 29,
+        "LCL": 2
+      },
+      "top_errors": [
+        {
+          "error": "Discharge port is missing",
+          "count": 329
+        },
+        {
+          "error": "Pick-up from party is missing",
+          "count": 161
+        },
+        {
+          "error": "Deliver to party is missing",
+          "count": 107
+        },
+        {
+          "error": "HBL DLV Mode is missing",
+          "count": 69
+        },
+        {
+          "error": "Load port is missing",
+          "count": 10
+        }
+      ]
+    },
+    {
+      "scenario": "SC4",
+      "code": "S10",
+      "name": "On hand at origin SVC",
+      "type": "Actual",
+      "is_critical": false,
+      "required": 463,
+      "available": 405,
+      "missing": 58,
+      "edi_recoverable": 30,
+      "genuinely_missing": 8,
+      "seeburger_filtered": 405,
+      "seeburger_overlap": 30,
+      "old_completeness": 0.8747,
+      "new_completeness": 0.9395,
+      "comp_improvement": 0.0648,
+      "edi_gap_pct": 51.7,
+      "gap_by_service": {
+        "BCO": 6,
+        "LCL": 24
+      },
+      "top_errors": [
+        {
+          "error": "Pick-up from party is missing",
+          "count": 116
+        },
+        {
+          "error": "Deliver to party is missing",
+          "count": 113
+        },
+        {
+          "error": "Discharge port is missing",
+          "count": 104
+        },
+        {
+          "error": "Load port is missing",
+          "count": 98
+        },
+        {
+          "error": "HBL DLV Mode is missing",
+          "count": 72
+        }
+      ]
+    },
+    {
+      "scenario": "SC4",
+      "code": "S31",
+      "name": "Delivered",
+      "type": "Estimated",
+      "is_critical": true,
+      "required": 475,
+      "available": 437,
+      "missing": 38,
+      "edi_recoverable": 30,
+      "genuinely_missing": 0,
+      "seeburger_filtered": 1910,
+      "seeburger_overlap": 30,
+      "old_completeness": 0.92,
+      "new_completeness": 0.9832,
+      "comp_improvement": 0.0632,
+      "edi_gap_pct": 78.9,
+      "gap_by_service": {
+        "FCL": 11,
+        "LCL": 19
+      },
+      "top_errors": [
+        {
+          "error": "Load port is missing",
+          "count": 1493
+        },
+        {
+          "error": "Discharge port is missing",
+          "count": 734
+        },
+        {
+          "error": "Deliver to party is missing",
+          "count": 447
+        },
+        {
+          "error": "Pick-up from party is missing",
+          "count": 213
+        },
+        {
+          "error": "HBL DLV Mode is missing",
+          "count": 110
+        }
+      ]
+    },
+    {
+      "scenario": "SC3",
+      "code": "S04",
+      "name": "Vessel/flight departed",
+      "type": "Actual",
+      "is_critical": true,
+      "required": 319,
+      "available": 269,
+      "missing": 50,
+      "edi_recoverable": 27,
+      "genuinely_missing": 0,
+      "seeburger_filtered": 22,
+      "seeburger_overlap": 22,
+      "old_completeness": 0.8433,
+      "new_completeness": 0.9279,
+      "comp_improvement": 0.0846,
+      "edi_gap_pct": 54.0,
+      "gap_by_service": {
+        "FCL": 12,
+        "LCL": 15
+      },
+      "top_errors": [
+        {
+          "error": "TO number is too long",
+          "count": 15
+        },
+        {
+          "error": "TSR details are missing",
+          "count": 13
+        }
+      ]
+    },
+    {
+      "scenario": "SC4",
+      "code": "S02",
+      "name": "Collected",
+      "type": "Actual",
+      "is_critical": true,
+      "required": 394,
+      "available": 348,
+      "missing": 46,
+      "edi_recoverable": 23,
+      "genuinely_missing": 8,
+      "seeburger_filtered": 1102,
+      "seeburger_overlap": 23,
+      "old_completeness": 0.8832,
+      "new_completeness": 0.9416,
+      "comp_improvement": 0.0584,
+      "edi_gap_pct": 50.0,
+      "gap_by_service": {
+        "FCL": 13,
+        "BCO": 2,
+        "LCL": 8
+      },
+      "top_errors": [
+        {
+          "error": "Load port is missing",
+          "count": 506
+        },
+        {
+          "error": "Discharge port is missing",
+          "count": 479
+        },
+        {
+          "error": "Deliver to party is missing",
+          "count": 474
+        },
+        {
+          "error": "Pick-up from party is missing",
+          "count": 327
+        },
+        {
+          "error": "HBL DLV Mode is missing",
+          "count": 54
+        }
+      ]
+    },
+    {
+      "scenario": "SC4",
+      "code": "S04",
+      "name": "Vessel/flight departed",
+      "type": "Estimated",
+      "is_critical": true,
+      "required": 593,
+      "available": 554,
+      "missing": 39,
+      "edi_recoverable": 23,
+      "genuinely_missing": 0,
+      "seeburger_filtered": 661,
+      "seeburger_overlap": 23,
+      "old_completeness": 0.9342,
+      "new_completeness": 0.973,
+      "comp_improvement": 0.0388,
+      "edi_gap_pct": 59.0,
+      "gap_by_service": {
+        "FCL": 14,
+        "LCL": 9
+      },
+      "top_errors": [
+        {
+          "error": "Deliver to party is missing",
+          "count": 581
+        },
+        {
+          "error": "Discharge port is missing",
+          "count": 572
+        },
+        {
+          "error": "Pick-up from party is missing",
+          "count": 523
+        },
+        {
+          "error": "HBL DLV Mode is missing",
+          "count": 189
+        },
+        {
+          "error": "Load port is missing",
+          "count": 24
+        }
+      ]
+    },
+    {
+      "scenario": "SC3",
+      "code": "S02",
+      "name": "Collected",
+      "type": "Actual",
+      "is_critical": true,
+      "required": 302,
+      "available": 228,
+      "missing": 74,
+      "edi_recoverable": 21,
+      "genuinely_missing": 31,
+      "seeburger_filtered": 47,
+      "seeburger_overlap": 21,
+      "old_completeness": 0.755,
+      "new_completeness": 0.8245,
+      "comp_improvement": 0.0695,
+      "edi_gap_pct": 28.4,
+      "gap_by_service": {
+        "FCL": 15,
+        "BCO": 1,
+        "LCL": 5
+      },
+      "top_errors": [
+        {
+          "error": "TSR details are missing",
+          "count": 50
+        },
+        {
+          "error": "TO number is too long",
+          "count": 29
+        }
+      ]
+    },
+    {
+      "scenario": "SC3",
+      "code": "S31",
+      "name": "Delivered",
+      "type": "Actual",
+      "is_critical": true,
+      "required": 277,
+      "available": 175,
+      "missing": 102,
+      "edi_recoverable": 19,
+      "genuinely_missing": 62,
+      "seeburger_filtered": 16,
+      "seeburger_overlap": 16,
+      "old_completeness": 0.6318,
+      "new_completeness": 0.7004,
+      "comp_improvement": 0.0686,
+      "edi_gap_pct": 18.6,
+      "gap_by_service": {
+        "FCL": 5,
+        "BCO": 6,
+        "LCL": 8
+      },
+      "top_errors": [
+        {
+          "error": "TO number is too long",
+          "count": 12
+        },
+        {
+          "error": "TSR details are missing",
+          "count": 6
+        }
+      ]
+    },
+    {
+      "scenario": "SC4",
+      "code": "S11",
+      "name": "S11",
+      "type": "Actual",
+      "is_critical": false,
+      "required": 463,
+      "available": 403,
+      "missing": 60,
+      "edi_recoverable": 19,
+      "genuinely_missing": 21,
+      "seeburger_filtered": 297,
+      "seeburger_overlap": 19,
+      "old_completeness": 0.8704,
+      "new_completeness": 0.9114,
+      "comp_improvement": 0.041,
+      "edi_gap_pct": 31.7,
+      "gap_by_service": {
+        "BCO": 5,
+        "LCL": 14
+      },
+      "top_errors": [
+        {
+          "error": "Deliver to party is missing",
+          "count": 99
+        },
+        {
+          "error": "Pick-up from party is missing",
+          "count": 87
+        },
+        {
+          "error": "Load port is missing",
+          "count": 82
+        },
+        {
+          "error": "Discharge port is missing",
+          "count": 62
+        },
+        {
+          "error": "HBL DLV Mode is missing",
+          "count": 22
+        }
+      ]
+    },
+    {
+      "scenario": "SC3",
+      "code": "S07",
+      "name": "Vessel/flight arrived",
+      "type": "Actual",
+      "is_critical": true,
+      "required": 319,
+      "available": 274,
+      "missing": 45,
+      "edi_recoverable": 17,
+      "genuinely_missing": 5,
+      "seeburger_filtered": 24,
+      "seeburger_overlap": 17,
+      "old_completeness": 0.8589,
+      "new_completeness": 0.9122,
+      "comp_improvement": 0.0533,
+      "edi_gap_pct": 37.8,
+      "gap_by_service": {
+        "FCL": 4,
+        "LCL": 13
+      },
+      "top_errors": [
+        {
+          "error": "TO number is too long",
+          "count": 28
+        },
+        {
+          "error": "TSR details are missing",
+          "count": 11
+        }
+      ]
+    },
+    {
+      "scenario": "SC3",
+      "code": "S07",
+      "name": "Vessel/flight arrived",
+      "type": "Estimated",
+      "is_critical": true,
+      "required": 319,
+      "available": 280,
+      "missing": 39,
+      "edi_recoverable": 17,
+      "genuinely_missing": 0,
+      "seeburger_filtered": 59,
+      "seeburger_overlap": 17,
+      "old_completeness": 0.8777,
+      "new_completeness": 0.931,
+      "comp_improvement": 0.0533,
+      "edi_gap_pct": 43.6,
+      "gap_by_service": {
+        "FCL": 3,
+        "LCL": 14
+      },
+      "top_errors": [
+        {
+          "error": "TO number is too long",
+          "count": 88
+        },
+        {
+          "error": "TSR details are missing",
+          "count": 75
+        }
+      ]
+    },
+    {
+      "scenario": "SC4",
+      "code": "S31",
+      "name": "Delivered",
+      "type": "Actual",
+      "is_critical": true,
+      "required": 475,
+      "available": 349,
+      "missing": 126,
+      "edi_recoverable": 14,
+      "genuinely_missing": 97,
+      "seeburger_filtered": 179,
+      "seeburger_overlap": 14,
+      "old_completeness": 0.7347,
+      "new_completeness": 0.7642,
+      "comp_improvement": 0.0295,
+      "edi_gap_pct": 11.1,
+      "gap_by_service": {
+        "LCL": 14
+      },
+      "top_errors": [
+        {
+          "error": "Deliver to party is missing",
+          "count": 219
+        },
+        {
+          "error": "HBL DLV Mode is missing",
+          "count": 37
+        },
+        {
+          "error": "Pick-up from party is missing",
+          "count": 34
+        },
+        {
+          "error": "Discharge port is missing",
+          "count": 23
+        }
+      ]
+    },
+    {
+      "scenario": "SC4",
+      "code": "S16",
+      "name": "Customs initiated",
+      "type": "Actual",
+      "is_critical": false,
+      "required": 593,
+      "available": 502,
+      "missing": 91,
+      "edi_recoverable": 10,
+      "genuinely_missing": 61,
+      "seeburger_filtered": 576,
+      "seeburger_overlap": 10,
+      "old_completeness": 0.8465,
+      "new_completeness": 0.8634,
+      "comp_improvement": 0.0169,
+      "edi_gap_pct": 11.0,
+      "gap_by_service": {
+        "FCL": 8,
+        "LCL": 2
+      },
+      "top_errors": [
+        {
+          "error": "Load port is missing",
+          "count": 219
+        },
+        {
+          "error": "Pick-up from party is missing",
+          "count": 208
+        },
+        {
+          "error": "Discharge port is missing",
+          "count": 190
+        },
+        {
+          "error": "Deliver to party is missing",
+          "count": 125
+        },
+        {
+          "error": "HBL DLV Mode is missing",
+          "count": 43
+        }
+      ]
+    },
+    {
+      "scenario": "SC3",
+      "code": "S02",
+      "name": "Collected",
+      "type": "Estimated",
+      "is_critical": true,
+      "required": 248,
+      "available": 212,
+      "missing": 36,
+      "edi_recoverable": 10,
+      "genuinely_missing": 17,
+      "seeburger_filtered": 47,
+      "seeburger_overlap": 10,
+      "old_completeness": 0.8548,
+      "new_completeness": 0.8952,
+      "comp_improvement": 0.0404,
+      "edi_gap_pct": 27.8,
+      "gap_by_service": {
+        "BCO": 5,
+        "LCL": 5
+      },
+      "top_errors": [
+        {
+          "error": "TSR details are missing",
+          "count": 50
+        },
+        {
+          "error": "TO number is too long",
+          "count": 29
+        }
+      ]
+    },
+    {
+      "scenario": "SC3",
+      "code": "S45",
+      "name": "Handover to broker",
+      "type": "Actual",
+      "is_critical": false,
+      "required": 91,
+      "available": 38,
+      "missing": 53,
+      "edi_recoverable": 9,
+      "genuinely_missing": 41,
+      "seeburger_filtered": 21,
+      "seeburger_overlap": 9,
+      "old_completeness": 0.4176,
+      "new_completeness": 0.5165,
+      "comp_improvement": 0.0989,
+      "edi_gap_pct": 17.0,
+      "gap_by_service": {
+        "BCO": 5,
+        "LCL": 4
+      },
+      "top_errors": [
+        {
+          "error": "TO number is too long",
+          "count": 27
+        },
+        {
+          "error": "TSR details are missing",
+          "count": 10
+        }
+      ]
+    },
+    {
+      "scenario": "SC4",
+      "code": "S07",
+      "name": "Vessel/flight arrived",
+      "type": "Estimated",
+      "is_critical": true,
+      "required": 593,
+      "available": 565,
+      "missing": 28,
+      "edi_recoverable": 7,
+      "genuinely_missing": 2,
+      "seeburger_filtered": 667,
+      "seeburger_overlap": 7,
+      "old_completeness": 0.9528,
+      "new_completeness": 0.9646,
+      "comp_improvement": 0.0118,
+      "edi_gap_pct": 25.0,
+      "gap_by_service": {
+        "LCL": 7
+      },
+      "top_errors": [
+        {
+          "error": "Deliver to party is missing",
+          "count": 985
+        },
+        {
+          "error": "Discharge port is missing",
+          "count": 667
+        },
+        {
+          "error": "Pick-up from party is missing",
+          "count": 391
+        },
+        {
+          "error": "HBL DLV Mode is missing",
+          "count": 191
+        },
+        {
+          "error": "Package is missing",
+          "count": 12
+        }
+      ]
+    },
+    {
+      "scenario": "SC3",
+      "code": "S10",
+      "name": "On hand at origin SVC",
+      "type": "Actual",
+      "is_critical": false,
+      "required": 196,
+      "available": 180,
+      "missing": 16,
+      "edi_recoverable": 6,
+      "genuinely_missing": 0,
+      "seeburger_filtered": 118,
+      "seeburger_overlap": 6,
+      "old_completeness": 0.9184,
+      "new_completeness": 0.949,
+      "comp_improvement": 0.0306,
+      "edi_gap_pct": 37.5,
+      "gap_by_service": {
+        "LCL": 6
+      },
+      "top_errors": [
+        {
+          "error": "TSR details are missing",
+          "count": 89
+        },
+        {
+          "error": "TO number is too long",
+          "count": 57
+        }
+      ]
+    },
+    {
+      "scenario": "SC4",
+      "code": "S07",
+      "name": "Vessel/flight arrived",
+      "type": "Actual",
+      "is_critical": true,
+      "required": 593,
+      "available": 558,
+      "missing": 35,
+      "edi_recoverable": 3,
+      "genuinely_missing": 9,
+      "seeburger_filtered": 320,
+      "seeburger_overlap": 3,
+      "old_completeness": 0.941,
+      "new_completeness": 0.946,
+      "comp_improvement": 0.005,
+      "edi_gap_pct": 8.6,
+      "gap_by_service": {
+        "BCO": 1,
+        "LCL": 2
+      },
+      "top_errors": [
+        {
+          "error": "Deliver to party is missing",
+          "count": 294
+        },
+        {
+          "error": "Discharge port is missing",
+          "count": 124
+        },
+        {
+          "error": "Pick-up from party is missing",
+          "count": 92
+        },
+        {
+          "error": "HBL DLV Mode is missing",
+          "count": 23
+        },
+        {
+          "error": "Package is missing",
+          "count": 7
+        }
+      ]
+    },
+    {
+      "scenario": "SC4",
+      "code": "S17",
+      "name": "S17",
+      "type": "Actual",
+      "is_critical": false,
+      "required": 463,
+      "available": 284,
+      "missing": 179,
+      "edi_recoverable": 0,
+      "genuinely_missing": 0,
+      "seeburger_filtered": 103,
+      "seeburger_overlap": 0,
+      "old_completeness": 0.6134,
+      "new_completeness": 0.6134,
+      "comp_improvement": -0.0,
+      "edi_gap_pct": 0.0,
+      "gap_by_service": {},
+      "top_errors": [
+        {
+          "error": "Deliver to party is missing",
+          "count": 62
+        },
+        {
+          "error": "Pick-up from party is missing",
+          "count": 32
+        },
+        {
+          "error": "Discharge port is missing",
+          "count": 14
+        },
+        {
+          "error": "HBL DLV Mode is missing",
+          "count": 11
+        }
+      ]
+    },
+    {
+      "scenario": "SC3",
+      "code": "S51",
+      "name": "Arrived destination CFS",
+      "type": "Actual",
+      "is_critical": false,
+      "required": 123,
+      "available": 33,
+      "missing": 90,
+      "edi_recoverable": 0,
+      "genuinely_missing": 0,
+      "seeburger_filtered": 10,
+      "seeburger_overlap": 0,
+      "old_completeness": 0.2683,
+      "new_completeness": 0.2683,
+      "comp_improvement": -0.0,
+      "edi_gap_pct": 0.0,
+      "gap_by_service": {},
+      "top_errors": [
+        {
+          "error": "TO number is too long",
+          "count": 9
+        },
+        {
+          "error": "TSR details are missing",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "scenario": "SC4",
+      "code": "S51",
+      "name": "Arrived destination CFS",
+      "type": "Actual",
+      "is_critical": false,
+      "required": 259,
+      "available": 175,
+      "missing": 84,
+      "edi_recoverable": 0,
+      "genuinely_missing": 0,
+      "seeburger_filtered": 28,
+      "seeburger_overlap": 0,
+      "old_completeness": 0.6757,
+      "new_completeness": 0.6757,
+      "comp_improvement": -0.0,
+      "edi_gap_pct": 0.0,
+      "gap_by_service": {},
+      "top_errors": [
+        {
+          "error": "Deliver to party is missing",
+          "count": 15
+        },
+        {
+          "error": "HBL DLV Mode is missing",
+          "count": 5
+        },
+        {
+          "error": "Pick-up from party is missing",
+          "count": 5
+        },
+        {
+          "error": "Discharge port is missing",
+          "count": 4
+        }
+      ]
+    },
+    {
+      "scenario": "SC3",
+      "code": "S45",
+      "name": "Handover to broker",
+      "type": "Estimated",
+      "is_critical": false,
+      "required": 91,
+      "available": 34,
+      "missing": 57,
+      "edi_recoverable": 0,
+      "genuinely_missing": 0,
+      "seeburger_filtered": 40,
+      "seeburger_overlap": 0,
+      "old_completeness": 0.3736,
+      "new_completeness": 0.3736,
+      "comp_improvement": 0.0,
+      "edi_gap_pct": 0.0,
+      "gap_by_service": {},
+      "top_errors": [
+        {
+          "error": "TSR details are missing",
+          "count": 28
+        },
+        {
+          "error": "TO number is too long",
+          "count": 15
+        }
+      ]
+    },
+    {
+      "scenario": "SC3",
+      "code": "S54",
+      "name": "Full Container discharge from vessel",
+      "type": "Actual",
+      "is_critical": false,
+      "required": 66,
+      "available": 12,
+      "missing": 54,
+      "edi_recoverable": 0,
+      "genuinely_missing": 0,
+      "seeburger_filtered": 4,
+      "seeburger_overlap": 0,
+      "old_completeness": 0.1818,
+      "new_completeness": 0.1818,
+      "comp_improvement": 0.0,
+      "edi_gap_pct": 0.0,
+      "gap_by_service": {},
+      "top_errors": [
+        {
+          "error": "TSR details are missing",
+          "count": 3
+        },
+        {
+          "error": "TO number is too long",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "scenario": "SC3",
+      "code": "S52",
+      "name": "Empty Container picked up",
+      "type": "Actual",
+      "is_critical": false,
+      "required": 54,
+      "available": 15,
+      "missing": 39,
+      "edi_recoverable": 0,
+      "genuinely_missing": 0,
+      "seeburger_filtered": 0,
+      "seeburger_overlap": 0,
+      "old_completeness": 0.2778,
+      "new_completeness": 0.2778,
+      "comp_improvement": -0.0,
+      "edi_gap_pct": 0.0,
+      "gap_by_service": {},
+      "top_errors": []
+    },
+    {
+      "scenario": "SC3",
+      "code": "S50",
+      "name": "Received origin CFS",
+      "type": "Actual",
+      "is_critical": false,
+      "required": 123,
+      "available": 85,
+      "missing": 38,
+      "edi_recoverable": 0,
+      "genuinely_missing": 0,
+      "seeburger_filtered": 14,
+      "seeburger_overlap": 0,
+      "old_completeness": 0.6911,
+      "new_completeness": 0.6911,
+      "comp_improvement": -0.0,
+      "edi_gap_pct": 0.0,
+      "gap_by_service": {},
+      "top_errors": [
+        {
+          "error": "TO number is too long",
+          "count": 10
+        },
+        {
+          "error": "TSR details are missing",
+          "count": 5
+        }
+      ]
+    },
+    {
+      "scenario": "SC3",
+      "code": "S53",
+      "name": "Full Container loaded on vessel",
+      "type": "Actual",
+      "is_critical": false,
+      "required": 66,
+      "available": 37,
+      "missing": 29,
+      "edi_recoverable": 0,
+      "genuinely_missing": 0,
+      "seeburger_filtered": 1,
+      "seeburger_overlap": 0,
+      "old_completeness": 0.5606,
+      "new_completeness": 0.5606,
+      "comp_improvement": 0.0,
+      "edi_gap_pct": 0.0,
+      "gap_by_service": {},
+      "top_errors": [
+        {
+          "error": "TSR details are missing",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "scenario": "SC4",
+      "code": "S18",
+      "name": "S18",
+      "type": "Actual",
+      "is_critical": false,
+      "required": 334,
+      "available": 265,
+      "missing": 69,
+      "edi_recoverable": 0,
+      "genuinely_missing": 0,
+      "seeburger_filtered": 70,
+      "seeburger_overlap": 0,
+      "old_completeness": 0.7934,
+      "new_completeness": 0.7934,
+      "comp_improvement": 0.0,
+      "edi_gap_pct": 0.0,
+      "gap_by_service": {},
+      "top_errors": [
+        {
+          "error": "Deliver to party is missing",
+          "count": 32
+        },
+        {
+          "error": "Discharge port is missing",
+          "count": 29
+        },
+        {
+          "error": "Pick-up from party is missing",
+          "count": 16
+        },
+        {
+          "error": "Package is missing",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "scenario": "SC4",
+      "code": "S50",
+      "name": "Received origin CFS",
+      "type": "Actual",
+      "is_critical": false,
+      "required": 259,
+      "available": 193,
+      "missing": 66,
+      "edi_recoverable": 0,
+      "genuinely_missing": 0,
+      "seeburger_filtered": 121,
+      "seeburger_overlap": 0,
+      "old_completeness": 0.7452,
+      "new_completeness": 0.7452,
+      "comp_improvement": -0.0,
+      "edi_gap_pct": 0.0,
+      "gap_by_service": {},
+      "top_errors": [
+        {
+          "error": "Deliver to party is missing",
+          "count": 51
+        },
+        {
+          "error": "HBL DLV Mode is missing",
+          "count": 37
+        },
+        {
+          "error": "Pick-up from party is missing",
+          "count": 24
+        },
+        {
+          "error": "Discharge port is missing",
+          "count": 24
+        }
+      ]
+    },
+    {
+      "scenario": "SC4",
+      "code": "S12",
+      "name": "S12",
+      "type": "Actual",
+      "is_critical": false,
+      "required": 334,
+      "available": 287,
+      "missing": 47,
+      "edi_recoverable": 0,
+      "genuinely_missing": 0,
+      "seeburger_filtered": 152,
+      "seeburger_overlap": 0,
+      "old_completeness": 0.8593,
+      "new_completeness": 0.8593,
+      "comp_improvement": -0.0,
+      "edi_gap_pct": 0.0,
+      "gap_by_service": {},
+      "top_errors": [
+        {
+          "error": "Deliver to party is missing",
+          "count": 98
+        },
+        {
+          "error": "Discharge port is missing",
+          "count": 41
+        },
+        {
+          "error": "Pick-up from party is missing",
+          "count": 32
+        },
+        {
+          "error": "Package is missing",
+          "count": 2
+        },
+        {
+          "error": "HBL DLV Mode is missing",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "scenario": "SC4",
+      "code": "S13",
+      "name": "On hand at destination SVC",
+      "type": "Actual",
+      "is_critical": false,
+      "required": 334,
+      "available": 287,
+      "missing": 47,
+      "edi_recoverable": 0,
+      "genuinely_missing": 0,
+      "seeburger_filtered": 114,
+      "seeburger_overlap": 0,
+      "old_completeness": 0.8593,
+      "new_completeness": 0.8593,
+      "comp_improvement": -0.0,
+      "edi_gap_pct": 0.0,
+      "gap_by_service": {},
+      "top_errors": [
+        {
+          "error": "Deliver to party is missing",
+          "count": 117
+        },
+        {
+          "error": "Discharge port is missing",
+          "count": 84
+        },
+        {
+          "error": "Pick-up from party is missing",
+          "count": 57
+        },
+        {
+          "error": "Load port is missing",
+          "count": 1
+        },
+        {
+          "error": "Package is missing",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "scenario": "SC3",
+      "code": "S55",
+      "name": "Empty Container returned",
+      "type": "Actual",
+      "is_critical": false,
+      "required": 66,
+      "available": 49,
+      "missing": 17,
+      "edi_recoverable": 0,
+      "genuinely_missing": 0,
+      "seeburger_filtered": 3,
+      "seeburger_overlap": 0,
+      "old_completeness": 0.7424,
+      "new_completeness": 0.7424,
+      "comp_improvement": 0.0,
+      "edi_gap_pct": 0.0,
+      "gap_by_service": {},
+      "top_errors": [
+        {
+          "error": "TO number is too long",
+          "count": 2
+        },
+        {
+          "error": "TSR details are missing",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "scenario": "SC3",
+      "code": "S13",
+      "name": "On hand at destination SVC",
+      "type": "Actual",
+      "is_critical": false,
+      "required": 196,
+      "available": 182,
+      "missing": 14,
+      "edi_recoverable": 0,
+      "genuinely_missing": 0,
+      "seeburger_filtered": 9,
+      "seeburger_overlap": 0,
+      "old_completeness": 0.9286,
+      "new_completeness": 0.9286,
+      "comp_improvement": -0.0,
+      "edi_gap_pct": 0.0,
+      "gap_by_service": {},
+      "top_errors": [
+        {
+          "error": "TO number is too long",
+          "count": 13
+        },
+        {
+          "error": "TSR details are missing",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "scenario": "SC3",
+      "code": "S60",
+      "name": "Pre-Booking confirmed",
+      "type": "Actual",
+      "is_critical": false,
+      "required": 56,
+      "available": 53,
+      "missing": 3,
+      "edi_recoverable": 0,
+      "genuinely_missing": 0,
+      "seeburger_filtered": 0,
+      "seeburger_overlap": 0,
+      "old_completeness": 0.9464,
+      "new_completeness": 0.9464,
+      "comp_improvement": 0.0,
+      "edi_gap_pct": 0.0,
+      "gap_by_service": {},
+      "top_errors": []
+    }
+  ]
+}
