@@ -618,7 +618,7 @@ export default function App() {
       {/* Full Data Table */}
       <div style={LAYOUT.section}>
         <div style={LAYOUT.sectionTitle}>Full KPI Matrix</div>
-        <DataTable data={data} />
+        <DataTable data={data} rcaData={rcaData} />
       </div>
 
       </>}

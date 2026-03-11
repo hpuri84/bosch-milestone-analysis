@@ -1,16 +1,19 @@
 import { useState } from 'react';
 
 const fmtPct = (v) => v != null ? `${(v * 100).toFixed(1)}%` : '—';
+const fmtNum = (v) => v != null ? v.toLocaleString() : '—';
 
-const cellStyle = (value, threshold) => ({
+const cellStyle = (value, threshold, isCount) => ({
   fontFamily: 'var(--font-mono)',
   fontSize: '0.8rem',
   padding: '8px 12px',
   textAlign: 'right',
-  color: value == null ? 'var(--text-muted)' :
-    value >= (threshold || 0.85) ? 'var(--accent-green)' :
-    value >= (threshold ? threshold * 0.85 : 0.7) ? 'var(--accent-amber)' :
-    'var(--accent-red)',
+  color: isCount
+    ? (value == null ? 'var(--text-muted)' : 'var(--text-primary)')
+    : (value == null ? 'var(--text-muted)' :
+      value >= (threshold || 0.85) ? 'var(--accent-green)' :
+      value >= (threshold ? threshold * 0.85 : 0.7) ? 'var(--accent-amber)' :
+      'var(--accent-red)'),
 });
 
 const ROWS = [
@@ -18,6 +21,9 @@ const ROWS = [
   { label: 'Timeliness (Critical)', key: d => d.critical?.timeliness, threshold: 0.7, category: 'core' },
   { label: 'Completeness (All)', key: d => d.all?.completeness, threshold: 0.85, category: 'core' },
   { label: 'Timeliness (All)', key: d => d.all?.timeliness, threshold: 0.7, category: 'core' },
+  { label: 'SC3 Shipments', key: d => d.sc3_shipments, category: 'sc', isCount: true },
+  { label: 'SC4 Shipments', key: d => d.sc4_shipments, category: 'sc', isCount: true },
+  { label: 'SC3 / SC4 Ratio', key: d => (d.sc3_shipments && d.sc4_shipments) ? d.sc3_shipments / d.sc4_shipments : null, category: 'sc', isRatio: true },
   { label: 'SC3 Completeness', key: d => d.sc3_total?.completeness, threshold: 0.85, category: 'sc' },
   { label: 'SC3 Timeliness', key: d => d.sc3_total?.timeliness, threshold: 0.7, category: 'sc' },
   { label: 'SC4 Completeness', key: d => d.sc4_total?.completeness, threshold: 0.85, category: 'sc' },
@@ -27,21 +33,40 @@ const ROWS = [
   { label: 'Reference Completeness', key: d => d.ref_comp, threshold: 0.8, category: 'eta' },
 ];
 
+// Plausibility rows are built dynamically from rcaData
+const buildPlausRows = (rcaData) => {
+  if (!rcaData) return [];
+  const weekMap = {};
+  rcaData.forEach(w => {
+    const p = w.plausibility_rca || {};
+    weekMap[w.week] = p;
+  });
+  return [
+    { label: 'Plausibility Violations', key: (d) => weekMap[d.week]?.total_violations ?? null, category: 'plaus', isCount: true },
+    { label: 'Affected HBLs', key: (d) => weekMap[d.week]?.affected_hbls ?? null, category: 'plaus', isCount: true },
+    { label: 'Critical Violations', key: (d) => weekMap[d.week]?.critical_count ?? null, category: 'plaus', isCount: true },
+    { label: 'Warning Violations', key: (d) => weekMap[d.week]?.warning_count ?? null, category: 'plaus', isCount: true },
+  ];
+};
+
 const CATEGORIES = [
   { key: 'all', label: 'All' },
   { key: 'core', label: 'Core KPIs' },
   { key: 'sc', label: 'SC3 / SC4' },
   { key: 'eta', label: 'ETA & Ref' },
+  { key: 'plaus', label: 'Plausibility' },
 ];
 
-export default function DataTable({ data }) {
-  const [sortCol, setSortCol] = useState(null); // week index or null
+export default function DataTable({ data, rcaData }) {
+  const [sortCol, setSortCol] = useState(null);
   const [sortDir, setSortDir] = useState('desc');
   const [category, setCategory] = useState('all');
 
   const weeks = data.map(d => d.week);
+  const plausRows = buildPlausRows(rcaData);
+  const allRows = [...ROWS, ...plausRows];
 
-  const filteredRows = category === 'all' ? ROWS : ROWS.filter(r => r.category === category);
+  const filteredRows = category === 'all' ? allRows : allRows.filter(r => r.category === category);
 
   // Sort rows by a specific week's value
   const sortedRows = sortCol != null
@@ -176,8 +201,8 @@ export default function DataTable({ data }) {
                 {data.map((d, j) => {
                   const v = row.key(d);
                   return (
-                    <td key={j} style={cellStyle(v, row.threshold)}>
-                      {fmtPct(v)}
+                    <td key={j} style={cellStyle(v, row.threshold, row.isCount || row.isRatio)}>
+                      {row.isCount ? fmtNum(v) : row.isRatio ? (v != null ? v.toFixed(2) : '—') : fmtPct(v)}
                     </td>
                   );
                 })}
