@@ -9,6 +9,7 @@ import WeekSelector from './components/WeekSelector';
 import RCASection from './components/RCASection';
 import ETARefRCA from './components/ETARefRCA';
 import PlausibilityRCA from './components/PlausibilityRCA';
+import TargetAnalysis from './components/TargetAnalysis';
 
 injectGlobalStyles();
 
@@ -177,6 +178,7 @@ export default function App() {
           { key: 'rca', label: 'Milestone RCA' },
           { key: 'eta_ref', label: 'ETA & Reference' },
           { key: 'plausibility', label: 'Plausibility' },
+          { key: 'targets', label: 'April Targets' },
         ].map(tab => (
           <button
             key={tab.key}
@@ -233,6 +235,13 @@ export default function App() {
             {selectedWeek} — Milestone Plausibility & Sequence Violations
           </div>
           <PlausibilityRCA rcaData={rcaData} selectedWeek={selectedWeek} />
+        </div>
+      )}
+
+      {/* ===== TARGET ANALYSIS TAB ===== */}
+      {activeTab === 'targets' && (
+        <div style={LAYOUT.section}>
+          <TargetAnalysis data={data} rcaData={rcaData} selectedWeek={selectedWeek} />
         </div>
       )}
 
