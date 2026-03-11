@@ -135,6 +135,23 @@ export default function App() {
     'SC4': d.sc4_total.completeness * 100,
   }));
 
+  const sc3vs4TimeTrend = data.map(d => ({
+    week: d.week,
+    'SC3': d.sc3_total.timeliness * 100,
+    'SC4': d.sc4_total.timeliness * 100,
+  }));
+
+  const plausibilityTrend = rcaData ? rcaData.map(w => {
+    const p = w.plausibility_rca || {};
+    return {
+      week: w.week,
+      'Violations': p.total_violations || 0,
+      'Affected HBLs': p.affected_hbls || 0,
+      'Critical': p.critical_count || 0,
+      'Warning': p.warning_count || 0,
+    };
+  }) : [];
+
   return (
     <div style={LAYOUT.page}>
       {/* Header */}
@@ -438,6 +455,45 @@ export default function App() {
         </div>
       </div>
 
+      {/* SC3 vs SC4 KPI Cards */}
+      <div style={LAYOUT.section}>
+        <div style={LAYOUT.sectionTitle}>SC3 vs SC4 — {selectedWeek}</div>
+        <div style={LAYOUT.grid4}>
+          <KPICard
+            label="SC3 Completeness"
+            value={current.sc3_total.completeness}
+            prevValue={prev?.sc3_total?.completeness}
+            color="var(--accent-cyan)"
+            barPercent={current.sc3_total.completeness}
+            delay={0}
+          />
+          <KPICard
+            label="SC3 Timeliness"
+            value={current.sc3_total.timeliness}
+            prevValue={prev?.sc3_total?.timeliness}
+            color="#06b6d4"
+            barPercent={current.sc3_total.timeliness}
+            delay={0.05}
+          />
+          <KPICard
+            label="SC4 Completeness"
+            value={current.sc4_total.completeness}
+            prevValue={prev?.sc4_total?.completeness}
+            color="var(--accent-blue)"
+            barPercent={current.sc4_total.completeness}
+            delay={0.1}
+          />
+          <KPICard
+            label="SC4 Timeliness"
+            value={current.sc4_total.timeliness}
+            prevValue={prev?.sc4_total?.timeliness}
+            color="#3b82f6"
+            barPercent={current.sc4_total.timeliness}
+            delay={0.15}
+          />
+        </div>
+      </div>
+
       {/* Main Trend Charts */}
       <div style={LAYOUT.section}>
         <div style={LAYOUT.sectionTitle}>Trends</div>
@@ -463,8 +519,9 @@ export default function App() {
         </div>
       </div>
 
-      {/* SC3 vs SC4 and ETA */}
+      {/* SC3 vs SC4 Trends */}
       <div style={LAYOUT.section}>
+        <div style={LAYOUT.sectionTitle}>SC3 vs SC4 Trends</div>
         <div style={LAYOUT.grid2}>
           <TrendChart
             data={sc3vs4Trend}
@@ -473,7 +530,24 @@ export default function App() {
               { key: 'SC3', name: 'SC3', color: '#0891b2' },
               { key: 'SC4', name: 'SC4', color: '#2563eb' },
             ]}
+            target={90}
           />
+          <TrendChart
+            data={sc3vs4TimeTrend}
+            title="SC3 vs SC4 Timeliness"
+            lines={[
+              { key: 'SC3', name: 'SC3', color: '#0891b2' },
+              { key: 'SC4', name: 'SC4', color: '#2563eb' },
+            ]}
+            target={70}
+          />
+        </div>
+      </div>
+
+      {/* ETA & Plausibility Trends */}
+      <div style={LAYOUT.section}>
+        <div style={LAYOUT.sectionTitle}>ETA & Plausibility Trends</div>
+        <div style={LAYOUT.grid2}>
           <TrendChart
             data={etaTrend}
             title="ETA Accuracy & Reference"
@@ -482,7 +556,20 @@ export default function App() {
               { key: 'ETA 2D (Delivery)', name: 'ETA 2D', color: '#db2777' },
               { key: 'Reference', name: 'Ref Comp', color: '#ea580c' },
             ]}
+            target={75}
           />
+          {plausibilityTrend.length > 0 && (
+            <TrendChart
+              data={plausibilityTrend}
+              title="Plausibility Violations"
+              lines={[
+                { key: 'Violations', name: 'Total Violations', color: '#dc2626' },
+                { key: 'Affected HBLs', name: 'Affected HBLs', color: '#d97706' },
+                { key: 'Critical', name: 'Critical', color: '#9333ea' },
+              ]}
+              isCount
+            />
+          )}
         </div>
       </div>
 

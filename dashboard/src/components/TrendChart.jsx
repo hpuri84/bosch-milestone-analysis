@@ -3,7 +3,7 @@ import {
   CartesianGrid, Tooltip, Legend, ReferenceLine
 } from 'recharts';
 
-function CustomTooltip({ active, payload, label }) {
+function CustomTooltip({ active, payload, label, isCount }) {
   if (!active || !payload?.length) return null;
   return (
     <div style={{
@@ -19,14 +19,14 @@ function CustomTooltip({ active, payload, label }) {
       {payload.map((p, i) => (
         <div key={i} style={{ color: p.color, marginBottom: 3, display: 'flex', justifyContent: 'space-between', gap: 16 }}>
           <span>{p.name}</span>
-          <span>{(p.value).toFixed(1)}%</span>
+          <span>{isCount ? p.value : `${(p.value).toFixed(1)}%`}</span>
         </div>
       ))}
     </div>
   );
 }
 
-export default function TrendChart({ data, title, lines, height = 300, target }) {
+export default function TrendChart({ data, title, lines, height = 300, target, isCount }) {
   const chartData = data.map(d => ({ ...d }));
 
   return (
@@ -69,10 +69,10 @@ export default function TrendChart({ data, title, lines, height = 300, target })
             tick={{ fill: 'var(--text-muted)', fontFamily: 'var(--font-mono)', fontSize: 11 }}
             axisLine={false}
             tickLine={false}
-            tickFormatter={v => `${v}%`}
+            tickFormatter={isCount ? undefined : (v => `${v}%`)}
             domain={['auto', 'auto']}
           />
-          <Tooltip content={<CustomTooltip />} />
+          <Tooltip content={<CustomTooltip isCount={isCount} />} />
           <Legend
             wrapperStyle={{ fontFamily: 'var(--font-display)', fontSize: '0.75rem', color: 'var(--text-secondary)' }}
           />
