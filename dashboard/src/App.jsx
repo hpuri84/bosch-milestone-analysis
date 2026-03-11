@@ -141,6 +141,13 @@ export default function App() {
     'SC4': d.sc4_total.timeliness * 100,
   }));
 
+  const shipmentVolumeTrend = data.map(d => ({
+    week: d.week,
+    'SC3': d.sc3_shipments || 0,
+    'SC4': d.sc4_shipments || 0,
+    'Total': (d.sc3_shipments || 0) + (d.sc4_shipments || 0),
+  }));
+
   const plausibilityTrend = rcaData ? rcaData.map(w => {
     const p = w.plausibility_rca || {};
     return {
@@ -492,6 +499,21 @@ export default function App() {
             delay={0.15}
           />
         </div>
+      </div>
+
+      {/* Shipment Volume Trend */}
+      <div style={LAYOUT.section}>
+        <div style={LAYOUT.sectionTitle}>Shipment Volume — Week over Week</div>
+        <TrendChart
+          data={shipmentVolumeTrend}
+          title="SC3 vs SC4 Shipment Count"
+          lines={[
+            { key: 'Total', name: 'Total', color: '#64748b' },
+            { key: 'SC3', name: 'SC3', color: '#0891b2' },
+            { key: 'SC4', name: 'SC4', color: '#2563eb' },
+          ]}
+          isCount
+        />
       </div>
 
       {/* Main Trend Charts */}

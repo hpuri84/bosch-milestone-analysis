@@ -171,7 +171,9 @@
     "s31_total": 45,
     "ref_comp": 0.744,
     "ref_complete": 125,
-    "ref_total": 168
+    "ref_total": 168,
+    "sc3_shipments": 411,
+    "sc4_shipments": 168
   },
   {
     "week": "CW02",
@@ -345,7 +347,9 @@
     "s31_total": 227,
     "ref_comp": 0.759,
     "ref_complete": 296,
-    "ref_total": 390
+    "ref_total": 390,
+    "sc3_shipments": 480,
+    "sc4_shipments": 619
   },
   {
     "week": "CW03",
@@ -519,7 +523,9 @@
     "s31_total": 285,
     "ref_comp": 0.7941,
     "ref_complete": 536,
-    "ref_total": 675
+    "ref_total": 675,
+    "sc3_shipments": 472,
+    "sc4_shipments": 673
   },
   {
     "week": "CW04",
@@ -693,7 +699,9 @@
     "s31_total": 384,
     "ref_comp": 0.7622,
     "ref_complete": 548,
-    "ref_total": 719
+    "ref_total": 719,
+    "sc3_shipments": 518,
+    "sc4_shipments": 719
   },
   {
     "week": "CW05",
@@ -867,7 +875,9 @@
     "s31_total": 295,
     "ref_comp": 0.7306,
     "ref_complete": 385,
-    "ref_total": 527
+    "ref_total": 527,
+    "sc3_shipments": 509,
+    "sc4_shipments": 527
   },
   {
     "week": "CW06",
@@ -1041,7 +1051,9 @@
     "s31_total": 236,
     "ref_comp": 0.7891,
     "ref_complete": 449,
-    "ref_total": 569
+    "ref_total": 569,
+    "sc3_shipments": 236,
+    "sc4_shipments": 569
   },
   {
     "week": "CW07",
@@ -1215,7 +1227,9 @@
     "s31_total": 218,
     "ref_comp": 0.7986,
     "ref_complete": 452,
-    "ref_total": 566
+    "ref_total": 566,
+    "sc3_shipments": 504,
+    "sc4_shipments": 566
   },
   {
     "week": "CW08",
@@ -1389,6 +1403,8 @@
     "s31_total": 299,
     "ref_comp": 0.7909,
     "ref_complete": 469,
-    "ref_total": 593
+    "ref_total": 593,
+    "sc3_shipments": 480,
+    "sc4_shipments": 593
   }
 ]
