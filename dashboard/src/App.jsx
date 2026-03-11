@@ -66,6 +66,7 @@ export default function App() {
   const [cancelledHBLs, setCancelledHBLs] = useState([]);
   const [cancellationImpact, setCancellationImpact] = useState(null);
   const [transmissionGap, setTransmissionGap] = useState(null);
+  const [ediGapDrilldown, setEdiGapDrilldown] = useState(null);
   const [seeburgerData, setSeeburgerData] = useState(null);
   const [selectedWeek, setSelectedWeek] = useState(null);
   const [activeTab, setActiveTab] = useState('overview');
@@ -78,14 +79,16 @@ export default function App() {
       fetch('/cancelled_hbls.json').then(r => r.json()).catch(() => ({ hbls: [] })),
       fetch('/cancellation_impact.json').then(r => r.json()).catch(() => null),
       fetch('/transmission_gap.json').then(r => r.json()).catch(() => null),
+      fetch('/edi_gap_drilldown.json').then(r => r.json()).catch(() => null),
       fetch('/seeburger_analysis.json').then(r => r.json()).catch(() => null),
-    ]).then(([kpi, rca, tasks, cancelled, impact, gap, seeburger]) => {
+    ]).then(([kpi, rca, tasks, cancelled, impact, gap, ediDrill, seeburger]) => {
       setData(kpi);
       setRcaData(rca);
       setTaskData(tasks);
       setCancelledHBLs(cancelled.hbls || []);
       setCancellationImpact(impact);
       setTransmissionGap(gap);
+      setEdiGapDrilldown(ediDrill);
       setSeeburgerData(seeburger);
       setSelectedWeek(kpi[kpi.length - 1]?.week);
     });
@@ -306,7 +309,7 @@ export default function App() {
           <div style={LAYOUT.sectionTitle}>
             {selectedWeek} — TMS vs EDI Transmission Gap Analysis
           </div>
-          <TransmissionGapAnalysis gapData={transmissionGap} />
+          <TransmissionGapAnalysis gapData={transmissionGap} drilldownData={ediGapDrilldown} />
         </div>
       )}
 

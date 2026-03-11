@@ -424,7 +424,268 @@ function FullMilestoneTable({ milestones }) {
   );
 }
 
-export default function TransmissionGapAnalysis({ gapData }) {
+const PAGE_SIZE = 50;
+
+function HBLDrilldown({ drilldownData }) {
+  const [filterSC, setFilterSC] = useState('all');
+  const [filterService, setFilterService] = useState('all');
+  const [filterMilestone, setFilterMilestone] = useState('all');
+  const [searchHBL, setSearchHBL] = useState('');
+  const [page, setPage] = useState(0);
+  const [sortBy, setSortBy] = useState('missing_count');
+  const [sortDir, setSortDir] = useState('desc');
+
+  // Flatten HBLs: one row per HBL+milestone
+  const flatRows = useMemo(() => {
+    if (!drilldownData?.hbls) return [];
+    const rows = [];
+    for (const h of drilldownData.hbls) {
+      for (const m of h.milestones) {
+        rows.push({
+          hbl: h.hbl,
+          scenario: h.scenario,
+          service: h.service,
+          milestone: m.milestone,
+          tnt_date: m.tnt_date,
+          missing_count: h.missing_count,
+        });
+      }
+    }
+    return rows;
+  }, [drilldownData]);
+
+  const milestoneOptions = useMemo(() => {
+    const s = new Set(flatRows.map(r => r.milestone));
+    return [...s].sort();
+  }, [flatRows]);
+
+  const filtered = useMemo(() => {
+    let rows = flatRows;
+    if (filterSC !== 'all') rows = rows.filter(r => r.scenario === filterSC);
+    if (filterService !== 'all') rows = rows.filter(r => r.service === filterService);
+    if (filterMilestone !== 'all') rows = rows.filter(r => r.milestone === filterMilestone);
+    if (searchHBL) rows = rows.filter(r => r.hbl.toLowerCase().includes(searchHBL.toLowerCase()));
+
+    rows.sort((a, b) => {
+      let va = a[sortBy], vb = b[sortBy];
+      if (typeof va === 'string') va = va.toLowerCase();
+      if (typeof vb === 'string') vb = vb.toLowerCase();
+      if (va < vb) return sortDir === 'asc' ? -1 : 1;
+      if (va > vb) return sortDir === 'asc' ? 1 : -1;
+      return 0;
+    });
+    return rows;
+  }, [flatRows, filterSC, filterService, filterMilestone, searchHBL, sortBy, sortDir]);
+
+  const totalPages = Math.ceil(filtered.length / PAGE_SIZE);
+  const paged = filtered.slice(page * PAGE_SIZE, (page + 1) * PAGE_SIZE);
+
+  const handleSort = (key) => {
+    if (sortBy === key) setSortDir(d => d === 'asc' ? 'desc' : 'asc');
+    else { setSortBy(key); setSortDir('desc'); }
+  };
+
+  const exportCSV = () => {
+    const header = 'HBL,Scenario,Service,Milestone,TMS Date,Total Missing Milestones\n';
+    const rows = filtered.map(r =>
+      `${r.hbl},${r.scenario},${r.service},${r.milestone},${r.tnt_date},${r.missing_count}`
+    ).join('\n');
+    const blob = new Blob([header + rows], { type: 'text/csv' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `edi_gap_hbl_drilldown_${drilldownData.week}.csv`;
+    a.click();
+    URL.revokeObjectURL(url);
+  };
+
+  if (!drilldownData?.hbls?.length) return null;
+
+  const uniqueHBLs = new Set(filtered.map(r => r.hbl)).size;
+
+  return (
+    <div style={S.card}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 16, flexWrap: 'wrap', gap: 10 }}>
+        <div>
+          <div style={S.cardTitle}>HBL Drill-Down — Milestones in TMS but not transmitted to Bosch</div>
+          <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.7rem', color: 'var(--text-muted)' }}>
+            {uniqueHBLs} HBLs / {filtered.length} milestone entries
+          </div>
+        </div>
+        <button
+          onClick={exportCSV}
+          style={{
+            fontFamily: 'var(--font-display)',
+            fontSize: '0.7rem',
+            fontWeight: 600,
+            color: '#fff',
+            background: '#16a34a',
+            border: 'none',
+            borderRadius: 5,
+            padding: '7px 16px',
+            cursor: 'pointer',
+            whiteSpace: 'nowrap',
+          }}
+        >Export CSV ({filtered.length} rows)</button>
+      </div>
+
+      {/* Filters */}
+      <div style={{ display: 'flex', gap: 10, marginBottom: 14, flexWrap: 'wrap', alignItems: 'center' }}>
+        <input
+          type="text"
+          placeholder="Search HBL..."
+          value={searchHBL}
+          onChange={e => { setSearchHBL(e.target.value); setPage(0); }}
+          style={{
+            fontFamily: 'var(--font-mono)',
+            fontSize: '0.72rem',
+            padding: '5px 10px',
+            border: '1px solid var(--border)',
+            borderRadius: 4,
+            background: 'var(--bg-secondary)',
+            color: 'var(--text-primary)',
+            width: 180,
+          }}
+        />
+        {[
+          { label: 'Scenario', value: filterSC, set: v => { setFilterSC(v); setPage(0); }, opts: ['all', 'SC3', 'SC4'] },
+          { label: 'Service', value: filterService, set: v => { setFilterService(v); setPage(0); }, opts: ['all', 'FCL', 'BCO', 'LCL'] },
+        ].map(f => (
+          <div key={f.label} style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
+            <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.6rem', color: 'var(--text-muted)', textTransform: 'uppercase' }}>{f.label}:</span>
+            {f.opts.map(o => (
+              <button
+                key={o}
+                onClick={() => f.set(o)}
+                style={{
+                  fontFamily: 'var(--font-display)',
+                  fontSize: '0.6rem',
+                  fontWeight: f.value === o ? 600 : 400,
+                  color: f.value === o ? '#fff' : 'var(--text-muted)',
+                  background: f.value === o ? '#2563eb' : 'var(--bg-secondary)',
+                  border: '1px solid var(--border)',
+                  borderRadius: 3,
+                  padding: '2px 8px',
+                  cursor: 'pointer',
+                }}
+              >{o === 'all' ? 'All' : o}</button>
+            ))}
+          </div>
+        ))}
+        <div style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
+          <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.6rem', color: 'var(--text-muted)', textTransform: 'uppercase' }}>Milestone:</span>
+          <select
+            value={filterMilestone}
+            onChange={e => { setFilterMilestone(e.target.value); setPage(0); }}
+            style={{
+              fontFamily: 'var(--font-mono)',
+              fontSize: '0.65rem',
+              padding: '3px 6px',
+              border: '1px solid var(--border)',
+              borderRadius: 3,
+              background: 'var(--bg-secondary)',
+              color: 'var(--text-primary)',
+            }}
+          >
+            <option value="all">All</option>
+            {milestoneOptions.map(m => <option key={m} value={m}>{m}</option>)}
+          </select>
+        </div>
+      </div>
+
+      {/* Table */}
+      <div style={{ overflowX: 'auto' }}>
+        <table style={{ width: '100%', borderCollapse: 'collapse', fontFamily: 'var(--font-mono)', fontSize: '0.7rem' }}>
+          <thead>
+            <tr style={{ borderBottom: '2px solid var(--border)' }}>
+              {[
+                { key: 'hbl', label: 'HBL' },
+                { key: 'scenario', label: 'SC' },
+                { key: 'service', label: 'Service' },
+                { key: 'milestone', label: 'Milestone' },
+                { key: 'tnt_date', label: 'TMS Date (exists)' },
+                { key: 'missing_count', label: 'Total Missing' },
+              ].map(h => (
+                <th
+                  key={h.key}
+                  onClick={() => handleSort(h.key)}
+                  style={{
+                    padding: '8px 8px', textAlign: 'left', cursor: 'pointer',
+                    fontFamily: 'var(--font-display)', fontSize: '0.6rem', fontWeight: 600,
+                    color: sortBy === h.key ? '#2563eb' : 'var(--text-muted)',
+                    textTransform: 'uppercase', letterSpacing: '0.05em',
+                    userSelect: 'none',
+                  }}
+                >
+                  {h.label} {sortBy === h.key ? (sortDir === 'asc' ? '\u2191' : '\u2193') : ''}
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {paged.map((r, i) => (
+              <tr key={`${r.hbl}-${r.milestone}-${i}`} style={{ borderBottom: '1px solid var(--border)' }}
+                onMouseEnter={e => e.currentTarget.style.background = '#f8f9fb'}
+                onMouseLeave={e => e.currentTarget.style.background = 'transparent'}
+              >
+                <td style={{ padding: '6px 8px', fontWeight: 600 }}>{r.hbl}</td>
+                <td style={{ padding: '6px 8px', fontWeight: 600, color: r.scenario === 'SC4' ? COLORS.sc4 : COLORS.sc3 }}>{r.scenario}</td>
+                <td style={{ padding: '6px 8px', color: 'var(--text-secondary)' }}>{r.service}</td>
+                <td style={{ padding: '6px 8px' }}>
+                  <span style={{
+                    fontWeight: 600,
+                    color: COLORS.ediGap,
+                    background: '#dc262610',
+                    padding: '1px 6px',
+                    borderRadius: 3,
+                    fontSize: '0.65rem',
+                  }}>{r.milestone}</span>
+                </td>
+                <td style={{ padding: '6px 8px', color: 'var(--text-secondary)' }}>{r.tnt_date}</td>
+                <td style={{ padding: '6px 8px', color: r.missing_count > 3 ? COLORS.ediGap : 'var(--text-secondary)', fontWeight: r.missing_count > 3 ? 600 : 400 }}>
+                  {r.missing_count}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      {/* Pagination */}
+      {totalPages > 1 && (
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: 12, padding: '8px 0' }}>
+          <div style={{ fontFamily: 'var(--font-display)', fontSize: '0.65rem', color: 'var(--text-muted)' }}>
+            Page {page + 1} of {totalPages} ({filtered.length} entries)
+          </div>
+          <div style={{ display: 'flex', gap: 4 }}>
+            <button
+              disabled={page === 0}
+              onClick={() => setPage(0)}
+              style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', padding: '3px 8px', border: '1px solid var(--border)', borderRadius: 3, background: 'var(--bg-secondary)', cursor: page === 0 ? 'default' : 'pointer', opacity: page === 0 ? 0.4 : 1 }}
+            >First</button>
+            <button
+              disabled={page === 0}
+              onClick={() => setPage(p => p - 1)}
+              style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', padding: '3px 8px', border: '1px solid var(--border)', borderRadius: 3, background: 'var(--bg-secondary)', cursor: page === 0 ? 'default' : 'pointer', opacity: page === 0 ? 0.4 : 1 }}
+            >Prev</button>
+            <button
+              disabled={page >= totalPages - 1}
+              onClick={() => setPage(p => p + 1)}
+              style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', padding: '3px 8px', border: '1px solid var(--border)', borderRadius: 3, background: 'var(--bg-secondary)', cursor: page >= totalPages - 1 ? 'default' : 'pointer', opacity: page >= totalPages - 1 ? 0.4 : 1 }}
+            >Next</button>
+            <button
+              disabled={page >= totalPages - 1}
+              onClick={() => setPage(totalPages - 1)}
+              style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', padding: '3px 8px', border: '1px solid var(--border)', borderRadius: 3, background: 'var(--bg-secondary)', cursor: page >= totalPages - 1 ? 'default' : 'pointer', opacity: page >= totalPages - 1 ? 0.4 : 1 }}
+            >Last</button>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+export default function TransmissionGapAnalysis({ gapData, drilldownData }) {
   if (!gapData) {
     return (
       <div style={{ ...S.card, textAlign: 'center', color: 'var(--text-muted)', fontFamily: 'var(--font-display)' }}>
@@ -449,7 +710,12 @@ export default function TransmissionGapAnalysis({ gapData }) {
       </div>
 
       {/* Full table */}
-      <FullMilestoneTable milestones={gapData.milestones} />
+      <div style={{ marginBottom: 20 }}>
+        <FullMilestoneTable milestones={gapData.milestones} />
+      </div>
+
+      {/* HBL Drilldown */}
+      <HBLDrilldown drilldownData={drilldownData} />
     </div>
   );
 }
