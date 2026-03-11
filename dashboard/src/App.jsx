@@ -10,6 +10,7 @@ import RCASection from './components/RCASection';
 import ETARefRCA from './components/ETARefRCA';
 import PlausibilityRCA from './components/PlausibilityRCA';
 import TargetAnalysis from './components/TargetAnalysis';
+import TaskTracker from './components/TaskTracker';
 
 injectGlobalStyles();
 
@@ -57,6 +58,7 @@ const LAYOUT = {
 export default function App() {
   const [data, setData] = useState(null);
   const [rcaData, setRcaData] = useState(null);
+  const [taskData, setTaskData] = useState(null);
   const [selectedWeek, setSelectedWeek] = useState(null);
   const [activeTab, setActiveTab] = useState('overview');
 
@@ -64,9 +66,11 @@ export default function App() {
     Promise.all([
       fetch('/kpi_data.json').then(r => r.json()),
       fetch('/rca_data.json').then(r => r.json()),
-    ]).then(([kpi, rca]) => {
+      fetch('/tasks.json').then(r => r.json()),
+    ]).then(([kpi, rca, tasks]) => {
       setData(kpi);
       setRcaData(rca);
+      setTaskData(tasks);
       setSelectedWeek(kpi[kpi.length - 1]?.week);
     });
   }, []);
@@ -179,6 +183,7 @@ export default function App() {
           { key: 'eta_ref', label: 'ETA & Reference' },
           { key: 'plausibility', label: 'Plausibility' },
           { key: 'targets', label: 'April Targets' },
+          { key: 'tasks', label: 'Tasks' },
         ].map(tab => (
           <button
             key={tab.key}
@@ -242,6 +247,14 @@ export default function App() {
       {activeTab === 'targets' && (
         <div style={LAYOUT.section}>
           <TargetAnalysis data={data} rcaData={rcaData} selectedWeek={selectedWeek} />
+        </div>
+      )}
+
+      {/* ===== TASKS TAB ===== */}
+      {activeTab === 'tasks' && (
+        <div style={LAYOUT.section}>
+          <div style={LAYOUT.sectionTitle}>Project Task Tracker</div>
+          <TaskTracker taskData={taskData} />
         </div>
       )}
 

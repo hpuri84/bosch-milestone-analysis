@@ -1,0 +1,246 @@
+{
+  "lastUpdated": "2026-03-11",
+  "categories": [
+    {
+      "id": "april-targets",
+      "name": "April KPI Targets",
+      "color": "#dc2626"
+    },
+    {
+      "id": "dev",
+      "name": "Development",
+      "color": "#2563eb"
+    },
+    {
+      "id": "automation",
+      "name": "Automation",
+      "color": "#7c3aed"
+    },
+    {
+      "id": "data-quality",
+      "name": "Data Quality",
+      "color": "#0891b2"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "T001",
+      "title": "Fix SC4 S05 'In delivery' milestone — 375 missing (21% complete)",
+      "description": "Largest single volume gap. Investigate why 'In delivery' actual milestone is not being captured for SC4 shipments. Likely carrier EDI mapping issue.",
+      "category": "april-targets",
+      "priority": "P0",
+      "status": "todo",
+      "owner": "",
+      "kpiImpact": "Completeness +2.8pp",
+      "dueDate": "2026-03-28",
+      "created": "2026-03-11"
+    },
+    {
+      "id": "T002",
+      "title": "Fix SC4 S45 'Handover to broker' — 115 missing (2.5% complete)",
+      "description": "Broker integration appears broken for SC4. Only 3 out of 118 shipments have this milestone. Check broker system interface and EDI message flow.",
+      "category": "april-targets",
+      "priority": "P0",
+      "status": "todo",
+      "owner": "",
+      "kpiImpact": "Completeness +0.9pp",
+      "dueDate": "2026-03-28",
+      "created": "2026-03-11"
+    },
+    {
+      "id": "T003",
+      "title": "Fix SC4 S17 milestone — 179 missing, 245 late",
+      "description": "61% completeness and 8% timeliness. Both completeness and timeliness severely impacted. Review S17 trigger conditions and timing.",
+      "category": "april-targets",
+      "priority": "P0",
+      "status": "todo",
+      "owner": "",
+      "kpiImpact": "Completeness +1.4pp, Timeliness impact",
+      "dueDate": "2026-04-04",
+      "created": "2026-03-11"
+    },
+    {
+      "id": "T004",
+      "title": "Investigate ETA 2D accuracy gap — 28.8% vs 75% target",
+      "description": "71% of shipments fail the +/-48h delivery window. Root cause analysis needed on delivery date estimation logic. Focus on SC4 S31 (126 missing, 293 late).",
+      "category": "april-targets",
+      "priority": "P0",
+      "status": "todo",
+      "owner": "",
+      "kpiImpact": "ETA 2D +46.2pp needed",
+      "dueDate": "2026-03-21",
+      "created": "2026-03-11"
+    },
+    {
+      "id": "T005",
+      "title": "Address SC3 S02 'Collected' timeliness — 0% with 212 late",
+      "description": "Carrier pick-up confirmation timestamps are consistently delayed. Work with carriers to improve collection milestone reporting speed.",
+      "category": "april-targets",
+      "priority": "P0",
+      "status": "todo",
+      "owner": "",
+      "kpiImpact": "Timeliness improvement",
+      "dueDate": "2026-04-04",
+      "created": "2026-03-11"
+    },
+    {
+      "id": "T006",
+      "title": "Fix SC4 S31 'Delivered' timeliness — 11.8% (293 late)",
+      "description": "Delivery confirmation arriving well outside SLA window. Cross-check carrier delivery confirmation timestamps with system capture time.",
+      "category": "april-targets",
+      "priority": "P0",
+      "status": "todo",
+      "owner": "",
+      "kpiImpact": "Timeliness +2.2pp",
+      "dueDate": "2026-04-04",
+      "created": "2026-03-11"
+    },
+    {
+      "id": "T007",
+      "title": "Fix SC3 FCL completeness — stuck at ~52%",
+      "description": "SC3 FCL consistently the worst performing segment across all weeks. FCL milestone mapping needs review. 454 milestones missing out of 955 required.",
+      "category": "april-targets",
+      "priority": "P1",
+      "status": "todo",
+      "owner": "",
+      "kpiImpact": "Completeness +3.4pp",
+      "dueDate": "2026-04-11",
+      "created": "2026-03-11"
+    },
+    {
+      "id": "T008",
+      "title": "Fix Reference Completeness — stalled at 79% for 5 weeks",
+      "description": "Not improving organically. Identify which reference fields are consistently missing (PO, SO, Consignment). Require validation at booking creation.",
+      "category": "data-quality",
+      "priority": "P1",
+      "status": "todo",
+      "owner": "",
+      "kpiImpact": "Ref Comp +15.9pp needed",
+      "dueDate": "2026-04-11",
+      "created": "2026-03-11"
+    },
+    {
+      "id": "T009",
+      "title": "Implement SLA alerts for late milestones",
+      "description": "Set up automated alerts when milestones are not reported within 24h of expected time. Early detection system for timeliness degradation.",
+      "category": "april-targets",
+      "priority": "P1",
+      "status": "todo",
+      "owner": "",
+      "kpiImpact": "Timeliness monitoring",
+      "dueDate": "2026-04-18",
+      "created": "2026-03-11"
+    },
+    {
+      "id": "T010",
+      "title": "Setup task force for individual working groups",
+      "description": "Per Bosch requirements: establish dedicated working groups with clear ownership for each KPI area.",
+      "category": "april-targets",
+      "priority": "P0",
+      "status": "todo",
+      "owner": "",
+      "kpiImpact": "Organizational enabler",
+      "dueDate": "2026-03-18",
+      "created": "2026-03-11"
+    },
+    {
+      "id": "T011",
+      "title": "Define prioritization and ownership for each action item",
+      "description": "Per Bosch requirements: assign clear owners and priorities to all action items in the April target roadmap.",
+      "category": "april-targets",
+      "priority": "P0",
+      "status": "in-progress",
+      "owner": "",
+      "kpiImpact": "Organizational enabler",
+      "dueDate": "2026-03-18",
+      "created": "2026-03-11"
+    },
+    {
+      "id": "T012",
+      "title": "Build PDCA Excel updater script",
+      "description": "Automate the PDCA milestone template population from weekly raw data. Should update the Bosch PDCA template with latest KPI values.",
+      "category": "automation",
+      "priority": "P1",
+      "status": "todo",
+      "owner": "",
+      "kpiImpact": "Process efficiency",
+      "dueDate": "2026-03-28",
+      "created": "2026-03-11"
+    },
+    {
+      "id": "T013",
+      "title": "Create weekly automation wrapper",
+      "description": "End-to-end script: ingest new SC3/SC4 Excel files, run extraction, update KPI JSON, update RCA JSON, rebuild dashboard.",
+      "category": "automation",
+      "priority": "P1",
+      "status": "todo",
+      "owner": "",
+      "kpiImpact": "Process efficiency",
+      "dueDate": "2026-04-04",
+      "created": "2026-03-11"
+    },
+    {
+      "id": "T014",
+      "title": "Dashboard: Add April Targets gap analysis tab",
+      "description": "New tab showing KPI gap gauges, projections, Pareto analysis, service gap table, and prioritized action roadmap.",
+      "category": "dev",
+      "priority": "P0",
+      "status": "done",
+      "owner": "",
+      "kpiImpact": "Visibility",
+      "dueDate": "2026-03-11",
+      "completedDate": "2026-03-11",
+      "created": "2026-03-11"
+    },
+    {
+      "id": "T015",
+      "title": "Dashboard: Add pagination & CSV export to Milestone RCA drilldown",
+      "description": "50 records per page with pagination, plus CSV export button for completeness/timeliness missing shipment tables.",
+      "category": "dev",
+      "priority": "P1",
+      "status": "done",
+      "owner": "",
+      "kpiImpact": "Usability",
+      "dueDate": "2026-03-11",
+      "completedDate": "2026-03-11",
+      "created": "2026-03-11"
+    },
+    {
+      "id": "T016",
+      "title": "Dashboard: Add ETA dates, Bosch 7d reference, pagination",
+      "description": "Added estimated/actual date columns, early/late breakdown, Bosch 7-day reference Pass/Fail, and pagination to ETA RCA tables.",
+      "category": "dev",
+      "priority": "P1",
+      "status": "done",
+      "owner": "",
+      "kpiImpact": "Usability",
+      "dueDate": "2026-03-10",
+      "completedDate": "2026-03-10",
+      "created": "2026-03-10"
+    },
+    {
+      "id": "T017",
+      "title": "Monitor ETA 2P volatility",
+      "description": "ETA 2P is on track (66.7% vs 75% target) but volatile week-over-week. Monitor for consistency and port congestion impact.",
+      "category": "data-quality",
+      "priority": "P2",
+      "status": "todo",
+      "owner": "",
+      "kpiImpact": "ETA 2P stability",
+      "dueDate": "2026-04-25",
+      "created": "2026-03-11"
+    },
+    {
+      "id": "T018",
+      "title": "SC4 S50/S51 'CFS' milestones — 66+84 missing",
+      "description": "Received origin CFS and Arrived destination CFS milestones have significant gaps. Review CFS integration for SC4 shipments.",
+      "category": "april-targets",
+      "priority": "P1",
+      "status": "todo",
+      "owner": "",
+      "kpiImpact": "Completeness +1.1pp",
+      "dueDate": "2026-04-11",
+      "created": "2026-03-11"
+    }
+  ]
+}
