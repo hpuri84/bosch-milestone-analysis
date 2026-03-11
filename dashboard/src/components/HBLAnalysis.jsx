@@ -242,12 +242,13 @@ function HBLDetail({ hbl, onClose }) {
 }
 
 function downloadCSV(data) {
-  const headers = ['HBL', 'MBL', 'Scenario', 'Service', 'Missing Count', 'Missing Milestones'];
+  const headers = ['HBL', 'MBL', 'Scenario', 'Service', 'Status', 'Missing Count', 'Missing Milestones'];
   const rows = data.map(h => [
     h.hbl,
     h.mbl,
     h.scenario,
     h.service,
+    h.status || 'Active',
     h.missing_count,
     h.milestoneList.map(m => `${m.code} ${m.name} (${m.type})`).join('; '),
   ]);
@@ -261,20 +262,27 @@ function downloadCSV(data) {
   URL.revokeObjectURL(url);
 }
 
-export default function HBLAnalysis({ rcaData, selectedWeek }) {
+export default function HBLAnalysis({ rcaData, selectedWeek, cancelledHBLs }) {
   const [page, setPage] = useState(1);
   const [search, setSearch] = useState('');
   const [filterScenario, setFilterScenario] = useState('all');
   const [filterService, setFilterService] = useState('all');
   const [minMissing, setMinMissing] = useState(1);
+  const [filterStatus, setFilterStatus] = useState('all');
   const [selectedHBL, setSelectedHBL] = useState(null);
 
-  const allHBLs = useMemo(() => buildHBLData(rcaData, selectedWeek), [rcaData, selectedWeek]);
+  const cancelledSet = useMemo(() => new Set(cancelledHBLs || []), [cancelledHBLs]);
+
+  const allHBLs = useMemo(() => {
+    const data = buildHBLData(rcaData, selectedWeek);
+    return data.map(h => ({ ...h, status: cancelledSet.has(h.hbl) ? 'Cancelled' : 'Active' }));
+  }, [rcaData, selectedWeek, cancelledSet]);
 
   const filtered = useMemo(() => {
     return allHBLs.filter(h => {
       if (filterScenario !== 'all' && h.scenario !== filterScenario) return false;
       if (filterService !== 'all' && h.service !== filterService) return false;
+      if (filterStatus !== 'all' && h.status !== filterStatus) return false;
       if (h.missing_count < minMissing) return false;
       if (search) {
         const q = search.toLowerCase();
@@ -282,7 +290,7 @@ export default function HBLAnalysis({ rcaData, selectedWeek }) {
       }
       return true;
     });
-  }, [allHBLs, filterScenario, filterService, minMissing, search]);
+  }, [allHBLs, filterScenario, filterService, filterStatus, minMissing, search]);
 
   const totalPages = Math.ceil(filtered.length / PAGE_SIZE);
   const currentPage = Math.min(page, totalPages || 1);
@@ -321,6 +329,7 @@ export default function HBLAnalysis({ rcaData, selectedWeek }) {
           { label: 'Avg Missing/HBL', value: avgMissing, color: '#d97706' },
           { label: 'SC4 HBLs', value: allHBLs.filter(h => h.scenario === 'SC4').length, color: '#2563eb' },
           { label: 'SC3 HBLs', value: allHBLs.filter(h => h.scenario === 'SC3').length, color: '#0891b2' },
+          { label: 'Cancelled', value: allHBLs.filter(h => h.status === 'Cancelled').length, color: '#dc2626' },
         ].map((c, i) => (
           <div key={i} style={{ ...S.card, padding: '14px 18px', animation: `fadeInUp 0.3s ease-out ${i * 0.05}s both` }}>
             <div style={{ fontFamily: 'var(--font-display)', fontSize: '0.6rem', fontWeight: 600, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 4 }}>{c.label}</div>
@@ -365,6 +374,11 @@ export default function HBLAnalysis({ rcaData, selectedWeek }) {
           {filterBtn(filterService === 'FCL', () => setFilterService('FCL'), 'FCL')}
           {filterBtn(filterService === 'BCO', () => setFilterService('BCO'), 'BCO')}
 
+          <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.65rem', color: 'var(--text-muted)', marginLeft: 8 }}>Status:</span>
+          {filterBtn(filterStatus === 'all', () => setFilterStatus('all'), 'All')}
+          {filterBtn(filterStatus === 'Active', () => setFilterStatus('Active'), 'Active')}
+          {filterBtn(filterStatus === 'Cancelled', () => setFilterStatus('Cancelled'), 'Cancelled')}
+
           <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.65rem', color: 'var(--text-muted)', marginLeft: 8 }}>Min missing:</span>
           <select
             value={minMissing}
@@ -398,7 +412,7 @@ export default function HBLAnalysis({ rcaData, selectedWeek }) {
           <table style={{ width: '100%', borderCollapse: 'collapse', fontFamily: 'var(--font-mono)', fontSize: '0.72rem' }}>
             <thead>
               <tr style={{ borderBottom: '2px solid var(--border)' }}>
-                {['#', 'HBL', 'MBL', 'SC', 'Service', 'Missing', 'Milestones'].map(h => (
+                {['#', 'HBL', 'MBL', 'SC', 'Service', 'Status', 'Missing', 'Milestones'].map(h => (
                   <th key={h} style={{
                     padding: '8px 10px', textAlign: 'left',
                     fontFamily: 'var(--font-display)', fontSize: '0.63rem', fontWeight: 600,
@@ -428,6 +442,18 @@ export default function HBLAnalysis({ rcaData, selectedWeek }) {
                     <td style={{ padding: '8px 10px', color: 'var(--text-muted)' }}>{h.mbl || '—'}</td>
                     <td style={{ padding: '8px 10px', fontWeight: 600, color: COLORS[h.scenario] }}>{h.scenario}</td>
                     <td style={{ padding: '8px 10px' }}>{h.service}</td>
+                    <td style={{ padding: '8px 10px' }}>
+                      <span style={{
+                        fontFamily: 'var(--font-mono)',
+                        fontSize: '0.62rem',
+                        fontWeight: 600,
+                        padding: '2px 7px',
+                        borderRadius: 3,
+                        color: h.status === 'Cancelled' ? '#dc2626' : '#16a34a',
+                        background: h.status === 'Cancelled' ? '#dc262610' : '#16a34a10',
+                        border: `1px solid ${h.status === 'Cancelled' ? '#dc262625' : '#16a34a25'}`,
+                      }}>{h.status}</span>
+                    </td>
                     <td style={{ padding: '8px 10px' }}>
                       <span style={{
                         fontWeight: 700,

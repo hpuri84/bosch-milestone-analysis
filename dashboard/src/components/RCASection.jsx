@@ -408,7 +408,8 @@ function DrilldownPagination({ page, totalPages, onPageChange }) {
   );
 }
 
-function ShipmentDrilldown({ milestone, searchTerm, setSearchTerm }) {
+function ShipmentDrilldown({ milestone, searchTerm, setSearchTerm, cancelledHBLs }) {
+  const cancelledSet = useMemo(() => new Set(cancelledHBLs || []), [cancelledHBLs]);
   const [page, setPage] = useState(1);
   const [prevMilestoneKey, setPrevMilestoneKey] = useState(null);
 
@@ -457,13 +458,14 @@ function ShipmentDrilldown({ milestone, searchTerm, setSearchTerm }) {
   const startIdx = (currentPage - 1) * DRILLDOWN_PAGE_SIZE;
 
   const handleExportShipments = () => {
+    const enriched = filtered.map(s => ({ ...s, status: cancelledSet.has(s.hbl) ? 'Cancelled' : 'Active' }));
     const headers = issc4
-      ? ['hbl', 'mbl', 'consignment', 'service']
-      : ['hbl', 'mbl', 'load_to', 'service'];
+      ? ['hbl', 'mbl', 'consignment', 'service', 'status']
+      : ['hbl', 'mbl', 'load_to', 'service', 'status'];
     const labels = issc4
-      ? ['HBL', 'MBL', 'Consignment', 'Service']
-      : ['HBL', 'MBL', 'Load/TO', 'Service'];
-    downloadCSV(filtered, headers, labels, `${milestone.scenario}_${milestone.code}_${milestone.type}_missing.csv`);
+      ? ['HBL', 'MBL', 'Consignment', 'Service', 'Status']
+      : ['HBL', 'MBL', 'Load/TO', 'Service', 'Status'];
+    downloadCSV(enriched, headers, labels, `${milestone.scenario}_${milestone.code}_${milestone.type}_missing.csv`);
   };
 
   return (
@@ -533,7 +535,7 @@ function ShipmentDrilldown({ milestone, searchTerm, setSearchTerm }) {
         <table style={{ width: '100%', borderCollapse: 'collapse' }}>
           <thead>
             <tr style={{ borderBottom: '2px solid var(--border)', position: 'sticky', top: 0, background: 'var(--bg-card)', zIndex: 1 }}>
-              {['#', 'HBL', 'MBL', issc4 ? 'Consignment' : 'Load/TO', 'Service'].map(h => (
+              {['#', 'HBL', 'MBL', issc4 ? 'Consignment' : 'Load/TO', 'Service', 'Status'].map(h => (
                 <th key={h} style={{
                   fontFamily: 'var(--font-display)',
                   fontSize: '0.65rem',
@@ -570,6 +572,23 @@ function ShipmentDrilldown({ milestone, searchTerm, setSearchTerm }) {
                     padding: '2px 6px',
                     borderRadius: 3,
                   }}>{s.service}</span>
+                </td>
+                <td style={shipCell}>
+                  {(() => {
+                    const isCancelled = cancelledSet.has(s.hbl);
+                    return (
+                      <span style={{
+                        fontFamily: 'var(--font-mono)',
+                        fontSize: '0.62rem',
+                        fontWeight: 600,
+                        padding: '2px 7px',
+                        borderRadius: 3,
+                        color: isCancelled ? '#dc2626' : '#16a34a',
+                        background: isCancelled ? '#dc262610' : '#16a34a10',
+                        border: `1px solid ${isCancelled ? '#dc262625' : '#16a34a25'}`,
+                      }}>{isCancelled ? 'Cancelled' : 'Active'}</span>
+                    );
+                  })()}
                 </td>
               </tr>
             ))}
@@ -658,7 +677,7 @@ function Filters({ filters, setFilters }) {
 }
 
 
-export default function RCASection({ rcaData, selectedWeek }) {
+export default function RCASection({ rcaData, selectedWeek, cancelledHBLs }) {
   const [selectedMilestone, setSelectedMilestone] = useState(null);
   const [searchTerm, setSearchTerm] = useState('');
   const [filters, setFilters] = useState({
@@ -730,6 +749,7 @@ export default function RCASection({ rcaData, selectedWeek }) {
         milestone={selectedMilestone}
         searchTerm={searchTerm}
         setSearchTerm={setSearchTerm}
+        cancelledHBLs={cancelledHBLs}
       />
     </div>
   );

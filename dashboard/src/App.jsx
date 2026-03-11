@@ -12,6 +12,7 @@ import PlausibilityRCA from './components/PlausibilityRCA';
 import TargetAnalysis from './components/TargetAnalysis';
 import TaskTracker from './components/TaskTracker';
 import HBLAnalysis from './components/HBLAnalysis';
+import CancellationAnalysis from './components/CancellationAnalysis';
 
 injectGlobalStyles();
 
@@ -60,6 +61,8 @@ export default function App() {
   const [data, setData] = useState(null);
   const [rcaData, setRcaData] = useState(null);
   const [taskData, setTaskData] = useState(null);
+  const [cancelledHBLs, setCancelledHBLs] = useState([]);
+  const [cancellationImpact, setCancellationImpact] = useState(null);
   const [selectedWeek, setSelectedWeek] = useState(null);
   const [activeTab, setActiveTab] = useState('overview');
 
@@ -68,10 +71,14 @@ export default function App() {
       fetch('/kpi_data.json').then(r => r.json()),
       fetch('/rca_data.json').then(r => r.json()),
       fetch('/tasks.json').then(r => r.json()),
-    ]).then(([kpi, rca, tasks]) => {
+      fetch('/cancelled_hbls.json').then(r => r.json()).catch(() => ({ hbls: [] })),
+      fetch('/cancellation_impact.json').then(r => r.json()).catch(() => null),
+    ]).then(([kpi, rca, tasks, cancelled, impact]) => {
       setData(kpi);
       setRcaData(rca);
       setTaskData(tasks);
+      setCancelledHBLs(cancelled.hbls || []);
+      setCancellationImpact(impact);
       setSelectedWeek(kpi[kpi.length - 1]?.week);
     });
   }, []);
@@ -185,6 +192,7 @@ export default function App() {
           { key: 'plausibility', label: 'Plausibility' },
           { key: 'targets', label: 'April Targets' },
           { key: 'hbl', label: 'HBL Impact' },
+          { key: 'cancellations', label: 'Cancellations' },
           { key: 'tasks', label: 'Tasks' },
         ].map(tab => (
           <button
@@ -221,7 +229,7 @@ export default function App() {
           <div style={LAYOUT.sectionTitle}>
             {selectedWeek} — Milestone Breakdown & Root Cause Analysis
           </div>
-          <RCASection rcaData={rcaData} selectedWeek={selectedWeek} />
+          <RCASection rcaData={rcaData} selectedWeek={selectedWeek} cancelledHBLs={cancelledHBLs} />
         </div>
       )}
 
@@ -258,7 +266,17 @@ export default function App() {
           <div style={LAYOUT.sectionTitle}>
             {selectedWeek} — HBL-Level Missing Milestone Analysis
           </div>
-          <HBLAnalysis rcaData={rcaData} selectedWeek={selectedWeek} />
+          <HBLAnalysis rcaData={rcaData} selectedWeek={selectedWeek} cancelledHBLs={cancelledHBLs} />
+        </div>
+      )}
+
+      {/* ===== CANCELLATIONS TAB ===== */}
+      {activeTab === 'cancellations' && (
+        <div style={LAYOUT.section}>
+          <div style={LAYOUT.sectionTitle}>
+            Cancellation Impact Analysis — What-If Cancelled Shipments Were Excluded
+          </div>
+          <CancellationAnalysis impactData={cancellationImpact} selectedWeek={selectedWeek} />
         </div>
       )}
 
