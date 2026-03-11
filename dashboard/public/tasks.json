@@ -158,25 +158,27 @@
     {
       "id": "T012",
       "title": "Build PDCA Excel updater script",
-      "description": "Automate the PDCA milestone template population from weekly raw data. Should update the Bosch PDCA template with latest KPI values.",
+      "description": "Automate the PDCA milestone template population from weekly raw data. Writes formulas referencing SC Data sheets for milestone rows, direct values for header KPIs.",
       "category": "automation",
       "priority": "P1",
-      "status": "todo",
+      "status": "done",
       "owner": "",
       "kpiImpact": "Process efficiency",
       "dueDate": "2026-03-28",
+      "completedDate": "2026-03-11",
       "created": "2026-03-11"
     },
     {
       "id": "T013",
       "title": "Create weekly automation wrapper",
-      "description": "End-to-end script: ingest new SC3/SC4 Excel files, run extraction, update KPI JSON, update RCA JSON, rebuild dashboard.",
+      "description": "End-to-end script: detect files, update configs, extract KPIs/RCA, copy data, update PDCA, build dashboard, deploy. CLI with --week, --deploy, --skip-pdca flags.",
       "category": "automation",
       "priority": "P1",
-      "status": "todo",
+      "status": "done",
       "owner": "",
       "kpiImpact": "Process efficiency",
       "dueDate": "2026-04-04",
+      "completedDate": "2026-03-11",
       "created": "2026-03-11"
     },
     {
