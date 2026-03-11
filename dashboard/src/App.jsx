@@ -13,6 +13,7 @@ import TargetAnalysis from './components/TargetAnalysis';
 import TaskTracker from './components/TaskTracker';
 import HBLAnalysis from './components/HBLAnalysis';
 import CancellationAnalysis from './components/CancellationAnalysis';
+import TransmissionGapAnalysis from './components/TransmissionGapAnalysis';
 
 injectGlobalStyles();
 
@@ -63,6 +64,7 @@ export default function App() {
   const [taskData, setTaskData] = useState(null);
   const [cancelledHBLs, setCancelledHBLs] = useState([]);
   const [cancellationImpact, setCancellationImpact] = useState(null);
+  const [transmissionGap, setTransmissionGap] = useState(null);
   const [selectedWeek, setSelectedWeek] = useState(null);
   const [activeTab, setActiveTab] = useState('overview');
 
@@ -73,12 +75,14 @@ export default function App() {
       fetch('/tasks.json').then(r => r.json()),
       fetch('/cancelled_hbls.json').then(r => r.json()).catch(() => ({ hbls: [] })),
       fetch('/cancellation_impact.json').then(r => r.json()).catch(() => null),
-    ]).then(([kpi, rca, tasks, cancelled, impact]) => {
+      fetch('/transmission_gap.json').then(r => r.json()).catch(() => null),
+    ]).then(([kpi, rca, tasks, cancelled, impact, gap]) => {
       setData(kpi);
       setRcaData(rca);
       setTaskData(tasks);
       setCancelledHBLs(cancelled.hbls || []);
       setCancellationImpact(impact);
+      setTransmissionGap(gap);
       setSelectedWeek(kpi[kpi.length - 1]?.week);
     });
   }, []);
@@ -193,6 +197,7 @@ export default function App() {
           { key: 'targets', label: 'April Targets' },
           { key: 'hbl', label: 'HBL Impact' },
           { key: 'cancellations', label: 'Cancellations' },
+          { key: 'transmission', label: 'EDI Gap' },
           { key: 'tasks', label: 'Tasks' },
         ].map(tab => (
           <button
@@ -277,6 +282,16 @@ export default function App() {
             Cancellation Impact Analysis — What-If Cancelled Shipments Were Excluded
           </div>
           <CancellationAnalysis impactData={cancellationImpact} selectedWeek={selectedWeek} />
+        </div>
+      )}
+
+      {/* ===== TRANSMISSION GAP TAB ===== */}
+      {activeTab === 'transmission' && (
+        <div style={LAYOUT.section}>
+          <div style={LAYOUT.sectionTitle}>
+            {selectedWeek} — TMS vs EDI Transmission Gap Analysis
+          </div>
+          <TransmissionGapAnalysis gapData={transmissionGap} />
         </div>
       )}
 
