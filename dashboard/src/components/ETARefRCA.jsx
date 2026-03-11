@@ -1,10 +1,6 @@
 import { useState, useMemo } from 'react';
 
-const SEVERITY_COLORS = {
-  critical: '#dc2626',
-  warning: '#d97706',
-  ok: '#16a34a',
-};
+const PAGE_SIZE = 50;
 
 function downloadCSV(rows, headers, filename) {
   const csvRows = [headers.join(',')];
@@ -63,13 +59,97 @@ function MetricCard({ label, value, total, rate, color }) {
   );
 }
 
+function Pagination({ page, totalPages, onPageChange }) {
+  if (totalPages <= 1) return null;
+
+  const pages = [];
+  const maxVisible = 7;
+  let start = Math.max(1, page - Math.floor(maxVisible / 2));
+  let end = Math.min(totalPages, start + maxVisible - 1);
+  if (end - start < maxVisible - 1) start = Math.max(1, end - maxVisible + 1);
+
+  if (start > 1) {
+    pages.push(1);
+    if (start > 2) pages.push('...');
+  }
+  for (let i = start; i <= end; i++) pages.push(i);
+  if (end < totalPages) {
+    if (end < totalPages - 1) pages.push('...');
+    pages.push(totalPages);
+  }
+
+  const btnBase = {
+    fontFamily: 'var(--font-mono)',
+    fontSize: '0.72rem',
+    border: '1px solid var(--border)',
+    borderRadius: 4,
+    padding: '4px 10px',
+    cursor: 'pointer',
+    background: 'transparent',
+    color: 'var(--text-secondary)',
+  };
+
+  return (
+    <div style={{
+      display: 'flex',
+      gap: 4,
+      alignItems: 'center',
+      justifyContent: 'center',
+      padding: '12px 0',
+    }}>
+      <button
+        onClick={() => onPageChange(page - 1)}
+        disabled={page === 1}
+        style={{ ...btnBase, opacity: page === 1 ? 0.4 : 1, cursor: page === 1 ? 'default' : 'pointer' }}
+      >Prev</button>
+      {pages.map((p, i) =>
+        p === '...' ? (
+          <span key={`ellipsis-${i}`} style={{ fontFamily: 'var(--font-mono)', fontSize: '0.72rem', color: 'var(--text-muted)', padding: '0 4px' }}>...</span>
+        ) : (
+          <button
+            key={p}
+            onClick={() => onPageChange(p)}
+            style={{
+              ...btnBase,
+              background: p === page ? 'var(--accent-blue)' : 'transparent',
+              color: p === page ? '#fff' : 'var(--text-secondary)',
+              border: p === page ? '1px solid var(--accent-blue)' : '1px solid var(--border)',
+              fontWeight: p === page ? 600 : 400,
+            }}
+          >{p}</button>
+        )
+      )}
+      <button
+        onClick={() => onPageChange(page + 1)}
+        disabled={page === totalPages}
+        style={{ ...btnBase, opacity: page === totalPages ? 0.4 : 1, cursor: page === totalPages ? 'default' : 'pointer' }}
+      >Next</button>
+    </div>
+  );
+}
+
 function ShipmentTable({ shipments, columns, searchTerm, title, onExport }) {
+  const [page, setPage] = useState(1);
   const term = searchTerm.toLowerCase();
-  const filtered = term
-    ? shipments.filter(s =>
-        columns.some(c => (String(s[c.key] ?? '')).toLowerCase().includes(term))
-      )
-    : shipments;
+  const filtered = useMemo(() => {
+    return term
+      ? shipments.filter(s =>
+          columns.some(c => (String(s[c.key] ?? '')).toLowerCase().includes(term))
+        )
+      : shipments;
+  }, [shipments, columns, term]);
+
+  const totalPages = Math.ceil(filtered.length / PAGE_SIZE);
+  const currentPage = Math.min(page, totalPages || 1);
+  const pageData = filtered.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_SIZE);
+  const startIdx = (currentPage - 1) * PAGE_SIZE;
+
+  // Reset page when search changes
+  const prevTerm = useState(term);
+  if (prevTerm[0] !== term) {
+    prevTerm[0] = term;
+    if (page !== 1) setPage(1);
+  }
 
   return (
     <div style={{
@@ -116,10 +196,10 @@ function ShipmentTable({ shipments, columns, searchTerm, title, onExport }) {
           >Export CSV</button>
         </div>
       </div>
-      <div style={{ overflowX: 'auto', maxHeight: 420 }}>
+      <div style={{ overflowX: 'auto', maxHeight: 520 }}>
         <table style={{ width: '100%', borderCollapse: 'collapse' }}>
           <thead>
-            <tr style={{ borderBottom: '2px solid var(--border)', position: 'sticky', top: 0, background: 'var(--bg-card)' }}>
+            <tr style={{ borderBottom: '2px solid var(--border)', position: 'sticky', top: 0, background: 'var(--bg-card)', zIndex: 1 }}>
               <th style={thStyle}>#</th>
               {columns.map(c => (
                 <th key={c.key} style={{ ...thStyle, textAlign: c.align || 'left' }}>{c.label}</th>
@@ -127,12 +207,12 @@ function ShipmentTable({ shipments, columns, searchTerm, title, onExport }) {
             </tr>
           </thead>
           <tbody>
-            {filtered.map((s, i) => (
+            {pageData.map((s, i) => (
               <tr key={i} style={{ borderBottom: '1px solid var(--border)' }}
                 onMouseEnter={e => e.currentTarget.style.background = '#f8f9fb'}
                 onMouseLeave={e => e.currentTarget.style.background = 'transparent'}
               >
-                <td style={{ ...tdStyle, color: 'var(--text-muted)' }}>{i + 1}</td>
+                <td style={{ ...tdStyle, color: 'var(--text-muted)' }}>{startIdx + i + 1}</td>
                 {columns.map(c => (
                   <td key={c.key} style={{
                     ...tdStyle,
@@ -148,6 +228,7 @@ function ShipmentTable({ shipments, columns, searchTerm, title, onExport }) {
           </tbody>
         </table>
       </div>
+      <Pagination page={currentPage} totalPages={totalPages} onPageChange={setPage} />
     </div>
   );
 }
@@ -161,6 +242,7 @@ const thStyle = {
   letterSpacing: '0.06em',
   padding: '8px 12px',
   textAlign: 'left',
+  whiteSpace: 'nowrap',
 };
 
 const tdStyle = {
@@ -168,6 +250,7 @@ const tdStyle = {
   fontSize: '0.75rem',
   padding: '6px 12px',
   color: 'var(--text-secondary)',
+  whiteSpace: 'nowrap',
 };
 
 function FilterBar({ activeSection, setActiveSection, searchTerm, setSearchTerm }) {
@@ -242,6 +325,14 @@ export default function ETARefRCA({ rcaData, selectedWeek }) {
 
   const { eta_2p, eta_2d, ref } = etaRef;
 
+  // Count early vs late
+  const early2p = eta_2p.failed_shipments.filter(s => s.deviation_hours != null && s.deviation_hours < 0).length;
+  const late2p = eta_2p.failed_shipments.filter(s => s.deviation_hours != null && s.deviation_hours > 0).length;
+  const early2d = eta_2d.failed_shipments.filter(s => s.deviation_hours != null && s.deviation_hours < 0).length;
+  const late2d = eta_2d.failed_shipments.filter(s => s.deviation_hours != null && s.deviation_hours > 0).length;
+
+  const formatDate = v => v ? v.replace('T', ' ').slice(0, 16) : '—';
+
   const etaColumns = [
     { key: 'hbl', label: 'HBL', bold: true, color: () => 'var(--accent-blue)' },
     { key: 'mbl', label: 'MBL' },
@@ -250,9 +341,21 @@ export default function ETARefRCA({ rcaData, selectedWeek }) {
     { key: 'origin', label: 'Origin' },
     { key: 'dest', label: 'Destination' },
     { key: 'carrier', label: 'Carrier' },
+    { key: 'estimated', label: 'Estimated', render: s => formatDate(s.estimated) },
+    { key: 'actual', label: 'Actual', render: s => formatDate(s.actual) },
     { key: 'deviation_hours', label: 'Deviation (h)', align: 'right',
-      render: s => s.deviation_hours != null ? `${s.deviation_hours}h` : '—',
-      color: s => s.deviation_hours != null ? (Math.abs(s.deviation_hours) > 48 ? '#dc2626' : '#d97706') : 'var(--text-muted)' },
+      render: s => {
+        if (s.deviation_hours == null) return '—';
+        const h = s.deviation_hours;
+        const prefix = h < 0 ? '' : '+';
+        return `${prefix}${h}h`;
+      },
+      color: s => {
+        if (s.deviation_hours == null) return 'var(--text-muted)';
+        if (s.deviation_hours < 0) return '#2563eb';
+        return Math.abs(s.deviation_hours) > 48 ? '#dc2626' : '#d97706';
+      },
+    },
   ];
 
   const refColumns = [
@@ -292,6 +395,71 @@ export default function ETARefRCA({ rcaData, selectedWeek }) {
           rate={ref.total > 0 ? ref.incomplete / ref.total : null} color="#d97706" />
       </div>
 
+      {/* Early vs Late breakdown */}
+      <div style={{
+        display: 'flex',
+        gap: 12,
+        flexWrap: 'wrap',
+        marginBottom: 20,
+      }}>
+        <div style={{
+          background: 'var(--bg-card)',
+          border: '1px solid var(--border)',
+          borderRadius: 8,
+          padding: '12px 20px',
+          flex: '1 1 280px',
+          boxShadow: 'var(--shadow-sm)',
+        }}>
+          <div style={{
+            fontFamily: 'var(--font-display)',
+            fontSize: '0.7rem',
+            fontWeight: 500,
+            color: 'var(--text-muted)',
+            textTransform: 'uppercase',
+            letterSpacing: '0.06em',
+            marginBottom: 8,
+          }}>ETA 2P Breakdown</div>
+          <div style={{ display: 'flex', gap: 20 }}>
+            <div>
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '1.1rem', fontWeight: 500, color: '#2563eb' }}>{early2p}</span>
+              <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.68rem', color: 'var(--text-muted)', marginLeft: 6 }}>Early (arrived before ETA)</span>
+            </div>
+            <div>
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '1.1rem', fontWeight: 500, color: '#dc2626' }}>{late2p}</span>
+              <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.68rem', color: 'var(--text-muted)', marginLeft: 6 }}>Late (arrived after ETA)</span>
+            </div>
+          </div>
+        </div>
+        <div style={{
+          background: 'var(--bg-card)',
+          border: '1px solid var(--border)',
+          borderRadius: 8,
+          padding: '12px 20px',
+          flex: '1 1 280px',
+          boxShadow: 'var(--shadow-sm)',
+        }}>
+          <div style={{
+            fontFamily: 'var(--font-display)',
+            fontSize: '0.7rem',
+            fontWeight: 500,
+            color: 'var(--text-muted)',
+            textTransform: 'uppercase',
+            letterSpacing: '0.06em',
+            marginBottom: 8,
+          }}>ETA 2D Breakdown</div>
+          <div style={{ display: 'flex', gap: 20 }}>
+            <div>
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '1.1rem', fontWeight: 500, color: '#2563eb' }}>{early2d}</span>
+              <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.68rem', color: 'var(--text-muted)', marginLeft: 6 }}>Early (delivered before est.)</span>
+            </div>
+            <div>
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '1.1rem', fontWeight: 500, color: '#dc2626' }}>{late2d}</span>
+              <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.68rem', color: 'var(--text-muted)', marginLeft: 6 }}>Late (delivered after est.)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <FilterBar
         activeSection={activeSection}
         setActiveSection={setActiveSection}
@@ -304,7 +472,7 @@ export default function ETARefRCA({ rcaData, selectedWeek }) {
           shipments={eta_2p.failed_shipments}
           columns={etaColumns}
           searchTerm={searchTerm}
-          title={`ETA 2P Failed Shipments (${eta_2p.total_failed_shipments} total — showing ${Math.min(100, eta_2p.total_failed_shipments)})`}
+          title={`ETA 2P Failed Shipments (${eta_2p.total_failed_shipments} total)`}
           onExport={() => handleExport(eta_2p.failed_shipments, etaColumns, `eta_2p_failed_${selectedWeek}.csv`)}
         />
       )}
@@ -314,7 +482,7 @@ export default function ETARefRCA({ rcaData, selectedWeek }) {
           shipments={eta_2d.failed_shipments}
           columns={etaColumns}
           searchTerm={searchTerm}
-          title={`ETA 2D Failed Shipments (${eta_2d.total_failed_shipments} total — showing ${Math.min(100, eta_2d.total_failed_shipments)})`}
+          title={`ETA 2D Failed Shipments (${eta_2d.total_failed_shipments} total)`}
           onExport={() => handleExport(eta_2d.failed_shipments, etaColumns, `eta_2d_failed_${selectedWeek}.csv`)}
         />
       )}
@@ -324,7 +492,7 @@ export default function ETARefRCA({ rcaData, selectedWeek }) {
           shipments={ref.incomplete_shipments}
           columns={refColumns}
           searchTerm={searchTerm}
-          title={`Reference Incomplete Shipments (${ref.total_incomplete_shipments} total — showing ${Math.min(100, ref.total_incomplete_shipments)})`}
+          title={`Reference Incomplete Shipments (${ref.total_incomplete_shipments} total)`}
           onExport={() => handleExport(ref.incomplete_shipments, refColumns, `ref_incomplete_${selectedWeek}.csv`)}
         />
       )}

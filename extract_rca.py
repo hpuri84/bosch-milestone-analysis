@@ -332,6 +332,7 @@ def extract_eta_ref_rca(filepath):
 
     s07_col = s31_col = s07_dev_col = s31_dev_col = None
     civ_col = dn_col = None
+    eta_col = ata_col = del_est_col = delivered_col = None
     for key, idx in col_map.items():
         if "S07_Accepted" in key:
             s07_col = idx
@@ -345,6 +346,14 @@ def extract_eta_ref_rca(filepath):
             civ_col = idx
         if "DELIVERY_NOTE" in key:
             dn_col = idx
+        if key == "ETA_DATE_TIME":
+            eta_col = idx
+        if key == "ATA_DATE_TIME":
+            ata_col = idx
+        if key == "DELIVERY_DATE_ACT_EST_PLAN":
+            del_est_col = idx
+        if key == "DELIVERED_DATE_TIME":
+            delivered_col = idx
 
     eta_2p_failed = []
     eta_2p_accepted = 0
@@ -387,9 +396,13 @@ def extract_eta_ref_rca(filepath):
                 eta_2p_accepted += 1
             else:
                 deviation = vals[s07_dev_col] if s07_dev_col and vals[s07_dev_col] else None
+                eta_val = vals[eta_col] if eta_col is not None else None
+                ata_val = vals[ata_col] if ata_col is not None else None
                 eta_2p_failed.append({
                     **base_info,
                     "deviation_hours": round(float(deviation), 1) if deviation and isinstance(deviation, (int, float)) else None,
+                    "estimated": str(eta_val)[:16] if eta_val else None,
+                    "actual": str(ata_val)[:16] if ata_val else None,
                 })
 
         # ETA 2D (S31)
@@ -400,9 +413,13 @@ def extract_eta_ref_rca(filepath):
                 eta_2d_accepted += 1
             else:
                 deviation = vals[s31_dev_col] if s31_dev_col and vals[s31_dev_col] else None
+                del_est_val = vals[del_est_col] if del_est_col is not None else None
+                delivered_val = vals[delivered_col] if delivered_col is not None else None
                 eta_2d_failed.append({
                     **base_info,
                     "deviation_hours": round(float(deviation), 1) if deviation and isinstance(deviation, (int, float)) else None,
+                    "estimated": str(del_est_val)[:16] if del_est_val else None,
+                    "actual": str(delivered_val)[:16] if delivered_val else None,
                 })
 
         # Reference Completeness
@@ -428,7 +445,7 @@ def extract_eta_ref_rca(filepath):
             "accepted": eta_2p_accepted,
             "failed": eta_2p_total - eta_2p_accepted,
             "rate": round(eta_2p_accepted / eta_2p_total, 4) if eta_2p_total > 0 else None,
-            "failed_shipments": eta_2p_failed[:100],
+            "failed_shipments": eta_2p_failed,
             "total_failed_shipments": len(eta_2p_failed),
         },
         "eta_2d": {
@@ -436,7 +453,7 @@ def extract_eta_ref_rca(filepath):
             "accepted": eta_2d_accepted,
             "failed": eta_2d_total - eta_2d_accepted,
             "rate": round(eta_2d_accepted / eta_2d_total, 4) if eta_2d_total > 0 else None,
-            "failed_shipments": eta_2d_failed[:100],
+            "failed_shipments": eta_2d_failed,
             "total_failed_shipments": len(eta_2d_failed),
         },
         "ref": {
@@ -444,7 +461,7 @@ def extract_eta_ref_rca(filepath):
             "complete": ref_complete_count,
             "incomplete": ref_total - ref_complete_count,
             "rate": round(ref_complete_count / ref_total, 4) if ref_total > 0 else None,
-            "incomplete_shipments": ref_incomplete[:100],
+            "incomplete_shipments": ref_incomplete,
             "total_incomplete_shipments": len(ref_incomplete),
         },
     }
