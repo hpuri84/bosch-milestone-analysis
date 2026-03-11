@@ -11,6 +11,7 @@ import ETARefRCA from './components/ETARefRCA';
 import PlausibilityRCA from './components/PlausibilityRCA';
 import TargetAnalysis from './components/TargetAnalysis';
 import TaskTracker from './components/TaskTracker';
+import HBLAnalysis from './components/HBLAnalysis';
 
 injectGlobalStyles();
 
@@ -183,6 +184,7 @@ export default function App() {
           { key: 'eta_ref', label: 'ETA & Reference' },
           { key: 'plausibility', label: 'Plausibility' },
           { key: 'targets', label: 'April Targets' },
+          { key: 'hbl', label: 'HBL Impact' },
           { key: 'tasks', label: 'Tasks' },
         ].map(tab => (
           <button
@@ -247,6 +249,16 @@ export default function App() {
       {activeTab === 'targets' && (
         <div style={LAYOUT.section}>
           <TargetAnalysis data={data} rcaData={rcaData} selectedWeek={selectedWeek} />
+        </div>
+      )}
+
+      {/* ===== HBL IMPACT TAB ===== */}
+      {activeTab === 'hbl' && (
+        <div style={LAYOUT.section}>
+          <div style={LAYOUT.sectionTitle}>
+            {selectedWeek} — HBL-Level Missing Milestone Analysis
+          </div>
+          <HBLAnalysis rcaData={rcaData} selectedWeek={selectedWeek} />
         </div>
       )}
 
