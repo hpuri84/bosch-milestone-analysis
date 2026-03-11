@@ -23,7 +23,8 @@ const ROWS = [
   { label: 'Timeliness (All)', key: d => d.all?.timeliness, threshold: 0.7, category: 'core' },
   { label: 'SC3 Shipments', key: d => d.sc3_shipments, category: 'sc', isCount: true },
   { label: 'SC4 Shipments', key: d => d.sc4_shipments, category: 'sc', isCount: true },
-  { label: 'SC3 / SC4 Ratio', key: d => (d.sc3_shipments && d.sc4_shipments) ? d.sc3_shipments / d.sc4_shipments : null, category: 'sc', isRatio: true },
+  { label: 'SC3 % of Total', key: d => (d.sc3_shipments && d.sc4_shipments) ? d.sc3_shipments / (d.sc3_shipments + d.sc4_shipments) : null, threshold: 0.99, category: 'sc' },
+  { label: 'SC4 % of Total', key: d => (d.sc3_shipments && d.sc4_shipments) ? d.sc4_shipments / (d.sc3_shipments + d.sc4_shipments) : null, threshold: 0.99, category: 'sc' },
   { label: 'SC3 Completeness', key: d => d.sc3_total?.completeness, threshold: 0.85, category: 'sc' },
   { label: 'SC3 Timeliness', key: d => d.sc3_total?.timeliness, threshold: 0.7, category: 'sc' },
   { label: 'SC4 Completeness', key: d => d.sc4_total?.completeness, threshold: 0.85, category: 'sc' },
@@ -33,7 +34,7 @@ const ROWS = [
   { label: 'Reference Completeness', key: d => d.ref_comp, threshold: 0.8, category: 'eta' },
 ];
 
-// Plausibility rows are built dynamically from rcaData
+// Plausibility compliance rate: (shipments - affected) / shipments
 const buildPlausRows = (rcaData) => {
   if (!rcaData) return [];
   const weekMap = {};
@@ -42,10 +43,16 @@ const buildPlausRows = (rcaData) => {
     weekMap[w.week] = p;
   });
   return [
-    { label: 'Plausibility Violations', key: (d) => weekMap[d.week]?.total_violations ?? null, category: 'plaus', isCount: true },
-    { label: 'Affected HBLs', key: (d) => weekMap[d.week]?.affected_hbls ?? null, category: 'plaus', isCount: true },
-    { label: 'Critical Violations', key: (d) => weekMap[d.week]?.critical_count ?? null, category: 'plaus', isCount: true },
-    { label: 'Warning Violations', key: (d) => weekMap[d.week]?.warning_count ?? null, category: 'plaus', isCount: true },
+    {
+      label: 'Plausibility Compliance',
+      key: (d) => {
+        const p = weekMap[d.week];
+        if (!p || !p.total_shipments) return null;
+        return (p.total_shipments - p.affected_hbls) / p.total_shipments;
+      },
+      threshold: 0.95,
+      category: 'plaus',
+    },
   ];
 };
 
@@ -201,8 +208,8 @@ export default function DataTable({ data, rcaData }) {
                 {data.map((d, j) => {
                   const v = row.key(d);
                   return (
-                    <td key={j} style={cellStyle(v, row.threshold, row.isCount || row.isRatio)}>
-                      {row.isCount ? fmtNum(v) : row.isRatio ? (v != null ? v.toFixed(2) : '—') : fmtPct(v)}
+                    <td key={j} style={cellStyle(v, row.threshold, row.isCount)}>
+                      {row.isCount ? fmtNum(v) : fmtPct(v)}
                     </td>
                   );
                 })}
