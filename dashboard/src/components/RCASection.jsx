@@ -370,7 +370,55 @@ function pctColor(val, target) {
   return 'var(--accent-red)';
 }
 
+const DRILLDOWN_PAGE_SIZE = 50;
+
+function DrilldownPagination({ page, totalPages, onPageChange }) {
+  if (totalPages <= 1) return null;
+  const pages = [];
+  const maxVisible = 7;
+  let start = Math.max(1, page - Math.floor(maxVisible / 2));
+  let end = Math.min(totalPages, start + maxVisible - 1);
+  if (end - start < maxVisible - 1) start = Math.max(1, end - maxVisible + 1);
+  if (start > 1) { pages.push(1); if (start > 2) pages.push('...'); }
+  for (let i = start; i <= end; i++) pages.push(i);
+  if (end < totalPages) { if (end < totalPages - 1) pages.push('...'); pages.push(totalPages); }
+
+  const btnBase = {
+    fontFamily: 'var(--font-mono)', fontSize: '0.72rem',
+    border: '1px solid var(--border)', borderRadius: 4,
+    padding: '4px 10px', cursor: 'pointer',
+    background: 'transparent', color: 'var(--text-secondary)',
+  };
+  return (
+    <div style={{ display: 'flex', gap: 4, alignItems: 'center', justifyContent: 'center', padding: '12px 0' }}>
+      <button onClick={() => onPageChange(page - 1)} disabled={page === 1}
+        style={{ ...btnBase, opacity: page === 1 ? 0.4 : 1, cursor: page === 1 ? 'default' : 'pointer' }}>Prev</button>
+      {pages.map((p, i) => p === '...'
+        ? <span key={`e${i}`} style={{ fontFamily: 'var(--font-mono)', fontSize: '0.72rem', color: 'var(--text-muted)', padding: '0 4px' }}>...</span>
+        : <button key={p} onClick={() => onPageChange(p)} style={{
+            ...btnBase, background: p === page ? 'var(--accent-blue)' : 'transparent',
+            color: p === page ? '#fff' : 'var(--text-secondary)',
+            border: p === page ? '1px solid var(--accent-blue)' : '1px solid var(--border)',
+            fontWeight: p === page ? 600 : 400,
+          }}>{p}</button>
+      )}
+      <button onClick={() => onPageChange(page + 1)} disabled={page === totalPages}
+        style={{ ...btnBase, opacity: page === totalPages ? 0.4 : 1, cursor: page === totalPages ? 'default' : 'pointer' }}>Next</button>
+    </div>
+  );
+}
+
 function ShipmentDrilldown({ milestone, searchTerm, setSearchTerm }) {
+  const [page, setPage] = useState(1);
+  const [prevMilestoneKey, setPrevMilestoneKey] = useState(null);
+
+  // Reset page when milestone or search changes
+  const milestoneKey = milestone ? `${milestone.scenario}-${milestone.code}-${milestone.type}` : null;
+  if (milestoneKey !== prevMilestoneKey) {
+    setPrevMilestoneKey(milestoneKey);
+    if (page !== 1) setPage(1);
+  }
+
   if (!milestone || !milestone.missing_shipments?.length) {
     return (
       <div style={{
@@ -402,6 +450,21 @@ function ShipmentDrilldown({ milestone, searchTerm, setSearchTerm }) {
         (s.service || '').toLowerCase().includes(term)
       )
     : milestone.missing_shipments;
+
+  const totalPages = Math.ceil(filtered.length / DRILLDOWN_PAGE_SIZE);
+  const currentPage = Math.min(page, totalPages || 1);
+  const pageData = filtered.slice((currentPage - 1) * DRILLDOWN_PAGE_SIZE, currentPage * DRILLDOWN_PAGE_SIZE);
+  const startIdx = (currentPage - 1) * DRILLDOWN_PAGE_SIZE;
+
+  const handleExportShipments = () => {
+    const headers = issc4
+      ? ['hbl', 'mbl', 'consignment', 'service']
+      : ['hbl', 'mbl', 'load_to', 'service'];
+    const labels = issc4
+      ? ['HBL', 'MBL', 'Consignment', 'Service']
+      : ['HBL', 'MBL', 'Load/TO', 'Service'];
+    downloadCSV(filtered, headers, labels, `${milestone.scenario}_${milestone.code}_${milestone.type}_missing.csv`);
+  };
 
   return (
     <div style={{
@@ -436,7 +499,7 @@ function ShipmentDrilldown({ milestone, searchTerm, setSearchTerm }) {
             type="text"
             placeholder="Search HBL, MBL..."
             value={searchTerm}
-            onChange={e => setSearchTerm(e.target.value)}
+            onChange={e => { setSearchTerm(e.target.value); setPage(1); }}
             style={{
               fontFamily: 'var(--font-mono)',
               fontSize: '0.75rem',
@@ -456,13 +519,21 @@ function ShipmentDrilldown({ milestone, searchTerm, setSearchTerm }) {
           }}>
             {filtered.length} of {milestone.total_missing_shipments}
           </div>
+          <button
+            onClick={handleExportShipments}
+            style={{
+              fontFamily: 'var(--font-display)', fontSize: '0.7rem', fontWeight: 500,
+              color: '#fff', background: 'var(--accent-blue)', border: 'none',
+              borderRadius: 5, padding: '5px 12px', cursor: 'pointer',
+            }}
+          >Export CSV</button>
         </div>
       </div>
-      <div style={{ overflowX: 'auto', maxHeight: 400 }}>
+      <div style={{ overflowX: 'auto', maxHeight: 520 }}>
         <table style={{ width: '100%', borderCollapse: 'collapse' }}>
           <thead>
-            <tr style={{ borderBottom: '2px solid var(--border)', position: 'sticky', top: 0, background: 'var(--bg-card)' }}>
-              {['#', 'HBL', issc4 ? 'MBL' : 'MBL', issc4 ? 'Consignment' : 'Load/TO', 'Service'].map(h => (
+            <tr style={{ borderBottom: '2px solid var(--border)', position: 'sticky', top: 0, background: 'var(--bg-card)', zIndex: 1 }}>
+              {['#', 'HBL', 'MBL', issc4 ? 'Consignment' : 'Load/TO', 'Service'].map(h => (
                 <th key={h} style={{
                   fontFamily: 'var(--font-display)',
                   fontSize: '0.65rem',
@@ -479,12 +550,12 @@ function ShipmentDrilldown({ milestone, searchTerm, setSearchTerm }) {
             </tr>
           </thead>
           <tbody>
-            {filtered.map((s, i) => (
+            {pageData.map((s, i) => (
               <tr key={i} style={{ borderBottom: '1px solid var(--border)' }}
                 onMouseEnter={e => e.currentTarget.style.background = '#f8f9fb'}
                 onMouseLeave={e => e.currentTarget.style.background = 'transparent'}
               >
-                <td style={{ ...shipCell, color: 'var(--text-muted)' }}>{i + 1}</td>
+                <td style={{ ...shipCell, color: 'var(--text-muted)' }}>{startIdx + i + 1}</td>
                 <td style={{ ...shipCell, color: 'var(--accent-blue)', fontWeight: 500 }}>
                   {s.hbl || '—'}
                 </td>
@@ -505,6 +576,7 @@ function ShipmentDrilldown({ milestone, searchTerm, setSearchTerm }) {
           </tbody>
         </table>
       </div>
+      <DrilldownPagination page={currentPage} totalPages={totalPages} onPageChange={setPage} />
     </div>
   );
 }

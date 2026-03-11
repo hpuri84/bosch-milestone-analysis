@@ -630,7 +630,7 @@ def extract_plausibility_rca(filepath):
         "warning_count": severity_counts.get("warning", 0),
         "rule_counts": dict(rule_counts),
         "gap_buckets": gap_buckets,
-        "violations": violations[:200],  # Limit for JSON size
+        "violations": violations,
         "total_violation_records": len(violations),
     }
 
@@ -710,8 +710,7 @@ def process_week(week):
             missing_key = (code, stype, scenario)
             missing_list = missing_map.get(missing_key, [])
 
-            # Limit to top 50 missing HBLs per milestone to keep JSON manageable
-            missing_hbls = missing_list[:50]
+            missing_hbls = missing_list
             total_missing_shipments = len(missing_list)
 
             milestones.append({
