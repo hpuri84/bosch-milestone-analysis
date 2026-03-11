@@ -325,11 +325,15 @@ export default function ETARefRCA({ rcaData, selectedWeek }) {
 
   const { eta_2p, eta_2d, ref } = etaRef;
 
-  // Count early vs late
+  // Count early vs late and 7-day reference
   const early2p = eta_2p.failed_shipments.filter(s => s.deviation_hours != null && s.deviation_hours < 0).length;
   const late2p = eta_2p.failed_shipments.filter(s => s.deviation_hours != null && s.deviation_hours > 0).length;
+  const within7d2p = eta_2p.failed_shipments.filter(s => s.deviation_hours != null && Math.abs(s.deviation_hours) <= 168).length;
+  const beyond7d2p = eta_2p.failed_shipments.filter(s => s.deviation_hours != null && Math.abs(s.deviation_hours) > 168).length;
   const early2d = eta_2d.failed_shipments.filter(s => s.deviation_hours != null && s.deviation_hours < 0).length;
   const late2d = eta_2d.failed_shipments.filter(s => s.deviation_hours != null && s.deviation_hours > 0).length;
+  const within7d2d = eta_2d.failed_shipments.filter(s => s.deviation_hours != null && Math.abs(s.deviation_hours) <= 168).length;
+  const beyond7d2d = eta_2d.failed_shipments.filter(s => s.deviation_hours != null && Math.abs(s.deviation_hours) > 168).length;
 
   const formatDate = v => v ? v.replace('T', ' ').slice(0, 16) : '—';
 
@@ -355,6 +359,18 @@ export default function ETARefRCA({ rcaData, selectedWeek }) {
         if (s.deviation_hours < 0) return '#2563eb';
         return Math.abs(s.deviation_hours) > 48 ? '#dc2626' : '#d97706';
       },
+    },
+    { key: 'bosch_7d', label: 'Bosch 7d Ref', align: 'center',
+      render: s => {
+        if (s.deviation_hours == null) return '—';
+        const within = Math.abs(s.deviation_hours) <= 168;
+        return within ? 'Pass' : 'Fail';
+      },
+      color: s => {
+        if (s.deviation_hours == null) return 'var(--text-muted)';
+        return Math.abs(s.deviation_hours) <= 168 ? '#16a34a' : '#dc2626';
+      },
+      bold: true,
     },
   ];
 
@@ -419,14 +435,22 @@ export default function ETARefRCA({ rcaData, selectedWeek }) {
             letterSpacing: '0.06em',
             marginBottom: 8,
           }}>ETA 2P Breakdown</div>
-          <div style={{ display: 'flex', gap: 20 }}>
+          <div style={{ display: 'flex', gap: 20, flexWrap: 'wrap' }}>
             <div>
               <span style={{ fontFamily: 'var(--font-mono)', fontSize: '1.1rem', fontWeight: 500, color: '#2563eb' }}>{early2p}</span>
-              <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.68rem', color: 'var(--text-muted)', marginLeft: 6 }}>Early (arrived before ETA)</span>
+              <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.68rem', color: 'var(--text-muted)', marginLeft: 6 }}>Early</span>
             </div>
             <div>
               <span style={{ fontFamily: 'var(--font-mono)', fontSize: '1.1rem', fontWeight: 500, color: '#dc2626' }}>{late2p}</span>
-              <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.68rem', color: 'var(--text-muted)', marginLeft: 6 }}>Late (arrived after ETA)</span>
+              <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.68rem', color: 'var(--text-muted)', marginLeft: 6 }}>Late</span>
+            </div>
+            <div style={{ borderLeft: '1px solid var(--border)', paddingLeft: 16 }}>
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '1.1rem', fontWeight: 500, color: '#16a34a' }}>{within7d2p}</span>
+              <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.68rem', color: 'var(--text-muted)', marginLeft: 6 }}>Within 7d</span>
+            </div>
+            <div>
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '1.1rem', fontWeight: 500, color: '#dc2626' }}>{beyond7d2p}</span>
+              <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.68rem', color: 'var(--text-muted)', marginLeft: 6 }}>Beyond 7d</span>
             </div>
           </div>
         </div>
@@ -447,14 +471,22 @@ export default function ETARefRCA({ rcaData, selectedWeek }) {
             letterSpacing: '0.06em',
             marginBottom: 8,
           }}>ETA 2D Breakdown</div>
-          <div style={{ display: 'flex', gap: 20 }}>
+          <div style={{ display: 'flex', gap: 20, flexWrap: 'wrap' }}>
             <div>
               <span style={{ fontFamily: 'var(--font-mono)', fontSize: '1.1rem', fontWeight: 500, color: '#2563eb' }}>{early2d}</span>
-              <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.68rem', color: 'var(--text-muted)', marginLeft: 6 }}>Early (delivered before est.)</span>
+              <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.68rem', color: 'var(--text-muted)', marginLeft: 6 }}>Early</span>
             </div>
             <div>
               <span style={{ fontFamily: 'var(--font-mono)', fontSize: '1.1rem', fontWeight: 500, color: '#dc2626' }}>{late2d}</span>
-              <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.68rem', color: 'var(--text-muted)', marginLeft: 6 }}>Late (delivered after est.)</span>
+              <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.68rem', color: 'var(--text-muted)', marginLeft: 6 }}>Late</span>
+            </div>
+            <div style={{ borderLeft: '1px solid var(--border)', paddingLeft: 16 }}>
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '1.1rem', fontWeight: 500, color: '#16a34a' }}>{within7d2d}</span>
+              <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.68rem', color: 'var(--text-muted)', marginLeft: 6 }}>Within 7d</span>
+            </div>
+            <div>
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '1.1rem', fontWeight: 500, color: '#dc2626' }}>{beyond7d2d}</span>
+              <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.68rem', color: 'var(--text-muted)', marginLeft: 6 }}>Beyond 7d</span>
             </div>
           </div>
         </div>
