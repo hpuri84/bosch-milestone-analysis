@@ -345,20 +345,22 @@ export default function ETARefRCA({ rcaData, selectedWeek }) {
     { key: 'origin', label: 'Origin' },
     { key: 'dest', label: 'Destination' },
     { key: 'carrier', label: 'Carrier' },
-    { key: 'estimated', label: 'Estimated', render: s => formatDate(s.estimated) },
-    { key: 'actual', label: 'Actual', render: s => formatDate(s.actual) },
-    { key: 'deviation_hours', label: 'Deviation (h)', align: 'right',
+    { key: 'eta_baseline', label: 'ETA Baseline', render: s => formatDate(s.eta_baseline || s.estimated) },
+    { key: 'window_start', label: 'Window -48h', render: s => formatDate(s.window_start), color: () => '#6b7280' },
+    { key: 'window_end', label: 'Window +48h', render: s => formatDate(s.window_end), color: () => '#6b7280' },
+    { key: 'actual', label: 'Actual', render: s => formatDate(s.actual), bold: true },
+    { key: 'deviation_days', label: 'Deviation', align: 'right',
       render: s => {
-        if (s.deviation_hours == null) return '—';
-        const h = s.deviation_hours;
-        const prefix = h < 0 ? '' : '+';
-        return `${prefix}${h}h`;
+        if (s.deviation_days == null) return '—';
+        const arrow = s.direction === 'late' ? '↑' : '↓';
+        return `${arrow} ${Math.abs(s.deviation_days).toFixed(1)}d`;
       },
-      color: s => {
-        if (s.deviation_hours == null) return 'var(--text-muted)';
-        if (s.deviation_hours < 0) return '#2563eb';
-        return Math.abs(s.deviation_hours) > 48 ? '#dc2626' : '#d97706';
-      },
+      color: s => s.direction === 'late' ? '#dc2626' : '#2563eb',
+      bold: true
+    },
+    { key: 'direction', label: 'Early/Late', align: 'center',
+      render: s => s.direction ? s.direction.toUpperCase() : '—',
+      color: s => s.direction === 'late' ? '#dc2626' : '#2563eb'
     },
     { key: 'bosch_7d', label: 'Bosch 7d Ref', align: 'center',
       render: s => {
