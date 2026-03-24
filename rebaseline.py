@@ -21,10 +21,11 @@ import json
 BASE = "/Users/harsh.puri/Documents/work-maersk/Prototype Playground/Bosch Milestone Analysis"
 RAW_DIR = os.path.join(BASE, "Bosch Milestone raw data")
 
-WEEKS = ["CW01", "CW02", "CW03", "CW04", "CW05", "CW06", "CW07", "CW08"]
+WEEKS = ["CW01", "CW02", "CW03", "CW04", "CW05", "CW06", "CW07", "CW08", "CW09", "CW10"]
 
-SC3_FILES = {f"CW{i:02d}": f"Maersk NGTM SC3_2026_CW{i:02d}.xlsx" for i in range(1, 9)}
-SC4_FILES = {f"CW{i:02d}": f"Maersk SC4_2026_CW{i:02d}.xlsx" for i in range(1, 9)}
+SC3_FILES = {f"CW{i:02d}": f"Maersk NGTM SC3_2026_CW{i:02d}.xlsx" for i in range(1, 10)}
+SC3_FILES["CW10"] = "Maersk SC3_2026_CW10.xlsx"  # CW10 has different naming
+SC4_FILES = {f"CW{i:02d}": f"Maersk SC4_2026_CW{i:02d}.xlsx" for i in range(1, 11)}
 
 SC3_CRITICAL_CODES = {"S02", "S04", "S07", "S31"}
 SC4_CRITICAL_CODES = {"S00", "S02", "S04", "S07", "S31"}
@@ -233,6 +234,19 @@ def read_summary_from_row(ws, header_row):
     return rows
 
 
+def count_sc3_shipments(filepath):
+    """Count unique shipments in SC3 shipments sheet."""
+    wb = openpyxl.load_workbook(filepath, data_only=True)
+    sheet_name = find_shipments_sheet(wb)
+    if not sheet_name:
+        wb.close()
+        return 0
+    ws = wb[sheet_name]
+    count = sum(1 for row in ws.iter_rows(min_row=4, max_row=ws.max_row, values_only=True) if row[0])
+    wb.close()
+    return count
+
+
 def read_sc4_shipments(filepath):
     wb = openpyxl.load_workbook(filepath, data_only=True)
     sheet_name = find_shipments_sheet(wb)
@@ -301,6 +315,7 @@ def compute_eta_and_ref(shipments):
         return {"eta_2p": None, "eta_2d": None, "ref_comp": None}
 
     s07_col = s31_col = civ_col = dn_col = None
+    ata_col = delivered_col = None
     for key in shipments[0].keys():
         if "S07_Accepted" in key:
             s07_col = key
@@ -310,15 +325,41 @@ def compute_eta_and_ref(shipments):
             civ_col = key
         if "DELIVERY_NOTE" in key:
             dn_col = key
+        if key == "ATA_DATE_TIME":
+            ata_col = key
+        if key == "DELIVERED_DATE_TIME":
+            delivered_col = key
 
-    # ETA 2P
-    s07_total = sum(1 for s in shipments if s.get(s07_col) is not None) if s07_col else 0
-    s07_acc = sum(1 for s in shipments if s.get(s07_col) == 1) if s07_col else 0
+    # ETA 2P — exclude in-transit (S07_Accepted=0, no ATA)
+    s07_total = 0
+    s07_acc = 0
+    if s07_col:
+        for s in shipments:
+            val = s.get(s07_col)
+            if val is None:
+                continue
+            # Skip in-transit: not accepted and no actual arrival
+            if val == 0 and (ata_col is None or s.get(ata_col) is None):
+                continue
+            s07_total += 1
+            if val == 1:
+                s07_acc += 1
     eta_2p = round(s07_acc / s07_total, 4) if s07_total > 0 else None
 
-    # ETA 2D
-    s31_total = sum(1 for s in shipments if s.get(s31_col) is not None) if s31_col else 0
-    s31_acc = sum(1 for s in shipments if s.get(s31_col) == 1) if s31_col else 0
+    # ETA 2D — exclude undelivered (S31_Accepted=0, no delivered date)
+    s31_total = 0
+    s31_acc = 0
+    if s31_col:
+        for s in shipments:
+            val = s.get(s31_col)
+            if val is None:
+                continue
+            # Skip undelivered: not accepted and no actual delivery
+            if val == 0 and (delivered_col is None or s.get(delivered_col) is None):
+                continue
+            s31_total += 1
+            if val == 1:
+                s31_acc += 1
     eta_2d = round(s31_acc / s31_total, 4) if s31_total > 0 else None
 
     # Reference Completeness
@@ -409,6 +450,10 @@ def process_week(week):
     shipments = read_sc4_shipments(sc4_file)
     eta_ref = compute_eta_and_ref(shipments)
 
+    # Shipment counts (unique shipments from Shipments sheets)
+    sc3_ship_count = count_sc3_shipments(sc3_file)
+    sc4_ship_count = len(shipments)
+
     return {
         "week": week,
         "critical": crit_kpis,
@@ -417,6 +462,8 @@ def process_week(week):
         "sc4_total": sc4_total,
         "sc3_critical": sc3_crit_total,
         "sc4_critical": sc4_crit_total,
+        "sc3_shipments": sc3_ship_count,
+        "sc4_shipments": sc4_ship_count,
         "service_breakdown": service_breakdown,
         **eta_ref,
     }

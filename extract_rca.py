@@ -17,9 +17,10 @@ import json
 BASE = "/Users/harsh.puri/Documents/work-maersk/Prototype Playground/Bosch Milestone Analysis"
 RAW_DIR = os.path.join(BASE, "Bosch Milestone raw data")
 
-WEEKS = ["CW01", "CW02", "CW03", "CW04", "CW05", "CW06", "CW07", "CW08"]
-SC3_FILES = {f"CW{i:02d}": f"Maersk NGTM SC3_2026_CW{i:02d}.xlsx" for i in range(1, 9)}
-SC4_FILES = {f"CW{i:02d}": f"Maersk SC4_2026_CW{i:02d}.xlsx" for i in range(1, 9)}
+WEEKS = ["CW01", "CW02", "CW03", "CW04", "CW05", "CW06", "CW07", "CW08", "CW09", "CW10"]
+SC3_FILES = {f"CW{i:02d}": f"Maersk NGTM SC3_2026_CW{i:02d}.xlsx" for i in range(1, 10)}
+SC3_FILES["CW10"] = "Maersk SC3_2026_CW10.xlsx"  # CW10 has different naming
+SC4_FILES = {f"CW{i:02d}": f"Maersk SC4_2026_CW{i:02d}.xlsx" for i in range(1, 11)}
 
 SC3_CRITICAL_CODES = {"S02", "S04", "S07", "S31"}
 SC4_CRITICAL_CODES = {"S00", "S02", "S04", "S07", "S31"}
@@ -388,39 +389,47 @@ def extract_eta_ref_rca(filepath):
             "carrier": carrier,
         }
 
-        # ETA 2P (S07)
+        # ETA 2P (S07) — only count if vessel has actually arrived (ATA exists)
+        ata_val = vals[ata_col] if ata_col is not None else None
         if s07_col is not None and vals[s07_col] is not None:
-            eta_2p_total += 1
             s07_val = vals[s07_col]
-            if s07_val == 1:
-                eta_2p_accepted += 1
+            # Skip in-transit shipments: S07_Accepted=0 but no ATA means not yet measurable
+            if s07_val == 0 and ata_val is None:
+                pass  # in-transit, exclude from measurement
             else:
-                deviation = vals[s07_dev_col] if s07_dev_col and vals[s07_dev_col] else None
-                eta_val = vals[eta_col] if eta_col is not None else None
-                ata_val = vals[ata_col] if ata_col is not None else None
-                eta_2p_failed.append({
-                    **base_info,
-                    "deviation_hours": round(float(deviation), 1) if deviation and isinstance(deviation, (int, float)) else None,
-                    "estimated": str(eta_val)[:16] if eta_val else None,
-                    "actual": str(ata_val)[:16] if ata_val else None,
-                })
+                eta_2p_total += 1
+                if s07_val == 1:
+                    eta_2p_accepted += 1
+                else:
+                    deviation = vals[s07_dev_col] if s07_dev_col and vals[s07_dev_col] else None
+                    eta_val = vals[eta_col] if eta_col is not None else None
+                    eta_2p_failed.append({
+                        **base_info,
+                        "deviation_hours": round(float(deviation), 1) if deviation and isinstance(deviation, (int, float)) else None,
+                        "estimated": str(eta_val)[:16] if eta_val else None,
+                        "actual": str(ata_val)[:16] if ata_val else None,
+                    })
 
-        # ETA 2D (S31)
+        # ETA 2D (S31) — only count if actually delivered
+        delivered_val = vals[delivered_col] if delivered_col is not None else None
         if s31_col is not None and vals[s31_col] is not None:
-            eta_2d_total += 1
             s31_val = vals[s31_col]
-            if s31_val == 1:
-                eta_2d_accepted += 1
+            # Skip undelivered shipments: S31_Accepted=0 but no delivered date means not yet measurable
+            if s31_val == 0 and delivered_val is None:
+                pass  # not yet delivered, exclude from measurement
             else:
-                deviation = vals[s31_dev_col] if s31_dev_col and vals[s31_dev_col] else None
-                del_est_val = vals[del_est_col] if del_est_col is not None else None
-                delivered_val = vals[delivered_col] if delivered_col is not None else None
-                eta_2d_failed.append({
-                    **base_info,
-                    "deviation_hours": round(float(deviation), 1) if deviation and isinstance(deviation, (int, float)) else None,
-                    "estimated": str(del_est_val)[:16] if del_est_val else None,
-                    "actual": str(delivered_val)[:16] if delivered_val else None,
-                })
+                eta_2d_total += 1
+                if s31_val == 1:
+                    eta_2d_accepted += 1
+                else:
+                    deviation = vals[s31_dev_col] if s31_dev_col and vals[s31_dev_col] else None
+                    del_est_val = vals[del_est_col] if del_est_col is not None else None
+                    eta_2d_failed.append({
+                        **base_info,
+                        "deviation_hours": round(float(deviation), 1) if deviation and isinstance(deviation, (int, float)) else None,
+                        "estimated": str(del_est_val)[:16] if del_est_val else None,
+                        "actual": str(delivered_val)[:16] if delivered_val else None,
+                    })
 
         # Reference Completeness
         ref_total += 1
@@ -467,22 +476,93 @@ def extract_eta_ref_rca(filepath):
     }
 
 
-def extract_plausibility_rca(filepath):
-    """Extract milestone sequence plausibility violations from SC4 shipments sheet.
+"""
+Milestone Accuracy Check — Plausibility Rules
 
-    Checks:
-      - POD > Delivery (ATA after DELIVERED — physically impossible)
-      - POL > POD (ATD after ATA)
-      - Pickup > POL (COLLECTED after ATD)
-      - Gap > 60 days between consecutive stages
-    """
-    from datetime import datetime, timedelta
+Expected milestone sequence:
+  PUP_EST (S02 est) ≤ PUP (S02 act) ≤ ETD/ATD (S04) ≤ ETA/ATA (S07) ≤ POD_EST/POD (S31)
 
+24 pairwise rules enforce this ordering:
+  - S02 cannot be after S04, S07, S31
+  - S04 cannot be before S02, cannot be after S07, S31
+  - S07 cannot be before S02/S04, cannot be after S31
+  - S31 cannot be before S02/S04/S07
+"""
+
+# Milestone date field names (logical)
+#   PUP_EST = Planned pickup (S02 est)
+#   PUP     = Collected (S02 act)
+#   ETD     = Est. departure (S04 est)
+#   ATD     = Act. departure (S04 act — VD for LCL, DEP for BCN/FCL)
+#   ETA     = Est. arrival (S07 est)
+#   ATA     = Act. arrival (S07 act — VA for LCL, ARR for BCN/FCL)
+#   POD_EST = Planned delivery (S31 est)
+#   POD     = Delivered (S31 act)
+
+PLAUSIBILITY_RULES = [
+    # S02 (est/act) cannot be after S04/S07/S31
+    ("PUP_EST", "ETD",     "S02 est > S04 est",  "Planned pickup after est. departure"),
+    ("PUP_EST", "ATD",     "S02 est > S04 act",  "Planned pickup after act. departure"),
+    ("PUP_EST", "ETA",     "S02 est > S07 est",  "Planned pickup after est. arrival"),
+    ("PUP_EST", "ATA",     "S02 est > S07 act",  "Planned pickup after act. arrival"),
+    ("PUP_EST", "POD_EST", "S02 est > S31 est",  "Planned pickup after planned delivery"),
+    ("PUP_EST", "POD",     "S02 est > S31 act",  "Planned pickup after delivery"),
+    ("PUP",     "ETD",     "S02 act > S04 est",  "Collected after est. departure"),
+    ("PUP",     "ATD",     "S02 act > S04 act",  "Collected after act. departure"),
+    ("PUP",     "ETA",     "S02 act > S07 est",  "Collected after est. arrival"),
+    ("PUP",     "ATA",     "S02 act > S07 act",  "Collected after act. arrival"),
+    ("PUP",     "POD_EST", "S02 act > S31 est",  "Collected after planned delivery"),
+    ("PUP",     "POD",     "S02 act > S31 act",  "Collected after delivery"),
+    # S04 cannot be after S07/S31
+    ("ETD",     "ETA",     "S04 est > S07 est",  "Est. departure after est. arrival"),
+    ("ETD",     "ATA",     "S04 est > S07 act",  "Est. departure after act. arrival"),
+    ("ETD",     "POD_EST", "S04 est > S31 est",  "Est. departure after planned delivery"),
+    ("ETD",     "POD",     "S04 est > S31 act",  "Est. departure after delivery"),
+    ("ATD",     "ETA",     "S04 act > S07 est",  "Act. departure after est. arrival"),
+    ("ATD",     "ATA",     "S04 act > S07 act",  "Act. departure after act. arrival"),
+    ("ATD",     "POD_EST", "S04 act > S31 est",  "Act. departure after planned delivery"),
+    ("ATD",     "POD",     "S04 act > S31 act",  "Act. departure after delivery"),
+    # S07 cannot be after S31
+    ("ETA",     "POD_EST", "S07 est > S31 est",  "Est. arrival after planned delivery"),
+    ("ETA",     "POD",     "S07 est > S31 act",  "Est. arrival after delivery"),
+    ("ATA",     "POD_EST", "S07 act > S31 est",  "Act. arrival after planned delivery"),
+    ("ATA",     "POD",     "S07 act > S31 act",  "Act. arrival after delivery"),
+]
+
+# Milestone group for summary: which milestone pair category
+MILESTONE_GROUPS = {
+    "S02 est": "S02", "S02 act": "S02",
+    "S04 est": "S04", "S04 act": "S04",
+    "S07 est": "S07", "S07 act": "S07",
+    "S31 est": "S31", "S31 act": "S31",
+}
+
+# Minimum valid date — SC3 has bogus dates like 1900-01-02
+MIN_VALID_DATE = None  # set in function
+
+
+def _valid_dt(val):
+    """Return datetime if valid (post-2020), else None."""
+    from datetime import datetime
+    if isinstance(val, datetime) and val.year >= 2020:
+        return val
+    return None
+
+
+def _safe_col(vals, col_idx):
+    """Safely get a column value."""
+    if col_idx is not None and col_idx < len(vals):
+        return _valid_dt(vals[col_idx])
+    return None
+
+
+def extract_plausibility_rca_sc4(filepath):
+    """Extract milestone accuracy violations from SC4 shipments sheet."""
     wb = openpyxl.load_workbook(filepath, data_only=True)
     sheet_name = find_shipments_sheet(wb)
     if not sheet_name:
         wb.close()
-        return None
+        return [], 0, set()
 
     ws = wb[sheet_name]
     header_row = None
@@ -511,21 +591,17 @@ def extract_plausibility_rca(filepath):
     transport_col = col_map.get("TRANSPORT_SERVICE_PRIORITY", None)
     dataset_col = col_map.get("DATASET", None)
 
-    collected_col = col_map.get("COLLECTED_DATE_TIME", 74)
-    atd_col = col_map.get("ATD_DATE_TIME", 77)
-    ata_col = col_map.get("ATA_DATE_TIME", 79)
-    delivered_col = col_map.get("DELIVERED_DATE_TIME", 81)
-    etd_col = col_map.get("ETD_DATE_TIME", 76)
-    eta_col = col_map.get("ETA_DATE_TIME", 78)
-
-    RULES = [
-        {"id": "pod_gt_delivery", "label": "POD > Delivery", "desc": "Port arrival after door delivery",
-         "severity": "critical", "check_cols": (ata_col, delivered_col)},
-        {"id": "pol_gt_pod", "label": "POL > POD", "desc": "Departure after port arrival",
-         "severity": "critical", "check_cols": (atd_col, ata_col)},
-        {"id": "pickup_gt_pol", "label": "Pickup > POL", "desc": "Collection after vessel departure",
-         "severity": "critical", "check_cols": (collected_col, atd_col)},
-    ]
+    # SC4 date column mapping
+    date_cols = {
+        "PUP_EST": col_map.get("TARGET_COLLECTION", 73),
+        "PUP":     col_map.get("COLLECTED_DATE_TIME", 74),
+        "ETD":     col_map.get("ETD_DATE_TIME", 76),
+        "ATD":     col_map.get("ATD_DATE_TIME", 77),
+        "ETA":     col_map.get("ETA_DATE_TIME", 78),
+        "ATA":     col_map.get("ATA_DATE_TIME", 79),
+        "POD_EST": col_map.get("DELIVERY_DATE_ACT_EST_PLAN", 71),
+        "POD":     col_map.get("DELIVERED_DATE_TIME", 81),
+    }
 
     violations = []
     total_shipments = 0
@@ -549,89 +625,148 @@ def extract_plausibility_rca(filepath):
         base_info = {
             "hbl": hbl, "mbl": mbl, "consignment": consignment,
             "carrier": carrier, "origin": origin, "dest": dest,
-            "transport": transport, "dataset": dataset,
+            "transport": transport, "dataset": dataset, "scenario": "SC4",
         }
 
-        collected = vals[collected_col] if isinstance(vals[collected_col], datetime) else None
-        atd = vals[atd_col] if isinstance(vals[atd_col], datetime) else None
-        ata = vals[ata_col] if isinstance(vals[ata_col], datetime) else None
-        delivered = vals[delivered_col] if isinstance(vals[delivered_col], datetime) else None
+        # Get all 8 date values
+        dates = {k: _safe_col(vals, c) for k, c in date_cols.items()}
 
-        dates = {"collected": collected, "atd": atd, "ata": ata, "delivered": delivered}
-
-        # Sequence violations
-        for rule in RULES:
-            col_a, col_b = rule["check_cols"]
-            date_a = vals[col_a] if isinstance(vals[col_a], datetime) else None
-            date_b = vals[col_b] if isinstance(vals[col_b], datetime) else None
-            if date_a and date_b and date_a > date_b:
-                gap_days = (date_a - date_b).days
+        for field_a, field_b, rule_id, desc in PLAUSIBILITY_RULES:
+            da = dates.get(field_a)
+            db = dates.get(field_b)
+            if da and db and da > db:
+                gap_hours = (da - db).total_seconds() / 3600
                 affected_hbls.add(hbl)
                 violations.append({
                     **base_info,
-                    "rule": rule["id"],
-                    "rule_label": rule["label"],
-                    "severity": rule["severity"],
-                    "gap_days": gap_days,
-                    "date_a": date_a.isoformat() if date_a else None,
-                    "date_b": date_b.isoformat() if date_b else None,
-                })
-
-        # Gap > 60 days between consecutive stages
-        stage_pairs = [
-            ("collected", "atd", "Pickup → Departure"),
-            ("atd", "ata", "Departure → Arrival"),
-            ("ata", "delivered", "Arrival → Delivery"),
-        ]
-        for key_a, key_b, pair_label in stage_pairs:
-            da = dates[key_a]
-            db = dates[key_b]
-            if da and db and db > da and (db - da).days > 60:
-                gap_days = (db - da).days
-                affected_hbls.add(hbl)
-                violations.append({
-                    **base_info,
-                    "rule": "gap_gt_60d",
-                    "rule_label": f"Gap > 60d: {pair_label}",
-                    "severity": "warning",
-                    "gap_days": gap_days,
+                    "rule": rule_id,
+                    "rule_label": f"{field_a} > {field_b}",
+                    "description": desc,
+                    "field_a": field_a,
+                    "field_b": field_b,
                     "date_a": da.isoformat(),
                     "date_b": db.isoformat(),
+                    "gap_hours": round(gap_hours, 1),
                 })
 
     wb.close()
+    return violations, total_shipments, affected_hbls
 
-    # Summarize by rule
+
+def extract_plausibility_rca_sc3(filepath):
+    """Extract milestone accuracy violations from SC3 shipments sheet."""
+    wb = openpyxl.load_workbook(filepath, data_only=True)
+    sheet_name = find_shipments_sheet(wb)
+    if not sheet_name:
+        wb.close()
+        return [], 0, set()
+
+    ws = wb[sheet_name]
+    header_row = 3
+
+    headers = list(next(ws.iter_rows(min_row=header_row, max_row=header_row, values_only=True)))
+    col_map = {}
+    for i, h in enumerate(headers):
+        if h:
+            col_map[str(h).strip()] = i
+
+    hbl_col = col_map.get("House_Airway_Bill_or_House_Bill_of_Lading", 86)
+    mbl_col = col_map.get("Airway_Bill_or_Bill_of_lading", 85)
+    load_to_col = col_map.get("LOAD_TO", 2)
+    origin_col = col_map.get("Consignor_Name", None)
+    dest_col = col_map.get("Recipient_Name", None)
+    carrier_col = col_map.get("Main_Carrier_or_Shipping_Line", None)
+
+    # SC3 date column mapping
+    date_cols = {
+        "PUP_EST": col_map.get("Pick_up_date", 51),
+        "PUP":     col_map.get("Collected_Sent_DATE_TIME", 99),
+        "ETD":     col_map.get("ETD_Datetime", 93),
+        "ATD":     col_map.get("ATD_Datetime", 94),
+        "ETA":     col_map.get("ETA_Datetime", 91),
+        "ATA":     col_map.get("ATA_Datetime", 92),
+        "POD_EST": col_map.get("Arrival_date", 55),
+        "POD":     col_map.get("Delivered_Sent_DATE_TIME", 101),
+    }
+
+    violations = []
+    total_shipments = 0
+    affected_hbls = set()
+
+    for row in ws.iter_rows(min_row=header_row + 1, max_row=ws.max_row, values_only=True):
+        vals = list(row)
+        if not vals[0]:
+            continue
+        total_shipments += 1
+
+        hbl = str(vals[hbl_col]).strip() if hbl_col < len(vals) and vals[hbl_col] else ""
+        mbl = str(vals[mbl_col]).strip() if mbl_col < len(vals) and vals[mbl_col] else ""
+        load_to = str(vals[load_to_col]).strip() if load_to_col < len(vals) and vals[load_to_col] else ""
+        origin = str(vals[origin_col]).strip() if origin_col is not None and origin_col < len(vals) and vals[origin_col] else ""
+        dest = str(vals[dest_col]).strip() if dest_col is not None and dest_col < len(vals) and vals[dest_col] else ""
+        carrier = str(vals[carrier_col]).strip() if carrier_col is not None and carrier_col < len(vals) and vals[carrier_col] else ""
+
+        base_info = {
+            "hbl": hbl, "mbl": mbl, "consignment": load_to,
+            "carrier": carrier, "origin": origin, "dest": dest,
+            "transport": "", "dataset": "", "scenario": "SC3",
+        }
+
+        dates = {k: _safe_col(vals, c) for k, c in date_cols.items()}
+
+        for field_a, field_b, rule_id, desc in PLAUSIBILITY_RULES:
+            da = dates.get(field_a)
+            db = dates.get(field_b)
+            if da and db and da > db:
+                gap_hours = (da - db).total_seconds() / 3600
+                affected_hbls.add(hbl or load_to)
+                violations.append({
+                    **base_info,
+                    "rule": rule_id,
+                    "rule_label": f"{field_a} > {field_b}",
+                    "description": desc,
+                    "field_a": field_a,
+                    "field_b": field_b,
+                    "date_a": da.isoformat(),
+                    "date_b": db.isoformat(),
+                    "gap_hours": round(gap_hours, 1),
+                })
+
+    wb.close()
+    return violations, total_shipments, affected_hbls
+
+
+def extract_plausibility_rca(sc4_filepath, sc3_filepath):
+    """Extract combined SC3+SC4 milestone accuracy violations."""
     from collections import Counter
-    rule_counts = Counter(v["rule"] for v in violations)
-    severity_counts = Counter(v["severity"] for v in violations)
 
-    # Gap buckets for POD > Delivery
-    pod_violations = [v for v in violations if v["rule"] == "pod_gt_delivery"]
-    gap_buckets = {"1-7d": 0, "8-30d": 0, "31-60d": 0, "61-90d": 0, ">90d": 0}
-    for v in pod_violations:
-        g = v["gap_days"]
-        if g <= 7:
-            gap_buckets["1-7d"] += 1
-        elif g <= 30:
-            gap_buckets["8-30d"] += 1
-        elif g <= 60:
-            gap_buckets["31-60d"] += 1
-        elif g <= 90:
-            gap_buckets["61-90d"] += 1
-        else:
-            gap_buckets[">90d"] += 1
+    sc4_violations, sc4_total, sc4_affected = extract_plausibility_rca_sc4(sc4_filepath)
+    sc3_violations, sc3_total, sc3_affected = extract_plausibility_rca_sc3(sc3_filepath)
+
+    all_violations = sc4_violations + sc3_violations
+    total_shipments = sc4_total + sc3_total
+    all_affected = sc4_affected | sc3_affected
+
+    rule_counts = Counter(v["rule"] for v in all_violations)
+
+    # Group violations by milestone pair category
+    milestone_pair_counts = Counter()
+    for v in all_violations:
+        pair = f"{v['field_a']} > {v['field_b']}"
+        milestone_pair_counts[pair] += 1
 
     return {
         "total_shipments": total_shipments,
-        "affected_hbls": len(affected_hbls),
-        "total_violations": len(violations),
-        "critical_count": severity_counts.get("critical", 0),
-        "warning_count": severity_counts.get("warning", 0),
+        "sc4_shipments": sc4_total,
+        "sc3_shipments": sc3_total,
+        "affected_hbls": len(all_affected),
+        "sc4_affected": len(sc4_affected),
+        "sc3_affected": len(sc3_affected),
+        "total_violations": len(all_violations),
         "rule_counts": dict(rule_counts),
-        "gap_buckets": gap_buckets,
-        "violations": violations,
-        "total_violation_records": len(violations),
+        "milestone_pair_counts": dict(milestone_pair_counts),
+        "violations": all_violations,
+        "total_violation_records": len(all_violations),
     }
 
 
@@ -745,8 +880,8 @@ def process_week(week):
     # ETA & Reference RCA (SC4 only)
     eta_ref_rca = extract_eta_ref_rca(sc4_file)
 
-    # Plausibility RCA (SC4 only)
-    plausibility_rca = extract_plausibility_rca(sc4_file)
+    # Plausibility RCA (SC3 + SC4 combined)
+    plausibility_rca = extract_plausibility_rca(sc4_file, sc3_file)
 
     return {
         "week": week,
