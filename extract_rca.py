@@ -335,6 +335,7 @@ def extract_eta_ref_rca(filepath):
     s07_col = s31_col = s07_dev_col = s31_dev_col = None
     civ_col = dn_col = None
     eta_col = ata_col = del_est_col = delivered_col = None
+    s07_eta_measured_col = s31_eta_measured_col = None
     for key, idx in col_map.items():
         if "S07_Accepted" in key:
             s07_col = idx
@@ -344,6 +345,10 @@ def extract_eta_ref_rca(filepath):
             s07_dev_col = idx
         if "S31_Deviation" in key:
             s31_dev_col = idx
+        if "S07_TS_@measured" in key and "list" in key:
+            s07_eta_measured_col = idx
+        if "S31_TS_@measured" in key and "list" in key:
+            s31_eta_measured_col = idx
         if "COMMERCIAL_INVOICE" in key:
             civ_col = idx
         if "DELIVERY_NOTE" in key:
@@ -367,7 +372,8 @@ def extract_eta_ref_rca(filepath):
     ref_complete_count = 0
     ref_total = 0
 
-    for row in ws.iter_rows(min_row=header_row + 1, max_row=ws.max_row, values_only=True):
+    DEBUG = False  # Set to True to enable debug output
+    for row_num, row in enumerate(ws.iter_rows(min_row=header_row + 1, max_row=ws.max_row, values_only=True), header_row + 1):
         vals = list(row)
         if not vals[0]:
             continue
@@ -391,19 +397,34 @@ def extract_eta_ref_rca(filepath):
         }
 
         # ETA 2P (S07) — only count if vessel has actually arrived (ATA exists)
-        ata_val = vals[ata_col] if ata_col is not None else None
-        if s07_col is not None and vals[s07_col] is not None:
+        ata_val = vals[ata_col] if ata_col is not None and ata_col < len(vals) else None
+        if DEBUG and row_num == 17 and '25HA30007606A' in hbl:
+            print(f'DEBUG row {row_num}: HBL={hbl}, s07_col={s07_col}, len(vals)={len(vals)}')
+            if s07_col is not None and s07_col < len(vals):
+                print(f'  vals[s07_col]={vals[s07_col]}, ata_col={ata_col}, ata_val={ata_val}')
+        if s07_col is not None and s07_col < len(vals) and vals[s07_col] is not None:
             s07_val = vals[s07_col]
+            if DEBUG and '25HA30007606A' in hbl:
+                print(f'  S07 check: s07_val={s07_val}, ata_val={ata_val}')
             # Skip in-transit shipments: S07_Accepted=0 but no ATA means not yet measurable
             if s07_val == 0 and ata_val is None:
+                if DEBUG and '25HA30007606A' in hbl:
+                    print(f'  SKIPPED: in-transit (S07=0, no ATA)')
                 pass  # in-transit, exclude from measurement
             else:
                 eta_2p_total += 1
                 if s07_val == 1:
                     eta_2p_accepted += 1
+                    if DEBUG and '25HA30007606A' in hbl:
+                        print(f'  ACCEPTED')
                 else:
-                    deviation = vals[s07_dev_col] if s07_dev_col and vals[s07_dev_col] else None
-                    eta_val = vals[eta_col] if eta_col is not None else None
+                    if DEBUG and '25HA30007606A' in hbl:
+                        print(f'  FAILED - adding to list')
+                    deviation = vals[s07_dev_col] if s07_dev_col and s07_dev_col < len(vals) and vals[s07_dev_col] else None
+                    # Use S07 measured ETA if available (the ETA at time of measurement), fallback to current ETA
+                    eta_val = vals[s07_eta_measured_col] if s07_eta_measured_col and s07_eta_measured_col < len(vals) and vals[s07_eta_measured_col] else (vals[eta_col] if eta_col is not None and eta_col < len(vals) else None)
+                    if DEBUG and '25HA30007606A' in hbl:
+                        print(f'    deviation={deviation}, eta_val={eta_val}, s07_eta_measured_col={s07_eta_measured_col}')
                     dev_hours = round(float(deviation), 1) if deviation and isinstance(deviation, (int, float)) else None
                     eta_2p_failed.append({
                         **base_info,
@@ -416,6 +437,8 @@ def extract_eta_ref_rca(filepath):
                         "window_start": str(eta_val - timedelta(hours=48))[:16] if eta_val and hasattr(eta_val, '__sub__') else None,
                         "window_end": str(eta_val + timedelta(hours=48))[:16] if eta_val and hasattr(eta_val, '__add__') else None,
                     })
+                    if DEBUG and '25HA30007606A' in hbl:
+                        print(f'    Added to eta_2p_failed. List size now: {len(eta_2p_failed)}')
 
         # ETA 2D (S31) — only count if actually delivered
         delivered_val = vals[delivered_col] if delivered_col is not None else None
@@ -430,7 +453,8 @@ def extract_eta_ref_rca(filepath):
                     eta_2d_accepted += 1
                 else:
                     deviation = vals[s31_dev_col] if s31_dev_col and vals[s31_dev_col] else None
-                    del_est_val = vals[del_est_col] if del_est_col is not None else None
+                    # Use S31 measured ETA if available (the ETA at time of measurement), fallback to current delivery estimate
+                    del_est_val = vals[s31_eta_measured_col] if s31_eta_measured_col and vals[s31_eta_measured_col] else (vals[del_est_col] if del_est_col is not None else None)
                     dev_hours = round(float(deviation), 1) if deviation and isinstance(deviation, (int, float)) else None
                     eta_2d_failed.append({
                         **base_info,
