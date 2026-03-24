@@ -15,6 +15,7 @@ import HBLAnalysis from './components/HBLAnalysis';
 import CancellationAnalysis from './components/CancellationAnalysis';
 import TransmissionGapAnalysis from './components/TransmissionGapAnalysis';
 import SeeburgerAnalysis from './components/SeeburgerAnalysis';
+import PodPatternAnalysis from './components/PodPatternAnalysis';
 
 injectGlobalStyles();
 
@@ -68,6 +69,7 @@ export default function App() {
   const [transmissionGap, setTransmissionGap] = useState(null);
   const [ediGapDrilldown, setEdiGapDrilldown] = useState(null);
   const [seeburgerData, setSeeburgerData] = useState(null);
+  const [podPatternData, setPodPatternData] = useState(null);
   const [selectedWeek, setSelectedWeek] = useState(null);
   const [activeTab, setActiveTab] = useState('overview');
 
@@ -81,7 +83,8 @@ export default function App() {
       fetch('/transmission_gap.json').then(r => r.json()).catch(() => null),
       fetch('/edi_gap_drilldown.json').then(r => r.json()).catch(() => null),
       fetch('/seeburger_analysis.json').then(r => r.json()).catch(() => null),
-    ]).then(([kpi, rca, tasks, cancelled, impact, gap, ediDrill, seeburger]) => {
+      fetch('/pod_pattern_analysis.json').then(r => r.json()).catch(() => null),
+    ]).then(([kpi, rca, tasks, cancelled, impact, gap, ediDrill, seeburger, podPatterns]) => {
       setData(kpi);
       setRcaData(rca);
       setTaskData(tasks);
@@ -90,6 +93,7 @@ export default function App() {
       setTransmissionGap(gap);
       setEdiGapDrilldown(ediDrill);
       setSeeburgerData(seeburger);
+      setPodPatternData(podPatterns);
       setSelectedWeek(kpi[kpi.length - 1]?.week);
     });
   }, []);
@@ -150,12 +154,14 @@ export default function App() {
 
   const plausibilityTrend = rcaData ? rcaData.map(w => {
     const p = w.plausibility_rca || {};
+    const total = p.total_shipments || 0;
+    const affected = p.affected_hbls || 0;
+    const compliance = total > 0 ? ((total - affected) / total * 100) : 0;
     return {
       week: w.week,
-      'Violations': p.total_violations || 0,
-      'Affected HBLs': p.affected_hbls || 0,
-      'Critical': p.critical_count || 0,
-      'Warning': p.warning_count || 0,
+      'Compliance %': +compliance.toFixed(1),
+      'SC4 Compliance': p.sc4_shipments > 0 ? +((p.sc4_shipments - (p.sc4_affected || 0)) / p.sc4_shipments * 100).toFixed(1) : 0,
+      'SC3 Compliance': p.sc3_shipments > 0 ? +((p.sc3_shipments - (p.sc3_affected || 0)) / p.sc3_shipments * 100).toFixed(1) : 0,
     };
   }) : [];
 
@@ -230,6 +236,7 @@ export default function App() {
           { key: 'cancellations', label: 'Cancellations' },
           { key: 'transmission', label: 'EDI Gap' },
           { key: 'seeburger', label: 'Seeburger' },
+          { key: 'pod_patterns', label: 'POD Patterns' },
           { key: 'tasks', label: 'Tasks' },
         ].map(tab => (
           <button
@@ -324,6 +331,16 @@ export default function App() {
             Seeburger EDI Gateway — Message Filtering Analysis
           </div>
           <SeeburgerAnalysis seeburgerData={seeburgerData} />
+        </div>
+      )}
+
+      {/* ===== POD PATTERNS TAB ===== */}
+      {activeTab === 'pod_patterns' && (
+        <div style={LAYOUT.section}>
+          <div style={LAYOUT.sectionTitle}>
+            S07 → S31 Transit Pattern Analysis — ATA to Delivery
+          </div>
+          <PodPatternAnalysis data={podPatternData} />
         </div>
       )}
 
@@ -583,13 +600,13 @@ export default function App() {
           {plausibilityTrend.length > 0 && (
             <TrendChart
               data={plausibilityTrend}
-              title="Plausibility Violations"
+              title="Plausibility Compliance %"
               lines={[
-                { key: 'Violations', name: 'Total Violations', color: '#dc2626' },
-                { key: 'Affected HBLs', name: 'Affected HBLs', color: '#d97706' },
-                { key: 'Critical', name: 'Critical', color: '#9333ea' },
+                { key: 'Compliance %', name: 'Overall', color: '#2563eb' },
+                { key: 'SC4 Compliance', name: 'SC4', color: '#059669' },
+                { key: 'SC3 Compliance', name: 'SC3', color: '#d97706' },
               ]}
-              isCount
+              target={95}
             />
           )}
         </div>

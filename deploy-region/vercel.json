@@ -1,9 +1,0 @@
-{
-  "name": "bosch-region-analysis",
-  "version": 2,
-  "buildCommand": null,
-  "outputDirectory": ".",
-  "routes": [
-    { "src": "/", "dest": "/index.html" }
-  ]
-}

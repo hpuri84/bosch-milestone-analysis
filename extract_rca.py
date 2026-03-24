@@ -13,6 +13,7 @@ Output: rca_data.json consumed by the dashboard.
 import openpyxl
 import os
 import json
+from datetime import timedelta
 
 BASE = "/Users/harsh.puri/Documents/work-maersk/Prototype Playground/Bosch Milestone Analysis"
 RAW_DIR = os.path.join(BASE, "Bosch Milestone raw data")
@@ -403,11 +404,17 @@ def extract_eta_ref_rca(filepath):
                 else:
                     deviation = vals[s07_dev_col] if s07_dev_col and vals[s07_dev_col] else None
                     eta_val = vals[eta_col] if eta_col is not None else None
+                    dev_hours = round(float(deviation), 1) if deviation and isinstance(deviation, (int, float)) else None
                     eta_2p_failed.append({
                         **base_info,
-                        "deviation_hours": round(float(deviation), 1) if deviation and isinstance(deviation, (int, float)) else None,
+                        "deviation_hours": dev_hours,
+                        "deviation_days": round(dev_hours / 24, 1) if dev_hours else None,
+                        "direction": "late" if dev_hours and dev_hours > 0 else "early" if dev_hours and dev_hours < 0 else None,
+                        "eta_baseline": str(eta_val)[:16] if eta_val else None,
                         "estimated": str(eta_val)[:16] if eta_val else None,
                         "actual": str(ata_val)[:16] if ata_val else None,
+                        "window_start": str(eta_val - timedelta(hours=48))[:16] if eta_val and hasattr(eta_val, '__sub__') else None,
+                        "window_end": str(eta_val + timedelta(hours=48))[:16] if eta_val and hasattr(eta_val, '__add__') else None,
                     })
 
         # ETA 2D (S31) — only count if actually delivered
@@ -424,11 +431,17 @@ def extract_eta_ref_rca(filepath):
                 else:
                     deviation = vals[s31_dev_col] if s31_dev_col and vals[s31_dev_col] else None
                     del_est_val = vals[del_est_col] if del_est_col is not None else None
+                    dev_hours = round(float(deviation), 1) if deviation and isinstance(deviation, (int, float)) else None
                     eta_2d_failed.append({
                         **base_info,
-                        "deviation_hours": round(float(deviation), 1) if deviation and isinstance(deviation, (int, float)) else None,
+                        "deviation_hours": dev_hours,
+                        "deviation_days": round(dev_hours / 24, 1) if dev_hours else None,
+                        "direction": "late" if dev_hours and dev_hours > 0 else "early" if dev_hours and dev_hours < 0 else None,
+                        "eta_baseline": str(del_est_val)[:16] if del_est_val else None,
                         "estimated": str(del_est_val)[:16] if del_est_val else None,
                         "actual": str(delivered_val)[:16] if delivered_val else None,
+                        "window_start": str(del_est_val - timedelta(hours=48))[:16] if del_est_val and hasattr(del_est_val, '__sub__') else None,
+                        "window_end": str(del_est_val + timedelta(hours=48))[:16] if del_est_val and hasattr(del_est_val, '__add__') else None,
                     })
 
         # Reference Completeness
