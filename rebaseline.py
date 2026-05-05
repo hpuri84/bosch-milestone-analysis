@@ -18,18 +18,19 @@ import openpyxl
 import os
 import json
 
-BASE = "/Users/harsh.puri/Documents/work-maersk/Prototype Playground/Bosch Milestone Analysis"
+BASE = os.path.dirname(os.path.abspath(__file__))
 RAW_DIR = os.path.join(BASE, "Bosch Milestone raw data")
 
-WEEKS = ["CW01", "CW02", "CW03", "CW04", "CW05", "CW06", "CW07", "CW08", "CW09", "CW10", "CW11", "CW12", "CW13"]
+WEEKS = ["CW01", "CW02", "CW03", "CW04", "CW05", "CW06", "CW07", "CW08", "CW09", "CW10", "CW11", "CW12", "CW13", "CW14", "CW15"]
 
-SC3_FILES = {f"CW{i:02d}": f"Maersk NGTM SC3_2026_CW{i:02d}.xlsx" for i in range(1, 10)}
+SC3_FILES = {f"CW{i:02d}": f"Maersk NGTM SC3_2026_CW{i:02d}.xlsx" for i in range(1, 16)}
 SC3_FILES["CW10"] = "Maersk SC3_2026_CW10.xlsx"  # CW10+ has different naming
 SC3_FILES["CW11"] = "Maersk SC3_2026_CW11.xlsx"
 SC3_FILES["CW12"] = "Maersk SC3_2026_CW12.xlsx"
 SC3_FILES["CW13"] = "Maersk SC3_2026_CW13.xlsx"
-SC4_FILES = {f"CW{i:02d}": f"Maersk SC4_2026_CW{i:02d}.xlsx" for i in range(1, 14)}
-
+SC3_FILES["CW14"] = "Maersk SC3_2026_CW14.xlsx"
+SC3_FILES["CW15"] = "Maersk SC3_2026_CW15.xlsx"
+SC4_FILES = {f"CW{i:02d}": f"Maersk SC4_2026_CW{i:02d}.xlsx" for i in range(1, 16)}
 SC3_CRITICAL_CODES = {"S02", "S04", "S07", "S31"}
 SC4_CRITICAL_CODES = {"S00", "S02", "S04", "S07", "S31"}
 
@@ -48,7 +49,20 @@ def find_total_sheet(wb):
 
 
 def find_shipments_sheet(wb):
-    return find_sheet(wb, lambda sn: sn.strip().lower() == "shipments")
+    # Preferred: sheet literally named "shipments".
+    named = find_sheet(wb, lambda sn: sn.strip().lower() == "shipments")
+    if named:
+        return named
+    # Fallback: CW14 SC4 ships with Hungarian default "Munka7". Detect by content marker.
+    for sn in wb.sheetnames:
+        if sn.strip().upper() in ("TOTAL", "ALL") or sn.strip().upper().rstrip("_") in ("FCL", "BCO", "LCL"):
+            continue
+        ws = wb[sn]
+        for row in ws.iter_rows(min_row=1, max_row=10, values_only=True):
+            for cell in row:
+                if cell and "UNIQUE_SHIPMENT_ID" in str(cell).upper():
+                    return sn
+    return None
 
 
 def find_service_sheet(wb, service_type):

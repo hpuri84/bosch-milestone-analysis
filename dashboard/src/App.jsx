@@ -7,6 +7,7 @@ import ServiceTrendChart from './components/ServiceTrendChart';
 import DataTable from './components/DataTable';
 import WeekSelector from './components/WeekSelector';
 import RCASection from './components/RCASection';
+import ParetoChart from './components/ParetoChart';
 import ETARefRCA from './components/ETARefRCA';
 import PlausibilityRCA from './components/PlausibilityRCA';
 import TargetAnalysis from './components/TargetAnalysis';
@@ -70,6 +71,7 @@ export default function App() {
   const [ediGapDrilldown, setEdiGapDrilldown] = useState(null);
   const [seeburgerData, setSeeburgerData] = useState(null);
   const [podPatternData, setPodPatternData] = useState(null);
+  const [laneRcaData, setLaneRcaData] = useState(null);
   const [selectedWeek, setSelectedWeek] = useState(null);
   const [activeTab, setActiveTab] = useState('overview');
 
@@ -84,7 +86,8 @@ export default function App() {
       fetch('/edi_gap_drilldown.json').then(r => r.json()).catch(() => null),
       fetch('/seeburger_analysis.json').then(r => r.json()).catch(() => null),
       fetch('/pod_pattern_analysis.json').then(r => r.json()).catch(() => null),
-    ]).then(([kpi, rca, tasks, cancelled, impact, gap, ediDrill, seeburger, podPatterns]) => {
+      fetch('/eta_2d_lane_rca.json').then(r => r.json()).catch(() => null),
+    ]).then(([kpi, rca, tasks, cancelled, impact, gap, ediDrill, seeburger, podPatterns, laneRca]) => {
       setData(kpi);
       setRcaData(rca);
       setTaskData(tasks);
@@ -94,6 +97,7 @@ export default function App() {
       setEdiGapDrilldown(ediDrill);
       setSeeburgerData(seeburger);
       setPodPatternData(podPatterns);
+      setLaneRcaData(laneRca);
       setSelectedWeek(kpi[kpi.length - 1]?.week);
     });
   }, []);
@@ -271,6 +275,11 @@ export default function App() {
       {activeTab === 'rca' && (
         <div style={LAYOUT.section}>
           <div style={LAYOUT.sectionTitle}>
+            {selectedWeek} — Top Issues Pareto Analysis
+          </div>
+          <ParetoChart rcaData={rcaData} selectedWeek={selectedWeek} />
+          <div style={{ height: 32 }} />
+          <div style={LAYOUT.sectionTitle}>
             {selectedWeek} — Milestone Breakdown & Root Cause Analysis
           </div>
           <RCASection rcaData={rcaData} selectedWeek={selectedWeek} cancelledHBLs={cancelledHBLs} />
@@ -283,7 +292,7 @@ export default function App() {
           <div style={LAYOUT.sectionTitle}>
             {selectedWeek} — ETA Accuracy & Reference Completeness RCA
           </div>
-          <ETARefRCA rcaData={rcaData} selectedWeek={selectedWeek} />
+          <ETARefRCA rcaData={rcaData} selectedWeek={selectedWeek} laneRcaData={laneRcaData} />
         </div>
       )}
 

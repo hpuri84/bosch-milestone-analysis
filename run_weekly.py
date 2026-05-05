@@ -29,7 +29,7 @@ import sys
 import json
 from datetime import datetime
 
-BASE = "/Users/harsh.puri/Documents/work-maersk/Prototype Playground/Bosch Milestone Analysis"
+BASE = os.path.dirname(os.path.abspath(__file__))
 RAW_DIR = os.path.join(BASE, "Bosch Milestone raw data")
 DASHBOARD_DIR = os.path.join(BASE, "dashboard")
 DASHBOARD_PUBLIC = os.path.join(DASHBOARD_DIR, "public")
@@ -76,21 +76,48 @@ def update_script_weeks(script_path, weeks):
         count=1
     )
 
-    # Replace SC3_FILES range
+    # Replace SC3_FILES range (match full line — inner {i:02d} would trip non-greedy matching)
     content = re.sub(
-        r'SC3_FILES\s*=\s*\{.*?\}',
+        r'^SC3_FILES\s*=\s*\{[^\n]+\}\s*$',
         f'SC3_FILES = {{f"CW{{i:02d}}": f"Maersk NGTM SC3_2026_CW{{i:02d}}.xlsx" for i in range(1, {max_week + 1})}}',
         content,
-        count=1
+        count=1,
+        flags=re.MULTILINE
     )
 
     # Replace SC4_FILES range
     content = re.sub(
-        r'SC4_FILES\s*=\s*\{.*?\}',
+        r'^SC4_FILES\s*=\s*\{[^\n]+\}\s*$',
         f'SC4_FILES = {{f"CW{{i:02d}}": f"Maersk SC4_2026_CW{{i:02d}}.xlsx" for i in range(1, {max_week + 1})}}',
         content,
-        count=1
+        count=1,
+        flags=re.MULTILINE
     )
+
+    # Ensure SC3 non-NGTM override exists for weeks >= 10 (CLAUDE.md gotcha #2)
+    for w in weeks:
+        if w < 10:
+            continue
+        override_line = f'SC3_FILES["CW{w:02d}"] = "Maersk SC3_2026_CW{w:02d}.xlsx"'
+        if override_line not in content:
+            # Insert after the last SC3_FILES[...] assignment, or after SC3_FILES = {...}
+            insert_after = re.search(
+                r'(^SC3_FILES\[.*?\]\s*=\s*".*?"\s*$\n)+',
+                content,
+                flags=re.MULTILINE
+            )
+            if insert_after:
+                end = insert_after.end()
+                content = content[:end] + override_line + "\n" + content[end:]
+            else:
+                # Fallback: insert right after SC3_FILES = {...}
+                content = re.sub(
+                    r'(^SC3_FILES\s*=\s*\{[^\n]+\}\s*$)',
+                    r'\1\n' + override_line,
+                    content,
+                    count=1,
+                    flags=re.MULTILINE
+                )
 
     with open(script_path, "w") as f:
         f.write(content)

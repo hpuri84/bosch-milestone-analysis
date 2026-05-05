@@ -1,4 +1,5 @@
 import { useState, useMemo } from 'react';
+import ETA2DLaneRCA from './ETA2DLaneRCA';
 
 const PAGE_SIZE = 50;
 
@@ -253,11 +254,166 @@ const tdStyle = {
   whiteSpace: 'nowrap',
 };
 
+function LaneBreakdownTable({ shipments, title }) {
+  const lanes = useMemo(() => {
+    const agg = {};
+    for (const s of shipments) {
+      const origin = s.origin_country || '—';
+      const dest = s.dest_country || '—';
+      const key = `${origin}__${dest}`;
+      if (!agg[key]) {
+        agg[key] = {
+          origin, dest,
+          failed: 0, late: 0, early: 0,
+          dev_sum: 0, dev_count: 0,
+          sample_hbls: [],
+        };
+      }
+      const row = agg[key];
+      row.failed += 1;
+      if (s.direction === 'late') row.late += 1;
+      else if (s.direction === 'early') row.early += 1;
+      if (s.deviation_hours != null) {
+        row.dev_sum += s.deviation_hours;
+        row.dev_count += 1;
+      }
+      if (row.sample_hbls.length < 3 && s.hbl) row.sample_hbls.push(s.hbl);
+    }
+    const total = shipments.length || 1;
+    return Object.values(agg)
+      .map(r => ({
+        ...r,
+        avg_dev_hours: r.dev_count ? r.dev_sum / r.dev_count : null,
+        share: r.failed / total * 100,
+      }))
+      .sort((a, b) => b.failed - a.failed);
+  }, [shipments]);
+
+  const totalFailures = shipments.length;
+  let cumFailed = 0;
+
+  const thS = {
+    fontFamily: 'var(--font-display)',
+    fontSize: '0.62rem',
+    fontWeight: 600,
+    color: 'var(--text-muted)',
+    textTransform: 'uppercase',
+    letterSpacing: '0.06em',
+    padding: '7px 10px',
+    textAlign: 'left',
+    whiteSpace: 'nowrap',
+    background: 'var(--bg-card)',
+    position: 'sticky',
+    top: 0,
+  };
+
+  const tdS = {
+    fontFamily: 'var(--font-mono)',
+    fontSize: '0.72rem',
+    padding: '6px 10px',
+    color: 'var(--text-secondary)',
+    whiteSpace: 'nowrap',
+    borderBottom: '1px solid var(--border)',
+  };
+
+  return (
+    <div style={{
+      background: 'var(--bg-card)',
+      border: '1px solid var(--border)',
+      borderRadius: 8,
+      overflow: 'hidden',
+      boxShadow: 'var(--shadow-sm)',
+      marginBottom: 16,
+    }}>
+      <div style={{
+        padding: '12px 16px',
+        borderBottom: '1px solid var(--border)',
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        flexWrap: 'wrap',
+        gap: 8,
+      }}>
+        <div style={{ fontFamily: 'var(--font-display)', fontSize: '0.85rem', fontWeight: 600, color: 'var(--text-primary)' }}>
+          {title}
+        </div>
+        <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.72rem', color: 'var(--text-muted)' }}>
+          {lanes.length} lane{lanes.length === 1 ? '' : 's'} · {totalFailures} failures
+        </div>
+      </div>
+      <div style={{ overflowX: 'auto', maxHeight: 420 }}>
+        <table style={{ width: '100%', borderCollapse: 'collapse' }}>
+          <thead>
+            <tr style={{ borderBottom: '2px solid var(--border)' }}>
+              <th style={{ ...thS, textAlign: 'right' }}>#</th>
+              <th style={thS}>Origin Country</th>
+              <th style={thS}>Destination Country</th>
+              <th style={{ ...thS, textAlign: 'right' }}>Failures</th>
+              <th style={{ ...thS, textAlign: 'right' }}>Share</th>
+              <th style={{ ...thS, textAlign: 'right' }}>Cum %</th>
+              <th style={{ ...thS, textAlign: 'right' }}>Late</th>
+              <th style={{ ...thS, textAlign: 'right' }}>Early</th>
+              <th style={{ ...thS, textAlign: 'right' }}>Avg Dev</th>
+              <th style={thS}>Sample HBLs</th>
+            </tr>
+          </thead>
+          <tbody>
+            {lanes.map((r, i) => {
+              cumFailed += r.failed;
+              const cumPct = Math.round(cumFailed / (totalFailures || 1) * 100);
+              return (
+                <tr key={i}
+                  onMouseEnter={e => e.currentTarget.style.background = 'rgba(0,0,0,0.02)'}
+                  onMouseLeave={e => e.currentTarget.style.background = 'transparent'}
+                >
+                  <td style={{ ...tdS, textAlign: 'right', color: 'var(--text-muted)' }}>{i + 1}</td>
+                  <td style={{ ...tdS, fontWeight: 500, color: 'var(--text-primary)', maxWidth: 180, overflow: 'hidden', textOverflow: 'ellipsis' }}>{r.origin}</td>
+                  <td style={{ ...tdS, fontWeight: 500, color: 'var(--text-primary)', maxWidth: 180, overflow: 'hidden', textOverflow: 'ellipsis' }}>{r.dest}</td>
+                  <td style={{ ...tdS, textAlign: 'right', color: '#dc2626', fontWeight: 600 }}>{r.failed}</td>
+                  <td style={{ ...tdS, padding: '6px 10px', textAlign: 'right' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: 5, justifyContent: 'flex-end' }}>
+                      <div style={{ width: 60, height: 5, background: 'var(--border)', borderRadius: 3 }}>
+                        <div style={{ width: `${Math.min(r.share, 100)}%`, height: '100%', background: '#dc2626', borderRadius: 3 }} />
+                      </div>
+                      <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.68rem', color: '#dc2626', minWidth: 32 }}>
+                        {r.share.toFixed(0)}%
+                      </span>
+                    </div>
+                  </td>
+                  <td style={{ ...tdS, textAlign: 'right', color: '#7c3aed', fontWeight: cumPct >= 80 ? 600 : 400 }}>
+                    {cumPct}%
+                  </td>
+                  <td style={{ ...tdS, textAlign: 'right', color: '#dc2626' }}>{r.late}</td>
+                  <td style={{ ...tdS, textAlign: 'right', color: '#2563eb' }}>{r.early}</td>
+                  <td style={{ ...tdS, textAlign: 'right', color: r.avg_dev_hours > 0 ? '#dc2626' : '#2563eb' }}>
+                    {r.avg_dev_hours != null ? `${r.avg_dev_hours > 0 ? '+' : ''}${(r.avg_dev_hours / 24).toFixed(1)}d` : '—'}
+                  </td>
+                  <td style={{ ...tdS, fontSize: '0.65rem', color: 'var(--text-muted)', maxWidth: 200, overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                    {r.sample_hbls.join(', ') || '—'}
+                  </td>
+                </tr>
+              );
+            })}
+            {lanes.length === 0 && (
+              <tr>
+                <td colSpan={10} style={{ ...tdS, textAlign: 'center', color: 'var(--text-muted)', padding: 20 }}>
+                  No failures to summarise
+                </td>
+              </tr>
+            )}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
+}
+
 function FilterBar({ activeSection, setActiveSection, searchTerm, setSearchTerm }) {
   const sections = [
     { key: 'eta_2p', label: 'ETA 2P (Port)' },
     { key: 'eta_2d', label: 'ETA 2D (Delivery)' },
     { key: 'ref', label: 'Reference Completeness' },
+    { key: 'lane_rca', label: 'ETA 2D Lane RCA' },
   ];
 
   return (
@@ -315,7 +471,7 @@ function FilterBar({ activeSection, setActiveSection, searchTerm, setSearchTerm 
 }
 
 
-export default function ETARefRCA({ rcaData, selectedWeek }) {
+export default function ETARefRCA({ rcaData, selectedWeek, laneRcaData }) {
   const [activeSection, setActiveSection] = useState('eta_2p');
   const [searchTerm, setSearchTerm] = useState('');
 
@@ -502,13 +658,19 @@ export default function ETARefRCA({ rcaData, selectedWeek }) {
       />
 
       {activeSection === 'eta_2p' && (
-        <ShipmentTable
-          shipments={eta_2p.failed_shipments}
-          columns={etaColumns}
-          searchTerm={searchTerm}
-          title={`ETA 2P Failed Shipments (${eta_2p.total_failed_shipments} total)`}
-          onExport={() => handleExport(eta_2p.failed_shipments, etaColumns, `eta_2p_failed_${selectedWeek}.csv`)}
-        />
+        <>
+          <LaneBreakdownTable
+            shipments={eta_2p.failed_shipments}
+            title="ETA 2P Lanes Affected (Origin Country → Destination Country)"
+          />
+          <ShipmentTable
+            shipments={eta_2p.failed_shipments}
+            columns={etaColumns}
+            searchTerm={searchTerm}
+            title={`ETA 2P Failed Shipments (${eta_2p.total_failed_shipments} total)`}
+            onExport={() => handleExport(eta_2p.failed_shipments, etaColumns, `eta_2p_failed_${selectedWeek}.csv`)}
+          />
+        </>
       )}
 
       {activeSection === 'eta_2d' && (
@@ -529,6 +691,10 @@ export default function ETARefRCA({ rcaData, selectedWeek }) {
           title={`Reference Incomplete Shipments (${ref.total_incomplete_shipments} total)`}
           onExport={() => handleExport(ref.incomplete_shipments, refColumns, `ref_incomplete_${selectedWeek}.csv`)}
         />
+      )}
+
+      {activeSection === 'lane_rca' && (
+        <ETA2DLaneRCA laneRcaData={laneRcaData} selectedWeek={selectedWeek} />
       )}
     </div>
   );

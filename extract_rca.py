@@ -15,17 +15,18 @@ import os
 import json
 from datetime import timedelta
 
-BASE = "/Users/harsh.puri/Documents/work-maersk/Prototype Playground/Bosch Milestone Analysis"
+BASE = os.path.dirname(os.path.abspath(__file__))
 RAW_DIR = os.path.join(BASE, "Bosch Milestone raw data")
 
-WEEKS = ["CW01", "CW02", "CW03", "CW04", "CW05", "CW06", "CW07", "CW08", "CW09", "CW10", "CW11", "CW12", "CW13"]
-SC3_FILES = {f"CW{i:02d}": f"Maersk NGTM SC3_2026_CW{i:02d}.xlsx" for i in range(1, 10)}
+WEEKS = ["CW01", "CW02", "CW03", "CW04", "CW05", "CW06", "CW07", "CW08", "CW09", "CW10", "CW11", "CW12", "CW13", "CW14", "CW15"]
+SC3_FILES = {f"CW{i:02d}": f"Maersk NGTM SC3_2026_CW{i:02d}.xlsx" for i in range(1, 16)}
 SC3_FILES["CW10"] = "Maersk SC3_2026_CW10.xlsx"  # CW10+ has different naming
 SC3_FILES["CW11"] = "Maersk SC3_2026_CW11.xlsx"
 SC3_FILES["CW12"] = "Maersk SC3_2026_CW12.xlsx"
 SC3_FILES["CW13"] = "Maersk SC3_2026_CW13.xlsx"
-SC4_FILES = {f"CW{i:02d}": f"Maersk SC4_2026_CW{i:02d}.xlsx" for i in range(1, 14)}
-
+SC3_FILES["CW14"] = "Maersk SC3_2026_CW14.xlsx"
+SC3_FILES["CW15"] = "Maersk SC3_2026_CW15.xlsx"
+SC4_FILES = {f"CW{i:02d}": f"Maersk SC4_2026_CW{i:02d}.xlsx" for i in range(1, 16)}
 SC3_CRITICAL_CODES = {"S02", "S04", "S07", "S31"}
 SC4_CRITICAL_CODES = {"S00", "S02", "S04", "S07", "S31"}
 
@@ -59,7 +60,20 @@ def find_sheet(wb, pattern_fn):
 
 
 def find_shipments_sheet(wb):
-    return find_sheet(wb, lambda sn: sn.strip().lower() == "shipments")
+    # Preferred: sheet literally named "shipments".
+    named = find_sheet(wb, lambda sn: sn.strip().lower() == "shipments")
+    if named:
+        return named
+    # Fallback: CW14 SC4 ships with Hungarian default "Munka7". Detect by content marker.
+    for sn in wb.sheetnames:
+        if sn.strip().upper() in ("TOTAL", "ALL") or sn.strip().upper().rstrip("_") in ("FCL", "BCO", "LCL"):
+            continue
+        ws = wb[sn]
+        for row in ws.iter_rows(min_row=1, max_row=10, values_only=True):
+            for cell in row:
+                if cell and "UNIQUE_SHIPMENT_ID" in str(cell).upper():
+                    return sn
+    return None
 
 
 def find_detail_sheet(wb, service_type):
@@ -333,6 +347,8 @@ def extract_eta_ref_rca(filepath):
     transport_col = col_map.get("TRANSPORT_SERVICE_PRIORITY", None)
     origin_col = col_map.get("CONSIGNOR_ADDRESS_CITY_NAME", None)
     dest_col = col_map.get("CONSIGNEE_ADDRESS_CITY_NAME", None)
+    origin_country_col = col_map.get("CONSIGNOR_ADDRESS_COUNTRY", None)
+    dest_country_col = col_map.get("CONSIGNEE_ADDRESS_COUNTRY", None)
     carrier_col = col_map.get("CARRIER_1", None)
 
     s07_col = s31_col = s07_dev_col = s31_dev_col = None
@@ -387,6 +403,8 @@ def extract_eta_ref_rca(filepath):
         transport = str(vals[transport_col]).strip() if transport_col is not None and vals[transport_col] else ""
         origin = str(vals[origin_col]).strip() if origin_col is not None and vals[origin_col] else ""
         dest = str(vals[dest_col]).strip() if dest_col is not None and vals[dest_col] else ""
+        origin_country = str(vals[origin_country_col]).strip() if origin_country_col is not None and vals[origin_country_col] else ""
+        dest_country = str(vals[dest_country_col]).strip() if dest_country_col is not None and vals[dest_country_col] else ""
         carrier = str(vals[carrier_col]).strip() if carrier_col is not None and vals[carrier_col] else ""
 
         base_info = {
@@ -396,6 +414,8 @@ def extract_eta_ref_rca(filepath):
             "transport": transport,
             "origin": origin,
             "dest": dest,
+            "origin_country": origin_country,
+            "dest_country": dest_country,
             "carrier": carrier,
         }
 
