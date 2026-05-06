@@ -21,16 +21,17 @@ import json
 BASE = os.path.dirname(os.path.abspath(__file__))
 RAW_DIR = os.path.join(BASE, "Bosch Milestone raw data")
 
-WEEKS = ["CW01", "CW02", "CW03", "CW04", "CW05", "CW06", "CW07", "CW08", "CW09", "CW10", "CW11", "CW12", "CW13", "CW14", "CW15"]
+WEEKS = ["CW01", "CW02", "CW03", "CW04", "CW05", "CW06", "CW07", "CW08", "CW09", "CW10", "CW11", "CW12", "CW13", "CW14", "CW15", "CW16"]
 
-SC3_FILES = {f"CW{i:02d}": f"Maersk NGTM SC3_2026_CW{i:02d}.xlsx" for i in range(1, 16)}
+SC3_FILES = {f"CW{i:02d}": f"Maersk NGTM SC3_2026_CW{i:02d}.xlsx" for i in range(1, 17)}
 SC3_FILES["CW10"] = "Maersk SC3_2026_CW10.xlsx"  # CW10+ has different naming
 SC3_FILES["CW11"] = "Maersk SC3_2026_CW11.xlsx"
 SC3_FILES["CW12"] = "Maersk SC3_2026_CW12.xlsx"
 SC3_FILES["CW13"] = "Maersk SC3_2026_CW13.xlsx"
 SC3_FILES["CW14"] = "Maersk SC3_2026_CW14.xlsx"
 SC3_FILES["CW15"] = "Maersk SC3_2026_CW15.xlsx"
-SC4_FILES = {f"CW{i:02d}": f"Maersk SC4_2026_CW{i:02d}.xlsx" for i in range(1, 16)}
+SC3_FILES["CW16"] = "Maersk SC3_2026_CW16.xlsx"
+SC4_FILES = {f"CW{i:02d}": f"Maersk SC4_2026_CW{i:02d}.xlsx" for i in range(1, 17)}
 SC3_CRITICAL_CODES = {"S02", "S04", "S07", "S31"}
 SC4_CRITICAL_CODES = {"S00", "S02", "S04", "S07", "S31"}
 
