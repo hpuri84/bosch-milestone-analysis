@@ -1,14 +1,25 @@
 """
-Rebaseline all weeks (CW01-CW08) from raw data using corrected formulas.
+Rebaseline all weeks from raw data.
 
 KPI Definitions:
   - Completeness = sum(Available) / sum(Required)
   - Timeliness   = sum(In_Time) / sum(Required)
   - Critical milestones: S00 (SC4 only), S02, S04, S07, S31 — both Actual + Estimated, NO S45
   - All milestones: everything from SC3 + SC4
-  - ETA 2P = S07_Accepted count / S07 measured count (SC4 shipments)
-  - ETA 2D = S31_Accepted count / S31 measured count (SC4 shipments)
-  - Reference Completeness = shipments with CIV or DN / total shipments (SC4)
+
+  ETA 2P (Port) — deviation-based, strict denominator:
+    Numerator   = arrived shipments (ATA_DATE_TIME) with EDIQ_EV_ETA_S07_TS_@measured_list
+                  AND |EDIQ_EV_ETA_S07_Deviation_TS_@measured| ≤ 48h
+    Denominator = all arrived shipments (ATA_DATE_TIME present)
+    No-T-7 penalty: arrived shipments with no T-7 ETA recorded count as misses.
+
+  ETA 2D (Door) — same logic on S31 / DELIVERED_DATE_TIME / EDIQ_EV_ETA_S31_*.
+
+  ETA T-7 Completeness:
+    2P = arrived shipments with TS_@measured / all arrived shipments
+    2D = delivered shipments with TS_@measured / all delivered shipments
+
+  Reference Completeness = shipments with CIV or DN / total shipments (SC4)
 
 Per-service-type breakdowns computed from detail sheets (FCL, BCO, LCL).
 Outputs JSON for dashboard consumption.
@@ -327,18 +338,33 @@ def compute_kpis(rows, critical_codes=None):
     }
 
 
+ETA_WINDOW_HOURS = 48
+
+
 def compute_eta_and_ref(shipments):
-    """Compute ETA 2P, ETA 2D, and Reference Completeness from SC4 shipments."""
+    """Compute ETA 2P, ETA 2D, and Reference Completeness from SC4 shipments.
+
+    Method (deviation-based, strict denominator with no-T-7 penalty):
+      Numerator  = arrived shipments with TS_@measured AND |deviation| ≤ 48h
+      Denominator = all arrived shipments (ATA for 2P, DELIVERED for 2D)
+      Shipments arrived without a T-7 ETA recorded count toward denominator as misses.
+    """
     if not shipments:
         return {"eta_2p": None, "eta_2d": None, "ref_comp": None}
 
-    s07_col = s31_col = civ_col = dn_col = None
+    s07_ts_col = s07_dev_col = None
+    s31_ts_col = s31_dev_col = None
+    civ_col = dn_col = None
     ata_col = delivered_col = None
     for key in shipments[0].keys():
-        if "S07_Accepted" in key:
-            s07_col = key
-        if "S31_Accepted" in key:
-            s31_col = key
+        if "S07_TS_@measured" in key:
+            s07_ts_col = key
+        elif "S07_Deviation_TS_@measured" in key:
+            s07_dev_col = key
+        elif "S31_TS_@measured" in key:
+            s31_ts_col = key
+        elif "S31_Deviation_TS_@measured" in key:
+            s31_dev_col = key
         if "COMMERCIAL_INVOICE" in key:
             civ_col = key
         if "DELIVERY_NOTE" in key:
@@ -348,37 +374,35 @@ def compute_eta_and_ref(shipments):
         if key == "DELIVERED_DATE_TIME":
             delivered_col = key
 
-    # ETA 2P — exclude in-transit (S07_Accepted=0, no ATA)
-    s07_total = 0
-    s07_acc = 0
-    if s07_col:
+    def _eta_metric(arrival_col, ts_col, dev_col):
+        """Return (numerator, denominator, no_t7_count) for one segment."""
+        if not arrival_col:
+            return 0, 0, 0
+        num = den = no_t7 = 0
         for s in shipments:
-            val = s.get(s07_col)
-            if val is None:
+            arrived = s.get(arrival_col)
+            if not arrived:
                 continue
-            # Skip in-transit: not accepted and no actual arrival
-            if val == 0 and (ata_col is None or s.get(ata_col) is None):
+            den += 1
+            ts = s.get(ts_col) if ts_col else None
+            dev = s.get(dev_col) if dev_col else None
+            if not ts:
+                no_t7 += 1
                 continue
-            s07_total += 1
-            if val == 1:
-                s07_acc += 1
-    eta_2p = round(s07_acc / s07_total, 4) if s07_total > 0 else None
+            if dev is None:
+                continue  # measured but no deviation value — counts as miss
+            if abs(dev) <= ETA_WINDOW_HOURS:
+                num += 1
+        return num, den, no_t7
 
-    # ETA 2D — exclude undelivered (S31_Accepted=0, no delivered date)
-    s31_total = 0
-    s31_acc = 0
-    if s31_col:
-        for s in shipments:
-            val = s.get(s31_col)
-            if val is None:
-                continue
-            # Skip undelivered: not accepted and no actual delivery
-            if val == 0 and (delivered_col is None or s.get(delivered_col) is None):
-                continue
-            s31_total += 1
-            if val == 1:
-                s31_acc += 1
+    s07_acc, s07_total, s07_no_t7 = _eta_metric(ata_col, s07_ts_col, s07_dev_col)
+    s31_acc, s31_total, s31_no_t7 = _eta_metric(delivered_col, s31_ts_col, s31_dev_col)
+
+    eta_2p = round(s07_acc / s07_total, 4) if s07_total > 0 else None
     eta_2d = round(s31_acc / s31_total, 4) if s31_total > 0 else None
+
+    eta_2p_t7_comp = round((s07_total - s07_no_t7) / s07_total, 4) if s07_total > 0 else None
+    eta_2d_t7_comp = round((s31_total - s31_no_t7) / s31_total, 4) if s31_total > 0 else None
 
     # Reference Completeness
     ref_total = len(shipments)
@@ -393,8 +417,9 @@ def compute_eta_and_ref(shipments):
     ref_comp = round(ref_complete / ref_total, 4) if ref_total > 0 else None
 
     return {
-        "eta_2p": eta_2p, "s07_acc": s07_acc, "s07_total": s07_total,
-        "eta_2d": eta_2d, "s31_acc": s31_acc, "s31_total": s31_total,
+        "eta_2p": eta_2p, "s07_acc": s07_acc, "s07_total": s07_total, "s07_no_t7": s07_no_t7,
+        "eta_2d": eta_2d, "s31_acc": s31_acc, "s31_total": s31_total, "s31_no_t7": s31_no_t7,
+        "eta_2p_t7_comp": eta_2p_t7_comp, "eta_2d_t7_comp": eta_2d_t7_comp,
         "ref_comp": ref_comp, "ref_complete": ref_complete, "ref_total": ref_total,
     }
 
@@ -541,6 +566,8 @@ def print_results(all_results):
     # ETA & Reference
     print(f"{'ETA accuracy 2P (±48h port)':<45s}" + "".join(f" | {fmt_pct(r.get('eta_2p'))}" for r in all_results))
     print(f"{'ETA accuracy 2D (±48h delivery)':<45s}" + "".join(f" | {fmt_pct(r.get('eta_2d'))}" for r in all_results))
+    print(f"{'ETA T-7 Completeness 2P':<45s}" + "".join(f" | {fmt_pct(r.get('eta_2p_t7_comp'))}" for r in all_results))
+    print(f"{'ETA T-7 Completeness 2D':<45s}" + "".join(f" | {fmt_pct(r.get('eta_2d_t7_comp'))}" for r in all_results))
     print(f"{'Reference Completeness (CIV/DN)':<45s}" + "".join(f" | {fmt_pct(r.get('ref_comp'))}" for r in all_results))
     print(sep)
 
@@ -554,7 +581,9 @@ def print_results(all_results):
     print(f"{'All Available':<45s}" + "".join(f" | {r['all']['available']:>7d}" for r in all_results))
     print(f"{'All In_Time':<45s}" + "".join(f" | {r['all']['in_time']:>7d}" for r in all_results))
     print(f"{'S07 accepted/total':<45s}" + "".join(f" | {r.get('s07_acc',0):>3d}/{r.get('s07_total',0):>3d}" for r in all_results))
+    print(f"{'S07 no-T-7 (in denom as miss)':<45s}" + "".join(f" | {r.get('s07_no_t7',0):>7d}" for r in all_results))
     print(f"{'S31 accepted/total':<45s}" + "".join(f" | {r.get('s31_acc',0):>3d}/{r.get('s31_total',0):>3d}" for r in all_results))
+    print(f"{'S31 no-T-7 (in denom as miss)':<45s}" + "".join(f" | {r.get('s31_no_t7',0):>7d}" for r in all_results))
     print(f"{'Ref complete/total':<45s}" + "".join(f" | {r.get('ref_complete',0):>3d}/{r.get('ref_total',0):>3d}" for r in all_results))
 
 

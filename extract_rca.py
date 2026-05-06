@@ -420,77 +420,59 @@ def extract_eta_ref_rca(filepath):
             "carrier": carrier,
         }
 
-        # ETA 2P (S07) — only count if vessel has actually arrived (ATA exists)
+        # ETA 2P (S07) — denom = arrived shipments (ATA exists);
+        # numerator = TS_@measured present AND |deviation| ≤ 48h.
+        # No-T-7 (TS_@measured missing) counts toward denom as a miss.
         ata_val = vals[ata_col] if ata_col is not None and ata_col < len(vals) else None
-        if DEBUG and row_num == 17 and '25HA30007606A' in hbl:
-            print(f'DEBUG row {row_num}: HBL={hbl}, s07_col={s07_col}, len(vals)={len(vals)}')
-            if s07_col is not None and s07_col < len(vals):
-                print(f'  vals[s07_col]={vals[s07_col]}, ata_col={ata_col}, ata_val={ata_val}')
-        if s07_col is not None and s07_col < len(vals) and vals[s07_col] is not None:
-            s07_val = vals[s07_col]
-            if DEBUG and '25HA30007606A' in hbl:
-                print(f'  S07 check: s07_val={s07_val}, ata_val={ata_val}')
-            # Skip in-transit shipments: S07_Accepted=0 but no ATA means not yet measurable
-            if s07_val == 0 and ata_val is None:
-                if DEBUG and '25HA30007606A' in hbl:
-                    print(f'  SKIPPED: in-transit (S07=0, no ATA)')
-                pass  # in-transit, exclude from measurement
+        if ata_val is not None:
+            eta_2p_total += 1
+            ts_val = vals[s07_eta_measured_col] if s07_eta_measured_col is not None and s07_eta_measured_col < len(vals) else None
+            deviation = vals[s07_dev_col] if s07_dev_col is not None and s07_dev_col < len(vals) else None
+            dev_hours = round(float(deviation), 1) if isinstance(deviation, (int, float)) else None
+            within = dev_hours is not None and abs(dev_hours) <= 48
+            if ts_val and within:
+                eta_2p_accepted += 1
             else:
-                eta_2p_total += 1
-                if s07_val == 1:
-                    eta_2p_accepted += 1
-                    if DEBUG and '25HA30007606A' in hbl:
-                        print(f'  ACCEPTED')
-                else:
-                    if DEBUG and '25HA30007606A' in hbl:
-                        print(f'  FAILED - adding to list')
-                    deviation = vals[s07_dev_col] if s07_dev_col and s07_dev_col < len(vals) and vals[s07_dev_col] else None
-                    # Use S07 measured ETA if available (the ETA at time of measurement), fallback to current ETA
-                    eta_val = vals[s07_eta_measured_col] if s07_eta_measured_col and s07_eta_measured_col < len(vals) and vals[s07_eta_measured_col] else (vals[eta_col] if eta_col is not None and eta_col < len(vals) else None)
-                    if DEBUG and '25HA30007606A' in hbl:
-                        print(f'    deviation={deviation}, eta_val={eta_val}, s07_eta_measured_col={s07_eta_measured_col}')
-                    dev_hours = round(float(deviation), 1) if deviation and isinstance(deviation, (int, float)) else None
-                    eta_2p_failed.append({
-                        **base_info,
-                        "deviation_hours": dev_hours,
-                        "deviation_days": round(dev_hours / 24, 1) if dev_hours else None,
-                        "direction": "late" if dev_hours and dev_hours > 0 else "early" if dev_hours and dev_hours < 0 else None,
-                        "eta_baseline": str(eta_val)[:16] if eta_val else None,
-                        "estimated": str(eta_val)[:16] if eta_val else None,
-                        "actual": str(ata_val)[:16] if ata_val else None,
-                        "window_start": str(eta_val - timedelta(hours=48))[:16] if eta_val and hasattr(eta_val, '__sub__') else None,
-                        "window_end": str(eta_val + timedelta(hours=48))[:16] if eta_val and hasattr(eta_val, '__add__') else None,
-                    })
-                    if DEBUG and '25HA30007606A' in hbl:
-                        print(f'    Added to eta_2p_failed. List size now: {len(eta_2p_failed)}')
+                fail_reason = "no_t7_eta" if not ts_val else ("no_deviation" if dev_hours is None else "outside_48h")
+                eta_val = vals[s07_eta_measured_col] if s07_eta_measured_col and s07_eta_measured_col < len(vals) and vals[s07_eta_measured_col] else (vals[eta_col] if eta_col is not None and eta_col < len(vals) else None)
+                eta_2p_failed.append({
+                    **base_info,
+                    "deviation_hours": dev_hours,
+                    "deviation_days": round(dev_hours / 24, 1) if dev_hours is not None else None,
+                    "direction": "late" if dev_hours and dev_hours > 0 else "early" if dev_hours and dev_hours < 0 else None,
+                    "fail_reason": fail_reason,
+                    "eta_baseline": str(eta_val)[:16] if eta_val else None,
+                    "estimated": str(eta_val)[:16] if eta_val else None,
+                    "actual": str(ata_val)[:16] if ata_val else None,
+                    "window_start": str(eta_val - timedelta(hours=48))[:16] if eta_val and hasattr(eta_val, '__sub__') else None,
+                    "window_end": str(eta_val + timedelta(hours=48))[:16] if eta_val and hasattr(eta_val, '__add__') else None,
+                })
 
-        # ETA 2D (S31) — only count if actually delivered
+        # ETA 2D (S31) — denom = delivered shipments; numerator = TS_@measured present AND |deviation| ≤ 48h.
         delivered_val = vals[delivered_col] if delivered_col is not None else None
-        if s31_col is not None and vals[s31_col] is not None:
-            s31_val = vals[s31_col]
-            # Skip undelivered shipments: S31_Accepted=0 but no delivered date means not yet measurable
-            if s31_val == 0 and delivered_val is None:
-                pass  # not yet delivered, exclude from measurement
+        if delivered_val is not None:
+            eta_2d_total += 1
+            ts_val = vals[s31_eta_measured_col] if s31_eta_measured_col is not None and s31_eta_measured_col < len(vals) else None
+            deviation = vals[s31_dev_col] if s31_dev_col is not None and s31_dev_col < len(vals) else None
+            dev_hours = round(float(deviation), 1) if isinstance(deviation, (int, float)) else None
+            within = dev_hours is not None and abs(dev_hours) <= 48
+            if ts_val and within:
+                eta_2d_accepted += 1
             else:
-                eta_2d_total += 1
-                if s31_val == 1:
-                    eta_2d_accepted += 1
-                else:
-                    deviation = vals[s31_dev_col] if s31_dev_col and vals[s31_dev_col] else None
-                    # Use S31 measured ETA if available (the ETA at time of measurement), fallback to current delivery estimate
-                    del_est_val = vals[s31_eta_measured_col] if s31_eta_measured_col and vals[s31_eta_measured_col] else (vals[del_est_col] if del_est_col is not None else None)
-                    dev_hours = round(float(deviation), 1) if deviation and isinstance(deviation, (int, float)) else None
-                    eta_2d_failed.append({
-                        **base_info,
-                        "deviation_hours": dev_hours,
-                        "deviation_days": round(dev_hours / 24, 1) if dev_hours else None,
-                        "direction": "late" if dev_hours and dev_hours > 0 else "early" if dev_hours and dev_hours < 0 else None,
-                        "eta_baseline": str(del_est_val)[:16] if del_est_val else None,
-                        "estimated": str(del_est_val)[:16] if del_est_val else None,
-                        "actual": str(delivered_val)[:16] if delivered_val else None,
-                        "window_start": str(del_est_val - timedelta(hours=48))[:16] if del_est_val and hasattr(del_est_val, '__sub__') else None,
-                        "window_end": str(del_est_val + timedelta(hours=48))[:16] if del_est_val and hasattr(del_est_val, '__add__') else None,
-                    })
+                fail_reason = "no_t7_eta" if not ts_val else ("no_deviation" if dev_hours is None else "outside_48h")
+                del_est_val = vals[s31_eta_measured_col] if s31_eta_measured_col and vals[s31_eta_measured_col] else (vals[del_est_col] if del_est_col is not None else None)
+                eta_2d_failed.append({
+                    **base_info,
+                    "deviation_hours": dev_hours,
+                    "deviation_days": round(dev_hours / 24, 1) if dev_hours is not None else None,
+                    "direction": "late" if dev_hours and dev_hours > 0 else "early" if dev_hours and dev_hours < 0 else None,
+                    "fail_reason": fail_reason,
+                    "eta_baseline": str(del_est_val)[:16] if del_est_val else None,
+                    "estimated": str(del_est_val)[:16] if del_est_val else None,
+                    "actual": str(delivered_val)[:16] if delivered_val else None,
+                    "window_start": str(del_est_val - timedelta(hours=48))[:16] if del_est_val and hasattr(del_est_val, '__sub__') else None,
+                    "window_end": str(del_est_val + timedelta(hours=48))[:16] if del_est_val and hasattr(del_est_val, '__add__') else None,
+                })
 
         # Reference Completeness
         ref_total += 1
