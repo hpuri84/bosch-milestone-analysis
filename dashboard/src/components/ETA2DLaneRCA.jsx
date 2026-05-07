@@ -12,6 +12,28 @@ const STATUS_COLOR = {
   gone:     '#9ca3af',
 };
 
+// Week-specific RCA narratives. Keyed by current week label.
+const WEEK_NARRATIVES = {
+  CW15: {
+    headline: 'CW15 — two distinct stories',
+    bullets: [
+      <>A single new lane <strong>DE→TH</strong> drove most of the 2P degradation (<strong>21 shipments</strong>).</>,
+      <>2D worsened on <strong>Asia → Europe</strong> via two different mechanisms: <em>stale-baseline</em> early failures (Asia → PT) and <em>real lateness</em> on <strong>CN → DE</strong> (~+11d late).</>,
+      <>The <strong>real-late</strong> pattern on CN → DE is distinct from the &quot;early&quot; (stale baseline) pattern — it suggests an actual delivery slowdown to Germany rather than a measurement gap.</>,
+    ],
+  },
+  CW16: {
+    headline: 'CW16 — Asia → Europe delivery slowdown deepens (2D drops 14.1% → 6.5%)',
+    bullets: [
+      <>2P actually <strong>improved</strong> (80.4% → 92.4%); the 2D collapse is the story. Late deliveries dominate failures <strong>148 vs 34 early</strong> (4 : 1 ratio, up from 2 : 1 in CW15) — this is a <em>real lateness</em> shift, not a stale-baseline artefact.</>,
+      <><strong>CN → DE</strong> is the single biggest driver: <strong>50 late shipments</strong> averaging <strong>~9.8d late</strong> (more than doubled from 22 in CW15).</>,
+      <>Multiple new Asia-origin lanes opened with consistent late patterns — <strong>JP → CZ (15)</strong>, <strong>MY → DE (10)</strong>, <strong>HK → DE (6, avg ~21d late)</strong>, <strong>TW → DE (5)</strong>. None of these existed in CW15.</>,
+      <>Stale-baseline (early) bucket is roughly flat (31 → 34 ships) — the deterioration is concentrated in real transit delays, not measurement noise.</>,
+      <><strong>Suggested cause to investigate:</strong> systemic Asia → Europe transit slowdown (Suez/Red Sea routing, port congestion, or carrier service reliability) rather than ETA quality.</>,
+    ],
+  },
+};
+
 const STATUS_BG = {
   worsened: 'rgba(220,38,38,0.08)',
   new:      'rgba(124,58,237,0.08)',
@@ -818,6 +840,36 @@ export default function ETA2DLaneRCA({ laneRcaData, selectedWeek }) {
           </div>
         </div>
       </div>
+
+      {WEEK_NARRATIVES[currentLabel] && (
+        <div style={{
+          background: '#fff7ed',
+          border: '1px solid #fed7aa',
+          borderLeft: '3px solid #d97706',
+          borderRadius: 8,
+          padding: '14px 18px',
+          marginBottom: 16,
+          fontFamily: 'var(--font-display)',
+          fontSize: '0.78rem',
+          color: 'var(--text-primary)',
+          lineHeight: 1.6,
+        }}>
+          <div style={{
+            fontFamily: 'var(--font-display)',
+            fontSize: '0.7rem',
+            fontWeight: 600,
+            textTransform: 'uppercase',
+            letterSpacing: '0.06em',
+            color: '#9a3412',
+            marginBottom: 6,
+          }}>RCA — {WEEK_NARRATIVES[currentLabel].headline}</div>
+          <ul style={{ margin: 0, paddingLeft: 18 }}>
+            {WEEK_NARRATIVES[currentLabel].bullets.map((b, i) => (
+              <li key={i} style={{ marginBottom: 4 }}>{b}</li>
+            ))}
+          </ul>
+        </div>
+      )}
 
       <div style={{
         fontFamily: 'var(--font-display)',
