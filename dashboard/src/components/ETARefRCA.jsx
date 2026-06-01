@@ -1,5 +1,6 @@
 import { useState, useMemo } from 'react';
 import ETA2DLaneRCA from './ETA2DLaneRCA';
+import ETA2PLaneRCA from './ETA2PLaneRCA';
 
 const PAGE_SIZE = 50;
 
@@ -411,9 +412,10 @@ function LaneBreakdownTable({ shipments, title }) {
 function FilterBar({ activeSection, setActiveSection, searchTerm, setSearchTerm }) {
   const sections = [
     { key: 'eta_2p', label: 'ETA 2P (Port)' },
+    { key: 'lane_rca_2p', label: 'ETA 2P Lane RCA' },
     { key: 'eta_2d', label: 'ETA 2D (Delivery)' },
-    { key: 'ref', label: 'Reference Completeness' },
     { key: 'lane_rca', label: 'ETA 2D Lane RCA' },
+    { key: 'ref', label: 'Reference Completeness' },
   ];
 
   return (
@@ -471,7 +473,7 @@ function FilterBar({ activeSection, setActiveSection, searchTerm, setSearchTerm 
 }
 
 
-export default function ETARefRCA({ rcaData, selectedWeek, laneRcaData }) {
+export default function ETARefRCA({ rcaData, selectedWeek, laneRcaData, laneRca2p }) {
   const [activeSection, setActiveSection] = useState('eta_2p');
   const [searchTerm, setSearchTerm] = useState('');
 
@@ -695,6 +697,10 @@ export default function ETARefRCA({ rcaData, selectedWeek, laneRcaData }) {
 
       {activeSection === 'lane_rca' && (
         <ETA2DLaneRCA laneRcaData={laneRcaData} selectedWeek={selectedWeek} />
+      )}
+
+      {activeSection === 'lane_rca_2p' && (
+        <ETA2PLaneRCA laneRca2p={laneRca2p} selectedWeek={selectedWeek} />
       )}
     </div>
   );

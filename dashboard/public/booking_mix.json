@@ -1,0 +1,3905 @@
+{
+  "generated": "2026-06-01T10:18:30.114415+00:00",
+  "target_sc3": 0.8,
+  "target_sc4": 0.2,
+  "weekly": [
+    {
+      "week": "CW01",
+      "sc3": 411,
+      "sc4": 168,
+      "total": 579,
+      "sc3_share": 0.7098,
+      "sc4_share": 0.2902,
+      "gap_pp": -9.0
+    },
+    {
+      "week": "CW02",
+      "sc3": 482,
+      "sc4": 390,
+      "total": 872,
+      "sc3_share": 0.5528,
+      "sc4_share": 0.4472,
+      "gap_pp": -24.7
+    },
+    {
+      "week": "CW03",
+      "sc3": 474,
+      "sc4": 675,
+      "total": 1149,
+      "sc3_share": 0.4125,
+      "sc4_share": 0.5875,
+      "gap_pp": -38.7
+    },
+    {
+      "week": "CW04",
+      "sc3": 518,
+      "sc4": 719,
+      "total": 1237,
+      "sc3_share": 0.4188,
+      "sc4_share": 0.5812,
+      "gap_pp": -38.1
+    },
+    {
+      "week": "CW05",
+      "sc3": 509,
+      "sc4": 527,
+      "total": 1036,
+      "sc3_share": 0.4913,
+      "sc4_share": 0.5087,
+      "gap_pp": -30.9
+    },
+    {
+      "week": "CW06",
+      "sc3": 236,
+      "sc4": 569,
+      "total": 805,
+      "sc3_share": 0.2932,
+      "sc4_share": 0.7068,
+      "gap_pp": -50.7
+    },
+    {
+      "week": "CW07",
+      "sc3": 504,
+      "sc4": 566,
+      "total": 1070,
+      "sc3_share": 0.471,
+      "sc4_share": 0.529,
+      "gap_pp": -32.9
+    },
+    {
+      "week": "CW08",
+      "sc3": 480,
+      "sc4": 593,
+      "total": 1073,
+      "sc3_share": 0.4473,
+      "sc4_share": 0.5527,
+      "gap_pp": -35.3
+    },
+    {
+      "week": "CW09",
+      "sc3": 486,
+      "sc4": 552,
+      "total": 1038,
+      "sc3_share": 0.4682,
+      "sc4_share": 0.5318,
+      "gap_pp": -33.2
+    },
+    {
+      "week": "CW10",
+      "sc3": 465,
+      "sc4": 570,
+      "total": 1035,
+      "sc3_share": 0.4493,
+      "sc4_share": 0.5507,
+      "gap_pp": -35.1
+    },
+    {
+      "week": "CW11",
+      "sc3": 406,
+      "sc4": 519,
+      "total": 925,
+      "sc3_share": 0.4389,
+      "sc4_share": 0.5611,
+      "gap_pp": -36.1
+    },
+    {
+      "week": "CW12",
+      "sc3": 428,
+      "sc4": 647,
+      "total": 1075,
+      "sc3_share": 0.3981,
+      "sc4_share": 0.6019,
+      "gap_pp": -40.2
+    },
+    {
+      "week": "CW13",
+      "sc3": 402,
+      "sc4": 606,
+      "total": 1008,
+      "sc3_share": 0.3988,
+      "sc4_share": 0.6012,
+      "gap_pp": -40.1
+    },
+    {
+      "week": "CW14",
+      "sc3": 487,
+      "sc4": 496,
+      "total": 983,
+      "sc3_share": 0.4954,
+      "sc4_share": 0.5046,
+      "gap_pp": -30.5
+    },
+    {
+      "week": "CW15",
+      "sc3": 532,
+      "sc4": 599,
+      "total": 1131,
+      "sc3_share": 0.4704,
+      "sc4_share": 0.5296,
+      "gap_pp": -33.0
+    },
+    {
+      "week": "CW16",
+      "sc3": 562,
+      "sc4": 387,
+      "total": 949,
+      "sc3_share": 0.5922,
+      "sc4_share": 0.4078,
+      "gap_pp": -20.8
+    },
+    {
+      "week": "CW17",
+      "sc3": 422,
+      "sc4": 649,
+      "total": 1071,
+      "sc3_share": 0.394,
+      "sc4_share": 0.606,
+      "gap_pp": -40.6
+    },
+    {
+      "week": "CW18",
+      "sc3": 375,
+      "sc4": 208,
+      "total": 583,
+      "sc3_share": 0.6432,
+      "sc4_share": 0.3568,
+      "gap_pp": -15.7
+    },
+    {
+      "week": "CW19",
+      "sc3": 318,
+      "sc4": 601,
+      "total": 919,
+      "sc3_share": 0.346,
+      "sc4_share": 0.654,
+      "gap_pp": -45.4
+    },
+    {
+      "week": "CW20",
+      "sc3": 200,
+      "sc4": 648,
+      "total": 848,
+      "sc3_share": 0.2358,
+      "sc4_share": 0.7642,
+      "gap_pp": -56.4
+    }
+  ],
+  "trailing4_sc3_share": {
+    "CW01": 0.7098,
+    "CW02": 0.6313,
+    "CW03": 0.5584,
+    "CW04": 0.5235,
+    "CW05": 0.4688,
+    "CW06": 0.404,
+    "CW07": 0.4186,
+    "CW08": 0.4257,
+    "CW09": 0.4199,
+    "CW10": 0.4589,
+    "CW11": 0.4509,
+    "CW12": 0.4386,
+    "CW13": 0.4213,
+    "CW14": 0.4328,
+    "CW15": 0.4407,
+    "CW16": 0.4892,
+    "CW17": 0.488,
+    "CW18": 0.525,
+    "CW19": 0.4939,
+    "CW20": 0.4047
+  },
+  "by_dest_country": {
+    "CW01": [
+      {
+        "country": "CN",
+        "sc3": 111,
+        "sc4": 118,
+        "total": 229,
+        "sc3_share": 0.4847
+      },
+      {
+        "country": "DE",
+        "sc3": 159,
+        "sc4": 10,
+        "total": 169,
+        "sc3_share": 0.9408
+      },
+      {
+        "country": "HU",
+        "sc3": 58,
+        "sc4": 20,
+        "total": 78,
+        "sc3_share": 0.7436
+      },
+      {
+        "country": "HR",
+        "sc3": 20,
+        "sc4": 0,
+        "total": 20,
+        "sc3_share": 1.0
+      },
+      {
+        "country": "CZ",
+        "sc3": 8,
+        "sc4": 11,
+        "total": 19,
+        "sc3_share": 0.4211
+      },
+      {
+        "country": "RS",
+        "sc3": 15,
+        "sc4": 0,
+        "total": 15,
+        "sc3_share": 1.0
+      },
+      {
+        "country": "MY",
+        "sc3": 13,
+        "sc4": 0,
+        "total": 13,
+        "sc3_share": 1.0
+      },
+      {
+        "country": "RO",
+        "sc3": 9,
+        "sc4": 1,
+        "total": 10,
+        "sc3_share": 0.9
+      },
+      {
+        "country": "PT",
+        "sc3": 5,
+        "sc4": 2,
+        "total": 7,
+        "sc3_share": 0.7143
+      },
+      {
+        "country": "JP",
+        "sc3": 0,
+        "sc4": 3,
+        "total": 3,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "ID",
+        "sc3": 1,
+        "sc4": 2,
+        "total": 3,
+        "sc3_share": 0.3333
+      },
+      {
+        "country": "SG",
+        "sc3": 2,
+        "sc4": 1,
+        "total": 3,
+        "sc3_share": 0.6667
+      },
+      {
+        "country": "SI",
+        "sc3": 2,
+        "sc4": 0,
+        "total": 2,
+        "sc3_share": 1.0
+      },
+      {
+        "country": "TW",
+        "sc3": 2,
+        "sc4": 0,
+        "total": 2,
+        "sc3_share": 1.0
+      },
+      {
+        "country": "TR",
+        "sc3": 1,
+        "sc4": 0,
+        "total": 1,
+        "sc3_share": 1.0
+      },
+      {
+        "country": "PL",
+        "sc3": 1,
+        "sc4": 0,
+        "total": 1,
+        "sc3_share": 1.0
+      },
+      {
+        "country": "FR",
+        "sc3": 1,
+        "sc4": 0,
+        "total": 1,
+        "sc3_share": 1.0
+      },
+      {
+        "country": "TH",
+        "sc3": 1,
+        "sc4": 0,
+        "total": 1,
+        "sc3_share": 1.0
+      },
+      {
+        "country": "ES",
+        "sc3": 1,
+        "sc4": 0,
+        "total": 1,
+        "sc3_share": 1.0
+      },
+      {
+        "country": "AT",
+        "sc3": 1,
+        "sc4": 0,
+        "total": 1,
+        "sc3_share": 1.0
+      }
+    ],
+    "CW02": [
+      {
+        "country": "DE",
+        "sc3": 205,
+        "sc4": 145,
+        "total": 350,
+        "sc3_share": 0.5857
+      },
+      {
+        "country": "CN",
+        "sc3": 107,
+        "sc4": 121,
+        "total": 228,
+        "sc3_share": 0.4693
+      },
+      {
+        "country": "HU",
+        "sc3": 73,
+        "sc4": 23,
+        "total": 96,
+        "sc3_share": 0.7604
+      },
+      {
+        "country": "RO",
+        "sc3": 18,
+        "sc4": 28,
+        "total": 46,
+        "sc3_share": 0.3913
+      },
+      {
+        "country": "PT",
+        "sc3": 6,
+        "sc4": 18,
+        "total": 24,
+        "sc3_share": 0.25
+      },
+      {
+        "country": "HR",
+        "sc3": 21,
+        "sc4": 0,
+        "total": 21,
+        "sc3_share": 1.0
+      },
+      {
+        "country": "RS",
+        "sc3": 15,
+        "sc4": 4,
+        "total": 19,
+        "sc3_share": 0.7895
+      },
+      {
+        "country": "IT",
+        "sc3": 0,
+        "sc4": 17,
+        "total": 17,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "MY",
+        "sc3": 12,
+        "sc4": 0,
+        "total": 12,
+        "sc3_share": 1.0
+      },
+      {
+        "country": "CZ",
+        "sc3": 5,
+        "sc4": 7,
+        "total": 12,
+        "sc3_share": 0.4167
+      },
+      {
+        "country": "SI",
+        "sc3": 3,
+        "sc4": 8,
+        "total": 11,
+        "sc3_share": 0.2727
+      },
+      {
+        "country": "JP",
+        "sc3": 0,
+        "sc4": 9,
+        "total": 9,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "PL",
+        "sc3": 6,
+        "sc4": 2,
+        "total": 8,
+        "sc3_share": 0.75
+      },
+      {
+        "country": "SG",
+        "sc3": 3,
+        "sc4": 0,
+        "total": 3,
+        "sc3_share": 1.0
+      },
+      {
+        "country": "ES",
+        "sc3": 3,
+        "sc4": 0,
+        "total": 3,
+        "sc3_share": 1.0
+      },
+      {
+        "country": "TR",
+        "sc3": 2,
+        "sc4": 0,
+        "total": 2,
+        "sc3_share": 1.0
+      },
+      {
+        "country": "ID",
+        "sc3": 1,
+        "sc4": 1,
+        "total": 2,
+        "sc3_share": 0.5
+      },
+      {
+        "country": "TW",
+        "sc3": 0,
+        "sc4": 2,
+        "total": 2,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "NL",
+        "sc3": 0,
+        "sc4": 2,
+        "total": 2,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "AT",
+        "sc3": 1,
+        "sc4": 1,
+        "total": 2,
+        "sc3_share": 0.5
+      },
+      {
+        "country": "CH",
+        "sc3": 0,
+        "sc4": 1,
+        "total": 1,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "TH",
+        "sc3": 1,
+        "sc4": 0,
+        "total": 1,
+        "sc3_share": 1.0
+      },
+      {
+        "country": "SE",
+        "sc3": 0,
+        "sc4": 1,
+        "total": 1,
+        "sc3_share": 0.0
+      }
+    ],
+    "CW03": [
+      {
+        "country": "DE",
+        "sc3": 168,
+        "sc4": 164,
+        "total": 332,
+        "sc3_share": 0.506
+      },
+      {
+        "country": "CN",
+        "sc3": 111,
+        "sc4": 141,
+        "total": 252,
+        "sc3_share": 0.4405
+      },
+      {
+        "country": "HU",
+        "sc3": 88,
+        "sc4": 107,
+        "total": 195,
+        "sc3_share": 0.4513
+      },
+      {
+        "country": "RO",
+        "sc3": 18,
+        "sc4": 49,
+        "total": 67,
+        "sc3_share": 0.2687
+      },
+      {
+        "country": "PT",
+        "sc3": 1,
+        "sc4": 46,
+        "total": 47,
+        "sc3_share": 0.0213
+      },
+      {
+        "country": "RS",
+        "sc3": 21,
+        "sc4": 22,
+        "total": 43,
+        "sc3_share": 0.4884
+      },
+      {
+        "country": "TH",
+        "sc3": 0,
+        "sc4": 27,
+        "total": 27,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "HR",
+        "sc3": 25,
+        "sc4": 1,
+        "total": 26,
+        "sc3_share": 0.9615
+      },
+      {
+        "country": "CZ",
+        "sc3": 7,
+        "sc4": 18,
+        "total": 25,
+        "sc3_share": 0.28
+      },
+      {
+        "country": "MY",
+        "sc3": 14,
+        "sc4": 9,
+        "total": 23,
+        "sc3_share": 0.6087
+      },
+      {
+        "country": "IT",
+        "sc3": 0,
+        "sc4": 22,
+        "total": 22,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "KR",
+        "sc3": 0,
+        "sc4": 16,
+        "total": 16,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "ID",
+        "sc3": 2,
+        "sc4": 13,
+        "total": 15,
+        "sc3_share": 0.1333
+      },
+      {
+        "country": "JP",
+        "sc3": 0,
+        "sc4": 11,
+        "total": 11,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "SI",
+        "sc3": 7,
+        "sc4": 3,
+        "total": 10,
+        "sc3_share": 0.7
+      },
+      {
+        "country": "SG",
+        "sc3": 1,
+        "sc4": 7,
+        "total": 8,
+        "sc3_share": 0.125
+      },
+      {
+        "country": "PL",
+        "sc3": 1,
+        "sc4": 5,
+        "total": 6,
+        "sc3_share": 0.1667
+      },
+      {
+        "country": "NL",
+        "sc3": 0,
+        "sc4": 4,
+        "total": 4,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "ES",
+        "sc3": 4,
+        "sc4": 0,
+        "total": 4,
+        "sc3_share": 1.0
+      },
+      {
+        "country": "SE",
+        "sc3": 0,
+        "sc4": 4,
+        "total": 4,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "GB",
+        "sc3": 0,
+        "sc4": 3,
+        "total": 3,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "AT",
+        "sc3": 2,
+        "sc4": 1,
+        "total": 3,
+        "sc3_share": 0.6667
+      },
+      {
+        "country": "FR",
+        "sc3": 1,
+        "sc4": 1,
+        "total": 2,
+        "sc3_share": 0.5
+      },
+      {
+        "country": "TW",
+        "sc3": 1,
+        "sc4": 1,
+        "total": 2,
+        "sc3_share": 0.5
+      },
+      {
+        "country": "CH",
+        "sc3": 1,
+        "sc4": 0,
+        "total": 1,
+        "sc3_share": 1.0
+      },
+      {
+        "country": "TR",
+        "sc3": 1,
+        "sc4": 0,
+        "total": 1,
+        "sc3_share": 1.0
+      }
+    ],
+    "CW04": [
+      {
+        "country": "DE",
+        "sc3": 192,
+        "sc4": 277,
+        "total": 469,
+        "sc3_share": 0.4094
+      },
+      {
+        "country": "CN",
+        "sc3": 115,
+        "sc4": 88,
+        "total": 203,
+        "sc3_share": 0.5665
+      },
+      {
+        "country": "HU",
+        "sc3": 95,
+        "sc4": 83,
+        "total": 178,
+        "sc3_share": 0.5337
+      },
+      {
+        "country": "PT",
+        "sc3": 4,
+        "sc4": 70,
+        "total": 74,
+        "sc3_share": 0.0541
+      },
+      {
+        "country": "RO",
+        "sc3": 31,
+        "sc4": 38,
+        "total": 69,
+        "sc3_share": 0.4493
+      },
+      {
+        "country": "TH",
+        "sc3": 3,
+        "sc4": 26,
+        "total": 29,
+        "sc3_share": 0.1034
+      },
+      {
+        "country": "MY",
+        "sc3": 12,
+        "sc4": 9,
+        "total": 21,
+        "sc3_share": 0.5714
+      },
+      {
+        "country": "HR",
+        "sc3": 20,
+        "sc4": 0,
+        "total": 20,
+        "sc3_share": 1.0
+      },
+      {
+        "country": "CZ",
+        "sc3": 9,
+        "sc4": 10,
+        "total": 19,
+        "sc3_share": 0.4737
+      },
+      {
+        "country": "IT",
+        "sc3": 0,
+        "sc4": 18,
+        "total": 18,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "ID",
+        "sc3": 3,
+        "sc4": 14,
+        "total": 17,
+        "sc3_share": 0.1765
+      },
+      {
+        "country": "RS",
+        "sc3": 13,
+        "sc4": 2,
+        "total": 15,
+        "sc3_share": 0.8667
+      },
+      {
+        "country": "JP",
+        "sc3": 0,
+        "sc4": 13,
+        "total": 13,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "SI",
+        "sc3": 8,
+        "sc4": 5,
+        "total": 13,
+        "sc3_share": 0.6154
+      },
+      {
+        "country": "GB",
+        "sc3": 0,
+        "sc4": 13,
+        "total": 13,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "PL",
+        "sc3": 4,
+        "sc4": 7,
+        "total": 11,
+        "sc3_share": 0.3636
+      },
+      {
+        "country": "KR",
+        "sc3": 0,
+        "sc4": 11,
+        "total": 11,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "TW",
+        "sc3": 1,
+        "sc4": 9,
+        "total": 10,
+        "sc3_share": 0.1
+      },
+      {
+        "country": "VN",
+        "sc3": 0,
+        "sc4": 7,
+        "total": 7,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "SG",
+        "sc3": 3,
+        "sc4": 2,
+        "total": 5,
+        "sc3_share": 0.6
+      },
+      {
+        "country": "AT",
+        "sc3": 2,
+        "sc4": 3,
+        "total": 5,
+        "sc3_share": 0.4
+      },
+      {
+        "country": "NL",
+        "sc3": 0,
+        "sc4": 4,
+        "total": 4,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "CH",
+        "sc3": 0,
+        "sc4": 3,
+        "total": 3,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "ES",
+        "sc3": 1,
+        "sc4": 2,
+        "total": 3,
+        "sc3_share": 0.3333
+      },
+      {
+        "country": "PH",
+        "sc3": 0,
+        "sc4": 2,
+        "total": 2,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "FR",
+        "sc3": 1,
+        "sc4": 0,
+        "total": 1,
+        "sc3_share": 1.0
+      },
+      {
+        "country": "TR",
+        "sc3": 1,
+        "sc4": 0,
+        "total": 1,
+        "sc3_share": 1.0
+      },
+      {
+        "country": "SK",
+        "sc3": 0,
+        "sc4": 1,
+        "total": 1,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "UA",
+        "sc3": 0,
+        "sc4": 1,
+        "total": 1,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "SE",
+        "sc3": 0,
+        "sc4": 1,
+        "total": 1,
+        "sc3_share": 0.0
+      }
+    ],
+    "CW05": [
+      {
+        "country": "DE",
+        "sc3": 184,
+        "sc4": 176,
+        "total": 360,
+        "sc3_share": 0.5111
+      },
+      {
+        "country": "HU",
+        "sc3": 107,
+        "sc4": 103,
+        "total": 210,
+        "sc3_share": 0.5095
+      },
+      {
+        "country": "CN",
+        "sc3": 119,
+        "sc4": 82,
+        "total": 201,
+        "sc3_share": 0.592
+      },
+      {
+        "country": "PT",
+        "sc3": 0,
+        "sc4": 39,
+        "total": 39,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "RO",
+        "sc3": 18,
+        "sc4": 14,
+        "total": 32,
+        "sc3_share": 0.5625
+      },
+      {
+        "country": "HR",
+        "sc3": 28,
+        "sc4": 0,
+        "total": 28,
+        "sc3_share": 1.0
+      },
+      {
+        "country": "MY",
+        "sc3": 18,
+        "sc4": 9,
+        "total": 27,
+        "sc3_share": 0.6667
+      },
+      {
+        "country": "CZ",
+        "sc3": 7,
+        "sc4": 19,
+        "total": 26,
+        "sc3_share": 0.2692
+      },
+      {
+        "country": "RS",
+        "sc3": 10,
+        "sc4": 8,
+        "total": 18,
+        "sc3_share": 0.5556
+      },
+      {
+        "country": "IT",
+        "sc3": 0,
+        "sc4": 16,
+        "total": 16,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "PL",
+        "sc3": 4,
+        "sc4": 11,
+        "total": 15,
+        "sc3_share": 0.2667
+      },
+      {
+        "country": "TH",
+        "sc3": 0,
+        "sc4": 15,
+        "total": 15,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "SG",
+        "sc3": 3,
+        "sc4": 8,
+        "total": 11,
+        "sc3_share": 0.2727
+      },
+      {
+        "country": "ES",
+        "sc3": 4,
+        "sc4": 4,
+        "total": 8,
+        "sc3_share": 0.5
+      },
+      {
+        "country": "CH",
+        "sc3": 0,
+        "sc4": 5,
+        "total": 5,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "TR",
+        "sc3": 1,
+        "sc4": 4,
+        "total": 5,
+        "sc3_share": 0.2
+      },
+      {
+        "country": "VN",
+        "sc3": 0,
+        "sc4": 4,
+        "total": 4,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "ID",
+        "sc3": 1,
+        "sc4": 2,
+        "total": 3,
+        "sc3_share": 0.3333
+      },
+      {
+        "country": "SI",
+        "sc3": 3,
+        "sc4": 0,
+        "total": 3,
+        "sc3_share": 1.0
+      },
+      {
+        "country": "FR",
+        "sc3": 0,
+        "sc4": 2,
+        "total": 2,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "NL",
+        "sc3": 0,
+        "sc4": 2,
+        "total": 2,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "KR",
+        "sc3": 0,
+        "sc4": 2,
+        "total": 2,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "HK",
+        "sc3": 0,
+        "sc4": 1,
+        "total": 1,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "TW",
+        "sc3": 1,
+        "sc4": 0,
+        "total": 1,
+        "sc3_share": 1.0
+      },
+      {
+        "country": "GB",
+        "sc3": 0,
+        "sc4": 1,
+        "total": 1,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "AT",
+        "sc3": 1,
+        "sc4": 0,
+        "total": 1,
+        "sc3_share": 1.0
+      }
+    ],
+    "CW06": [
+      {
+        "country": "DE",
+        "sc3": 106,
+        "sc4": 214,
+        "total": 320,
+        "sc3_share": 0.3312
+      },
+      {
+        "country": "HU",
+        "sc3": 46,
+        "sc4": 107,
+        "total": 153,
+        "sc3_share": 0.3007
+      },
+      {
+        "country": "CN",
+        "sc3": 19,
+        "sc4": 68,
+        "total": 87,
+        "sc3_share": 0.2184
+      },
+      {
+        "country": "CZ",
+        "sc3": 7,
+        "sc4": 49,
+        "total": 56,
+        "sc3_share": 0.125
+      },
+      {
+        "country": "RO",
+        "sc3": 20,
+        "sc4": 24,
+        "total": 44,
+        "sc3_share": 0.4545
+      },
+      {
+        "country": "MY",
+        "sc3": 10,
+        "sc4": 8,
+        "total": 18,
+        "sc3_share": 0.5556
+      },
+      {
+        "country": "IT",
+        "sc3": 0,
+        "sc4": 13,
+        "total": 13,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "SI",
+        "sc3": 7,
+        "sc4": 5,
+        "total": 12,
+        "sc3_share": 0.5833
+      },
+      {
+        "country": "PL",
+        "sc3": 3,
+        "sc4": 8,
+        "total": 11,
+        "sc3_share": 0.2727
+      },
+      {
+        "country": "ID",
+        "sc3": 2,
+        "sc4": 9,
+        "total": 11,
+        "sc3_share": 0.1818
+      },
+      {
+        "country": "TW",
+        "sc3": 3,
+        "sc4": 7,
+        "total": 10,
+        "sc3_share": 0.3
+      },
+      {
+        "country": "ES",
+        "sc3": 3,
+        "sc4": 7,
+        "total": 10,
+        "sc3_share": 0.3
+      },
+      {
+        "country": "TH",
+        "sc3": 1,
+        "sc4": 8,
+        "total": 9,
+        "sc3_share": 0.1111
+      },
+      {
+        "country": "RS",
+        "sc3": 4,
+        "sc4": 5,
+        "total": 9,
+        "sc3_share": 0.4444
+      },
+      {
+        "country": "SG",
+        "sc3": 2,
+        "sc4": 6,
+        "total": 8,
+        "sc3_share": 0.25
+      },
+      {
+        "country": "VN",
+        "sc3": 0,
+        "sc4": 7,
+        "total": 7,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "GB",
+        "sc3": 0,
+        "sc4": 7,
+        "total": 7,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "JP",
+        "sc3": 0,
+        "sc4": 5,
+        "total": 5,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "KR",
+        "sc3": 0,
+        "sc4": 5,
+        "total": 5,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "PT",
+        "sc3": 0,
+        "sc4": 4,
+        "total": 4,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "CH",
+        "sc3": 0,
+        "sc4": 2,
+        "total": 2,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "AT",
+        "sc3": 2,
+        "sc4": 0,
+        "total": 2,
+        "sc3_share": 1.0
+      },
+      {
+        "country": "TR",
+        "sc3": 1,
+        "sc4": 0,
+        "total": 1,
+        "sc3_share": 1.0
+      },
+      {
+        "country": "SE",
+        "sc3": 0,
+        "sc4": 1,
+        "total": 1,
+        "sc3_share": 0.0
+      }
+    ],
+    "CW07": [
+      {
+        "country": "DE",
+        "sc3": 204,
+        "sc4": 180,
+        "total": 384,
+        "sc3_share": 0.5312
+      },
+      {
+        "country": "CN",
+        "sc3": 83,
+        "sc4": 118,
+        "total": 201,
+        "sc3_share": 0.4129
+      },
+      {
+        "country": "HU",
+        "sc3": 120,
+        "sc4": 76,
+        "total": 196,
+        "sc3_share": 0.6122
+      },
+      {
+        "country": "PT",
+        "sc3": 0,
+        "sc4": 62,
+        "total": 62,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "RO",
+        "sc3": 23,
+        "sc4": 13,
+        "total": 36,
+        "sc3_share": 0.6389
+      },
+      {
+        "country": "TH",
+        "sc3": 3,
+        "sc4": 33,
+        "total": 36,
+        "sc3_share": 0.0833
+      },
+      {
+        "country": "CZ",
+        "sc3": 8,
+        "sc4": 18,
+        "total": 26,
+        "sc3_share": 0.3077
+      },
+      {
+        "country": "HR",
+        "sc3": 23,
+        "sc4": 1,
+        "total": 24,
+        "sc3_share": 0.9583
+      },
+      {
+        "country": "RS",
+        "sc3": 10,
+        "sc4": 7,
+        "total": 17,
+        "sc3_share": 0.5882
+      },
+      {
+        "country": "ID",
+        "sc3": 3,
+        "sc4": 9,
+        "total": 12,
+        "sc3_share": 0.25
+      },
+      {
+        "country": "JP",
+        "sc3": 0,
+        "sc4": 11,
+        "total": 11,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "PL",
+        "sc3": 4,
+        "sc4": 6,
+        "total": 10,
+        "sc3_share": 0.4
+      },
+      {
+        "country": "MY",
+        "sc3": 8,
+        "sc4": 2,
+        "total": 10,
+        "sc3_share": 0.8
+      },
+      {
+        "country": "KR",
+        "sc3": 0,
+        "sc4": 7,
+        "total": 7,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "SI",
+        "sc3": 6,
+        "sc4": 1,
+        "total": 7,
+        "sc3_share": 0.8571
+      },
+      {
+        "country": "TW",
+        "sc3": 2,
+        "sc4": 5,
+        "total": 7,
+        "sc3_share": 0.2857
+      },
+      {
+        "country": "ES",
+        "sc3": 4,
+        "sc4": 2,
+        "total": 6,
+        "sc3_share": 0.6667
+      },
+      {
+        "country": "GB",
+        "sc3": 0,
+        "sc4": 4,
+        "total": 4,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "SG",
+        "sc3": 1,
+        "sc4": 2,
+        "total": 3,
+        "sc3_share": 0.3333
+      },
+      {
+        "country": "AT",
+        "sc3": 1,
+        "sc4": 2,
+        "total": 3,
+        "sc3_share": 0.3333
+      },
+      {
+        "country": "VN",
+        "sc3": 0,
+        "sc4": 2,
+        "total": 2,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "TR",
+        "sc3": 1,
+        "sc4": 1,
+        "total": 2,
+        "sc3_share": 0.5
+      },
+      {
+        "country": "NL",
+        "sc3": 0,
+        "sc4": 1,
+        "total": 1,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "CH",
+        "sc3": 0,
+        "sc4": 1,
+        "total": 1,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "PH",
+        "sc3": 0,
+        "sc4": 1,
+        "total": 1,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "IT",
+        "sc3": 0,
+        "sc4": 1,
+        "total": 1,
+        "sc3_share": 0.0
+      }
+    ],
+    "CW08": [
+      {
+        "country": "DE",
+        "sc3": 178,
+        "sc4": 219,
+        "total": 397,
+        "sc3_share": 0.4484
+      },
+      {
+        "country": "HU",
+        "sc3": 95,
+        "sc4": 92,
+        "total": 187,
+        "sc3_share": 0.508
+      },
+      {
+        "country": "CN",
+        "sc3": 84,
+        "sc4": 56,
+        "total": 140,
+        "sc3_share": 0.6
+      },
+      {
+        "country": "PT",
+        "sc3": 2,
+        "sc4": 66,
+        "total": 68,
+        "sc3_share": 0.0294
+      },
+      {
+        "country": "RO",
+        "sc3": 31,
+        "sc4": 23,
+        "total": 54,
+        "sc3_share": 0.5741
+      },
+      {
+        "country": "TH",
+        "sc3": 3,
+        "sc4": 28,
+        "total": 31,
+        "sc3_share": 0.0968
+      },
+      {
+        "country": "HR",
+        "sc3": 27,
+        "sc4": 2,
+        "total": 29,
+        "sc3_share": 0.931
+      },
+      {
+        "country": "CZ",
+        "sc3": 10,
+        "sc4": 15,
+        "total": 25,
+        "sc3_share": 0.4
+      },
+      {
+        "country": "IT",
+        "sc3": 0,
+        "sc4": 24,
+        "total": 24,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "RS",
+        "sc3": 12,
+        "sc4": 7,
+        "total": 19,
+        "sc3_share": 0.6316
+      },
+      {
+        "country": "MY",
+        "sc3": 15,
+        "sc4": 2,
+        "total": 17,
+        "sc3_share": 0.8824
+      },
+      {
+        "country": "KR",
+        "sc3": 0,
+        "sc4": 15,
+        "total": 15,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "JP",
+        "sc3": 0,
+        "sc4": 13,
+        "total": 13,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "SI",
+        "sc3": 4,
+        "sc4": 9,
+        "total": 13,
+        "sc3_share": 0.3077
+      },
+      {
+        "country": "PL",
+        "sc3": 7,
+        "sc4": 3,
+        "total": 10,
+        "sc3_share": 0.7
+      },
+      {
+        "country": "GB",
+        "sc3": 0,
+        "sc4": 5,
+        "total": 5,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "AT",
+        "sc3": 4,
+        "sc4": 1,
+        "total": 5,
+        "sc3_share": 0.8
+      },
+      {
+        "country": "VN",
+        "sc3": 0,
+        "sc4": 4,
+        "total": 4,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "SE",
+        "sc3": 0,
+        "sc4": 4,
+        "total": 4,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "SG",
+        "sc3": 3,
+        "sc4": 0,
+        "total": 3,
+        "sc3_share": 1.0
+      },
+      {
+        "country": "ES",
+        "sc3": 2,
+        "sc4": 1,
+        "total": 3,
+        "sc3_share": 0.6667
+      },
+      {
+        "country": "NL",
+        "sc3": 0,
+        "sc4": 2,
+        "total": 2,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "TW",
+        "sc3": 2,
+        "sc4": 0,
+        "total": 2,
+        "sc3_share": 1.0
+      },
+      {
+        "country": "FR",
+        "sc3": 1,
+        "sc4": 0,
+        "total": 1,
+        "sc3_share": 1.0
+      },
+      {
+        "country": "CH",
+        "sc3": 0,
+        "sc4": 1,
+        "total": 1,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "TR",
+        "sc3": 0,
+        "sc4": 1,
+        "total": 1,
+        "sc3_share": 0.0
+      }
+    ],
+    "CW09": [
+      {
+        "country": "DE",
+        "sc3": 204,
+        "sc4": 139,
+        "total": 343,
+        "sc3_share": 0.5948
+      },
+      {
+        "country": "HU",
+        "sc3": 107,
+        "sc4": 107,
+        "total": 214,
+        "sc3_share": 0.5
+      },
+      {
+        "country": "CN",
+        "sc3": 82,
+        "sc4": 113,
+        "total": 195,
+        "sc3_share": 0.4205
+      },
+      {
+        "country": "RO",
+        "sc3": 18,
+        "sc4": 44,
+        "total": 62,
+        "sc3_share": 0.2903
+      },
+      {
+        "country": "PT",
+        "sc3": 0,
+        "sc4": 42,
+        "total": 42,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "CZ",
+        "sc3": 10,
+        "sc4": 23,
+        "total": 33,
+        "sc3_share": 0.303
+      },
+      {
+        "country": "HR",
+        "sc3": 22,
+        "sc4": 0,
+        "total": 22,
+        "sc3_share": 1.0
+      },
+      {
+        "country": "RS",
+        "sc3": 10,
+        "sc4": 10,
+        "total": 20,
+        "sc3_share": 0.5
+      },
+      {
+        "country": "JP",
+        "sc3": 0,
+        "sc4": 16,
+        "total": 16,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "MY",
+        "sc3": 14,
+        "sc4": 2,
+        "total": 16,
+        "sc3_share": 0.875
+      },
+      {
+        "country": "SI",
+        "sc3": 6,
+        "sc4": 7,
+        "total": 13,
+        "sc3_share": 0.4615
+      },
+      {
+        "country": "IT",
+        "sc3": 0,
+        "sc4": 12,
+        "total": 12,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "TH",
+        "sc3": 1,
+        "sc4": 8,
+        "total": 9,
+        "sc3_share": 0.1111
+      },
+      {
+        "country": "TW",
+        "sc3": 3,
+        "sc4": 2,
+        "total": 5,
+        "sc3_share": 0.6
+      },
+      {
+        "country": "ES",
+        "sc3": 5,
+        "sc4": 0,
+        "total": 5,
+        "sc3_share": 1.0
+      },
+      {
+        "country": "ID",
+        "sc3": 0,
+        "sc4": 4,
+        "total": 4,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "CH",
+        "sc3": 0,
+        "sc4": 4,
+        "total": 4,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "GB",
+        "sc3": 0,
+        "sc4": 4,
+        "total": 4,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "FR",
+        "sc3": 0,
+        "sc4": 3,
+        "total": 3,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "PL",
+        "sc3": 1,
+        "sc4": 1,
+        "total": 2,
+        "sc3_share": 0.5
+      },
+      {
+        "country": "VN",
+        "sc3": 0,
+        "sc4": 2,
+        "total": 2,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "NL",
+        "sc3": 0,
+        "sc4": 2,
+        "total": 2,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "KR",
+        "sc3": 0,
+        "sc4": 2,
+        "total": 2,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "TR",
+        "sc3": 1,
+        "sc4": 1,
+        "total": 2,
+        "sc3_share": 0.5
+      },
+      {
+        "country": "AT",
+        "sc3": 1,
+        "sc4": 1,
+        "total": 2,
+        "sc3_share": 0.5
+      },
+      {
+        "country": "UA",
+        "sc3": 0,
+        "sc4": 1,
+        "total": 1,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "PH",
+        "sc3": 0,
+        "sc4": 1,
+        "total": 1,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "SG",
+        "sc3": 1,
+        "sc4": 0,
+        "total": 1,
+        "sc3_share": 1.0
+      },
+      {
+        "country": "SE",
+        "sc3": 0,
+        "sc4": 1,
+        "total": 1,
+        "sc3_share": 0.0
+      }
+    ],
+    "CW10": [
+      {
+        "country": "DE",
+        "sc3": 174,
+        "sc4": 173,
+        "total": 347,
+        "sc3_share": 0.5014
+      },
+      {
+        "country": "CN",
+        "sc3": 92,
+        "sc4": 138,
+        "total": 230,
+        "sc3_share": 0.4
+      },
+      {
+        "country": "HU",
+        "sc3": 96,
+        "sc4": 98,
+        "total": 194,
+        "sc3_share": 0.4948
+      },
+      {
+        "country": "RO",
+        "sc3": 24,
+        "sc4": 21,
+        "total": 45,
+        "sc3_share": 0.5333
+      },
+      {
+        "country": "PT",
+        "sc3": 2,
+        "sc4": 37,
+        "total": 39,
+        "sc3_share": 0.0513
+      },
+      {
+        "country": "HR",
+        "sc3": 29,
+        "sc4": 0,
+        "total": 29,
+        "sc3_share": 1.0
+      },
+      {
+        "country": "IT",
+        "sc3": 0,
+        "sc4": 25,
+        "total": 25,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "RS",
+        "sc3": 13,
+        "sc4": 9,
+        "total": 22,
+        "sc3_share": 0.5909
+      },
+      {
+        "country": "MY",
+        "sc3": 12,
+        "sc4": 9,
+        "total": 21,
+        "sc3_share": 0.5714
+      },
+      {
+        "country": "CZ",
+        "sc3": 7,
+        "sc4": 9,
+        "total": 16,
+        "sc3_share": 0.4375
+      },
+      {
+        "country": "JP",
+        "sc3": 0,
+        "sc4": 8,
+        "total": 8,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "PL",
+        "sc3": 3,
+        "sc4": 5,
+        "total": 8,
+        "sc3_share": 0.375
+      },
+      {
+        "country": "SI",
+        "sc3": 5,
+        "sc4": 1,
+        "total": 6,
+        "sc3_share": 0.8333
+      },
+      {
+        "country": "TH",
+        "sc3": 2,
+        "sc4": 3,
+        "total": 5,
+        "sc3_share": 0.4
+      },
+      {
+        "country": "TW",
+        "sc3": 2,
+        "sc4": 3,
+        "total": 5,
+        "sc3_share": 0.4
+      },
+      {
+        "country": "SG",
+        "sc3": 1,
+        "sc4": 4,
+        "total": 5,
+        "sc3_share": 0.2
+      },
+      {
+        "country": "ES",
+        "sc3": 2,
+        "sc4": 3,
+        "total": 5,
+        "sc3_share": 0.4
+      },
+      {
+        "country": "KR",
+        "sc3": 0,
+        "sc4": 4,
+        "total": 4,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "GB",
+        "sc3": 0,
+        "sc4": 4,
+        "total": 4,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "ID",
+        "sc3": 0,
+        "sc4": 3,
+        "total": 3,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "CH",
+        "sc3": 0,
+        "sc4": 3,
+        "total": 3,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "TR",
+        "sc3": 0,
+        "sc4": 3,
+        "total": 3,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "VN",
+        "sc3": 0,
+        "sc4": 2,
+        "total": 2,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "SE",
+        "sc3": 0,
+        "sc4": 2,
+        "total": 2,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "FR",
+        "sc3": 0,
+        "sc4": 1,
+        "total": 1,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "HK",
+        "sc3": 0,
+        "sc4": 1,
+        "total": 1,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "AT",
+        "sc3": 1,
+        "sc4": 0,
+        "total": 1,
+        "sc3_share": 1.0
+      }
+    ],
+    "CW11": [
+      {
+        "country": "DE",
+        "sc3": 142,
+        "sc4": 116,
+        "total": 258,
+        "sc3_share": 0.5504
+      },
+      {
+        "country": "CN",
+        "sc3": 69,
+        "sc4": 169,
+        "total": 238,
+        "sc3_share": 0.2899
+      },
+      {
+        "country": "HU",
+        "sc3": 90,
+        "sc4": 87,
+        "total": 177,
+        "sc3_share": 0.5085
+      },
+      {
+        "country": "RO",
+        "sc3": 33,
+        "sc4": 15,
+        "total": 48,
+        "sc3_share": 0.6875
+      },
+      {
+        "country": "PT",
+        "sc3": 0,
+        "sc4": 40,
+        "total": 40,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "HR",
+        "sc3": 23,
+        "sc4": 0,
+        "total": 23,
+        "sc3_share": 1.0
+      },
+      {
+        "country": "TH",
+        "sc3": 4,
+        "sc4": 16,
+        "total": 20,
+        "sc3_share": 0.2
+      },
+      {
+        "country": "RS",
+        "sc3": 12,
+        "sc4": 5,
+        "total": 17,
+        "sc3_share": 0.7059
+      },
+      {
+        "country": "MY",
+        "sc3": 9,
+        "sc4": 5,
+        "total": 14,
+        "sc3_share": 0.6429
+      },
+      {
+        "country": "IT",
+        "sc3": 0,
+        "sc4": 14,
+        "total": 14,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "SI",
+        "sc3": 7,
+        "sc4": 6,
+        "total": 13,
+        "sc3_share": 0.5385
+      },
+      {
+        "country": "PL",
+        "sc3": 5,
+        "sc4": 6,
+        "total": 11,
+        "sc3_share": 0.4545
+      },
+      {
+        "country": "CZ",
+        "sc3": 5,
+        "sc4": 6,
+        "total": 11,
+        "sc3_share": 0.4545
+      },
+      {
+        "country": "JP",
+        "sc3": 0,
+        "sc4": 9,
+        "total": 9,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "VN",
+        "sc3": 0,
+        "sc4": 8,
+        "total": 8,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "KR",
+        "sc3": 0,
+        "sc4": 6,
+        "total": 6,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "ID",
+        "sc3": 1,
+        "sc4": 2,
+        "total": 3,
+        "sc3_share": 0.3333
+      },
+      {
+        "country": "TW",
+        "sc3": 2,
+        "sc4": 1,
+        "total": 3,
+        "sc3_share": 0.6667
+      },
+      {
+        "country": "SG",
+        "sc3": 1,
+        "sc4": 2,
+        "total": 3,
+        "sc3_share": 0.3333
+      },
+      {
+        "country": "GB",
+        "sc3": 0,
+        "sc4": 2,
+        "total": 2,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "ES",
+        "sc3": 2,
+        "sc4": 0,
+        "total": 2,
+        "sc3_share": 1.0
+      },
+      {
+        "country": "AT",
+        "sc3": 1,
+        "sc4": 1,
+        "total": 2,
+        "sc3_share": 0.5
+      },
+      {
+        "country": "NL",
+        "sc3": 0,
+        "sc4": 1,
+        "total": 1,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "SK",
+        "sc3": 0,
+        "sc4": 1,
+        "total": 1,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "SE",
+        "sc3": 0,
+        "sc4": 1,
+        "total": 1,
+        "sc3_share": 0.0
+      }
+    ],
+    "CW12": [
+      {
+        "country": "DE",
+        "sc3": 147,
+        "sc4": 173,
+        "total": 320,
+        "sc3_share": 0.4594
+      },
+      {
+        "country": "CN",
+        "sc3": 72,
+        "sc4": 185,
+        "total": 257,
+        "sc3_share": 0.2802
+      },
+      {
+        "country": "HU",
+        "sc3": 101,
+        "sc4": 94,
+        "total": 195,
+        "sc3_share": 0.5179
+      },
+      {
+        "country": "PT",
+        "sc3": 2,
+        "sc4": 61,
+        "total": 63,
+        "sc3_share": 0.0317
+      },
+      {
+        "country": "RO",
+        "sc3": 21,
+        "sc4": 27,
+        "total": 48,
+        "sc3_share": 0.4375
+      },
+      {
+        "country": "HR",
+        "sc3": 27,
+        "sc4": 2,
+        "total": 29,
+        "sc3_share": 0.931
+      },
+      {
+        "country": "RS",
+        "sc3": 17,
+        "sc4": 7,
+        "total": 24,
+        "sc3_share": 0.7083
+      },
+      {
+        "country": "CZ",
+        "sc3": 7,
+        "sc4": 17,
+        "total": 24,
+        "sc3_share": 0.2917
+      },
+      {
+        "country": "JP",
+        "sc3": 0,
+        "sc4": 16,
+        "total": 16,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "TH",
+        "sc3": 3,
+        "sc4": 12,
+        "total": 15,
+        "sc3_share": 0.2
+      },
+      {
+        "country": "MY",
+        "sc3": 10,
+        "sc4": 3,
+        "total": 13,
+        "sc3_share": 0.7692
+      },
+      {
+        "country": "TW",
+        "sc3": 1,
+        "sc4": 11,
+        "total": 12,
+        "sc3_share": 0.0833
+      },
+      {
+        "country": "IT",
+        "sc3": 0,
+        "sc4": 11,
+        "total": 11,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "PL",
+        "sc3": 6,
+        "sc4": 3,
+        "total": 9,
+        "sc3_share": 0.6667
+      },
+      {
+        "country": "ES",
+        "sc3": 5,
+        "sc4": 4,
+        "total": 9,
+        "sc3_share": 0.5556
+      },
+      {
+        "country": "SI",
+        "sc3": 3,
+        "sc4": 2,
+        "total": 5,
+        "sc3_share": 0.6
+      },
+      {
+        "country": "SG",
+        "sc3": 2,
+        "sc4": 3,
+        "total": 5,
+        "sc3_share": 0.4
+      },
+      {
+        "country": "ID",
+        "sc3": 0,
+        "sc4": 4,
+        "total": 4,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "VN",
+        "sc3": 0,
+        "sc4": 4,
+        "total": 4,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "FR",
+        "sc3": 1,
+        "sc4": 2,
+        "total": 3,
+        "sc3_share": 0.3333
+      },
+      {
+        "country": "HK",
+        "sc3": 1,
+        "sc4": 2,
+        "total": 3,
+        "sc3_share": 0.3333
+      },
+      {
+        "country": "AT",
+        "sc3": 1,
+        "sc4": 2,
+        "total": 3,
+        "sc3_share": 0.3333
+      },
+      {
+        "country": "KR",
+        "sc3": 0,
+        "sc4": 1,
+        "total": 1,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "SK",
+        "sc3": 0,
+        "sc4": 1,
+        "total": 1,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "GB",
+        "sc3": 1,
+        "sc4": 0,
+        "total": 1,
+        "sc3_share": 1.0
+      }
+    ],
+    "CW13": [
+      {
+        "country": "DE",
+        "sc3": 149,
+        "sc4": 157,
+        "total": 306,
+        "sc3_share": 0.4869
+      },
+      {
+        "country": "CN",
+        "sc3": 74,
+        "sc4": 177,
+        "total": 251,
+        "sc3_share": 0.2948
+      },
+      {
+        "country": "HU",
+        "sc3": 82,
+        "sc4": 69,
+        "total": 151,
+        "sc3_share": 0.543
+      },
+      {
+        "country": "RO",
+        "sc3": 24,
+        "sc4": 26,
+        "total": 50,
+        "sc3_share": 0.48
+      },
+      {
+        "country": "PT",
+        "sc3": 2,
+        "sc4": 42,
+        "total": 44,
+        "sc3_share": 0.0455
+      },
+      {
+        "country": "CZ",
+        "sc3": 7,
+        "sc4": 27,
+        "total": 34,
+        "sc3_share": 0.2059
+      },
+      {
+        "country": "IT",
+        "sc3": 0,
+        "sc4": 29,
+        "total": 29,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "RS",
+        "sc3": 10,
+        "sc4": 12,
+        "total": 22,
+        "sc3_share": 0.4545
+      },
+      {
+        "country": "TH",
+        "sc3": 1,
+        "sc4": 20,
+        "total": 21,
+        "sc3_share": 0.0476
+      },
+      {
+        "country": "HR",
+        "sc3": 16,
+        "sc4": 3,
+        "total": 19,
+        "sc3_share": 0.8421
+      },
+      {
+        "country": "PL",
+        "sc3": 10,
+        "sc4": 8,
+        "total": 18,
+        "sc3_share": 0.5556
+      },
+      {
+        "country": "MY",
+        "sc3": 9,
+        "sc4": 3,
+        "total": 12,
+        "sc3_share": 0.75
+      },
+      {
+        "country": "ES",
+        "sc3": 5,
+        "sc4": 3,
+        "total": 8,
+        "sc3_share": 0.625
+      },
+      {
+        "country": "SI",
+        "sc3": 6,
+        "sc4": 0,
+        "total": 6,
+        "sc3_share": 1.0
+      },
+      {
+        "country": "AT",
+        "sc3": 5,
+        "sc4": 1,
+        "total": 6,
+        "sc3_share": 0.8333
+      },
+      {
+        "country": "FR",
+        "sc3": 1,
+        "sc4": 3,
+        "total": 4,
+        "sc3_share": 0.25
+      },
+      {
+        "country": "JP",
+        "sc3": 0,
+        "sc4": 3,
+        "total": 3,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "ID",
+        "sc3": 0,
+        "sc4": 3,
+        "total": 3,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "UA",
+        "sc3": 0,
+        "sc4": 3,
+        "total": 3,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "TW",
+        "sc3": 0,
+        "sc4": 3,
+        "total": 3,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "GB",
+        "sc3": 0,
+        "sc4": 3,
+        "total": 3,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "SG",
+        "sc3": 1,
+        "sc4": 2,
+        "total": 3,
+        "sc3_share": 0.3333
+      },
+      {
+        "country": "NL",
+        "sc3": 0,
+        "sc4": 2,
+        "total": 2,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "KR",
+        "sc3": 0,
+        "sc4": 2,
+        "total": 2,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "VN",
+        "sc3": 0,
+        "sc4": 1,
+        "total": 1,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "CH",
+        "sc3": 0,
+        "sc4": 1,
+        "total": 1,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "SK",
+        "sc3": 0,
+        "sc4": 1,
+        "total": 1,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "PH",
+        "sc3": 0,
+        "sc4": 1,
+        "total": 1,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "SE",
+        "sc3": 0,
+        "sc4": 1,
+        "total": 1,
+        "sc3_share": 0.0
+      }
+    ],
+    "CW14": [
+      {
+        "country": "DE",
+        "sc3": 175,
+        "sc4": 163,
+        "total": 338,
+        "sc3_share": 0.5178
+      },
+      {
+        "country": "CN",
+        "sc3": 100,
+        "sc4": 149,
+        "total": 249,
+        "sc3_share": 0.4016
+      },
+      {
+        "country": "HU",
+        "sc3": 106,
+        "sc4": 63,
+        "total": 169,
+        "sc3_share": 0.6272
+      },
+      {
+        "country": "RO",
+        "sc3": 17,
+        "sc4": 20,
+        "total": 37,
+        "sc3_share": 0.4595
+      },
+      {
+        "country": "PT",
+        "sc3": 6,
+        "sc4": 30,
+        "total": 36,
+        "sc3_share": 0.1667
+      },
+      {
+        "country": "HR",
+        "sc3": 27,
+        "sc4": 3,
+        "total": 30,
+        "sc3_share": 0.9
+      },
+      {
+        "country": "RS",
+        "sc3": 15,
+        "sc4": 10,
+        "total": 25,
+        "sc3_share": 0.6
+      },
+      {
+        "country": "PL",
+        "sc3": 9,
+        "sc4": 9,
+        "total": 18,
+        "sc3_share": 0.5
+      },
+      {
+        "country": "MY",
+        "sc3": 10,
+        "sc4": 3,
+        "total": 13,
+        "sc3_share": 0.7692
+      },
+      {
+        "country": "CZ",
+        "sc3": 6,
+        "sc4": 7,
+        "total": 13,
+        "sc3_share": 0.4615
+      },
+      {
+        "country": "IT",
+        "sc3": 0,
+        "sc4": 12,
+        "total": 12,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "SI",
+        "sc3": 4,
+        "sc4": 3,
+        "total": 7,
+        "sc3_share": 0.5714
+      },
+      {
+        "country": "TH",
+        "sc3": 3,
+        "sc4": 4,
+        "total": 7,
+        "sc3_share": 0.4286
+      },
+      {
+        "country": "GB",
+        "sc3": 1,
+        "sc4": 4,
+        "total": 5,
+        "sc3_share": 0.2
+      },
+      {
+        "country": "NL",
+        "sc3": 0,
+        "sc4": 4,
+        "total": 4,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "UA",
+        "sc3": 0,
+        "sc4": 4,
+        "total": 4,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "ID",
+        "sc3": 3,
+        "sc4": 0,
+        "total": 3,
+        "sc3_share": 1.0
+      },
+      {
+        "country": "SG",
+        "sc3": 2,
+        "sc4": 1,
+        "total": 3,
+        "sc3_share": 0.6667
+      },
+      {
+        "country": "VN",
+        "sc3": 0,
+        "sc4": 2,
+        "total": 2,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "HK",
+        "sc3": 2,
+        "sc4": 0,
+        "total": 2,
+        "sc3_share": 1.0
+      },
+      {
+        "country": "ES",
+        "sc3": 1,
+        "sc4": 1,
+        "total": 2,
+        "sc3_share": 0.5
+      },
+      {
+        "country": "CH",
+        "sc3": 0,
+        "sc4": 1,
+        "total": 1,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "KR",
+        "sc3": 0,
+        "sc4": 1,
+        "total": 1,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "TR",
+        "sc3": 0,
+        "sc4": 1,
+        "total": 1,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "PH",
+        "sc3": 0,
+        "sc4": 1,
+        "total": 1,
+        "sc3_share": 0.0
+      }
+    ],
+    "CW15": [
+      {
+        "country": "DE",
+        "sc3": 209,
+        "sc4": 122,
+        "total": 331,
+        "sc3_share": 0.6314
+      },
+      {
+        "country": "CN",
+        "sc3": 106,
+        "sc4": 165,
+        "total": 271,
+        "sc3_share": 0.3911
+      },
+      {
+        "country": "HU",
+        "sc3": 97,
+        "sc4": 62,
+        "total": 159,
+        "sc3_share": 0.6101
+      },
+      {
+        "country": "PT",
+        "sc3": 12,
+        "sc4": 69,
+        "total": 81,
+        "sc3_share": 0.1481
+      },
+      {
+        "country": "RO",
+        "sc3": 22,
+        "sc4": 21,
+        "total": 43,
+        "sc3_share": 0.5116
+      },
+      {
+        "country": "TH",
+        "sc3": 6,
+        "sc4": 30,
+        "total": 36,
+        "sc3_share": 0.1667
+      },
+      {
+        "country": "MY",
+        "sc3": 16,
+        "sc4": 14,
+        "total": 30,
+        "sc3_share": 0.5333
+      },
+      {
+        "country": "RS",
+        "sc3": 14,
+        "sc4": 8,
+        "total": 22,
+        "sc3_share": 0.6364
+      },
+      {
+        "country": "HR",
+        "sc3": 18,
+        "sc4": 2,
+        "total": 20,
+        "sc3_share": 0.9
+      },
+      {
+        "country": "IT",
+        "sc3": 0,
+        "sc4": 16,
+        "total": 16,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "SG",
+        "sc3": 2,
+        "sc4": 12,
+        "total": 14,
+        "sc3_share": 0.1429
+      },
+      {
+        "country": "CH",
+        "sc3": 0,
+        "sc4": 12,
+        "total": 12,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "JP",
+        "sc3": 0,
+        "sc4": 11,
+        "total": 11,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "ES",
+        "sc3": 6,
+        "sc4": 5,
+        "total": 11,
+        "sc3_share": 0.5455
+      },
+      {
+        "country": "SI",
+        "sc3": 4,
+        "sc4": 6,
+        "total": 10,
+        "sc3_share": 0.4
+      },
+      {
+        "country": "CZ",
+        "sc3": 7,
+        "sc4": 3,
+        "total": 10,
+        "sc3_share": 0.7
+      },
+      {
+        "country": "PL",
+        "sc3": 4,
+        "sc4": 4,
+        "total": 8,
+        "sc3_share": 0.5
+      },
+      {
+        "country": "GB",
+        "sc3": 0,
+        "sc4": 8,
+        "total": 8,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "VN",
+        "sc3": 0,
+        "sc4": 7,
+        "total": 7,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "AT",
+        "sc3": 5,
+        "sc4": 2,
+        "total": 7,
+        "sc3_share": 0.7143
+      },
+      {
+        "country": "KR",
+        "sc3": 0,
+        "sc4": 6,
+        "total": 6,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "ID",
+        "sc3": 1,
+        "sc4": 4,
+        "total": 5,
+        "sc3_share": 0.2
+      },
+      {
+        "country": "HK",
+        "sc3": 1,
+        "sc4": 3,
+        "total": 4,
+        "sc3_share": 0.25
+      },
+      {
+        "country": "TW",
+        "sc3": 1,
+        "sc4": 2,
+        "total": 3,
+        "sc3_share": 0.3333
+      },
+      {
+        "country": "FR",
+        "sc3": 1,
+        "sc4": 1,
+        "total": 2,
+        "sc3_share": 0.5
+      },
+      {
+        "country": "SE",
+        "sc3": 0,
+        "sc4": 2,
+        "total": 2,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "TR",
+        "sc3": 0,
+        "sc4": 1,
+        "total": 1,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "UA",
+        "sc3": 0,
+        "sc4": 1,
+        "total": 1,
+        "sc3_share": 0.0
+      }
+    ],
+    "CW16": [
+      {
+        "country": "DE",
+        "sc3": 216,
+        "sc4": 123,
+        "total": 339,
+        "sc3_share": 0.6372
+      },
+      {
+        "country": "HU",
+        "sc3": 111,
+        "sc4": 83,
+        "total": 194,
+        "sc3_share": 0.5722
+      },
+      {
+        "country": "CN",
+        "sc3": 123,
+        "sc4": 13,
+        "total": 136,
+        "sc3_share": 0.9044
+      },
+      {
+        "country": "PT",
+        "sc3": 8,
+        "sc4": 51,
+        "total": 59,
+        "sc3_share": 0.1356
+      },
+      {
+        "country": "RO",
+        "sc3": 20,
+        "sc4": 27,
+        "total": 47,
+        "sc3_share": 0.4255
+      },
+      {
+        "country": "CZ",
+        "sc3": 8,
+        "sc4": 25,
+        "total": 33,
+        "sc3_share": 0.2424
+      },
+      {
+        "country": "MY",
+        "sc3": 14,
+        "sc4": 11,
+        "total": 25,
+        "sc3_share": 0.56
+      },
+      {
+        "country": "HR",
+        "sc3": 19,
+        "sc4": 0,
+        "total": 19,
+        "sc3_share": 1.0
+      },
+      {
+        "country": "RS",
+        "sc3": 14,
+        "sc4": 4,
+        "total": 18,
+        "sc3_share": 0.7778
+      },
+      {
+        "country": "PL",
+        "sc3": 8,
+        "sc4": 4,
+        "total": 12,
+        "sc3_share": 0.6667
+      },
+      {
+        "country": "ID",
+        "sc3": 1,
+        "sc4": 11,
+        "total": 12,
+        "sc3_share": 0.0833
+      },
+      {
+        "country": "TH",
+        "sc3": 8,
+        "sc4": 4,
+        "total": 12,
+        "sc3_share": 0.6667
+      },
+      {
+        "country": "TW",
+        "sc3": 2,
+        "sc4": 6,
+        "total": 8,
+        "sc3_share": 0.25
+      },
+      {
+        "country": "IT",
+        "sc3": 0,
+        "sc4": 5,
+        "total": 5,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "SG",
+        "sc3": 1,
+        "sc4": 4,
+        "total": 5,
+        "sc3_share": 0.2
+      },
+      {
+        "country": "TR",
+        "sc3": 0,
+        "sc4": 4,
+        "total": 4,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "SI",
+        "sc3": 1,
+        "sc4": 3,
+        "total": 4,
+        "sc3_share": 0.25
+      },
+      {
+        "country": "ES",
+        "sc3": 2,
+        "sc4": 2,
+        "total": 4,
+        "sc3_share": 0.5
+      },
+      {
+        "country": "AT",
+        "sc3": 3,
+        "sc4": 0,
+        "total": 3,
+        "sc3_share": 1.0
+      },
+      {
+        "country": "CH",
+        "sc3": 0,
+        "sc4": 2,
+        "total": 2,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "HK",
+        "sc3": 2,
+        "sc4": 0,
+        "total": 2,
+        "sc3_share": 1.0
+      },
+      {
+        "country": "GB",
+        "sc3": 1,
+        "sc4": 1,
+        "total": 2,
+        "sc3_share": 0.5
+      },
+      {
+        "country": "JP",
+        "sc3": 0,
+        "sc4": 1,
+        "total": 1,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "UA",
+        "sc3": 0,
+        "sc4": 1,
+        "total": 1,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "PH",
+        "sc3": 0,
+        "sc4": 1,
+        "total": 1,
+        "sc3_share": 0.0
+      }
+    ],
+    "CW17": [
+      {
+        "country": "DE",
+        "sc3": 133,
+        "sc4": 173,
+        "total": 306,
+        "sc3_share": 0.4346
+      },
+      {
+        "country": "CN",
+        "sc3": 70,
+        "sc4": 226,
+        "total": 296,
+        "sc3_share": 0.2365
+      },
+      {
+        "country": "HU",
+        "sc3": 112,
+        "sc4": 79,
+        "total": 191,
+        "sc3_share": 0.5864
+      },
+      {
+        "country": "PT",
+        "sc3": 8,
+        "sc4": 29,
+        "total": 37,
+        "sc3_share": 0.2162
+      },
+      {
+        "country": "RO",
+        "sc3": 21,
+        "sc4": 14,
+        "total": 35,
+        "sc3_share": 0.6
+      },
+      {
+        "country": "RS",
+        "sc3": 13,
+        "sc4": 20,
+        "total": 33,
+        "sc3_share": 0.3939
+      },
+      {
+        "country": "MY",
+        "sc3": 13,
+        "sc4": 6,
+        "total": 19,
+        "sc3_share": 0.6842
+      },
+      {
+        "country": "PL",
+        "sc3": 8,
+        "sc4": 10,
+        "total": 18,
+        "sc3_share": 0.4444
+      },
+      {
+        "country": "HR",
+        "sc3": 18,
+        "sc4": 0,
+        "total": 18,
+        "sc3_share": 1.0
+      },
+      {
+        "country": "JP",
+        "sc3": 0,
+        "sc4": 17,
+        "total": 17,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "TH",
+        "sc3": 8,
+        "sc4": 9,
+        "total": 17,
+        "sc3_share": 0.4706
+      },
+      {
+        "country": "ID",
+        "sc3": 1,
+        "sc4": 14,
+        "total": 15,
+        "sc3_share": 0.0667
+      },
+      {
+        "country": "CZ",
+        "sc3": 7,
+        "sc4": 8,
+        "total": 15,
+        "sc3_share": 0.4667
+      },
+      {
+        "country": "IT",
+        "sc3": 0,
+        "sc4": 13,
+        "total": 13,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "VN",
+        "sc3": 0,
+        "sc4": 8,
+        "total": 8,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "SG",
+        "sc3": 4,
+        "sc4": 4,
+        "total": 8,
+        "sc3_share": 0.5
+      },
+      {
+        "country": "TW",
+        "sc3": 1,
+        "sc4": 5,
+        "total": 6,
+        "sc3_share": 0.1667
+      },
+      {
+        "country": "KR",
+        "sc3": 0,
+        "sc4": 5,
+        "total": 5,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "ES",
+        "sc3": 3,
+        "sc4": 2,
+        "total": 5,
+        "sc3_share": 0.6
+      },
+      {
+        "country": "FR",
+        "sc3": 0,
+        "sc4": 3,
+        "total": 3,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "SK",
+        "sc3": 0,
+        "sc4": 2,
+        "total": 2,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "SI",
+        "sc3": 2,
+        "sc4": 0,
+        "total": 2,
+        "sc3_share": 1.0
+      },
+      {
+        "country": "CH",
+        "sc3": 0,
+        "sc4": 1,
+        "total": 1,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "GB",
+        "sc3": 0,
+        "sc4": 1,
+        "total": 1,
+        "sc3_share": 0.0
+      }
+    ],
+    "CW18": [
+      {
+        "country": "DE",
+        "sc3": 147,
+        "sc4": 51,
+        "total": 198,
+        "sc3_share": 0.7424
+      },
+      {
+        "country": "CN",
+        "sc3": 89,
+        "sc4": 39,
+        "total": 128,
+        "sc3_share": 0.6953
+      },
+      {
+        "country": "HU",
+        "sc3": 86,
+        "sc4": 28,
+        "total": 114,
+        "sc3_share": 0.7544
+      },
+      {
+        "country": "RO",
+        "sc3": 11,
+        "sc4": 22,
+        "total": 33,
+        "sc3_share": 0.3333
+      },
+      {
+        "country": "TH",
+        "sc3": 5,
+        "sc4": 13,
+        "total": 18,
+        "sc3_share": 0.2778
+      },
+      {
+        "country": "CZ",
+        "sc3": 6,
+        "sc4": 6,
+        "total": 12,
+        "sc3_share": 0.5
+      },
+      {
+        "country": "MY",
+        "sc3": 8,
+        "sc4": 2,
+        "total": 10,
+        "sc3_share": 0.8
+      },
+      {
+        "country": "ES",
+        "sc3": 3,
+        "sc4": 6,
+        "total": 9,
+        "sc3_share": 0.3333
+      },
+      {
+        "country": "KR",
+        "sc3": 0,
+        "sc4": 8,
+        "total": 8,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "HR",
+        "sc3": 5,
+        "sc4": 0,
+        "total": 5,
+        "sc3_share": 1.0
+      },
+      {
+        "country": "ID",
+        "sc3": 1,
+        "sc4": 4,
+        "total": 5,
+        "sc3_share": 0.2
+      },
+      {
+        "country": "VN",
+        "sc3": 0,
+        "sc4": 5,
+        "total": 5,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "PT",
+        "sc3": 0,
+        "sc4": 4,
+        "total": 4,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "RS",
+        "sc3": 4,
+        "sc4": 0,
+        "total": 4,
+        "sc3_share": 1.0
+      },
+      {
+        "country": "TW",
+        "sc3": 3,
+        "sc4": 1,
+        "total": 4,
+        "sc3_share": 0.75
+      },
+      {
+        "country": "GB",
+        "sc3": 0,
+        "sc4": 4,
+        "total": 4,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "JP",
+        "sc3": 0,
+        "sc4": 3,
+        "total": 3,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "PL",
+        "sc3": 2,
+        "sc4": 1,
+        "total": 3,
+        "sc3_share": 0.6667
+      },
+      {
+        "country": "SI",
+        "sc3": 3,
+        "sc4": 0,
+        "total": 3,
+        "sc3_share": 1.0
+      },
+      {
+        "country": "IT",
+        "sc3": 0,
+        "sc4": 3,
+        "total": 3,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "AT",
+        "sc3": 1,
+        "sc4": 2,
+        "total": 3,
+        "sc3_share": 0.3333
+      },
+      {
+        "country": "SG",
+        "sc3": 1,
+        "sc4": 1,
+        "total": 2,
+        "sc3_share": 0.5
+      },
+      {
+        "country": "US",
+        "sc3": 0,
+        "sc4": 1,
+        "total": 1,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "NL",
+        "sc3": 0,
+        "sc4": 1,
+        "total": 1,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "CH",
+        "sc3": 0,
+        "sc4": 1,
+        "total": 1,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "HK",
+        "sc3": 0,
+        "sc4": 1,
+        "total": 1,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "PH",
+        "sc3": 0,
+        "sc4": 1,
+        "total": 1,
+        "sc3_share": 0.0
+      }
+    ],
+    "CW19": [
+      {
+        "country": "DE",
+        "sc3": 129,
+        "sc4": 145,
+        "total": 274,
+        "sc3_share": 0.4708
+      },
+      {
+        "country": "CN",
+        "sc3": 71,
+        "sc4": 197,
+        "total": 268,
+        "sc3_share": 0.2649
+      },
+      {
+        "country": "HU",
+        "sc3": 46,
+        "sc4": 88,
+        "total": 134,
+        "sc3_share": 0.3433
+      },
+      {
+        "country": "RO",
+        "sc3": 20,
+        "sc4": 27,
+        "total": 47,
+        "sc3_share": 0.4255
+      },
+      {
+        "country": "PT",
+        "sc3": 4,
+        "sc4": 32,
+        "total": 36,
+        "sc3_share": 0.1111
+      },
+      {
+        "country": "TH",
+        "sc3": 5,
+        "sc4": 16,
+        "total": 21,
+        "sc3_share": 0.2381
+      },
+      {
+        "country": "IT",
+        "sc3": 0,
+        "sc4": 17,
+        "total": 17,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "MY",
+        "sc3": 6,
+        "sc4": 10,
+        "total": 16,
+        "sc3_share": 0.375
+      },
+      {
+        "country": "CZ",
+        "sc3": 4,
+        "sc4": 11,
+        "total": 15,
+        "sc3_share": 0.2667
+      },
+      {
+        "country": "RS",
+        "sc3": 7,
+        "sc4": 3,
+        "total": 10,
+        "sc3_share": 0.7
+      },
+      {
+        "country": "TW",
+        "sc3": 3,
+        "sc4": 7,
+        "total": 10,
+        "sc3_share": 0.3
+      },
+      {
+        "country": "VN",
+        "sc3": 0,
+        "sc4": 8,
+        "total": 8,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "SG",
+        "sc3": 4,
+        "sc4": 4,
+        "total": 8,
+        "sc3_share": 0.5
+      },
+      {
+        "country": "ES",
+        "sc3": 4,
+        "sc4": 4,
+        "total": 8,
+        "sc3_share": 0.5
+      },
+      {
+        "country": "JP",
+        "sc3": 0,
+        "sc4": 7,
+        "total": 7,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "ID",
+        "sc3": 2,
+        "sc4": 4,
+        "total": 6,
+        "sc3_share": 0.3333
+      },
+      {
+        "country": "HR",
+        "sc3": 5,
+        "sc4": 0,
+        "total": 5,
+        "sc3_share": 1.0
+      },
+      {
+        "country": "SI",
+        "sc3": 5,
+        "sc4": 0,
+        "total": 5,
+        "sc3_share": 1.0
+      },
+      {
+        "country": "PL",
+        "sc3": 1,
+        "sc4": 3,
+        "total": 4,
+        "sc3_share": 0.25
+      },
+      {
+        "country": "HK",
+        "sc3": 0,
+        "sc4": 4,
+        "total": 4,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "KR",
+        "sc3": 0,
+        "sc4": 3,
+        "total": 3,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "PH",
+        "sc3": 0,
+        "sc4": 3,
+        "total": 3,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "FR",
+        "sc3": 0,
+        "sc4": 2,
+        "total": 2,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "UA",
+        "sc3": 0,
+        "sc4": 2,
+        "total": 2,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "GB",
+        "sc3": 0,
+        "sc4": 2,
+        "total": 2,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "AT",
+        "sc3": 2,
+        "sc4": 0,
+        "total": 2,
+        "sc3_share": 1.0
+      },
+      {
+        "country": "NL",
+        "sc3": 0,
+        "sc4": 1,
+        "total": 1,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "CH",
+        "sc3": 0,
+        "sc4": 1,
+        "total": 1,
+        "sc3_share": 0.0
+      }
+    ],
+    "CW20": [
+      {
+        "country": "CN",
+        "sc3": 25,
+        "sc4": 265,
+        "total": 290,
+        "sc3_share": 0.0862
+      },
+      {
+        "country": "DE",
+        "sc3": 93,
+        "sc4": 120,
+        "total": 213,
+        "sc3_share": 0.4366
+      },
+      {
+        "country": "HU",
+        "sc3": 27,
+        "sc4": 57,
+        "total": 84,
+        "sc3_share": 0.3214
+      },
+      {
+        "country": "PT",
+        "sc3": 0,
+        "sc4": 43,
+        "total": 43,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "TH",
+        "sc3": 11,
+        "sc4": 27,
+        "total": 38,
+        "sc3_share": 0.2895
+      },
+      {
+        "country": "CZ",
+        "sc3": 6,
+        "sc4": 22,
+        "total": 28,
+        "sc3_share": 0.2143
+      },
+      {
+        "country": "IT",
+        "sc3": 0,
+        "sc4": 17,
+        "total": 17,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "PL",
+        "sc3": 4,
+        "sc4": 10,
+        "total": 14,
+        "sc3_share": 0.2857
+      },
+      {
+        "country": "ID",
+        "sc3": 6,
+        "sc4": 8,
+        "total": 14,
+        "sc3_share": 0.4286
+      },
+      {
+        "country": "RO",
+        "sc3": 5,
+        "sc4": 9,
+        "total": 14,
+        "sc3_share": 0.3571
+      },
+      {
+        "country": "TW",
+        "sc3": 2,
+        "sc4": 12,
+        "total": 14,
+        "sc3_share": 0.1429
+      },
+      {
+        "country": "JP",
+        "sc3": 0,
+        "sc4": 12,
+        "total": 12,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "MY",
+        "sc3": 8,
+        "sc4": 4,
+        "total": 12,
+        "sc3_share": 0.6667
+      },
+      {
+        "country": "SG",
+        "sc3": 3,
+        "sc4": 6,
+        "total": 9,
+        "sc3_share": 0.3333
+      },
+      {
+        "country": "CH",
+        "sc3": 0,
+        "sc4": 8,
+        "total": 8,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "RS",
+        "sc3": 0,
+        "sc4": 7,
+        "total": 7,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "KR",
+        "sc3": 0,
+        "sc4": 5,
+        "total": 5,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "SI",
+        "sc3": 5,
+        "sc4": 0,
+        "total": 5,
+        "sc3_share": 1.0
+      },
+      {
+        "country": "GB",
+        "sc3": 0,
+        "sc4": 5,
+        "total": 5,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "ES",
+        "sc3": 2,
+        "sc4": 3,
+        "total": 5,
+        "sc3_share": 0.4
+      },
+      {
+        "country": "VN",
+        "sc3": 0,
+        "sc4": 3,
+        "total": 3,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "AT",
+        "sc3": 2,
+        "sc4": 0,
+        "total": 2,
+        "sc3_share": 1.0
+      },
+      {
+        "country": "FR",
+        "sc3": 1,
+        "sc4": 0,
+        "total": 1,
+        "sc3_share": 1.0
+      },
+      {
+        "country": "HR",
+        "sc3": 0,
+        "sc4": 1,
+        "total": 1,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "NL",
+        "sc3": 0,
+        "sc4": 1,
+        "total": 1,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "TR",
+        "sc3": 0,
+        "sc4": 1,
+        "total": 1,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "PH",
+        "sc3": 0,
+        "sc4": 1,
+        "total": 1,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "SE",
+        "sc3": 0,
+        "sc4": 1,
+        "total": 1,
+        "sc3_share": 0.0
+      }
+    ]
+  },
+  "latest_week": "CW20",
+  "notes": [
+    "Booking mix is measured by shipment COUNT, not container or volume.",
+    "Weekly files are activity snapshots, not cumulative bookings \u2014 mix is volatile week to week.",
+    "CW20 SC3 (200 rows) and CW18 SC4 (208 rows) appear to be PARTIAL extracts vs typical ~400-650; treat single-week values as directional. Trailing-average is more reliable.",
+    "SC4 = ocean freight (Asia origin -> Europe). SC3 = NGTM road/inland legs (LSP trucking, mostly within Europe). Only DESTINATION country is comparable across the two datasets."
+  ]
+}

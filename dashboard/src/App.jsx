@@ -17,6 +17,7 @@ import CancellationAnalysis from './components/CancellationAnalysis';
 import TransmissionGapAnalysis from './components/TransmissionGapAnalysis';
 import SeeburgerAnalysis from './components/SeeburgerAnalysis';
 import PodPatternAnalysis from './components/PodPatternAnalysis';
+import BookingMix from './components/BookingMix';
 
 injectGlobalStyles();
 
@@ -72,6 +73,8 @@ export default function App() {
   const [seeburgerData, setSeeburgerData] = useState(null);
   const [podPatternData, setPodPatternData] = useState(null);
   const [laneRcaData, setLaneRcaData] = useState(null);
+  const [laneRca2p, setLaneRca2p] = useState(null);
+  const [bookingMix, setBookingMix] = useState(null);
   const [selectedWeek, setSelectedWeek] = useState(null);
   const [activeTab, setActiveTab] = useState('overview');
 
@@ -87,7 +90,9 @@ export default function App() {
       fetch('/seeburger_analysis.json').then(r => r.json()).catch(() => null),
       fetch('/pod_pattern_analysis.json').then(r => r.json()).catch(() => null),
       fetch('/eta_2d_lane_rca.json').then(r => r.json()).catch(() => null),
-    ]).then(([kpi, rca, tasks, cancelled, impact, gap, ediDrill, seeburger, podPatterns, laneRca]) => {
+      fetch('/eta_2p_lane_rca.json').then(r => r.json()).catch(() => null),
+      fetch('/booking_mix.json').then(r => r.json()).catch(() => null),
+    ]).then(([kpi, rca, tasks, cancelled, impact, gap, ediDrill, seeburger, podPatterns, laneRca, laneRca2p, bookingMixData]) => {
       setData(kpi);
       setRcaData(rca);
       setTaskData(tasks);
@@ -98,6 +103,8 @@ export default function App() {
       setSeeburgerData(seeburger);
       setPodPatternData(podPatterns);
       setLaneRcaData(laneRca);
+      setLaneRca2p(laneRca2p);
+      setBookingMix(bookingMixData);
       setSelectedWeek(kpi[kpi.length - 1]?.week);
     });
   }, []);
@@ -232,6 +239,7 @@ export default function App() {
       }}>
         {[
           { key: 'overview', label: 'Overview' },
+          { key: 'booking', label: 'Booking Mix' },
           { key: 'rca', label: 'Milestone RCA' },
           { key: 'eta_ref', label: 'ETA & Reference' },
           { key: 'plausibility', label: 'Plausibility' },
@@ -292,7 +300,17 @@ export default function App() {
           <div style={LAYOUT.sectionTitle}>
             {selectedWeek} — ETA Accuracy & Reference Completeness RCA
           </div>
-          <ETARefRCA rcaData={rcaData} selectedWeek={selectedWeek} laneRcaData={laneRcaData} />
+          <ETARefRCA rcaData={rcaData} selectedWeek={selectedWeek} laneRcaData={laneRcaData} laneRca2p={laneRca2p} />
+        </div>
+      )}
+
+      {/* ===== BOOKING MIX TAB ===== */}
+      {activeTab === 'booking' && (
+        <div style={LAYOUT.section}>
+          <div style={LAYOUT.sectionTitle}>
+            {selectedWeek} — SC3 vs SC4 Booking Mix (Target 80% SC3 / 20% SC4)
+          </div>
+          <BookingMix data={data} bookingMix={bookingMix} selectedWeek={selectedWeek} />
         </div>
       )}
 
