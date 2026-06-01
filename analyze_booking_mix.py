@@ -3,8 +3,10 @@
 
 SC4 = ocean (Asia->Europe). SC3 = NGTM road/inland legs. Different datasets.
 Headline mix = share of shipment COUNT that is SC3 vs SC4 per week.
-Only comparable cross-dataset dimension is DESTINATION country:
-  SC4 dest -> CONSIGNEE_ADDRESS_COUNTRY ; SC3 dest -> Leg_Delivery_Country.
+
+Origin/lane columns:
+  SC3 origin  -> Leg_Pick_up_Country  ; SC3 dest -> Leg_Delivery_Country
+  SC4 origin  -> CONSIGNOR_ADDRESS_COUNTRY ; SC4 dest -> CONSIGNEE_ADDRESS_COUNTRY
 """
 import json
 import os
@@ -67,18 +69,21 @@ def col_index(headers, substr):
     return None
 
 
-def analyze_file(path, country_substr):
-    """Return (row_count, {country: count}). row_count = rows where first col non-empty."""
+def analyze_file(path, origin_substr, dest_substr):
+    """Return (row_count, origin_counts, dest_counts, lane_counts)."""
     if not os.path.exists(path):
-        return None, {}
+        return None, {}, {}, {}
     wb = openpyxl.load_workbook(path, read_only=True, data_only=True)
     try:
         ws = find_shipments_sheet(wb)
         hdr_row = detect_header_row(ws)
         headers = list(next(ws.iter_rows(min_row=hdr_row, max_row=hdr_row, values_only=True), ()))
-        c_idx = col_index(headers, country_substr)
+        o_idx = col_index(headers, origin_substr)
+        d_idx = col_index(headers, dest_substr)
         count = 0
-        countries = {}
+        origins = {}
+        dests = {}
+        lanes = {}
         for row in ws.iter_rows(min_row=hdr_row + 1, values_only=True):
             if not row:
                 continue
@@ -86,32 +91,85 @@ def analyze_file(path, country_substr):
             if first in (None, ""):
                 continue
             count += 1
-            if c_idx is not None and c_idx < len(row):
-                cv = row[c_idx]
-                if cv not in (None, ""):
-                    key = str(cv).strip().upper()
-                    countries[key] = countries.get(key, 0) + 1
-        return count, countries
+            # origin
+            orig = None
+            if o_idx is not None and o_idx < len(row) and row[o_idx] not in (None, ""):
+                orig = str(row[o_idx]).strip().upper()
+                origins[orig] = origins.get(orig, 0) + 1
+            # dest
+            dest = None
+            if d_idx is not None and d_idx < len(row) and row[d_idx] not in (None, ""):
+                dest = str(row[d_idx]).strip().upper()
+                dests[dest] = dests.get(dest, 0) + 1
+            # lane = origin → dest (only when both known)
+            if orig and dest:
+                lane = f"{orig} → {dest}"
+                lanes[lane] = lanes.get(lane, 0) + 1
+        return count, origins, dests, lanes
     finally:
         wb.close()
+
+
+def merge_country_rows(sc3_c, sc4_c):
+    all_c = set(sc3_c) | set(sc4_c)
+    rows = []
+    for c in all_c:
+        a = sc3_c.get(c, 0)
+        b = sc4_c.get(c, 0)
+        t = a + b
+        rows.append({
+            "country": c,
+            "sc3": a,
+            "sc4": b,
+            "total": t,
+            "sc3_share": round(a / t, 4) if t else 0,
+        })
+    rows.sort(key=lambda x: x["total"], reverse=True)
+    return rows
+
+
+def merge_lane_rows(sc3_lanes, sc4_lanes, top_n=30):
+    all_l = set(sc3_lanes) | set(sc4_lanes)
+    rows = []
+    for lane in all_l:
+        a = sc3_lanes.get(lane, 0)
+        b = sc4_lanes.get(lane, 0)
+        t = a + b
+        rows.append({
+            "lane": lane,
+            "sc3": a,
+            "sc4": b,
+            "total": t,
+            "sc3_share": round(a / t, 4) if t else 0,
+        })
+    rows.sort(key=lambda x: x["total"], reverse=True)
+    return rows[:top_n]
 
 
 def main():
     weekly = []
     by_dest = {}
-    diag = {}  # week -> (sc3_rows, sc3_with_country)
+    by_origin = {}
+    by_lane = {}
+    diag = {}
 
     for week in WEEKS:
         p3, p4 = sc3_path(week), sc4_path(week)
         if not (os.path.exists(p3) or os.path.exists(p4)):
             continue
-        sc3, sc3_c = analyze_file(p3, "Leg_Delivery_Country")
-        sc4, sc4_c = analyze_file(p4, "CONSIGNEE_ADDRESS_COUNTRY")
+
+        sc3, sc3_orig, sc3_dest, sc3_lanes = analyze_file(
+            p3, "Leg_Pick_up_Country", "Leg_Delivery_Country"
+        )
+        sc4, sc4_orig, sc4_dest, sc4_lanes = analyze_file(
+            p4, "CONSIGNOR_ADDRESS_COUNTRY", "CONSIGNEE_ADDRESS_COUNTRY"
+        )
         sc3 = sc3 or 0
         sc4 = sc4 or 0
         total = sc3 + sc4
         if total == 0:
             continue
+
         sc3_share = sc3 / total
         sc4_share = sc4 / total
         weekly.append({
@@ -123,24 +181,11 @@ def main():
             "sc4_share": round(sc4_share, 4),
             "gap_pp": round(sc3_share * 100 - 80, 1),
         })
-        diag[week] = (sc3, sum(sc3_c.values()))
+        diag[week] = (sc3, sum(sc3_orig.values()))
 
-        # merge dest countries
-        all_c = set(sc3_c) | set(sc4_c)
-        rows = []
-        for c in all_c:
-            a = sc3_c.get(c, 0)
-            b = sc4_c.get(c, 0)
-            t = a + b
-            rows.append({
-                "country": c,
-                "sc3": a,
-                "sc4": b,
-                "total": t,
-                "sc3_share": round(a / t, 4) if t else 0,
-            })
-        rows.sort(key=lambda x: x["total"], reverse=True)
-        by_dest[week] = rows
+        by_dest[week] = merge_country_rows(sc3_dest, sc4_dest)
+        by_origin[week] = merge_country_rows(sc3_orig, sc4_orig)
+        by_lane[week] = merge_lane_rows(sc3_lanes, sc4_lanes)
 
     # trailing 4-week avg sc3_share
     trailing4 = {}
@@ -155,7 +200,8 @@ def main():
         "Booking mix is measured by shipment COUNT, not container or volume.",
         "Weekly files are activity snapshots, not cumulative bookings — mix is volatile week to week.",
         "CW20 SC3 (200 rows) and CW18 SC4 (208 rows) appear to be PARTIAL extracts vs typical ~400-650; treat single-week values as directional. Trailing-average is more reliable.",
-        "SC4 = ocean freight (Asia origin -> Europe). SC3 = NGTM road/inland legs (LSP trucking, mostly within Europe). Only DESTINATION country is comparable across the two datasets.",
+        "SC3 origin = Leg_Pick_up_Country; SC4 origin = CONSIGNOR_ADDRESS_COUNTRY. These use different sourcing logic — lane-level comparisons are directional.",
+        "SC4 = ocean freight (Asia origin -> Europe). SC3 = NGTM road/inland legs (mostly within Europe or from CN/KR via road).",
     ]
 
     payload = {
@@ -165,13 +211,14 @@ def main():
         "weekly": weekly,
         "trailing4_sc3_share": trailing4,
         "by_dest_country": by_dest,
+        "by_origin_country": by_origin,
+        "by_lane": by_lane,
         "latest_week": latest_week,
         "notes": notes,
     }
     with open(OUT, "w") as f:
         json.dump(payload, f, indent=2)
 
-    # ---- sanity printout ----
     print(f"Wrote {OUT}\n")
     print(f"{'WEEK':6} {'SC3':>6} {'SC4':>6} {'TOTAL':>7} {'SC3%':>7} {'gap_pp':>7} {'trail4%':>8}")
     for w in weekly:
@@ -179,22 +226,15 @@ def main():
               f"{w['sc3_share']*100:>6.1f}% {w['gap_pp']:>7} "
               f"{trailing4[w['week']]*100:>7.1f}%")
 
-    print("\nSC3 dest-country extraction check (rows_with_country / total_sc3_rows):")
-    for wk, (tot, withc) in diag.items():
-        flag = "  <-- WARN near-zero" if tot and withc / tot < 0.1 else ""
-        print(f"  {wk}: {withc}/{tot}{flag}")
-
     if latest_week:
-        print(f"\nTop 12 dest countries for {latest_week} (SC3 / SC4 / total / SC3%):")
-        for r in by_dest[latest_week][:12]:
+        print(f"\nTop 10 origin countries for {latest_week}:")
+        for r in by_origin[latest_week][:10]:
             print(f"  {r['country']:4} sc3={r['sc3']:>4} sc4={r['sc4']:>4} "
                   f"total={r['total']:>4} sc3%={r['sc3_share']*100:>5.1f}%")
-
-    cw20 = next((w for w in weekly if w["week"] == "CW20"), None)
-    if cw20:
-        ok = cw20["sc3"] == 200 and cw20["sc4"] == 648 and abs(cw20["sc3_share"] * 100 - 23.6) < 0.2
-        print(f"\nCW20 CONFIRM: sc3={cw20['sc3']} sc4={cw20['sc4']} "
-              f"sc3_share={cw20['sc3_share']*100:.1f}%  -> {'PASS' if ok else 'FAIL'}")
+        print(f"\nTop 10 lanes for {latest_week}:")
+        for r in by_lane[latest_week][:10]:
+            print(f"  {r['lane']:20} sc3={r['sc3']:>4} sc4={r['sc4']:>4} "
+                  f"total={r['total']:>4} sc3%={r['sc3_share']*100:>5.1f}%")
 
 
 if __name__ == "__main__":

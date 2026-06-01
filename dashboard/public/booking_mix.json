@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-01T10:18:30.114415+00:00",
+  "generated": "2026-06-01T10:46:42.852505+00:00",
   "target_sc3": 0.8,
   "target_sc4": 0.2,
   "weekly": [
@@ -321,14 +321,14 @@
         "sc3_share": 1.0
       },
       {
-        "country": "FR",
+        "country": "TH",
         "sc3": 1,
         "sc4": 0,
         "total": 1,
         "sc3_share": 1.0
       },
       {
-        "country": "TH",
+        "country": "FR",
         "sc3": 1,
         "sc4": 0,
         "total": 1,
@@ -407,18 +407,18 @@
         "sc3_share": 0.0
       },
       {
-        "country": "MY",
-        "sc3": 12,
-        "sc4": 0,
-        "total": 12,
-        "sc3_share": 1.0
-      },
-      {
         "country": "CZ",
         "sc3": 5,
         "sc4": 7,
         "total": 12,
         "sc3_share": 0.4167
+      },
+      {
+        "country": "MY",
+        "sc3": 12,
+        "sc4": 0,
+        "total": 12,
+        "sc3_share": 1.0
       },
       {
         "country": "SI",
@@ -470,11 +470,11 @@
         "sc3_share": 0.5
       },
       {
-        "country": "TW",
-        "sc3": 0,
-        "sc4": 2,
+        "country": "AT",
+        "sc3": 1,
+        "sc4": 1,
         "total": 2,
-        "sc3_share": 0.0
+        "sc3_share": 0.5
       },
       {
         "country": "NL",
@@ -484,11 +484,11 @@
         "sc3_share": 0.0
       },
       {
-        "country": "AT",
-        "sc3": 1,
-        "sc4": 1,
+        "country": "TW",
+        "sc3": 0,
+        "sc4": 2,
         "total": 2,
-        "sc3_share": 0.5
+        "sc3_share": 0.0
       },
       {
         "country": "CH",
@@ -633,13 +633,6 @@
         "sc3_share": 0.1667
       },
       {
-        "country": "NL",
-        "sc3": 0,
-        "sc4": 4,
-        "total": 4,
-        "sc3_share": 0.0
-      },
-      {
         "country": "ES",
         "sc3": 4,
         "sc4": 0,
@@ -654,10 +647,10 @@
         "sc3_share": 0.0
       },
       {
-        "country": "GB",
+        "country": "NL",
         "sc3": 0,
-        "sc4": 3,
-        "total": 3,
+        "sc4": 4,
+        "total": 4,
         "sc3_share": 0.0
       },
       {
@@ -666,6 +659,13 @@
         "sc4": 1,
         "total": 3,
         "sc3_share": 0.6667
+      },
+      {
+        "country": "GB",
+        "sc3": 0,
+        "sc4": 3,
+        "total": 3,
+        "sc3_share": 0.0
       },
       {
         "country": "FR",
@@ -682,14 +682,14 @@
         "sc3_share": 0.5
       },
       {
-        "country": "CH",
+        "country": "TR",
         "sc3": 1,
         "sc4": 0,
         "total": 1,
         "sc3_share": 1.0
       },
       {
-        "country": "TR",
+        "country": "CH",
         "sc3": 1,
         "sc4": 0,
         "total": 1,
@@ -782,18 +782,18 @@
         "sc3_share": 0.8667
       },
       {
-        "country": "JP",
-        "sc3": 0,
-        "sc4": 13,
-        "total": 13,
-        "sc3_share": 0.0
-      },
-      {
         "country": "SI",
         "sc3": 8,
         "sc4": 5,
         "total": 13,
         "sc3_share": 0.6154
+      },
+      {
+        "country": "JP",
+        "sc3": 0,
+        "sc4": 13,
+        "total": 13,
+        "sc3_share": 0.0
       },
       {
         "country": "GB",
@@ -852,13 +852,6 @@
         "sc3_share": 0.0
       },
       {
-        "country": "CH",
-        "sc3": 0,
-        "sc4": 3,
-        "total": 3,
-        "sc3_share": 0.0
-      },
-      {
         "country": "ES",
         "sc3": 1,
         "sc4": 2,
@@ -866,18 +859,18 @@
         "sc3_share": 0.3333
       },
       {
+        "country": "CH",
+        "sc3": 0,
+        "sc4": 3,
+        "total": 3,
+        "sc3_share": 0.0
+      },
+      {
         "country": "PH",
         "sc3": 0,
         "sc4": 2,
         "total": 2,
         "sc3_share": 0.0
-      },
-      {
-        "country": "FR",
-        "sc3": 1,
-        "sc4": 0,
-        "total": 1,
-        "sc3_share": 1.0
       },
       {
         "country": "TR",
@@ -899,6 +892,13 @@
         "sc4": 1,
         "total": 1,
         "sc3_share": 0.0
+      },
+      {
+        "country": "FR",
+        "sc3": 1,
+        "sc4": 0,
+        "total": 1,
+        "sc3_share": 1.0
       },
       {
         "country": "SE",
@@ -1008,18 +1008,18 @@
         "sc3_share": 0.5
       },
       {
-        "country": "CH",
-        "sc3": 0,
-        "sc4": 5,
-        "total": 5,
-        "sc3_share": 0.0
-      },
-      {
         "country": "TR",
         "sc3": 1,
         "sc4": 4,
         "total": 5,
         "sc3_share": 0.2
+      },
+      {
+        "country": "CH",
+        "sc3": 0,
+        "sc4": 5,
+        "total": 5,
+        "sc3_share": 0.0
       },
       {
         "country": "VN",
@@ -1029,13 +1029,6 @@
         "sc3_share": 0.0
       },
       {
-        "country": "ID",
-        "sc3": 1,
-        "sc4": 2,
-        "total": 3,
-        "sc3_share": 0.3333
-      },
-      {
         "country": "SI",
         "sc3": 3,
         "sc4": 0,
@@ -1043,14 +1036,14 @@
         "sc3_share": 1.0
       },
       {
-        "country": "FR",
-        "sc3": 0,
+        "country": "ID",
+        "sc3": 1,
         "sc4": 2,
-        "total": 2,
-        "sc3_share": 0.0
+        "total": 3,
+        "sc3_share": 0.3333
       },
       {
-        "country": "NL",
+        "country": "FR",
         "sc3": 0,
         "sc4": 2,
         "total": 2,
@@ -1064,6 +1057,13 @@
         "sc3_share": 0.0
       },
       {
+        "country": "NL",
+        "sc3": 0,
+        "sc4": 2,
+        "total": 2,
+        "sc3_share": 0.0
+      },
+      {
         "country": "HK",
         "sc3": 0,
         "sc4": 1,
@@ -1071,7 +1071,7 @@
         "sc3_share": 0.0
       },
       {
-        "country": "TW",
+        "country": "AT",
         "sc3": 1,
         "sc4": 0,
         "total": 1,
@@ -1085,7 +1085,7 @@
         "sc3_share": 0.0
       },
       {
-        "country": "AT",
+        "country": "TW",
         "sc3": 1,
         "sc4": 0,
         "total": 1,
@@ -1164,14 +1164,14 @@
         "sc3_share": 0.1818
       },
       {
-        "country": "TW",
+        "country": "ES",
         "sc3": 3,
         "sc4": 7,
         "total": 10,
         "sc3_share": 0.3
       },
       {
-        "country": "ES",
+        "country": "TW",
         "sc3": 3,
         "sc4": 7,
         "total": 10,
@@ -1234,18 +1234,18 @@
         "sc3_share": 0.0
       },
       {
-        "country": "CH",
-        "sc3": 0,
-        "sc4": 2,
-        "total": 2,
-        "sc3_share": 0.0
-      },
-      {
         "country": "AT",
         "sc3": 2,
         "sc4": 0,
         "total": 2,
         "sc3_share": 1.0
+      },
+      {
+        "country": "CH",
+        "sc3": 0,
+        "sc4": 2,
+        "total": 2,
+        "sc3_share": 0.0
       },
       {
         "country": "TR",
@@ -1355,18 +1355,18 @@
         "sc3_share": 0.8
       },
       {
-        "country": "KR",
-        "sc3": 0,
-        "sc4": 7,
-        "total": 7,
-        "sc3_share": 0.0
-      },
-      {
         "country": "SI",
         "sc3": 6,
         "sc4": 1,
         "total": 7,
         "sc3_share": 0.8571
+      },
+      {
+        "country": "KR",
+        "sc3": 0,
+        "sc4": 7,
+        "total": 7,
+        "sc3_share": 0.0
       },
       {
         "country": "TW",
@@ -1404,13 +1404,6 @@
         "sc3_share": 0.3333
       },
       {
-        "country": "VN",
-        "sc3": 0,
-        "sc4": 2,
-        "total": 2,
-        "sc3_share": 0.0
-      },
-      {
         "country": "TR",
         "sc3": 1,
         "sc4": 1,
@@ -1418,7 +1411,14 @@
         "sc3_share": 0.5
       },
       {
-        "country": "NL",
+        "country": "VN",
+        "sc3": 0,
+        "sc4": 2,
+        "total": 2,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "PH",
         "sc3": 0,
         "sc4": 1,
         "total": 1,
@@ -1432,14 +1432,14 @@
         "sc3_share": 0.0
       },
       {
-        "country": "PH",
+        "country": "IT",
         "sc3": 0,
         "sc4": 1,
         "total": 1,
         "sc3_share": 0.0
       },
       {
-        "country": "IT",
+        "country": "NL",
         "sc3": 0,
         "sc4": 1,
         "total": 1,
@@ -1532,18 +1532,18 @@
         "sc3_share": 0.0
       },
       {
-        "country": "JP",
-        "sc3": 0,
-        "sc4": 13,
-        "total": 13,
-        "sc3_share": 0.0
-      },
-      {
         "country": "SI",
         "sc3": 4,
         "sc4": 9,
         "total": 13,
         "sc3_share": 0.3077
+      },
+      {
+        "country": "JP",
+        "sc3": 0,
+        "sc4": 13,
+        "total": 13,
+        "sc3_share": 0.0
       },
       {
         "country": "PL",
@@ -1553,18 +1553,18 @@
         "sc3_share": 0.7
       },
       {
-        "country": "GB",
-        "sc3": 0,
-        "sc4": 5,
-        "total": 5,
-        "sc3_share": 0.0
-      },
-      {
         "country": "AT",
         "sc3": 4,
         "sc4": 1,
         "total": 5,
         "sc3_share": 0.8
+      },
+      {
+        "country": "GB",
+        "sc3": 0,
+        "sc4": 5,
+        "total": 5,
+        "sc3_share": 0.0
       },
       {
         "country": "VN",
@@ -1609,6 +1609,13 @@
         "sc3_share": 1.0
       },
       {
+        "country": "TR",
+        "sc3": 0,
+        "sc4": 1,
+        "total": 1,
+        "sc3_share": 0.0
+      },
+      {
         "country": "FR",
         "sc3": 1,
         "sc4": 0,
@@ -1617,13 +1624,6 @@
       },
       {
         "country": "CH",
-        "sc3": 0,
-        "sc4": 1,
-        "total": 1,
-        "sc3_share": 0.0
-      },
-      {
-        "country": "TR",
         "sc3": 0,
         "sc4": 1,
         "total": 1,
@@ -1723,13 +1723,6 @@
         "sc3_share": 0.1111
       },
       {
-        "country": "TW",
-        "sc3": 3,
-        "sc4": 2,
-        "total": 5,
-        "sc3_share": 0.6
-      },
-      {
         "country": "ES",
         "sc3": 5,
         "sc4": 0,
@@ -1737,7 +1730,14 @@
         "sc3_share": 1.0
       },
       {
-        "country": "ID",
+        "country": "TW",
+        "sc3": 3,
+        "sc4": 2,
+        "total": 5,
+        "sc3_share": 0.6
+      },
+      {
+        "country": "GB",
         "sc3": 0,
         "sc4": 4,
         "total": 4,
@@ -1751,7 +1751,7 @@
         "sc3_share": 0.0
       },
       {
-        "country": "GB",
+        "country": "ID",
         "sc3": 0,
         "sc4": 4,
         "total": 4,
@@ -1762,34 +1762,6 @@
         "sc3": 0,
         "sc4": 3,
         "total": 3,
-        "sc3_share": 0.0
-      },
-      {
-        "country": "PL",
-        "sc3": 1,
-        "sc4": 1,
-        "total": 2,
-        "sc3_share": 0.5
-      },
-      {
-        "country": "VN",
-        "sc3": 0,
-        "sc4": 2,
-        "total": 2,
-        "sc3_share": 0.0
-      },
-      {
-        "country": "NL",
-        "sc3": 0,
-        "sc4": 2,
-        "total": 2,
-        "sc3_share": 0.0
-      },
-      {
-        "country": "KR",
-        "sc3": 0,
-        "sc4": 2,
-        "total": 2,
         "sc3_share": 0.0
       },
       {
@@ -1807,6 +1779,41 @@
         "sc3_share": 0.5
       },
       {
+        "country": "PL",
+        "sc3": 1,
+        "sc4": 1,
+        "total": 2,
+        "sc3_share": 0.5
+      },
+      {
+        "country": "VN",
+        "sc3": 0,
+        "sc4": 2,
+        "total": 2,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "KR",
+        "sc3": 0,
+        "sc4": 2,
+        "total": 2,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "NL",
+        "sc3": 0,
+        "sc4": 2,
+        "total": 2,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "SG",
+        "sc3": 1,
+        "sc4": 0,
+        "total": 1,
+        "sc3_share": 1.0
+      },
+      {
         "country": "UA",
         "sc3": 0,
         "sc4": 1,
@@ -1819,13 +1826,6 @@
         "sc4": 1,
         "total": 1,
         "sc3_share": 0.0
-      },
-      {
-        "country": "SG",
-        "sc3": 1,
-        "sc4": 0,
-        "total": 1,
-        "sc3_share": 1.0
       },
       {
         "country": "SE",
@@ -1928,20 +1928,6 @@
         "sc3_share": 0.8333
       },
       {
-        "country": "TH",
-        "sc3": 2,
-        "sc4": 3,
-        "total": 5,
-        "sc3_share": 0.4
-      },
-      {
-        "country": "TW",
-        "sc3": 2,
-        "sc4": 3,
-        "total": 5,
-        "sc3_share": 0.4
-      },
-      {
         "country": "SG",
         "sc3": 1,
         "sc4": 4,
@@ -1956,11 +1942,18 @@
         "sc3_share": 0.4
       },
       {
-        "country": "KR",
-        "sc3": 0,
-        "sc4": 4,
-        "total": 4,
-        "sc3_share": 0.0
+        "country": "TH",
+        "sc3": 2,
+        "sc4": 3,
+        "total": 5,
+        "sc3_share": 0.4
+      },
+      {
+        "country": "TW",
+        "sc3": 2,
+        "sc4": 3,
+        "total": 5,
+        "sc3_share": 0.4
       },
       {
         "country": "GB",
@@ -1970,7 +1963,14 @@
         "sc3_share": 0.0
       },
       {
-        "country": "ID",
+        "country": "KR",
+        "sc3": 0,
+        "sc4": 4,
+        "total": 4,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "TR",
         "sc3": 0,
         "sc4": 3,
         "total": 3,
@@ -1984,7 +1984,7 @@
         "sc3_share": 0.0
       },
       {
-        "country": "TR",
+        "country": "ID",
         "sc3": 0,
         "sc4": 3,
         "total": 3,
@@ -2005,14 +2005,14 @@
         "sc3_share": 0.0
       },
       {
-        "country": "FR",
+        "country": "HK",
         "sc3": 0,
         "sc4": 1,
         "total": 1,
         "sc3_share": 0.0
       },
       {
-        "country": "HK",
+        "country": "FR",
         "sc3": 0,
         "sc4": 1,
         "total": 1,
@@ -2140,6 +2140,13 @@
         "sc3_share": 0.0
       },
       {
+        "country": "SG",
+        "sc3": 1,
+        "sc4": 2,
+        "total": 3,
+        "sc3_share": 0.3333
+      },
+      {
         "country": "ID",
         "sc3": 1,
         "sc4": 2,
@@ -2152,20 +2159,6 @@
         "sc4": 1,
         "total": 3,
         "sc3_share": 0.6667
-      },
-      {
-        "country": "SG",
-        "sc3": 1,
-        "sc4": 2,
-        "total": 3,
-        "sc3_share": 0.3333
-      },
-      {
-        "country": "GB",
-        "sc3": 0,
-        "sc4": 2,
-        "total": 2,
-        "sc3_share": 0.0
       },
       {
         "country": "ES",
@@ -2182,10 +2175,10 @@
         "sc3_share": 0.5
       },
       {
-        "country": "NL",
+        "country": "GB",
         "sc3": 0,
-        "sc4": 1,
-        "total": 1,
+        "sc4": 2,
+        "total": 2,
         "sc3_share": 0.0
       },
       {
@@ -2197,6 +2190,13 @@
       },
       {
         "country": "SE",
+        "sc3": 0,
+        "sc4": 1,
+        "total": 1,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "NL",
         "sc3": 0,
         "sc4": 1,
         "total": 1,
@@ -2296,18 +2296,18 @@
         "sc3_share": 0.0
       },
       {
-        "country": "PL",
-        "sc3": 6,
-        "sc4": 3,
-        "total": 9,
-        "sc3_share": 0.6667
-      },
-      {
         "country": "ES",
         "sc3": 5,
         "sc4": 4,
         "total": 9,
         "sc3_share": 0.5556
+      },
+      {
+        "country": "PL",
+        "sc3": 6,
+        "sc4": 3,
+        "total": 9,
+        "sc3_share": 0.6667
       },
       {
         "country": "SI",
@@ -2324,13 +2324,6 @@
         "sc3_share": 0.4
       },
       {
-        "country": "ID",
-        "sc3": 0,
-        "sc4": 4,
-        "total": 4,
-        "sc3_share": 0.0
-      },
-      {
         "country": "VN",
         "sc3": 0,
         "sc4": 4,
@@ -2338,14 +2331,21 @@
         "sc3_share": 0.0
       },
       {
-        "country": "FR",
+        "country": "ID",
+        "sc3": 0,
+        "sc4": 4,
+        "total": 4,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "HK",
         "sc3": 1,
         "sc4": 2,
         "total": 3,
         "sc3_share": 0.3333
       },
       {
-        "country": "HK",
+        "country": "FR",
         "sc3": 1,
         "sc4": 2,
         "total": 3,
@@ -2357,13 +2357,6 @@
         "sc4": 2,
         "total": 3,
         "sc3_share": 0.3333
-      },
-      {
-        "country": "KR",
-        "sc3": 0,
-        "sc4": 1,
-        "total": 1,
-        "sc3_share": 0.0
       },
       {
         "country": "SK",
@@ -2378,6 +2371,13 @@
         "sc4": 0,
         "total": 1,
         "sc3_share": 1.0
+      },
+      {
+        "country": "KR",
+        "sc3": 0,
+        "sc4": 1,
+        "total": 1,
+        "sc3_share": 0.0
       }
     ],
     "CW13": [
@@ -2494,18 +2494,11 @@
         "sc3_share": 0.25
       },
       {
-        "country": "JP",
-        "sc3": 0,
-        "sc4": 3,
+        "country": "SG",
+        "sc3": 1,
+        "sc4": 2,
         "total": 3,
-        "sc3_share": 0.0
-      },
-      {
-        "country": "ID",
-        "sc3": 0,
-        "sc4": 3,
-        "total": 3,
-        "sc3_share": 0.0
+        "sc3_share": 0.3333
       },
       {
         "country": "UA",
@@ -2515,7 +2508,7 @@
         "sc3_share": 0.0
       },
       {
-        "country": "TW",
+        "country": "JP",
         "sc3": 0,
         "sc4": 3,
         "total": 3,
@@ -2529,17 +2522,17 @@
         "sc3_share": 0.0
       },
       {
-        "country": "SG",
-        "sc3": 1,
-        "sc4": 2,
+        "country": "ID",
+        "sc3": 0,
+        "sc4": 3,
         "total": 3,
-        "sc3_share": 0.3333
+        "sc3_share": 0.0
       },
       {
-        "country": "NL",
+        "country": "TW",
         "sc3": 0,
-        "sc4": 2,
-        "total": 2,
+        "sc4": 3,
+        "total": 3,
         "sc3_share": 0.0
       },
       {
@@ -2550,17 +2543,10 @@
         "sc3_share": 0.0
       },
       {
-        "country": "VN",
+        "country": "NL",
         "sc3": 0,
-        "sc4": 1,
-        "total": 1,
-        "sc3_share": 0.0
-      },
-      {
-        "country": "CH",
-        "sc3": 0,
-        "sc4": 1,
-        "total": 1,
+        "sc4": 2,
+        "total": 2,
         "sc3_share": 0.0
       },
       {
@@ -2571,7 +2557,21 @@
         "sc3_share": 0.0
       },
       {
+        "country": "VN",
+        "sc3": 0,
+        "sc4": 1,
+        "total": 1,
+        "sc3_share": 0.0
+      },
+      {
         "country": "PH",
+        "sc3": 0,
+        "sc4": 1,
+        "total": 1,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "CH",
         "sc3": 0,
         "sc4": 1,
         "total": 1,
@@ -2643,18 +2643,18 @@
         "sc3_share": 0.5
       },
       {
-        "country": "MY",
-        "sc3": 10,
-        "sc4": 3,
-        "total": 13,
-        "sc3_share": 0.7692
-      },
-      {
         "country": "CZ",
         "sc3": 6,
         "sc4": 7,
         "total": 13,
         "sc3_share": 0.4615
+      },
+      {
+        "country": "MY",
+        "sc3": 10,
+        "sc4": 3,
+        "total": 13,
+        "sc3_share": 0.7692
       },
       {
         "country": "IT",
@@ -2685,13 +2685,6 @@
         "sc3_share": 0.2
       },
       {
-        "country": "NL",
-        "sc3": 0,
-        "sc4": 4,
-        "total": 4,
-        "sc3_share": 0.0
-      },
-      {
         "country": "UA",
         "sc3": 0,
         "sc4": 4,
@@ -2699,11 +2692,11 @@
         "sc3_share": 0.0
       },
       {
-        "country": "ID",
-        "sc3": 3,
-        "sc4": 0,
-        "total": 3,
-        "sc3_share": 1.0
+        "country": "NL",
+        "sc3": 0,
+        "sc4": 4,
+        "total": 4,
+        "sc3_share": 0.0
       },
       {
         "country": "SG",
@@ -2713,11 +2706,11 @@
         "sc3_share": 0.6667
       },
       {
-        "country": "VN",
-        "sc3": 0,
-        "sc4": 2,
-        "total": 2,
-        "sc3_share": 0.0
+        "country": "ID",
+        "sc3": 3,
+        "sc4": 0,
+        "total": 3,
+        "sc3_share": 1.0
       },
       {
         "country": "HK",
@@ -2734,17 +2727,10 @@
         "sc3_share": 0.5
       },
       {
-        "country": "CH",
+        "country": "VN",
         "sc3": 0,
-        "sc4": 1,
-        "total": 1,
-        "sc3_share": 0.0
-      },
-      {
-        "country": "KR",
-        "sc3": 0,
-        "sc4": 1,
-        "total": 1,
+        "sc4": 2,
+        "total": 2,
         "sc3_share": 0.0
       },
       {
@@ -2755,7 +2741,21 @@
         "sc3_share": 0.0
       },
       {
+        "country": "CH",
+        "sc3": 0,
+        "sc4": 1,
+        "total": 1,
+        "sc3_share": 0.0
+      },
+      {
         "country": "PH",
+        "sc3": 0,
+        "sc4": 1,
+        "total": 1,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "KR",
         "sc3": 0,
         "sc4": 1,
         "total": 1,
@@ -2848,18 +2848,18 @@
         "sc3_share": 0.0
       },
       {
-        "country": "JP",
-        "sc3": 0,
-        "sc4": 11,
-        "total": 11,
-        "sc3_share": 0.0
-      },
-      {
         "country": "ES",
         "sc3": 6,
         "sc4": 5,
         "total": 11,
         "sc3_share": 0.5455
+      },
+      {
+        "country": "JP",
+        "sc3": 0,
+        "sc4": 11,
+        "total": 11,
+        "sc3_share": 0.0
       },
       {
         "country": "SI",
@@ -2890,18 +2890,18 @@
         "sc3_share": 0.0
       },
       {
-        "country": "VN",
-        "sc3": 0,
-        "sc4": 7,
-        "total": 7,
-        "sc3_share": 0.0
-      },
-      {
         "country": "AT",
         "sc3": 5,
         "sc4": 2,
         "total": 7,
         "sc3_share": 0.7143
+      },
+      {
+        "country": "VN",
+        "sc3": 0,
+        "sc4": 7,
+        "total": 7,
+        "sc3_share": 0.0
       },
       {
         "country": "KR",
@@ -3032,18 +3032,18 @@
         "sc3_share": 0.6667
       },
       {
-        "country": "ID",
-        "sc3": 1,
-        "sc4": 11,
-        "total": 12,
-        "sc3_share": 0.0833
-      },
-      {
         "country": "TH",
         "sc3": 8,
         "sc4": 4,
         "total": 12,
         "sc3_share": 0.6667
+      },
+      {
+        "country": "ID",
+        "sc3": 1,
+        "sc4": 11,
+        "total": 12,
+        "sc3_share": 0.0833
       },
       {
         "country": "TW",
@@ -3053,18 +3053,18 @@
         "sc3_share": 0.25
       },
       {
-        "country": "IT",
-        "sc3": 0,
-        "sc4": 5,
-        "total": 5,
-        "sc3_share": 0.0
-      },
-      {
         "country": "SG",
         "sc3": 1,
         "sc4": 4,
         "total": 5,
         "sc3_share": 0.2
+      },
+      {
+        "country": "IT",
+        "sc3": 0,
+        "sc4": 5,
+        "total": 5,
+        "sc3_share": 0.0
       },
       {
         "country": "TR",
@@ -3095,13 +3095,6 @@
         "sc3_share": 1.0
       },
       {
-        "country": "CH",
-        "sc3": 0,
-        "sc4": 2,
-        "total": 2,
-        "sc3_share": 0.0
-      },
-      {
         "country": "HK",
         "sc3": 2,
         "sc4": 0,
@@ -3116,14 +3109,21 @@
         "sc3_share": 0.5
       },
       {
-        "country": "JP",
+        "country": "CH",
+        "sc3": 0,
+        "sc4": 2,
+        "total": 2,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "UA",
         "sc3": 0,
         "sc4": 1,
         "total": 1,
         "sc3_share": 0.0
       },
       {
-        "country": "UA",
+        "country": "JP",
         "sc3": 0,
         "sc4": 1,
         "total": 1,
@@ -3188,18 +3188,18 @@
         "sc3_share": 0.6842
       },
       {
-        "country": "PL",
-        "sc3": 8,
-        "sc4": 10,
-        "total": 18,
-        "sc3_share": 0.4444
-      },
-      {
         "country": "HR",
         "sc3": 18,
         "sc4": 0,
         "total": 18,
         "sc3_share": 1.0
+      },
+      {
+        "country": "PL",
+        "sc3": 8,
+        "sc4": 10,
+        "total": 18,
+        "sc3_share": 0.4444
       },
       {
         "country": "JP",
@@ -3237,18 +3237,18 @@
         "sc3_share": 0.0
       },
       {
-        "country": "VN",
-        "sc3": 0,
-        "sc4": 8,
-        "total": 8,
-        "sc3_share": 0.0
-      },
-      {
         "country": "SG",
         "sc3": 4,
         "sc4": 4,
         "total": 8,
         "sc3_share": 0.5
+      },
+      {
+        "country": "VN",
+        "sc3": 0,
+        "sc4": 8,
+        "total": 8,
+        "sc3_share": 0.0
       },
       {
         "country": "TW",
@@ -3258,18 +3258,18 @@
         "sc3_share": 0.1667
       },
       {
-        "country": "KR",
-        "sc3": 0,
-        "sc4": 5,
-        "total": 5,
-        "sc3_share": 0.0
-      },
-      {
         "country": "ES",
         "sc3": 3,
         "sc4": 2,
         "total": 5,
         "sc3_share": 0.6
+      },
+      {
+        "country": "KR",
+        "sc3": 0,
+        "sc4": 5,
+        "total": 5,
+        "sc3_share": 0.0
       },
       {
         "country": "FR",
@@ -3293,14 +3293,14 @@
         "sc3_share": 1.0
       },
       {
-        "country": "CH",
+        "country": "GB",
         "sc3": 0,
         "sc4": 1,
         "total": 1,
         "sc3_share": 0.0
       },
       {
-        "country": "GB",
+        "country": "CH",
         "sc3": 0,
         "sc4": 1,
         "total": 1,
@@ -3379,13 +3379,6 @@
         "sc3_share": 1.0
       },
       {
-        "country": "ID",
-        "sc3": 1,
-        "sc4": 4,
-        "total": 5,
-        "sc3_share": 0.2
-      },
-      {
         "country": "VN",
         "sc3": 0,
         "sc4": 5,
@@ -3393,7 +3386,21 @@
         "sc3_share": 0.0
       },
       {
+        "country": "ID",
+        "sc3": 1,
+        "sc4": 4,
+        "total": 5,
+        "sc3_share": 0.2
+      },
+      {
         "country": "PT",
+        "sc3": 0,
+        "sc4": 4,
+        "total": 4,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "GB",
         "sc3": 0,
         "sc4": 4,
         "total": 4,
@@ -3414,11 +3421,18 @@
         "sc3_share": 0.75
       },
       {
-        "country": "GB",
-        "sc3": 0,
-        "sc4": 4,
-        "total": 4,
-        "sc3_share": 0.0
+        "country": "SI",
+        "sc3": 3,
+        "sc4": 0,
+        "total": 3,
+        "sc3_share": 1.0
+      },
+      {
+        "country": "AT",
+        "sc3": 1,
+        "sc4": 2,
+        "total": 3,
+        "sc3_share": 0.3333
       },
       {
         "country": "JP",
@@ -3435,25 +3449,11 @@
         "sc3_share": 0.6667
       },
       {
-        "country": "SI",
-        "sc3": 3,
-        "sc4": 0,
-        "total": 3,
-        "sc3_share": 1.0
-      },
-      {
         "country": "IT",
         "sc3": 0,
         "sc4": 3,
         "total": 3,
         "sc3_share": 0.0
-      },
-      {
-        "country": "AT",
-        "sc3": 1,
-        "sc4": 2,
-        "total": 3,
-        "sc3_share": 0.3333
       },
       {
         "country": "SG",
@@ -3463,14 +3463,14 @@
         "sc3_share": 0.5
       },
       {
-        "country": "US",
+        "country": "HK",
         "sc3": 0,
         "sc4": 1,
         "total": 1,
         "sc3_share": 0.0
       },
       {
-        "country": "NL",
+        "country": "US",
         "sc3": 0,
         "sc4": 1,
         "total": 1,
@@ -3484,14 +3484,14 @@
         "sc3_share": 0.0
       },
       {
-        "country": "HK",
+        "country": "PH",
         "sc3": 0,
         "sc4": 1,
         "total": 1,
         "sc3_share": 0.0
       },
       {
-        "country": "PH",
+        "country": "NL",
         "sc3": 0,
         "sc4": 1,
         "total": 1,
@@ -3577,13 +3577,6 @@
         "sc3_share": 0.3
       },
       {
-        "country": "VN",
-        "sc3": 0,
-        "sc4": 8,
-        "total": 8,
-        "sc3_share": 0.0
-      },
-      {
         "country": "SG",
         "sc3": 4,
         "sc4": 4,
@@ -3596,6 +3589,13 @@
         "sc4": 4,
         "total": 8,
         "sc3_share": 0.5
+      },
+      {
+        "country": "VN",
+        "sc3": 0,
+        "sc4": 8,
+        "total": 8,
+        "sc3_share": 0.0
       },
       {
         "country": "JP",
@@ -3626,6 +3626,13 @@
         "sc3_share": 1.0
       },
       {
+        "country": "HK",
+        "sc3": 0,
+        "sc4": 4,
+        "total": 4,
+        "sc3_share": 0.0
+      },
+      {
         "country": "PL",
         "sc3": 1,
         "sc4": 3,
@@ -3633,10 +3640,10 @@
         "sc3_share": 0.25
       },
       {
-        "country": "HK",
+        "country": "PH",
         "sc3": 0,
-        "sc4": 4,
-        "total": 4,
+        "sc4": 3,
+        "total": 3,
         "sc3_share": 0.0
       },
       {
@@ -3647,20 +3654,6 @@
         "sc3_share": 0.0
       },
       {
-        "country": "PH",
-        "sc3": 0,
-        "sc4": 3,
-        "total": 3,
-        "sc3_share": 0.0
-      },
-      {
-        "country": "FR",
-        "sc3": 0,
-        "sc4": 2,
-        "total": 2,
-        "sc3_share": 0.0
-      },
-      {
         "country": "UA",
         "sc3": 0,
         "sc4": 2,
@@ -3668,7 +3661,7 @@
         "sc3_share": 0.0
       },
       {
-        "country": "GB",
+        "country": "FR",
         "sc3": 0,
         "sc4": 2,
         "total": 2,
@@ -3682,14 +3675,21 @@
         "sc3_share": 1.0
       },
       {
-        "country": "NL",
+        "country": "GB",
+        "sc3": 0,
+        "sc4": 2,
+        "total": 2,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "CH",
         "sc3": 0,
         "sc4": 1,
         "total": 1,
         "sc3_share": 0.0
       },
       {
-        "country": "CH",
+        "country": "NL",
         "sc3": 0,
         "sc4": 1,
         "total": 1,
@@ -3747,6 +3747,13 @@
         "sc3_share": 0.0
       },
       {
+        "country": "RO",
+        "sc3": 5,
+        "sc4": 9,
+        "total": 14,
+        "sc3_share": 0.3571
+      },
+      {
         "country": "PL",
         "sc3": 4,
         "sc4": 10,
@@ -3759,13 +3766,6 @@
         "sc4": 8,
         "total": 14,
         "sc3_share": 0.4286
-      },
-      {
-        "country": "RO",
-        "sc3": 5,
-        "sc4": 9,
-        "total": 14,
-        "sc3_share": 0.3571
       },
       {
         "country": "TW",
@@ -3810,18 +3810,18 @@
         "sc3_share": 0.0
       },
       {
-        "country": "KR",
-        "sc3": 0,
-        "sc4": 5,
-        "total": 5,
-        "sc3_share": 0.0
-      },
-      {
         "country": "SI",
         "sc3": 5,
         "sc4": 0,
         "total": 5,
         "sc3_share": 1.0
+      },
+      {
+        "country": "ES",
+        "sc3": 2,
+        "sc4": 3,
+        "total": 5,
+        "sc3_share": 0.4
       },
       {
         "country": "GB",
@@ -3831,11 +3831,11 @@
         "sc3_share": 0.0
       },
       {
-        "country": "ES",
-        "sc3": 2,
-        "sc4": 3,
+        "country": "KR",
+        "sc3": 0,
+        "sc4": 5,
         "total": 5,
-        "sc3_share": 0.4
+        "sc3_share": 0.0
       },
       {
         "country": "VN",
@@ -3852,6 +3852,20 @@
         "sc3_share": 1.0
       },
       {
+        "country": "TR",
+        "sc3": 0,
+        "sc4": 1,
+        "total": 1,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "HR",
+        "sc3": 0,
+        "sc4": 1,
+        "total": 1,
+        "sc3_share": 0.0
+      },
+      {
         "country": "FR",
         "sc3": 1,
         "sc4": 0,
@@ -3859,7 +3873,964 @@
         "sc3_share": 1.0
       },
       {
+        "country": "PH",
+        "sc3": 0,
+        "sc4": 1,
+        "total": 1,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "SE",
+        "sc3": 0,
+        "sc4": 1,
+        "total": 1,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "NL",
+        "sc3": 0,
+        "sc4": 1,
+        "total": 1,
+        "sc3_share": 0.0
+      }
+    ]
+  },
+  "by_origin_country": {
+    "CW01": [
+      {
+        "country": "CN",
+        "sc3": 201,
+        "sc4": 22,
+        "total": 223,
+        "sc3_share": 0.9013
+      },
+      {
+        "country": "DE",
+        "sc3": 131,
+        "sc4": 79,
+        "total": 210,
+        "sc3_share": 0.6238
+      },
+      {
         "country": "HR",
+        "sc3": 18,
+        "sc4": 0,
+        "total": 18,
+        "sc3_share": 1.0
+      },
+      {
+        "country": "IT",
+        "sc3": 2,
+        "sc4": 15,
+        "total": 17,
+        "sc3_share": 0.1176
+      },
+      {
+        "country": "CH",
+        "sc3": 8,
+        "sc4": 5,
+        "total": 13,
+        "sc3_share": 0.6154
+      },
+      {
+        "country": "HK",
+        "sc3": 9,
+        "sc4": 4,
+        "total": 13,
+        "sc3_share": 0.6923
+      },
+      {
+        "country": "VN",
+        "sc3": 9,
+        "sc4": 2,
+        "total": 11,
+        "sc3_share": 0.8182
+      },
+      {
+        "country": "JP",
+        "sc3": 0,
+        "sc4": 10,
+        "total": 10,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "MY",
+        "sc3": 9,
+        "sc4": 0,
+        "total": 9,
+        "sc3_share": 1.0
+      },
+      {
+        "country": "TW",
+        "sc3": 6,
+        "sc4": 3,
+        "total": 9,
+        "sc3_share": 0.6667
+      },
+      {
+        "country": "KR",
+        "sc3": 4,
+        "sc4": 2,
+        "total": 6,
+        "sc3_share": 0.6667
+      },
+      {
+        "country": "PT",
+        "sc3": 4,
+        "sc4": 1,
+        "total": 5,
+        "sc3_share": 0.8
+      },
+      {
+        "country": "CZ",
+        "sc3": 0,
+        "sc4": 5,
+        "total": 5,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "TH",
+        "sc3": 3,
+        "sc4": 1,
+        "total": 4,
+        "sc3_share": 0.75
+      },
+      {
+        "country": "SE",
+        "sc3": 0,
+        "sc4": 4,
+        "total": 4,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "TR",
+        "sc3": 0,
+        "sc4": 3,
+        "total": 3,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "SK",
+        "sc3": 0,
+        "sc4": 3,
+        "total": 3,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "FR",
+        "sc3": 1,
+        "sc4": 2,
+        "total": 3,
+        "sc3_share": 0.3333
+      },
+      {
+        "country": "ES",
+        "sc3": 0,
+        "sc4": 3,
+        "total": 3,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "HU",
+        "sc3": 2,
+        "sc4": 1,
+        "total": 3,
+        "sc3_share": 0.6667
+      },
+      {
+        "country": "PL",
+        "sc3": 2,
+        "sc4": 0,
+        "total": 2,
+        "sc3_share": 1.0
+      },
+      {
+        "country": "RS",
+        "sc3": 2,
+        "sc4": 0,
+        "total": 2,
+        "sc3_share": 1.0
+      },
+      {
+        "country": "BE",
+        "sc3": 0,
+        "sc4": 2,
+        "total": 2,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "NL",
+        "sc3": 0,
+        "sc4": 1,
+        "total": 1,
+        "sc3_share": 0.0
+      }
+    ],
+    "CW02": [
+      {
+        "country": "CN",
+        "sc3": 265,
+        "sc4": 164,
+        "total": 429,
+        "sc3_share": 0.6177
+      },
+      {
+        "country": "DE",
+        "sc3": 115,
+        "sc4": 95,
+        "total": 210,
+        "sc3_share": 0.5476
+      },
+      {
+        "country": "HK",
+        "sc3": 14,
+        "sc4": 28,
+        "total": 42,
+        "sc3_share": 0.3333
+      },
+      {
+        "country": "MY",
+        "sc3": 15,
+        "sc4": 8,
+        "total": 23,
+        "sc3_share": 0.6522
+      },
+      {
+        "country": "JP",
+        "sc3": 0,
+        "sc4": 22,
+        "total": 22,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "HR",
+        "sc3": 21,
+        "sc4": 0,
+        "total": 21,
+        "sc3_share": 1.0
+      },
+      {
+        "country": "TW",
+        "sc3": 8,
+        "sc4": 9,
+        "total": 17,
+        "sc3_share": 0.4706
+      },
+      {
+        "country": "VN",
+        "sc3": 8,
+        "sc4": 8,
+        "total": 16,
+        "sc3_share": 0.5
+      },
+      {
+        "country": "TH",
+        "sc3": 7,
+        "sc4": 7,
+        "total": 14,
+        "sc3_share": 0.5
+      },
+      {
+        "country": "ES",
+        "sc3": 1,
+        "sc4": 11,
+        "total": 12,
+        "sc3_share": 0.0833
+      },
+      {
+        "country": "CH",
+        "sc3": 9,
+        "sc4": 3,
+        "total": 12,
+        "sc3_share": 0.75
+      },
+      {
+        "country": "KR",
+        "sc3": 4,
+        "sc4": 8,
+        "total": 12,
+        "sc3_share": 0.3333
+      },
+      {
+        "country": "IT",
+        "sc3": 2,
+        "sc4": 9,
+        "total": 11,
+        "sc3_share": 0.1818
+      },
+      {
+        "country": "FR",
+        "sc3": 2,
+        "sc4": 2,
+        "total": 4,
+        "sc3_share": 0.5
+      },
+      {
+        "country": "RS",
+        "sc3": 4,
+        "sc4": 0,
+        "total": 4,
+        "sc3_share": 1.0
+      },
+      {
+        "country": "TR",
+        "sc3": 0,
+        "sc4": 3,
+        "total": 3,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "PT",
+        "sc3": 3,
+        "sc4": 0,
+        "total": 3,
+        "sc3_share": 1.0
+      },
+      {
+        "country": "PL",
+        "sc3": 1,
+        "sc4": 2,
+        "total": 3,
+        "sc3_share": 0.3333
+      },
+      {
+        "country": "BA",
+        "sc3": 0,
+        "sc4": 2,
+        "total": 2,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "SK",
+        "sc3": 1,
+        "sc4": 1,
+        "total": 2,
+        "sc3_share": 0.5
+      },
+      {
+        "country": "SG",
+        "sc3": 0,
+        "sc4": 2,
+        "total": 2,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "HU",
+        "sc3": 1,
+        "sc4": 1,
+        "total": 2,
+        "sc3_share": 0.5
+      },
+      {
+        "country": "BE",
+        "sc3": 1,
+        "sc4": 1,
+        "total": 2,
+        "sc3_share": 0.5
+      },
+      {
+        "country": "GB",
+        "sc3": 0,
+        "sc4": 1,
+        "total": 1,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "ID",
+        "sc3": 0,
+        "sc4": 1,
+        "total": 1,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "CZ",
+        "sc3": 0,
+        "sc4": 1,
+        "total": 1,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "NL",
+        "sc3": 0,
+        "sc4": 1,
+        "total": 1,
+        "sc3_share": 0.0
+      }
+    ],
+    "CW03": [
+      {
+        "country": "CN",
+        "sc3": 254,
+        "sc4": 292,
+        "total": 546,
+        "sc3_share": 0.4652
+      },
+      {
+        "country": "DE",
+        "sc3": 100,
+        "sc4": 162,
+        "total": 262,
+        "sc3_share": 0.3817
+      },
+      {
+        "country": "HK",
+        "sc3": 16,
+        "sc4": 56,
+        "total": 72,
+        "sc3_share": 0.2222
+      },
+      {
+        "country": "TH",
+        "sc3": 7,
+        "sc4": 29,
+        "total": 36,
+        "sc3_share": 0.1944
+      },
+      {
+        "country": "MY",
+        "sc3": 15,
+        "sc4": 21,
+        "total": 36,
+        "sc3_share": 0.4167
+      },
+      {
+        "country": "VN",
+        "sc3": 19,
+        "sc4": 7,
+        "total": 26,
+        "sc3_share": 0.7308
+      },
+      {
+        "country": "HR",
+        "sc3": 23,
+        "sc4": 0,
+        "total": 23,
+        "sc3_share": 1.0
+      },
+      {
+        "country": "TW",
+        "sc3": 7,
+        "sc4": 15,
+        "total": 22,
+        "sc3_share": 0.3182
+      },
+      {
+        "country": "JP",
+        "sc3": 0,
+        "sc4": 21,
+        "total": 21,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "IT",
+        "sc3": 2,
+        "sc4": 16,
+        "total": 18,
+        "sc3_share": 0.1111
+      },
+      {
+        "country": "CH",
+        "sc3": 8,
+        "sc4": 7,
+        "total": 15,
+        "sc3_share": 0.5333
+      },
+      {
+        "country": "KR",
+        "sc3": 7,
+        "sc4": 5,
+        "total": 12,
+        "sc3_share": 0.5833
+      },
+      {
+        "country": "CZ",
+        "sc3": 0,
+        "sc4": 11,
+        "total": 11,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "RO",
+        "sc3": 0,
+        "sc4": 7,
+        "total": 7,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "PT",
+        "sc3": 1,
+        "sc4": 5,
+        "total": 6,
+        "sc3_share": 0.1667
+      },
+      {
+        "country": "PL",
+        "sc3": 4,
+        "sc4": 2,
+        "total": 6,
+        "sc3_share": 0.6667
+      },
+      {
+        "country": "FR",
+        "sc3": 2,
+        "sc4": 3,
+        "total": 5,
+        "sc3_share": 0.4
+      },
+      {
+        "country": "RS",
+        "sc3": 5,
+        "sc4": 0,
+        "total": 5,
+        "sc3_share": 1.0
+      },
+      {
+        "country": "SK",
+        "sc3": 2,
+        "sc4": 1,
+        "total": 3,
+        "sc3_share": 0.6667
+      },
+      {
+        "country": "SG",
+        "sc3": 0,
+        "sc4": 3,
+        "total": 3,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "AT",
+        "sc3": 0,
+        "sc4": 3,
+        "total": 3,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "SI",
+        "sc3": 0,
+        "sc4": 2,
+        "total": 2,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "ES",
+        "sc3": 1,
+        "sc4": 1,
+        "total": 2,
+        "sc3_share": 0.5
+      },
+      {
+        "country": "HU",
+        "sc3": 1,
+        "sc4": 1,
+        "total": 2,
+        "sc3_share": 0.5
+      },
+      {
+        "country": "BE",
+        "sc3": 0,
+        "sc4": 2,
+        "total": 2,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "GB",
+        "sc3": 0,
+        "sc4": 1,
+        "total": 1,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "SE",
+        "sc3": 0,
+        "sc4": 1,
+        "total": 1,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "NL",
+        "sc3": 0,
+        "sc4": 1,
+        "total": 1,
+        "sc3_share": 0.0
+      }
+    ],
+    "CW04": [
+      {
+        "country": "CN",
+        "sc3": 290,
+        "sc4": 329,
+        "total": 619,
+        "sc3_share": 0.4685
+      },
+      {
+        "country": "DE",
+        "sc3": 123,
+        "sc4": 116,
+        "total": 239,
+        "sc3_share": 0.5146
+      },
+      {
+        "country": "HK",
+        "sc3": 16,
+        "sc4": 61,
+        "total": 77,
+        "sc3_share": 0.2078
+      },
+      {
+        "country": "TH",
+        "sc3": 6,
+        "sc4": 39,
+        "total": 45,
+        "sc3_share": 0.1333
+      },
+      {
+        "country": "MY",
+        "sc3": 10,
+        "sc4": 28,
+        "total": 38,
+        "sc3_share": 0.2632
+      },
+      {
+        "country": "JP",
+        "sc3": 0,
+        "sc4": 32,
+        "total": 32,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "TW",
+        "sc3": 9,
+        "sc4": 22,
+        "total": 31,
+        "sc3_share": 0.2903
+      },
+      {
+        "country": "VN",
+        "sc3": 13,
+        "sc4": 9,
+        "total": 22,
+        "sc3_share": 0.5909
+      },
+      {
+        "country": "HR",
+        "sc3": 19,
+        "sc4": 0,
+        "total": 19,
+        "sc3_share": 1.0
+      },
+      {
+        "country": "KR",
+        "sc3": 4,
+        "sc4": 12,
+        "total": 16,
+        "sc3_share": 0.25
+      },
+      {
+        "country": "CH",
+        "sc3": 4,
+        "sc4": 10,
+        "total": 14,
+        "sc3_share": 0.2857
+      },
+      {
+        "country": "IT",
+        "sc3": 3,
+        "sc4": 11,
+        "total": 14,
+        "sc3_share": 0.2143
+      },
+      {
+        "country": "HU",
+        "sc3": 3,
+        "sc4": 7,
+        "total": 10,
+        "sc3_share": 0.3
+      },
+      {
+        "country": "CZ",
+        "sc3": 0,
+        "sc4": 7,
+        "total": 7,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "SK",
+        "sc3": 3,
+        "sc4": 3,
+        "total": 6,
+        "sc3_share": 0.5
+      },
+      {
+        "country": "FR",
+        "sc3": 3,
+        "sc4": 3,
+        "total": 6,
+        "sc3_share": 0.5
+      },
+      {
+        "country": "PT",
+        "sc3": 3,
+        "sc4": 2,
+        "total": 5,
+        "sc3_share": 0.6
+      },
+      {
+        "country": "SG",
+        "sc3": 0,
+        "sc4": 5,
+        "total": 5,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "RO",
+        "sc3": 0,
+        "sc4": 5,
+        "total": 5,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "RS",
+        "sc3": 4,
+        "sc4": 0,
+        "total": 4,
+        "sc3_share": 1.0
+      },
+      {
+        "country": "TR",
+        "sc3": 0,
+        "sc4": 3,
+        "total": 3,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "SI",
+        "sc3": 1,
+        "sc4": 2,
+        "total": 3,
+        "sc3_share": 0.3333
+      },
+      {
+        "country": "GB",
+        "sc3": 0,
+        "sc4": 3,
+        "total": 3,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "SE",
+        "sc3": 0,
+        "sc4": 3,
+        "total": 3,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "ES",
+        "sc3": 1,
+        "sc4": 1,
+        "total": 2,
+        "sc3_share": 0.5
+      },
+      {
+        "country": "AT",
+        "sc3": 1,
+        "sc4": 1,
+        "total": 2,
+        "sc3_share": 0.5
+      },
+      {
+        "country": "PL",
+        "sc3": 1,
+        "sc4": 1,
+        "total": 2,
+        "sc3_share": 0.5
+      },
+      {
+        "country": "BE",
+        "sc3": 1,
+        "sc4": 1,
+        "total": 2,
+        "sc3_share": 0.5
+      },
+      {
+        "country": "NL",
+        "sc3": 0,
+        "sc4": 2,
+        "total": 2,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "KH",
+        "sc3": 0,
+        "sc4": 1,
+        "total": 1,
+        "sc3_share": 0.0
+      }
+    ],
+    "CW05": [
+      {
+        "country": "CN",
+        "sc3": 277,
+        "sc4": 252,
+        "total": 529,
+        "sc3_share": 0.5236
+      },
+      {
+        "country": "DE",
+        "sc3": 130,
+        "sc4": 85,
+        "total": 215,
+        "sc3_share": 0.6047
+      },
+      {
+        "country": "HK",
+        "sc3": 12,
+        "sc4": 36,
+        "total": 48,
+        "sc3_share": 0.25
+      },
+      {
+        "country": "MY",
+        "sc3": 21,
+        "sc4": 26,
+        "total": 47,
+        "sc3_share": 0.4468
+      },
+      {
+        "country": "JP",
+        "sc3": 0,
+        "sc4": 44,
+        "total": 44,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "HR",
+        "sc3": 25,
+        "sc4": 0,
+        "total": 25,
+        "sc3_share": 1.0
+      },
+      {
+        "country": "TH",
+        "sc3": 6,
+        "sc4": 15,
+        "total": 21,
+        "sc3_share": 0.2857
+      },
+      {
+        "country": "KR",
+        "sc3": 5,
+        "sc4": 11,
+        "total": 16,
+        "sc3_share": 0.3125
+      },
+      {
+        "country": "VN",
+        "sc3": 10,
+        "sc4": 5,
+        "total": 15,
+        "sc3_share": 0.6667
+      },
+      {
+        "country": "TW",
+        "sc3": 5,
+        "sc4": 7,
+        "total": 12,
+        "sc3_share": 0.4167
+      },
+      {
+        "country": "CH",
+        "sc3": 5,
+        "sc4": 4,
+        "total": 9,
+        "sc3_share": 0.5556
+      },
+      {
+        "country": "IT",
+        "sc3": 1,
+        "sc4": 8,
+        "total": 9,
+        "sc3_share": 0.1111
+      },
+      {
+        "country": "SG",
+        "sc3": 0,
+        "sc4": 7,
+        "total": 7,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "CZ",
+        "sc3": 0,
+        "sc4": 7,
+        "total": 7,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "HU",
+        "sc3": 3,
+        "sc4": 3,
+        "total": 6,
+        "sc3_share": 0.5
+      },
+      {
+        "country": "PT",
+        "sc3": 0,
+        "sc4": 5,
+        "total": 5,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "FR",
+        "sc3": 2,
+        "sc4": 2,
+        "total": 4,
+        "sc3_share": 0.5
+      },
+      {
+        "country": "PL",
+        "sc3": 2,
+        "sc4": 2,
+        "total": 4,
+        "sc3_share": 0.5
+      },
+      {
+        "country": "ES",
+        "sc3": 1,
+        "sc4": 2,
+        "total": 3,
+        "sc3_share": 0.3333
+      },
+      {
+        "country": "RS",
+        "sc3": 3,
+        "sc4": 0,
+        "total": 3,
+        "sc3_share": 1.0
+      },
+      {
+        "country": "SK",
+        "sc3": 0,
+        "sc4": 2,
+        "total": 2,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "BA",
+        "sc3": 0,
+        "sc4": 1,
+        "total": 1,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "SI",
+        "sc3": 1,
+        "sc4": 0,
+        "total": 1,
+        "sc3_share": 1.0
+      },
+      {
+        "country": "RO",
         "sc3": 0,
         "sc4": 1,
         "total": 1,
@@ -3873,7 +4844,2355 @@
         "sc3_share": 0.0
       },
       {
+        "country": "BG",
+        "sc3": 0,
+        "sc4": 1,
+        "total": 1,
+        "sc3_share": 0.0
+      }
+    ],
+    "CW06": [
+      {
+        "country": "CN",
+        "sc3": 134,
+        "sc4": 286,
+        "total": 420,
+        "sc3_share": 0.319
+      },
+      {
+        "country": "DE",
+        "sc3": 43,
+        "sc4": 82,
+        "total": 125,
+        "sc3_share": 0.344
+      },
+      {
+        "country": "JP",
+        "sc3": 0,
+        "sc4": 60,
+        "total": 60,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "HK",
+        "sc3": 12,
+        "sc4": 36,
+        "total": 48,
+        "sc3_share": 0.25
+      },
+      {
+        "country": "TW",
+        "sc3": 11,
+        "sc4": 26,
+        "total": 37,
+        "sc3_share": 0.2973
+      },
+      {
+        "country": "MY",
+        "sc3": 10,
+        "sc4": 13,
+        "total": 23,
+        "sc3_share": 0.4348
+      },
+      {
+        "country": "VN",
+        "sc3": 10,
+        "sc4": 9,
+        "total": 19,
+        "sc3_share": 0.5263
+      },
+      {
+        "country": "TH",
+        "sc3": 6,
+        "sc4": 10,
+        "total": 16,
+        "sc3_share": 0.375
+      },
+      {
+        "country": "RO",
+        "sc3": 0,
+        "sc4": 7,
+        "total": 7,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "SG",
+        "sc3": 3,
+        "sc4": 3,
+        "total": 6,
+        "sc3_share": 0.5
+      },
+      {
+        "country": "CZ",
+        "sc3": 1,
+        "sc4": 5,
+        "total": 6,
+        "sc3_share": 0.1667
+      },
+      {
+        "country": "KR",
+        "sc3": 3,
+        "sc4": 3,
+        "total": 6,
+        "sc3_share": 0.5
+      },
+      {
+        "country": "IT",
+        "sc3": 0,
+        "sc4": 6,
+        "total": 6,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "ES",
+        "sc3": 0,
+        "sc4": 5,
+        "total": 5,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "HU",
+        "sc3": 1,
+        "sc4": 4,
+        "total": 5,
+        "sc3_share": 0.2
+      },
+      {
+        "country": "SI",
+        "sc3": 0,
+        "sc4": 2,
+        "total": 2,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "SE",
+        "sc3": 0,
+        "sc4": 2,
+        "total": 2,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "NL",
+        "sc3": 0,
+        "sc4": 2,
+        "total": 2,
+        "sc3_share": 0.0
+      },
+      {
         "country": "TR",
+        "sc3": 0,
+        "sc4": 1,
+        "total": 1,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "IE",
+        "sc3": 0,
+        "sc4": 1,
+        "total": 1,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "PT",
+        "sc3": 0,
+        "sc4": 1,
+        "total": 1,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "SK",
+        "sc3": 0,
+        "sc4": 1,
+        "total": 1,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "FR",
+        "sc3": 0,
+        "sc4": 1,
+        "total": 1,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "AT",
+        "sc3": 0,
+        "sc4": 1,
+        "total": 1,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "PL",
+        "sc3": 1,
+        "sc4": 0,
+        "total": 1,
+        "sc3_share": 1.0
+      },
+      {
+        "country": "CH",
+        "sc3": 1,
+        "sc4": 0,
+        "total": 1,
+        "sc3_share": 1.0
+      },
+      {
+        "country": "MX",
+        "sc3": 0,
+        "sc4": 1,
+        "total": 1,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "BG",
+        "sc3": 0,
+        "sc4": 1,
+        "total": 1,
+        "sc3_share": 0.0
+      }
+    ],
+    "CW07": [
+      {
+        "country": "CN",
+        "sc3": 296,
+        "sc4": 246,
+        "total": 542,
+        "sc3_share": 0.5461
+      },
+      {
+        "country": "DE",
+        "sc3": 96,
+        "sc4": 134,
+        "total": 230,
+        "sc3_share": 0.4174
+      },
+      {
+        "country": "HK",
+        "sc3": 20,
+        "sc4": 41,
+        "total": 61,
+        "sc3_share": 0.3279
+      },
+      {
+        "country": "JP",
+        "sc3": 0,
+        "sc4": 30,
+        "total": 30,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "MY",
+        "sc3": 14,
+        "sc4": 16,
+        "total": 30,
+        "sc3_share": 0.4667
+      },
+      {
+        "country": "TW",
+        "sc3": 15,
+        "sc4": 14,
+        "total": 29,
+        "sc3_share": 0.5172
+      },
+      {
+        "country": "TH",
+        "sc3": 9,
+        "sc4": 16,
+        "total": 25,
+        "sc3_share": 0.36
+      },
+      {
+        "country": "HR",
+        "sc3": 20,
+        "sc4": 0,
+        "total": 20,
+        "sc3_share": 1.0
+      },
+      {
+        "country": "VN",
+        "sc3": 10,
+        "sc4": 3,
+        "total": 13,
+        "sc3_share": 0.7692
+      },
+      {
+        "country": "KR",
+        "sc3": 6,
+        "sc4": 7,
+        "total": 13,
+        "sc3_share": 0.4615
+      },
+      {
+        "country": "CZ",
+        "sc3": 0,
+        "sc4": 12,
+        "total": 12,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "CH",
+        "sc3": 6,
+        "sc4": 4,
+        "total": 10,
+        "sc3_share": 0.6
+      },
+      {
+        "country": "PT",
+        "sc3": 0,
+        "sc4": 7,
+        "total": 7,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "PL",
+        "sc3": 1,
+        "sc4": 6,
+        "total": 7,
+        "sc3_share": 0.1429
+      },
+      {
+        "country": "IT",
+        "sc3": 3,
+        "sc4": 3,
+        "total": 6,
+        "sc3_share": 0.5
+      },
+      {
+        "country": "SK",
+        "sc3": 1,
+        "sc4": 4,
+        "total": 5,
+        "sc3_share": 0.2
+      },
+      {
+        "country": "FR",
+        "sc3": 1,
+        "sc4": 3,
+        "total": 4,
+        "sc3_share": 0.25
+      },
+      {
+        "country": "RO",
+        "sc3": 0,
+        "sc4": 4,
+        "total": 4,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "SG",
+        "sc3": 1,
+        "sc4": 2,
+        "total": 3,
+        "sc3_share": 0.3333
+      },
+      {
+        "country": "SE",
+        "sc3": 0,
+        "sc4": 3,
+        "total": 3,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "BA",
+        "sc3": 0,
+        "sc4": 2,
+        "total": 2,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "ES",
+        "sc3": 1,
+        "sc4": 1,
+        "total": 2,
+        "sc3_share": 0.5
+      },
+      {
+        "country": "HU",
+        "sc3": 1,
+        "sc4": 1,
+        "total": 2,
+        "sc3_share": 0.5
+      },
+      {
+        "country": "RS",
+        "sc3": 2,
+        "sc4": 0,
+        "total": 2,
+        "sc3_share": 1.0
+      },
+      {
+        "country": "NL",
+        "sc3": 0,
+        "sc4": 2,
+        "total": 2,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "BG",
+        "sc3": 0,
+        "sc4": 2,
+        "total": 2,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "SI",
+        "sc3": 0,
+        "sc4": 1,
+        "total": 1,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "AT",
+        "sc3": 1,
+        "sc4": 0,
+        "total": 1,
+        "sc3_share": 1.0
+      },
+      {
+        "country": "ID",
+        "sc3": 0,
+        "sc4": 1,
+        "total": 1,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "BE",
+        "sc3": 0,
+        "sc4": 1,
+        "total": 1,
+        "sc3_share": 0.0
+      }
+    ],
+    "CW08": [
+      {
+        "country": "CN",
+        "sc3": 278,
+        "sc4": 303,
+        "total": 581,
+        "sc3_share": 0.4785
+      },
+      {
+        "country": "DE",
+        "sc3": 94,
+        "sc4": 62,
+        "total": 156,
+        "sc3_share": 0.6026
+      },
+      {
+        "country": "HK",
+        "sc3": 18,
+        "sc4": 66,
+        "total": 84,
+        "sc3_share": 0.2143
+      },
+      {
+        "country": "MY",
+        "sc3": 16,
+        "sc4": 23,
+        "total": 39,
+        "sc3_share": 0.4103
+      },
+      {
+        "country": "TW",
+        "sc3": 8,
+        "sc4": 20,
+        "total": 28,
+        "sc3_share": 0.2857
+      },
+      {
+        "country": "HR",
+        "sc3": 26,
+        "sc4": 0,
+        "total": 26,
+        "sc3_share": 1.0
+      },
+      {
+        "country": "JP",
+        "sc3": 0,
+        "sc4": 25,
+        "total": 25,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "TH",
+        "sc3": 5,
+        "sc4": 19,
+        "total": 24,
+        "sc3_share": 0.2083
+      },
+      {
+        "country": "CZ",
+        "sc3": 0,
+        "sc4": 19,
+        "total": 19,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "VN",
+        "sc3": 9,
+        "sc4": 6,
+        "total": 15,
+        "sc3_share": 0.6
+      },
+      {
+        "country": "KR",
+        "sc3": 5,
+        "sc4": 5,
+        "total": 10,
+        "sc3_share": 0.5
+      },
+      {
+        "country": "HU",
+        "sc3": 1,
+        "sc4": 8,
+        "total": 9,
+        "sc3_share": 0.1111
+      },
+      {
+        "country": "CH",
+        "sc3": 5,
+        "sc4": 3,
+        "total": 8,
+        "sc3_share": 0.625
+      },
+      {
+        "country": "TR",
+        "sc3": 0,
+        "sc4": 7,
+        "total": 7,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "ES",
+        "sc3": 1,
+        "sc4": 5,
+        "total": 6,
+        "sc3_share": 0.1667
+      },
+      {
+        "country": "SK",
+        "sc3": 1,
+        "sc4": 4,
+        "total": 5,
+        "sc3_share": 0.2
+      },
+      {
+        "country": "SG",
+        "sc3": 3,
+        "sc4": 2,
+        "total": 5,
+        "sc3_share": 0.6
+      },
+      {
+        "country": "IT",
+        "sc3": 2,
+        "sc4": 3,
+        "total": 5,
+        "sc3_share": 0.4
+      },
+      {
+        "country": "AT",
+        "sc3": 1,
+        "sc4": 2,
+        "total": 3,
+        "sc3_share": 0.3333
+      },
+      {
+        "country": "RO",
+        "sc3": 0,
+        "sc4": 3,
+        "total": 3,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "KH",
+        "sc3": 0,
+        "sc4": 3,
+        "total": 3,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "PL",
+        "sc3": 3,
+        "sc4": 0,
+        "total": 3,
+        "sc3_share": 1.0
+      },
+      {
+        "country": "FR",
+        "sc3": 1,
+        "sc4": 1,
+        "total": 2,
+        "sc3_share": 0.5
+      },
+      {
+        "country": "NL",
+        "sc3": 0,
+        "sc4": 2,
+        "total": 2,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "BG",
+        "sc3": 0,
+        "sc4": 2,
+        "total": 2,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "PT",
+        "sc3": 1,
+        "sc4": 0,
+        "total": 1,
+        "sc3_share": 1.0
+      },
+      {
+        "country": "SI",
+        "sc3": 1,
+        "sc4": 0,
+        "total": 1,
+        "sc3_share": 1.0
+      },
+      {
+        "country": "RS",
+        "sc3": 1,
+        "sc4": 0,
+        "total": 1,
+        "sc3_share": 1.0
+      }
+    ],
+    "CW09": [
+      {
+        "country": "CN",
+        "sc3": 292,
+        "sc4": 257,
+        "total": 549,
+        "sc3_share": 0.5319
+      },
+      {
+        "country": "DE",
+        "sc3": 97,
+        "sc4": 103,
+        "total": 200,
+        "sc3_share": 0.485
+      },
+      {
+        "country": "HK",
+        "sc3": 15,
+        "sc4": 57,
+        "total": 72,
+        "sc3_share": 0.2083
+      },
+      {
+        "country": "TW",
+        "sc3": 13,
+        "sc4": 24,
+        "total": 37,
+        "sc3_share": 0.3514
+      },
+      {
+        "country": "JP",
+        "sc3": 0,
+        "sc4": 28,
+        "total": 28,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "MY",
+        "sc3": 13,
+        "sc4": 10,
+        "total": 23,
+        "sc3_share": 0.5652
+      },
+      {
+        "country": "HR",
+        "sc3": 19,
+        "sc4": 0,
+        "total": 19,
+        "sc3_share": 1.0
+      },
+      {
+        "country": "VN",
+        "sc3": 6,
+        "sc4": 10,
+        "total": 16,
+        "sc3_share": 0.375
+      },
+      {
+        "country": "KR",
+        "sc3": 6,
+        "sc4": 7,
+        "total": 13,
+        "sc3_share": 0.4615
+      },
+      {
+        "country": "TH",
+        "sc3": 5,
+        "sc4": 7,
+        "total": 12,
+        "sc3_share": 0.4167
+      },
+      {
+        "country": "CH",
+        "sc3": 6,
+        "sc4": 4,
+        "total": 10,
+        "sc3_share": 0.6
+      },
+      {
+        "country": "ES",
+        "sc3": 1,
+        "sc4": 7,
+        "total": 8,
+        "sc3_share": 0.125
+      },
+      {
+        "country": "CZ",
+        "sc3": 1,
+        "sc4": 6,
+        "total": 7,
+        "sc3_share": 0.1429
+      },
+      {
+        "country": "RO",
+        "sc3": 0,
+        "sc4": 6,
+        "total": 6,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "IT",
+        "sc3": 1,
+        "sc4": 5,
+        "total": 6,
+        "sc3_share": 0.1667
+      },
+      {
+        "country": "FR",
+        "sc3": 2,
+        "sc4": 3,
+        "total": 5,
+        "sc3_share": 0.4
+      },
+      {
+        "country": "HU",
+        "sc3": 1,
+        "sc4": 4,
+        "total": 5,
+        "sc3_share": 0.2
+      },
+      {
+        "country": "PL",
+        "sc3": 2,
+        "sc4": 3,
+        "total": 5,
+        "sc3_share": 0.4
+      },
+      {
+        "country": "SG",
+        "sc3": 2,
+        "sc4": 1,
+        "total": 3,
+        "sc3_share": 0.6667
+      },
+      {
+        "country": "TR",
+        "sc3": 0,
+        "sc4": 2,
+        "total": 2,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "SK",
+        "sc3": 1,
+        "sc4": 1,
+        "total": 2,
+        "sc3_share": 0.5
+      },
+      {
+        "country": "SE",
+        "sc3": 0,
+        "sc4": 2,
+        "total": 2,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "RS",
+        "sc3": 2,
+        "sc4": 0,
+        "total": 2,
+        "sc3_share": 1.0
+      },
+      {
+        "country": "NL",
+        "sc3": 0,
+        "sc4": 2,
+        "total": 2,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "BA",
+        "sc3": 0,
+        "sc4": 1,
+        "total": 1,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "PT",
+        "sc3": 0,
+        "sc4": 1,
+        "total": 1,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "SI",
+        "sc3": 1,
+        "sc4": 0,
+        "total": 1,
+        "sc3_share": 1.0
+      },
+      {
+        "country": "BG",
+        "sc3": 0,
+        "sc4": 1,
+        "total": 1,
+        "sc3_share": 0.0
+      }
+    ],
+    "CW10": [
+      {
+        "country": "CN",
+        "sc3": 266,
+        "sc4": 266,
+        "total": 532,
+        "sc3_share": 0.5
+      },
+      {
+        "country": "DE",
+        "sc3": 97,
+        "sc4": 115,
+        "total": 212,
+        "sc3_share": 0.4575
+      },
+      {
+        "country": "HK",
+        "sc3": 14,
+        "sc4": 54,
+        "total": 68,
+        "sc3_share": 0.2059
+      },
+      {
+        "country": "MY",
+        "sc3": 12,
+        "sc4": 17,
+        "total": 29,
+        "sc3_share": 0.4138
+      },
+      {
+        "country": "HR",
+        "sc3": 24,
+        "sc4": 0,
+        "total": 24,
+        "sc3_share": 1.0
+      },
+      {
+        "country": "VN",
+        "sc3": 14,
+        "sc4": 7,
+        "total": 21,
+        "sc3_share": 0.6667
+      },
+      {
+        "country": "TW",
+        "sc3": 7,
+        "sc4": 12,
+        "total": 19,
+        "sc3_share": 0.3684
+      },
+      {
+        "country": "JP",
+        "sc3": 0,
+        "sc4": 18,
+        "total": 18,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "TH",
+        "sc3": 5,
+        "sc4": 12,
+        "total": 17,
+        "sc3_share": 0.2941
+      },
+      {
+        "country": "HU",
+        "sc3": 4,
+        "sc4": 11,
+        "total": 15,
+        "sc3_share": 0.2667
+      },
+      {
+        "country": "ES",
+        "sc3": 1,
+        "sc4": 10,
+        "total": 11,
+        "sc3_share": 0.0909
+      },
+      {
+        "country": "IT",
+        "sc3": 0,
+        "sc4": 11,
+        "total": 11,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "CZ",
+        "sc3": 3,
+        "sc4": 6,
+        "total": 9,
+        "sc3_share": 0.3333
+      },
+      {
+        "country": "SG",
+        "sc3": 1,
+        "sc4": 6,
+        "total": 7,
+        "sc3_share": 0.1429
+      },
+      {
+        "country": "CH",
+        "sc3": 3,
+        "sc4": 4,
+        "total": 7,
+        "sc3_share": 0.4286
+      },
+      {
+        "country": "PT",
+        "sc3": 1,
+        "sc4": 5,
+        "total": 6,
+        "sc3_share": 0.1667
+      },
+      {
+        "country": "FR",
+        "sc3": 2,
+        "sc4": 2,
+        "total": 4,
+        "sc3_share": 0.5
+      },
+      {
+        "country": "KR",
+        "sc3": 4,
+        "sc4": 0,
+        "total": 4,
+        "sc3_share": 1.0
+      },
+      {
+        "country": "TR",
+        "sc3": 0,
+        "sc4": 3,
+        "total": 3,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "SK",
+        "sc3": 2,
+        "sc4": 1,
+        "total": 3,
+        "sc3_share": 0.6667
+      },
+      {
+        "country": "RS",
+        "sc3": 3,
+        "sc4": 0,
+        "total": 3,
+        "sc3_share": 1.0
+      },
+      {
+        "country": "SI",
+        "sc3": 1,
+        "sc4": 1,
+        "total": 2,
+        "sc3_share": 0.5
+      },
+      {
+        "country": "AT",
+        "sc3": 1,
+        "sc4": 1,
+        "total": 2,
+        "sc3_share": 0.5
+      },
+      {
+        "country": "PL",
+        "sc3": 0,
+        "sc4": 2,
+        "total": 2,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "SE",
+        "sc3": 0,
+        "sc4": 2,
+        "total": 2,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "NL",
+        "sc3": 0,
+        "sc4": 2,
+        "total": 2,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "BA",
+        "sc3": 0,
+        "sc4": 1,
+        "total": 1,
+        "sc3_share": 0.0
+      }
+    ],
+    "CW11": [
+      {
+        "country": "CN",
+        "sc3": 251,
+        "sc4": 196,
+        "total": 447,
+        "sc3_share": 0.5615
+      },
+      {
+        "country": "DE",
+        "sc3": 60,
+        "sc4": 146,
+        "total": 206,
+        "sc3_share": 0.2913
+      },
+      {
+        "country": "HK",
+        "sc3": 16,
+        "sc4": 28,
+        "total": 44,
+        "sc3_share": 0.3636
+      },
+      {
+        "country": "TW",
+        "sc3": 13,
+        "sc4": 20,
+        "total": 33,
+        "sc3_share": 0.3939
+      },
+      {
+        "country": "MY",
+        "sc3": 12,
+        "sc4": 16,
+        "total": 28,
+        "sc3_share": 0.4286
+      },
+      {
+        "country": "HR",
+        "sc3": 23,
+        "sc4": 0,
+        "total": 23,
+        "sc3_share": 1.0
+      },
+      {
+        "country": "JP",
+        "sc3": 0,
+        "sc4": 19,
+        "total": 19,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "TH",
+        "sc3": 5,
+        "sc4": 11,
+        "total": 16,
+        "sc3_share": 0.3125
+      },
+      {
+        "country": "VN",
+        "sc3": 8,
+        "sc4": 5,
+        "total": 13,
+        "sc3_share": 0.6154
+      },
+      {
+        "country": "IT",
+        "sc3": 1,
+        "sc4": 10,
+        "total": 11,
+        "sc3_share": 0.0909
+      },
+      {
+        "country": "ES",
+        "sc3": 1,
+        "sc4": 8,
+        "total": 9,
+        "sc3_share": 0.1111
+      },
+      {
+        "country": "HU",
+        "sc3": 2,
+        "sc4": 7,
+        "total": 9,
+        "sc3_share": 0.2222
+      },
+      {
+        "country": "CH",
+        "sc3": 4,
+        "sc4": 5,
+        "total": 9,
+        "sc3_share": 0.4444
+      },
+      {
+        "country": "PL",
+        "sc3": 1,
+        "sc4": 7,
+        "total": 8,
+        "sc3_share": 0.125
+      },
+      {
+        "country": "KR",
+        "sc3": 4,
+        "sc4": 3,
+        "total": 7,
+        "sc3_share": 0.5714
+      },
+      {
+        "country": "FR",
+        "sc3": 1,
+        "sc4": 5,
+        "total": 6,
+        "sc3_share": 0.1667
+      },
+      {
+        "country": "CZ",
+        "sc3": 0,
+        "sc4": 6,
+        "total": 6,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "TR",
+        "sc3": 0,
+        "sc4": 4,
+        "total": 4,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "SK",
+        "sc3": 1,
+        "sc4": 3,
+        "total": 4,
+        "sc3_share": 0.25
+      },
+      {
+        "country": "AT",
+        "sc3": 0,
+        "sc4": 4,
+        "total": 4,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "NL",
+        "sc3": 0,
+        "sc4": 4,
+        "total": 4,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "PT",
+        "sc3": 0,
+        "sc4": 3,
+        "total": 3,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "SG",
+        "sc3": 0,
+        "sc4": 3,
+        "total": 3,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "RO",
+        "sc3": 0,
+        "sc4": 3,
+        "total": 3,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "SI",
+        "sc3": 1,
+        "sc4": 1,
+        "total": 2,
+        "sc3_share": 0.5
+      },
+      {
+        "country": "SE",
+        "sc3": 0,
+        "sc4": 2,
+        "total": 2,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "RS",
+        "sc3": 2,
+        "sc4": 0,
+        "total": 2,
+        "sc3_share": 1.0
+      }
+    ],
+    "CW12": [
+      {
+        "country": "CN",
+        "sc3": 285,
+        "sc4": 285,
+        "total": 570,
+        "sc3_share": 0.5
+      },
+      {
+        "country": "DE",
+        "sc3": 41,
+        "sc4": 167,
+        "total": 208,
+        "sc3_share": 0.1971
+      },
+      {
+        "country": "HK",
+        "sc3": 19,
+        "sc4": 41,
+        "total": 60,
+        "sc3_share": 0.3167
+      },
+      {
+        "country": "TW",
+        "sc3": 14,
+        "sc4": 12,
+        "total": 26,
+        "sc3_share": 0.5385
+      },
+      {
+        "country": "HR",
+        "sc3": 25,
+        "sc4": 0,
+        "total": 25,
+        "sc3_share": 1.0
+      },
+      {
+        "country": "JP",
+        "sc3": 0,
+        "sc4": 25,
+        "total": 25,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "MY",
+        "sc3": 11,
+        "sc4": 13,
+        "total": 24,
+        "sc3_share": 0.4583
+      },
+      {
+        "country": "TH",
+        "sc3": 5,
+        "sc4": 16,
+        "total": 21,
+        "sc3_share": 0.2381
+      },
+      {
+        "country": "VN",
+        "sc3": 10,
+        "sc4": 7,
+        "total": 17,
+        "sc3_share": 0.5882
+      },
+      {
+        "country": "IT",
+        "sc3": 0,
+        "sc4": 17,
+        "total": 17,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "CH",
+        "sc3": 2,
+        "sc4": 8,
+        "total": 10,
+        "sc3_share": 0.2
+      },
+      {
+        "country": "ES",
+        "sc3": 1,
+        "sc4": 8,
+        "total": 9,
+        "sc3_share": 0.1111
+      },
+      {
+        "country": "HU",
+        "sc3": 4,
+        "sc4": 4,
+        "total": 8,
+        "sc3_share": 0.5
+      },
+      {
+        "country": "CZ",
+        "sc3": 1,
+        "sc4": 7,
+        "total": 8,
+        "sc3_share": 0.125
+      },
+      {
+        "country": "SG",
+        "sc3": 2,
+        "sc4": 5,
+        "total": 7,
+        "sc3_share": 0.2857
+      },
+      {
+        "country": "KR",
+        "sc3": 4,
+        "sc4": 2,
+        "total": 6,
+        "sc3_share": 0.6667
+      },
+      {
+        "country": "RO",
+        "sc3": 0,
+        "sc4": 5,
+        "total": 5,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "SK",
+        "sc3": 0,
+        "sc4": 4,
+        "total": 4,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "FR",
+        "sc3": 0,
+        "sc4": 4,
+        "total": 4,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "PL",
+        "sc3": 0,
+        "sc4": 4,
+        "total": 4,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "TR",
+        "sc3": 0,
+        "sc4": 3,
+        "total": 3,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "RS",
+        "sc3": 3,
+        "sc4": 0,
+        "total": 3,
+        "sc3_share": 1.0
+      },
+      {
+        "country": "SI",
+        "sc3": 0,
+        "sc4": 2,
+        "total": 2,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "NL",
+        "sc3": 0,
+        "sc4": 2,
+        "total": 2,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "BG",
+        "sc3": 0,
+        "sc4": 2,
+        "total": 2,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "BA",
+        "sc3": 0,
+        "sc4": 1,
+        "total": 1,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "PT",
+        "sc3": 1,
+        "sc4": 0,
+        "total": 1,
+        "sc3_share": 1.0
+      },
+      {
+        "country": "GB",
+        "sc3": 0,
+        "sc4": 1,
+        "total": 1,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "SE",
+        "sc3": 0,
+        "sc4": 1,
+        "total": 1,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "BE",
+        "sc3": 0,
+        "sc4": 1,
+        "total": 1,
+        "sc3_share": 0.0
+      }
+    ],
+    "CW13": [
+      {
+        "country": "CN",
+        "sc3": 261,
+        "sc4": 251,
+        "total": 512,
+        "sc3_share": 0.5098
+      },
+      {
+        "country": "DE",
+        "sc3": 64,
+        "sc4": 155,
+        "total": 219,
+        "sc3_share": 0.2922
+      },
+      {
+        "country": "HK",
+        "sc3": 10,
+        "sc4": 44,
+        "total": 54,
+        "sc3_share": 0.1852
+      },
+      {
+        "country": "MY",
+        "sc3": 12,
+        "sc4": 24,
+        "total": 36,
+        "sc3_share": 0.3333
+      },
+      {
+        "country": "JP",
+        "sc3": 0,
+        "sc4": 31,
+        "total": 31,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "TW",
+        "sc3": 11,
+        "sc4": 13,
+        "total": 24,
+        "sc3_share": 0.4583
+      },
+      {
+        "country": "TH",
+        "sc3": 7,
+        "sc4": 15,
+        "total": 22,
+        "sc3_share": 0.3182
+      },
+      {
+        "country": "HR",
+        "sc3": 16,
+        "sc4": 0,
+        "total": 16,
+        "sc3_share": 1.0
+      },
+      {
+        "country": "VN",
+        "sc3": 10,
+        "sc4": 6,
+        "total": 16,
+        "sc3_share": 0.625
+      },
+      {
+        "country": "IT",
+        "sc3": 0,
+        "sc4": 16,
+        "total": 16,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "PT",
+        "sc3": 1,
+        "sc4": 9,
+        "total": 10,
+        "sc3_share": 0.1
+      },
+      {
+        "country": "CZ",
+        "sc3": 0,
+        "sc4": 7,
+        "total": 7,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "SG",
+        "sc3": 2,
+        "sc4": 4,
+        "total": 6,
+        "sc3_share": 0.3333
+      },
+      {
+        "country": "CH",
+        "sc3": 1,
+        "sc4": 5,
+        "total": 6,
+        "sc3_share": 0.1667
+      },
+      {
+        "country": "FR",
+        "sc3": 1,
+        "sc4": 4,
+        "total": 5,
+        "sc3_share": 0.2
+      },
+      {
+        "country": "KR",
+        "sc3": 3,
+        "sc4": 2,
+        "total": 5,
+        "sc3_share": 0.6
+      },
+      {
+        "country": "SI",
+        "sc3": 0,
+        "sc4": 4,
+        "total": 4,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "HU",
+        "sc3": 0,
+        "sc4": 3,
+        "total": 3,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "PL",
+        "sc3": 1,
+        "sc4": 2,
+        "total": 3,
+        "sc3_share": 0.3333
+      },
+      {
+        "country": "ES",
+        "sc3": 0,
+        "sc4": 2,
+        "total": 2,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "RS",
+        "sc3": 2,
+        "sc4": 0,
+        "total": 2,
+        "sc3_share": 1.0
+      },
+      {
+        "country": "BG",
+        "sc3": 0,
+        "sc4": 2,
+        "total": 2,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "SK",
+        "sc3": 0,
+        "sc4": 1,
+        "total": 1,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "AT",
+        "sc3": 0,
+        "sc4": 1,
+        "total": 1,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "RO",
+        "sc3": 0,
+        "sc4": 1,
+        "total": 1,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "GB",
+        "sc3": 0,
+        "sc4": 1,
+        "total": 1,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "SE",
+        "sc3": 0,
+        "sc4": 1,
+        "total": 1,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "NL",
+        "sc3": 0,
+        "sc4": 1,
+        "total": 1,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "FI",
+        "sc3": 0,
+        "sc4": 1,
+        "total": 1,
+        "sc3_share": 0.0
+      }
+    ],
+    "CW14": [
+      {
+        "country": "CN",
+        "sc3": 288,
+        "sc4": 203,
+        "total": 491,
+        "sc3_share": 0.5866
+      },
+      {
+        "country": "DE",
+        "sc3": 97,
+        "sc4": 111,
+        "total": 208,
+        "sc3_share": 0.4663
+      },
+      {
+        "country": "HK",
+        "sc3": 15,
+        "sc4": 55,
+        "total": 70,
+        "sc3_share": 0.2143
+      },
+      {
+        "country": "MY",
+        "sc3": 18,
+        "sc4": 17,
+        "total": 35,
+        "sc3_share": 0.5143
+      },
+      {
+        "country": "TH",
+        "sc3": 7,
+        "sc4": 20,
+        "total": 27,
+        "sc3_share": 0.2593
+      },
+      {
+        "country": "TW",
+        "sc3": 7,
+        "sc4": 20,
+        "total": 27,
+        "sc3_share": 0.2593
+      },
+      {
+        "country": "HR",
+        "sc3": 26,
+        "sc4": 0,
+        "total": 26,
+        "sc3_share": 1.0
+      },
+      {
+        "country": "IT",
+        "sc3": 1,
+        "sc4": 14,
+        "total": 15,
+        "sc3_share": 0.0667
+      },
+      {
+        "country": "JP",
+        "sc3": 0,
+        "sc4": 14,
+        "total": 14,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "CH",
+        "sc3": 5,
+        "sc4": 6,
+        "total": 11,
+        "sc3_share": 0.4545
+      },
+      {
+        "country": "VN",
+        "sc3": 9,
+        "sc4": 1,
+        "total": 10,
+        "sc3_share": 0.9
+      },
+      {
+        "country": "ES",
+        "sc3": 0,
+        "sc4": 9,
+        "total": 9,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "PL",
+        "sc3": 0,
+        "sc4": 6,
+        "total": 6,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "GB",
+        "sc3": 0,
+        "sc4": 5,
+        "total": 5,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "PT",
+        "sc3": 3,
+        "sc4": 1,
+        "total": 4,
+        "sc3_share": 0.75
+      },
+      {
+        "country": "SG",
+        "sc3": 1,
+        "sc4": 3,
+        "total": 4,
+        "sc3_share": 0.25
+      },
+      {
+        "country": "RS",
+        "sc3": 4,
+        "sc4": 0,
+        "total": 4,
+        "sc3_share": 1.0
+      },
+      {
+        "country": "HU",
+        "sc3": 1,
+        "sc4": 2,
+        "total": 3,
+        "sc3_share": 0.3333
+      },
+      {
+        "country": "KR",
+        "sc3": 2,
+        "sc4": 1,
+        "total": 3,
+        "sc3_share": 0.6667
+      },
+      {
+        "country": "BA",
+        "sc3": 0,
+        "sc4": 2,
+        "total": 2,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "FR",
+        "sc3": 1,
+        "sc4": 1,
+        "total": 2,
+        "sc3_share": 0.5
+      },
+      {
+        "country": "CZ",
+        "sc3": 0,
+        "sc4": 2,
+        "total": 2,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "SK",
+        "sc3": 0,
+        "sc4": 1,
+        "total": 1,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "SI",
+        "sc3": 1,
+        "sc4": 0,
+        "total": 1,
+        "sc3_share": 1.0
+      },
+      {
+        "country": "AT",
+        "sc3": 1,
+        "sc4": 0,
+        "total": 1,
+        "sc3_share": 1.0
+      },
+      {
+        "country": "PH",
+        "sc3": 0,
+        "sc4": 1,
+        "total": 1,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "NL",
+        "sc3": 0,
+        "sc4": 1,
+        "total": 1,
+        "sc3_share": 0.0
+      }
+    ],
+    "CW15": [
+      {
+        "country": "CN",
+        "sc3": 291,
+        "sc4": 251,
+        "total": 542,
+        "sc3_share": 0.5369
+      },
+      {
+        "country": "DE",
+        "sc3": 129,
+        "sc4": 199,
+        "total": 328,
+        "sc3_share": 0.3933
+      },
+      {
+        "country": "HK",
+        "sc3": 17,
+        "sc4": 39,
+        "total": 56,
+        "sc3_share": 0.3036
+      },
+      {
+        "country": "MY",
+        "sc3": 21,
+        "sc4": 13,
+        "total": 34,
+        "sc3_share": 0.6176
+      },
+      {
+        "country": "JP",
+        "sc3": 0,
+        "sc4": 18,
+        "total": 18,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "TW",
+        "sc3": 8,
+        "sc4": 9,
+        "total": 17,
+        "sc3_share": 0.4706
+      },
+      {
+        "country": "VN",
+        "sc3": 13,
+        "sc4": 3,
+        "total": 16,
+        "sc3_share": 0.8125
+      },
+      {
+        "country": "TH",
+        "sc3": 8,
+        "sc4": 8,
+        "total": 16,
+        "sc3_share": 0.5
+      },
+      {
+        "country": "HR",
+        "sc3": 15,
+        "sc4": 0,
+        "total": 15,
+        "sc3_share": 1.0
+      },
+      {
+        "country": "CZ",
+        "sc3": 4,
+        "sc4": 10,
+        "total": 14,
+        "sc3_share": 0.2857
+      },
+      {
+        "country": "HU",
+        "sc3": 2,
+        "sc4": 9,
+        "total": 11,
+        "sc3_share": 0.1818
+      },
+      {
+        "country": "CH",
+        "sc3": 3,
+        "sc4": 7,
+        "total": 10,
+        "sc3_share": 0.3
+      },
+      {
+        "country": "ES",
+        "sc3": 1,
+        "sc4": 6,
+        "total": 7,
+        "sc3_share": 0.1429
+      },
+      {
+        "country": "PT",
+        "sc3": 6,
+        "sc4": 0,
+        "total": 6,
+        "sc3_share": 1.0
+      },
+      {
+        "country": "KR",
+        "sc3": 6,
+        "sc4": 0,
+        "total": 6,
+        "sc3_share": 1.0
+      },
+      {
+        "country": "SK",
+        "sc3": 1,
+        "sc4": 3,
+        "total": 4,
+        "sc3_share": 0.25
+      },
+      {
+        "country": "FR",
+        "sc3": 2,
+        "sc4": 2,
+        "total": 4,
+        "sc3_share": 0.5
+      },
+      {
+        "country": "PL",
+        "sc3": 2,
+        "sc4": 2,
+        "total": 4,
+        "sc3_share": 0.5
+      },
+      {
+        "country": "IT",
+        "sc3": 1,
+        "sc4": 3,
+        "total": 4,
+        "sc3_share": 0.25
+      },
+      {
+        "country": "NL",
+        "sc3": 0,
+        "sc4": 4,
+        "total": 4,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "SG",
+        "sc3": 0,
+        "sc4": 3,
+        "total": 3,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "SI",
+        "sc3": 0,
+        "sc4": 3,
+        "total": 3,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "TR",
+        "sc3": 0,
+        "sc4": 2,
+        "total": 2,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "AT",
+        "sc3": 0,
+        "sc4": 2,
+        "total": 2,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "RS",
+        "sc3": 2,
+        "sc4": 0,
+        "total": 2,
+        "sc3_share": 1.0
+      },
+      {
+        "country": "GB",
+        "sc3": 0,
+        "sc4": 1,
+        "total": 1,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "SE",
+        "sc3": 0,
+        "sc4": 1,
+        "total": 1,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "BE",
+        "sc3": 0,
+        "sc4": 1,
+        "total": 1,
+        "sc3_share": 0.0
+      }
+    ],
+    "CW16": [
+      {
+        "country": "CN",
+        "sc3": 311,
+        "sc4": 213,
+        "total": 524,
+        "sc3_share": 0.5935
+      },
+      {
+        "country": "DE",
+        "sc3": 154,
+        "sc4": 40,
+        "total": 194,
+        "sc3_share": 0.7938
+      },
+      {
+        "country": "HK",
+        "sc3": 17,
+        "sc4": 44,
+        "total": 61,
+        "sc3_share": 0.2787
+      },
+      {
+        "country": "JP",
+        "sc3": 0,
+        "sc4": 32,
+        "total": 32,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "TW",
+        "sc3": 8,
+        "sc4": 16,
+        "total": 24,
+        "sc3_share": 0.3333
+      },
+      {
+        "country": "MY",
+        "sc3": 10,
+        "sc4": 13,
+        "total": 23,
+        "sc3_share": 0.4348
+      },
+      {
+        "country": "HR",
+        "sc3": 15,
+        "sc4": 0,
+        "total": 15,
+        "sc3_share": 1.0
+      },
+      {
+        "country": "VN",
+        "sc3": 10,
+        "sc4": 4,
+        "total": 14,
+        "sc3_share": 0.7143
+      },
+      {
+        "country": "TH",
+        "sc3": 5,
+        "sc4": 5,
+        "total": 10,
+        "sc3_share": 0.5
+      },
+      {
+        "country": "CH",
+        "sc3": 7,
+        "sc4": 1,
+        "total": 8,
+        "sc3_share": 0.875
+      },
+      {
+        "country": "SG",
+        "sc3": 2,
+        "sc4": 5,
+        "total": 7,
+        "sc3_share": 0.2857
+      },
+      {
+        "country": "PT",
+        "sc3": 4,
+        "sc4": 2,
+        "total": 6,
+        "sc3_share": 0.6667
+      },
+      {
+        "country": "HU",
+        "sc3": 2,
+        "sc4": 4,
+        "total": 6,
+        "sc3_share": 0.3333
+      },
+      {
+        "country": "PL",
+        "sc3": 2,
+        "sc4": 3,
+        "total": 5,
+        "sc3_share": 0.4
+      },
+      {
+        "country": "CZ",
+        "sc3": 5,
+        "sc4": 0,
+        "total": 5,
+        "sc3_share": 1.0
+      },
+      {
+        "country": "KR",
+        "sc3": 2,
+        "sc4": 3,
+        "total": 5,
+        "sc3_share": 0.4
+      },
+      {
+        "country": "RS",
+        "sc3": 4,
+        "sc4": 0,
+        "total": 4,
+        "sc3_share": 1.0
+      },
+      {
+        "country": "FR",
+        "sc3": 2,
+        "sc4": 0,
+        "total": 2,
+        "sc3_share": 1.0
+      },
+      {
+        "country": "TR",
+        "sc3": 0,
+        "sc4": 1,
+        "total": 1,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "IE",
+        "sc3": 0,
+        "sc4": 1,
+        "total": 1,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "SK",
+        "sc3": 1,
+        "sc4": 0,
+        "total": 1,
+        "sc3_share": 1.0
+      },
+      {
+        "country": "IT",
+        "sc3": 1,
+        "sc4": 0,
+        "total": 1,
+        "sc3_share": 1.0
+      }
+    ],
+    "CW17": [
+      {
+        "country": "CN",
+        "sc3": 235,
+        "sc4": 188,
+        "total": 423,
+        "sc3_share": 0.5556
+      },
+      {
+        "country": "DE",
+        "sc3": 92,
+        "sc4": 185,
+        "total": 277,
+        "sc3_share": 0.3321
+      },
+      {
+        "country": "HK",
+        "sc3": 13,
+        "sc4": 38,
+        "total": 51,
+        "sc3_share": 0.2549
+      },
+      {
+        "country": "TH",
+        "sc3": 5,
+        "sc4": 39,
+        "total": 44,
+        "sc3_share": 0.1136
+      },
+      {
+        "country": "MY",
+        "sc3": 15,
+        "sc4": 24,
+        "total": 39,
+        "sc3_share": 0.3846
+      },
+      {
+        "country": "JP",
+        "sc3": 0,
+        "sc4": 31,
+        "total": 31,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "TW",
+        "sc3": 5,
+        "sc4": 20,
+        "total": 25,
+        "sc3_share": 0.2
+      },
+      {
+        "country": "CZ",
+        "sc3": 8,
+        "sc4": 16,
+        "total": 24,
+        "sc3_share": 0.3333
+      },
+      {
+        "country": "VN",
+        "sc3": 14,
+        "sc4": 6,
+        "total": 20,
+        "sc3_share": 0.7
+      },
+      {
+        "country": "IT",
+        "sc3": 0,
+        "sc4": 20,
+        "total": 20,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "HR",
+        "sc3": 17,
+        "sc4": 0,
+        "total": 17,
+        "sc3_share": 1.0
+      },
+      {
+        "country": "ES",
+        "sc3": 0,
+        "sc4": 12,
+        "total": 12,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "HU",
+        "sc3": 3,
+        "sc4": 8,
+        "total": 11,
+        "sc3_share": 0.2727
+      },
+      {
+        "country": "NL",
+        "sc3": 0,
+        "sc4": 10,
+        "total": 10,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "PT",
+        "sc3": 4,
+        "sc4": 4,
+        "total": 8,
+        "sc3_share": 0.5
+      },
+      {
+        "country": "SK",
+        "sc3": 2,
+        "sc4": 6,
+        "total": 8,
+        "sc3_share": 0.25
+      },
+      {
+        "country": "CH",
+        "sc3": 1,
+        "sc4": 7,
+        "total": 8,
+        "sc3_share": 0.125
+      },
+      {
+        "country": "SG",
+        "sc3": 1,
+        "sc4": 6,
+        "total": 7,
+        "sc3_share": 0.1429
+      },
+      {
+        "country": "PL",
+        "sc3": 1,
+        "sc4": 6,
+        "total": 7,
+        "sc3_share": 0.1429
+      },
+      {
+        "country": "GB",
+        "sc3": 0,
+        "sc4": 6,
+        "total": 6,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "FR",
+        "sc3": 2,
+        "sc4": 3,
+        "total": 5,
+        "sc3_share": 0.4
+      },
+      {
+        "country": "SI",
+        "sc3": 1,
+        "sc4": 3,
+        "total": 4,
+        "sc3_share": 0.25
+      },
+      {
+        "country": "RO",
+        "sc3": 0,
+        "sc4": 3,
+        "total": 3,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "RS",
+        "sc3": 2,
+        "sc4": 0,
+        "total": 2,
+        "sc3_share": 1.0
+      },
+      {
+        "country": "BE",
+        "sc3": 0,
+        "sc4": 2,
+        "total": 2,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "BG",
+        "sc3": 0,
+        "sc4": 2,
+        "total": 2,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "AT",
+        "sc3": 1,
+        "sc4": 0,
+        "total": 1,
+        "sc3_share": 1.0
+      },
+      {
+        "country": "KH",
         "sc3": 0,
         "sc4": 1,
         "total": 1,
@@ -3892,6 +7211,4828 @@
         "sc4": 1,
         "total": 1,
         "sc3_share": 0.0
+      },
+      {
+        "country": "KR",
+        "sc3": 0,
+        "sc4": 1,
+        "total": 1,
+        "sc3_share": 0.0
+      }
+    ],
+    "CW18": [
+      {
+        "country": "CN",
+        "sc3": 205,
+        "sc4": 76,
+        "total": 281,
+        "sc3_share": 0.7295
+      },
+      {
+        "country": "DE",
+        "sc3": 96,
+        "sc4": 43,
+        "total": 139,
+        "sc3_share": 0.6906
+      },
+      {
+        "country": "TH",
+        "sc3": 10,
+        "sc4": 17,
+        "total": 27,
+        "sc3_share": 0.3704
+      },
+      {
+        "country": "HK",
+        "sc3": 5,
+        "sc4": 14,
+        "total": 19,
+        "sc3_share": 0.2632
+      },
+      {
+        "country": "HU",
+        "sc3": 4,
+        "sc4": 12,
+        "total": 16,
+        "sc3_share": 0.25
+      },
+      {
+        "country": "TW",
+        "sc3": 13,
+        "sc4": 3,
+        "total": 16,
+        "sc3_share": 0.8125
+      },
+      {
+        "country": "JP",
+        "sc3": 0,
+        "sc4": 14,
+        "total": 14,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "MY",
+        "sc3": 9,
+        "sc4": 5,
+        "total": 14,
+        "sc3_share": 0.6429
+      },
+      {
+        "country": "CH",
+        "sc3": 6,
+        "sc4": 5,
+        "total": 11,
+        "sc3_share": 0.5455
+      },
+      {
+        "country": "VN",
+        "sc3": 8,
+        "sc4": 0,
+        "total": 8,
+        "sc3_share": 1.0
+      },
+      {
+        "country": "IT",
+        "sc3": 1,
+        "sc4": 7,
+        "total": 8,
+        "sc3_share": 0.125
+      },
+      {
+        "country": "CZ",
+        "sc3": 4,
+        "sc4": 2,
+        "total": 6,
+        "sc3_share": 0.6667
+      },
+      {
+        "country": "HR",
+        "sc3": 5,
+        "sc4": 0,
+        "total": 5,
+        "sc3_share": 1.0
+      },
+      {
+        "country": "SK",
+        "sc3": 3,
+        "sc4": 1,
+        "total": 4,
+        "sc3_share": 0.75
+      },
+      {
+        "country": "GB",
+        "sc3": 0,
+        "sc4": 3,
+        "total": 3,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "PL",
+        "sc3": 2,
+        "sc4": 0,
+        "total": 2,
+        "sc3_share": 1.0
+      },
+      {
+        "country": "BA",
+        "sc3": 0,
+        "sc4": 2,
+        "total": 2,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "SG",
+        "sc3": 2,
+        "sc4": 0,
+        "total": 2,
+        "sc3_share": 1.0
+      },
+      {
+        "country": "AT",
+        "sc3": 1,
+        "sc4": 1,
+        "total": 2,
+        "sc3_share": 0.5
+      },
+      {
+        "country": "NL",
+        "sc3": 0,
+        "sc4": 2,
+        "total": 2,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "KR",
+        "sc3": 0,
+        "sc4": 1,
+        "total": 1,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "FR",
+        "sc3": 1,
+        "sc4": 0,
+        "total": 1,
+        "sc3_share": 1.0
+      }
+    ],
+    "CW19": [
+      {
+        "country": "CN",
+        "sc3": 138,
+        "sc4": 211,
+        "total": 349,
+        "sc3_share": 0.3954
+      },
+      {
+        "country": "DE",
+        "sc3": 112,
+        "sc4": 171,
+        "total": 283,
+        "sc3_share": 0.3958
+      },
+      {
+        "country": "HK",
+        "sc3": 9,
+        "sc4": 47,
+        "total": 56,
+        "sc3_share": 0.1607
+      },
+      {
+        "country": "MY",
+        "sc3": 7,
+        "sc4": 18,
+        "total": 25,
+        "sc3_share": 0.28
+      },
+      {
+        "country": "TH",
+        "sc3": 9,
+        "sc4": 14,
+        "total": 23,
+        "sc3_share": 0.3913
+      },
+      {
+        "country": "VN",
+        "sc3": 11,
+        "sc4": 11,
+        "total": 22,
+        "sc3_share": 0.5
+      },
+      {
+        "country": "TW",
+        "sc3": 8,
+        "sc4": 14,
+        "total": 22,
+        "sc3_share": 0.3636
+      },
+      {
+        "country": "JP",
+        "sc3": 0,
+        "sc4": 20,
+        "total": 20,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "CZ",
+        "sc3": 3,
+        "sc4": 13,
+        "total": 16,
+        "sc3_share": 0.1875
+      },
+      {
+        "country": "CH",
+        "sc3": 2,
+        "sc4": 12,
+        "total": 14,
+        "sc3_share": 0.1429
+      },
+      {
+        "country": "ES",
+        "sc3": 0,
+        "sc4": 12,
+        "total": 12,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "HU",
+        "sc3": 0,
+        "sc4": 11,
+        "total": 11,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "PL",
+        "sc3": 2,
+        "sc4": 9,
+        "total": 11,
+        "sc3_share": 0.1818
+      },
+      {
+        "country": "IT",
+        "sc3": 0,
+        "sc4": 8,
+        "total": 8,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "SK",
+        "sc3": 3,
+        "sc4": 4,
+        "total": 7,
+        "sc3_share": 0.4286
+      },
+      {
+        "country": "HR",
+        "sc3": 5,
+        "sc4": 0,
+        "total": 5,
+        "sc3_share": 1.0
+      },
+      {
+        "country": "AT",
+        "sc3": 2,
+        "sc4": 3,
+        "total": 5,
+        "sc3_share": 0.4
+      },
+      {
+        "country": "PT",
+        "sc3": 2,
+        "sc4": 2,
+        "total": 4,
+        "sc3_share": 0.5
+      },
+      {
+        "country": "SI",
+        "sc3": 1,
+        "sc4": 3,
+        "total": 4,
+        "sc3_share": 0.25
+      },
+      {
+        "country": "NL",
+        "sc3": 0,
+        "sc4": 4,
+        "total": 4,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "TR",
+        "sc3": 0,
+        "sc4": 3,
+        "total": 3,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "SG",
+        "sc3": 1,
+        "sc4": 2,
+        "total": 3,
+        "sc3_share": 0.3333
+      },
+      {
+        "country": "FR",
+        "sc3": 2,
+        "sc4": 1,
+        "total": 3,
+        "sc3_share": 0.6667
+      },
+      {
+        "country": "SE",
+        "sc3": 0,
+        "sc4": 3,
+        "total": 3,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "BA",
+        "sc3": 0,
+        "sc4": 2,
+        "total": 2,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "GB",
+        "sc3": 0,
+        "sc4": 1,
+        "total": 1,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "BE",
+        "sc3": 0,
+        "sc4": 1,
+        "total": 1,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "KR",
+        "sc3": 1,
+        "sc4": 0,
+        "total": 1,
+        "sc3_share": 1.0
+      },
+      {
+        "country": "BG",
+        "sc3": 0,
+        "sc4": 1,
+        "total": 1,
+        "sc3_share": 0.0
+      }
+    ],
+    "CW20": [
+      {
+        "country": "CN",
+        "sc3": 96,
+        "sc4": 190,
+        "total": 286,
+        "sc3_share": 0.3357
+      },
+      {
+        "country": "DE",
+        "sc3": 58,
+        "sc4": 221,
+        "total": 279,
+        "sc3_share": 0.2079
+      },
+      {
+        "country": "HK",
+        "sc3": 9,
+        "sc4": 36,
+        "total": 45,
+        "sc3_share": 0.2
+      },
+      {
+        "country": "JP",
+        "sc3": 0,
+        "sc4": 43,
+        "total": 43,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "IT",
+        "sc3": 1,
+        "sc4": 39,
+        "total": 40,
+        "sc3_share": 0.025
+      },
+      {
+        "country": "CZ",
+        "sc3": 7,
+        "sc4": 12,
+        "total": 19,
+        "sc3_share": 0.3684
+      },
+      {
+        "country": "MY",
+        "sc3": 7,
+        "sc4": 12,
+        "total": 19,
+        "sc3_share": 0.3684
+      },
+      {
+        "country": "TW",
+        "sc3": 6,
+        "sc4": 11,
+        "total": 17,
+        "sc3_share": 0.3529
+      },
+      {
+        "country": "PT",
+        "sc3": 0,
+        "sc4": 14,
+        "total": 14,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "TH",
+        "sc3": 6,
+        "sc4": 7,
+        "total": 13,
+        "sc3_share": 0.4615
+      },
+      {
+        "country": "ES",
+        "sc3": 0,
+        "sc4": 9,
+        "total": 9,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "HU",
+        "sc3": 0,
+        "sc4": 8,
+        "total": 8,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "SG",
+        "sc3": 3,
+        "sc4": 3,
+        "total": 6,
+        "sc3_share": 0.5
+      },
+      {
+        "country": "FR",
+        "sc3": 0,
+        "sc4": 6,
+        "total": 6,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "RO",
+        "sc3": 0,
+        "sc4": 6,
+        "total": 6,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "VN",
+        "sc3": 4,
+        "sc4": 2,
+        "total": 6,
+        "sc3_share": 0.6667
+      },
+      {
+        "country": "CH",
+        "sc3": 0,
+        "sc4": 6,
+        "total": 6,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "PL",
+        "sc3": 1,
+        "sc4": 3,
+        "total": 4,
+        "sc3_share": 0.25
+      },
+      {
+        "country": "SI",
+        "sc3": 0,
+        "sc4": 3,
+        "total": 3,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "AT",
+        "sc3": 1,
+        "sc4": 2,
+        "total": 3,
+        "sc3_share": 0.3333
+      },
+      {
+        "country": "NL",
+        "sc3": 0,
+        "sc4": 3,
+        "total": 3,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "BG",
+        "sc3": 0,
+        "sc4": 3,
+        "total": 3,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "SK",
+        "sc3": 0,
+        "sc4": 2,
+        "total": 2,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "BE",
+        "sc3": 0,
+        "sc4": 2,
+        "total": 2,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "TR",
+        "sc3": 0,
+        "sc4": 1,
+        "total": 1,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "IE",
+        "sc3": 0,
+        "sc4": 1,
+        "total": 1,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "BA",
+        "sc3": 0,
+        "sc4": 1,
+        "total": 1,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "SE",
+        "sc3": 1,
+        "sc4": 0,
+        "total": 1,
+        "sc3_share": 1.0
+      },
+      {
+        "country": "RS",
+        "sc3": 0,
+        "sc4": 1,
+        "total": 1,
+        "sc3_share": 0.0
+      },
+      {
+        "country": "KR",
+        "sc3": 0,
+        "sc4": 1,
+        "total": 1,
+        "sc3_share": 0.0
+      }
+    ]
+  },
+  "by_lane": {
+    "CW01": [
+      {
+        "lane": "DE \u2192 CN",
+        "sc3": 54,
+        "sc4": 77,
+        "total": 131,
+        "sc3_share": 0.4122
+      },
+      {
+        "lane": "CN \u2192 DE",
+        "sc3": 68,
+        "sc4": 6,
+        "total": 74,
+        "sc3_share": 0.9189
+      },
+      {
+        "lane": "DE \u2192 DE",
+        "sc3": 63,
+        "sc4": 0,
+        "total": 63,
+        "sc3_share": 1.0
+      },
+      {
+        "lane": "CN \u2192 CN",
+        "sc3": 54,
+        "sc4": 0,
+        "total": 54,
+        "sc3_share": 1.0
+      },
+      {
+        "lane": "CN \u2192 HU",
+        "sc3": 30,
+        "sc4": 11,
+        "total": 41,
+        "sc3_share": 0.7317
+      },
+      {
+        "lane": "CN \u2192 HR",
+        "sc3": 20,
+        "sc4": 0,
+        "total": 20,
+        "sc3_share": 1.0
+      },
+      {
+        "lane": "HR \u2192 HU",
+        "sc3": 15,
+        "sc4": 0,
+        "total": 15,
+        "sc3_share": 1.0
+      },
+      {
+        "lane": "IT \u2192 CN",
+        "sc3": 0,
+        "sc4": 15,
+        "total": 15,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "CN \u2192 RS",
+        "sc3": 10,
+        "sc4": 0,
+        "total": 10,
+        "sc3_share": 1.0
+      },
+      {
+        "lane": "CN \u2192 CZ",
+        "sc3": 7,
+        "sc4": 2,
+        "total": 9,
+        "sc3_share": 0.7778
+      },
+      {
+        "lane": "DE \u2192 MY",
+        "sc3": 9,
+        "sc4": 0,
+        "total": 9,
+        "sc3_share": 1.0
+      },
+      {
+        "lane": "HK \u2192 HU",
+        "sc3": 5,
+        "sc4": 3,
+        "total": 8,
+        "sc3_share": 0.625
+      },
+      {
+        "lane": "JP \u2192 CZ",
+        "sc3": 0,
+        "sc4": 8,
+        "total": 8,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "CN \u2192 RO",
+        "sc3": 6,
+        "sc4": 1,
+        "total": 7,
+        "sc3_share": 0.8571
+      },
+      {
+        "lane": "CH \u2192 CN",
+        "sc3": 2,
+        "sc4": 5,
+        "total": 7,
+        "sc3_share": 0.2857
+      },
+      {
+        "lane": "CH \u2192 DE",
+        "sc3": 6,
+        "sc4": 0,
+        "total": 6,
+        "sc3_share": 1.0
+      },
+      {
+        "lane": "VN \u2192 DE",
+        "sc3": 4,
+        "sc4": 1,
+        "total": 5,
+        "sc3_share": 0.8
+      },
+      {
+        "lane": "TW \u2192 DE",
+        "sc3": 4,
+        "sc4": 1,
+        "total": 5,
+        "sc3_share": 0.8
+      },
+      {
+        "lane": "CZ \u2192 CN",
+        "sc3": 0,
+        "sc4": 5,
+        "total": 5,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "MY \u2192 HU",
+        "sc3": 4,
+        "sc4": 0,
+        "total": 4,
+        "sc3_share": 1.0
+      },
+      {
+        "lane": "TH \u2192 DE",
+        "sc3": 3,
+        "sc4": 1,
+        "total": 4,
+        "sc3_share": 0.75
+      },
+      {
+        "lane": "HK \u2192 DE",
+        "sc3": 4,
+        "sc4": 0,
+        "total": 4,
+        "sc3_share": 1.0
+      },
+      {
+        "lane": "TW \u2192 HU",
+        "sc3": 1,
+        "sc4": 2,
+        "total": 3,
+        "sc3_share": 0.3333
+      },
+      {
+        "lane": "SE \u2192 CN",
+        "sc3": 0,
+        "sc4": 3,
+        "total": 3,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "KR \u2192 HU",
+        "sc3": 1,
+        "sc4": 2,
+        "total": 3,
+        "sc3_share": 0.3333
+      },
+      {
+        "lane": "TR \u2192 JP",
+        "sc3": 0,
+        "sc4": 3,
+        "total": 3,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "HR \u2192 RS",
+        "sc3": 3,
+        "sc4": 0,
+        "total": 3,
+        "sc3_share": 1.0
+      },
+      {
+        "lane": "PT \u2192 PT",
+        "sc3": 3,
+        "sc4": 0,
+        "total": 3,
+        "sc3_share": 1.0
+      },
+      {
+        "lane": "DE \u2192 SG",
+        "sc3": 2,
+        "sc4": 1,
+        "total": 3,
+        "sc3_share": 0.6667
+      },
+      {
+        "lane": "ES \u2192 CN",
+        "sc3": 0,
+        "sc4": 3,
+        "total": 3,
+        "sc3_share": 0.0
+      }
+    ],
+    "CW02": [
+      {
+        "lane": "CN \u2192 DE",
+        "sc3": 108,
+        "sc4": 86,
+        "total": 194,
+        "sc3_share": 0.5567
+      },
+      {
+        "lane": "DE \u2192 CN",
+        "sc3": 49,
+        "sc4": 86,
+        "total": 135,
+        "sc3_share": 0.363
+      },
+      {
+        "lane": "DE \u2192 DE",
+        "sc3": 56,
+        "sc4": 0,
+        "total": 56,
+        "sc3_share": 1.0
+      },
+      {
+        "lane": "CN \u2192 CN",
+        "sc3": 54,
+        "sc4": 0,
+        "total": 54,
+        "sc3_share": 1.0
+      },
+      {
+        "lane": "CN \u2192 HU",
+        "sc3": 38,
+        "sc4": 13,
+        "total": 51,
+        "sc3_share": 0.7451
+      },
+      {
+        "lane": "CN \u2192 RO",
+        "sc3": 17,
+        "sc4": 20,
+        "total": 37,
+        "sc3_share": 0.4595
+      },
+      {
+        "lane": "CN \u2192 HR",
+        "sc3": 21,
+        "sc4": 0,
+        "total": 21,
+        "sc3_share": 1.0
+      },
+      {
+        "lane": "HR \u2192 HU",
+        "sc3": 20,
+        "sc4": 0,
+        "total": 20,
+        "sc3_share": 1.0
+      },
+      {
+        "lane": "HK \u2192 DE",
+        "sc3": 8,
+        "sc4": 12,
+        "total": 20,
+        "sc3_share": 0.4
+      },
+      {
+        "lane": "TW \u2192 DE",
+        "sc3": 7,
+        "sc4": 8,
+        "total": 15,
+        "sc3_share": 0.4667
+      },
+      {
+        "lane": "JP \u2192 DE",
+        "sc3": 0,
+        "sc4": 15,
+        "total": 15,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "CN \u2192 PT",
+        "sc3": 0,
+        "sc4": 15,
+        "total": 15,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "CN \u2192 RS",
+        "sc3": 10,
+        "sc4": 3,
+        "total": 13,
+        "sc3_share": 0.7692
+      },
+      {
+        "lane": "HK \u2192 HU",
+        "sc3": 5,
+        "sc4": 7,
+        "total": 12,
+        "sc3_share": 0.4167
+      },
+      {
+        "lane": "TH \u2192 DE",
+        "sc3": 6,
+        "sc4": 5,
+        "total": 11,
+        "sc3_share": 0.5455
+      },
+      {
+        "lane": "VN \u2192 DE",
+        "sc3": 5,
+        "sc4": 6,
+        "total": 11,
+        "sc3_share": 0.4545
+      },
+      {
+        "lane": "CN \u2192 CZ",
+        "sc3": 5,
+        "sc4": 6,
+        "total": 11,
+        "sc3_share": 0.4545
+      },
+      {
+        "lane": "ES \u2192 CN",
+        "sc3": 0,
+        "sc4": 11,
+        "total": 11,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "CN \u2192 IT",
+        "sc3": 0,
+        "sc4": 10,
+        "total": 10,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "IT \u2192 CN",
+        "sc3": 0,
+        "sc4": 9,
+        "total": 9,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "CN \u2192 PL",
+        "sc3": 6,
+        "sc4": 2,
+        "total": 8,
+        "sc3_share": 0.75
+      },
+      {
+        "lane": "KR \u2192 DE",
+        "sc3": 1,
+        "sc4": 6,
+        "total": 7,
+        "sc3_share": 0.1429
+      },
+      {
+        "lane": "MY \u2192 DE",
+        "sc3": 1,
+        "sc4": 6,
+        "total": 7,
+        "sc3_share": 0.1429
+      },
+      {
+        "lane": "CN \u2192 SI",
+        "sc3": 3,
+        "sc4": 4,
+        "total": 7,
+        "sc3_share": 0.4286
+      },
+      {
+        "lane": "MY \u2192 HU",
+        "sc3": 6,
+        "sc4": 0,
+        "total": 6,
+        "sc3_share": 1.0
+      },
+      {
+        "lane": "JP \u2192 IT",
+        "sc3": 0,
+        "sc4": 6,
+        "total": 6,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "CH \u2192 CN",
+        "sc3": 3,
+        "sc4": 3,
+        "total": 6,
+        "sc3_share": 0.5
+      },
+      {
+        "lane": "CH \u2192 DE",
+        "sc3": 6,
+        "sc4": 0,
+        "total": 6,
+        "sc3_share": 1.0
+      },
+      {
+        "lane": "DE \u2192 JP",
+        "sc3": 0,
+        "sc4": 6,
+        "total": 6,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "MY \u2192 MY",
+        "sc3": 5,
+        "sc4": 0,
+        "total": 5,
+        "sc3_share": 1.0
+      }
+    ],
+    "CW03": [
+      {
+        "lane": "CN \u2192 DE",
+        "sc3": 81,
+        "sc4": 123,
+        "total": 204,
+        "sc3_share": 0.3971
+      },
+      {
+        "lane": "DE \u2192 CN",
+        "sc3": 42,
+        "sc4": 98,
+        "total": 140,
+        "sc3_share": 0.3
+      },
+      {
+        "lane": "CN \u2192 HU",
+        "sc3": 44,
+        "sc4": 63,
+        "total": 107,
+        "sc3_share": 0.4112
+      },
+      {
+        "lane": "CN \u2192 CN",
+        "sc3": 66,
+        "sc4": 0,
+        "total": 66,
+        "sc3_share": 1.0
+      },
+      {
+        "lane": "DE \u2192 DE",
+        "sc3": 49,
+        "sc4": 0,
+        "total": 49,
+        "sc3_share": 1.0
+      },
+      {
+        "lane": "CN \u2192 RO",
+        "sc3": 13,
+        "sc4": 28,
+        "total": 41,
+        "sc3_share": 0.3171
+      },
+      {
+        "lane": "HK \u2192 HU",
+        "sc3": 8,
+        "sc4": 20,
+        "total": 28,
+        "sc3_share": 0.2857
+      },
+      {
+        "lane": "CN \u2192 HR",
+        "sc3": 25,
+        "sc4": 1,
+        "total": 26,
+        "sc3_share": 0.9615
+      },
+      {
+        "lane": "CN \u2192 RS",
+        "sc3": 9,
+        "sc4": 17,
+        "total": 26,
+        "sc3_share": 0.3462
+      },
+      {
+        "lane": "CN \u2192 PT",
+        "sc3": 0,
+        "sc4": 23,
+        "total": 23,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "HR \u2192 HU",
+        "sc3": 20,
+        "sc4": 0,
+        "total": 20,
+        "sc3_share": 1.0
+      },
+      {
+        "lane": "HK \u2192 DE",
+        "sc3": 6,
+        "sc4": 11,
+        "total": 17,
+        "sc3_share": 0.3529
+      },
+      {
+        "lane": "MY \u2192 HU",
+        "sc3": 6,
+        "sc4": 11,
+        "total": 17,
+        "sc3_share": 0.3529
+      },
+      {
+        "lane": "DE \u2192 TH",
+        "sc3": 0,
+        "sc4": 17,
+        "total": 17,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "IT \u2192 CN",
+        "sc3": 0,
+        "sc4": 16,
+        "total": 16,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "DE \u2192 KR",
+        "sc3": 0,
+        "sc4": 16,
+        "total": 16,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "CN \u2192 CZ",
+        "sc3": 5,
+        "sc4": 10,
+        "total": 15,
+        "sc3_share": 0.3333
+      },
+      {
+        "lane": "DE \u2192 ID",
+        "sc3": 2,
+        "sc4": 12,
+        "total": 14,
+        "sc3_share": 0.1429
+      },
+      {
+        "lane": "CN \u2192 IT",
+        "sc3": 0,
+        "sc4": 14,
+        "total": 14,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "HK \u2192 RO",
+        "sc3": 0,
+        "sc4": 13,
+        "total": 13,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "TH \u2192 PT",
+        "sc3": 0,
+        "sc4": 13,
+        "total": 13,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "VN \u2192 DE",
+        "sc3": 8,
+        "sc4": 5,
+        "total": 13,
+        "sc3_share": 0.6154
+      },
+      {
+        "lane": "TH \u2192 DE",
+        "sc3": 5,
+        "sc4": 6,
+        "total": 11,
+        "sc3_share": 0.4545
+      },
+      {
+        "lane": "DE \u2192 MY",
+        "sc3": 5,
+        "sc4": 6,
+        "total": 11,
+        "sc3_share": 0.4545
+      },
+      {
+        "lane": "CH \u2192 CN",
+        "sc3": 3,
+        "sc4": 7,
+        "total": 10,
+        "sc3_share": 0.3
+      },
+      {
+        "lane": "TW \u2192 HU",
+        "sc3": 2,
+        "sc4": 7,
+        "total": 9,
+        "sc3_share": 0.2222
+      },
+      {
+        "lane": "MY \u2192 DE",
+        "sc3": 1,
+        "sc4": 7,
+        "total": 8,
+        "sc3_share": 0.125
+      },
+      {
+        "lane": "HK \u2192 PT",
+        "sc3": 0,
+        "sc4": 7,
+        "total": 7,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "TW \u2192 DE",
+        "sc3": 2,
+        "sc4": 5,
+        "total": 7,
+        "sc3_share": 0.2857
+      },
+      {
+        "lane": "DE \u2192 SG",
+        "sc3": 1,
+        "sc4": 6,
+        "total": 7,
+        "sc3_share": 0.1429
+      }
+    ],
+    "CW04": [
+      {
+        "lane": "CN \u2192 DE",
+        "sc3": 100,
+        "sc4": 166,
+        "total": 266,
+        "sc3_share": 0.3759
+      },
+      {
+        "lane": "DE \u2192 CN",
+        "sc3": 53,
+        "sc4": 58,
+        "total": 111,
+        "sc3_share": 0.4775
+      },
+      {
+        "lane": "CN \u2192 HU",
+        "sc3": 54,
+        "sc4": 57,
+        "total": 111,
+        "sc3_share": 0.4865
+      },
+      {
+        "lane": "DE \u2192 DE",
+        "sc3": 59,
+        "sc4": 0,
+        "total": 59,
+        "sc3_share": 1.0
+      },
+      {
+        "lane": "CN \u2192 CN",
+        "sc3": 59,
+        "sc4": 0,
+        "total": 59,
+        "sc3_share": 1.0
+      },
+      {
+        "lane": "CN \u2192 RO",
+        "sc3": 27,
+        "sc4": 27,
+        "total": 54,
+        "sc3_share": 0.5
+      },
+      {
+        "lane": "CN \u2192 PT",
+        "sc3": 0,
+        "sc4": 35,
+        "total": 35,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "HK \u2192 DE",
+        "sc3": 5,
+        "sc4": 28,
+        "total": 33,
+        "sc3_share": 0.1515
+      },
+      {
+        "lane": "JP \u2192 DE",
+        "sc3": 0,
+        "sc4": 23,
+        "total": 23,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "CN \u2192 HR",
+        "sc3": 20,
+        "sc4": 0,
+        "total": 20,
+        "sc3_share": 1.0
+      },
+      {
+        "lane": "TH \u2192 DE",
+        "sc3": 5,
+        "sc4": 14,
+        "total": 19,
+        "sc3_share": 0.2632
+      },
+      {
+        "lane": "HK \u2192 HU",
+        "sc3": 9,
+        "sc4": 9,
+        "total": 18,
+        "sc3_share": 0.5
+      },
+      {
+        "lane": "HR \u2192 HU",
+        "sc3": 17,
+        "sc4": 0,
+        "total": 17,
+        "sc3_share": 1.0
+      },
+      {
+        "lane": "TW \u2192 DE",
+        "sc3": 5,
+        "sc4": 12,
+        "total": 17,
+        "sc3_share": 0.2941
+      },
+      {
+        "lane": "MY \u2192 DE",
+        "sc3": 1,
+        "sc4": 15,
+        "total": 16,
+        "sc3_share": 0.0625
+      },
+      {
+        "lane": "DE \u2192 TH",
+        "sc3": 0,
+        "sc4": 15,
+        "total": 15,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "TH \u2192 PT",
+        "sc3": 0,
+        "sc4": 13,
+        "total": 13,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "DE \u2192 ID",
+        "sc3": 3,
+        "sc4": 10,
+        "total": 13,
+        "sc3_share": 0.2308
+      },
+      {
+        "lane": "HK \u2192 PT",
+        "sc3": 0,
+        "sc4": 13,
+        "total": 13,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "VN \u2192 DE",
+        "sc3": 5,
+        "sc4": 8,
+        "total": 13,
+        "sc3_share": 0.3846
+      },
+      {
+        "lane": "CN \u2192 CZ",
+        "sc3": 8,
+        "sc4": 5,
+        "total": 13,
+        "sc3_share": 0.6154
+      },
+      {
+        "lane": "CN \u2192 SI",
+        "sc3": 8,
+        "sc4": 4,
+        "total": 12,
+        "sc3_share": 0.6667
+      },
+      {
+        "lane": "CN \u2192 PL",
+        "sc3": 4,
+        "sc4": 7,
+        "total": 11,
+        "sc3_share": 0.3636
+      },
+      {
+        "lane": "DE \u2192 TW",
+        "sc3": 1,
+        "sc4": 9,
+        "total": 10,
+        "sc3_share": 0.1
+      },
+      {
+        "lane": "CN \u2192 IT",
+        "sc3": 0,
+        "sc4": 10,
+        "total": 10,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "IT \u2192 CN",
+        "sc3": 0,
+        "sc4": 9,
+        "total": 9,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "DE \u2192 MY",
+        "sc3": 4,
+        "sc4": 5,
+        "total": 9,
+        "sc3_share": 0.4444
+      },
+      {
+        "lane": "MY \u2192 HU",
+        "sc3": 4,
+        "sc4": 5,
+        "total": 9,
+        "sc3_share": 0.4444
+      },
+      {
+        "lane": "CN \u2192 RS",
+        "sc3": 7,
+        "sc4": 2,
+        "total": 9,
+        "sc3_share": 0.7778
+      },
+      {
+        "lane": "MY \u2192 PT",
+        "sc3": 2,
+        "sc4": 6,
+        "total": 8,
+        "sc3_share": 0.25
+      }
+    ],
+    "CW05": [
+      {
+        "lane": "CN \u2192 DE",
+        "sc3": 90,
+        "sc4": 114,
+        "total": 204,
+        "sc3_share": 0.4412
+      },
+      {
+        "lane": "CN \u2192 HU",
+        "sc3": 60,
+        "sc4": 71,
+        "total": 131,
+        "sc3_share": 0.458
+      },
+      {
+        "lane": "DE \u2192 CN",
+        "sc3": 57,
+        "sc4": 61,
+        "total": 118,
+        "sc3_share": 0.4831
+      },
+      {
+        "lane": "DE \u2192 DE",
+        "sc3": 64,
+        "sc4": 0,
+        "total": 64,
+        "sc3_share": 1.0
+      },
+      {
+        "lane": "CN \u2192 CN",
+        "sc3": 60,
+        "sc4": 0,
+        "total": 60,
+        "sc3_share": 1.0
+      },
+      {
+        "lane": "CN \u2192 HR",
+        "sc3": 28,
+        "sc4": 0,
+        "total": 28,
+        "sc3_share": 1.0
+      },
+      {
+        "lane": "CN \u2192 RO",
+        "sc3": 15,
+        "sc4": 9,
+        "total": 24,
+        "sc3_share": 0.625
+      },
+      {
+        "lane": "HR \u2192 HU",
+        "sc3": 24,
+        "sc4": 0,
+        "total": 24,
+        "sc3_share": 1.0
+      },
+      {
+        "lane": "CN \u2192 PT",
+        "sc3": 0,
+        "sc4": 22,
+        "total": 22,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "CN \u2192 CZ",
+        "sc3": 6,
+        "sc4": 12,
+        "total": 18,
+        "sc3_share": 0.3333
+      },
+      {
+        "lane": "MY \u2192 DE",
+        "sc3": 1,
+        "sc4": 15,
+        "total": 16,
+        "sc3_share": 0.0625
+      },
+      {
+        "lane": "HK \u2192 HU",
+        "sc3": 4,
+        "sc4": 11,
+        "total": 15,
+        "sc3_share": 0.2667
+      },
+      {
+        "lane": "MY \u2192 HU",
+        "sc3": 8,
+        "sc4": 7,
+        "total": 15,
+        "sc3_share": 0.5333
+      },
+      {
+        "lane": "TH \u2192 DE",
+        "sc3": 5,
+        "sc4": 10,
+        "total": 15,
+        "sc3_share": 0.3333
+      },
+      {
+        "lane": "HK \u2192 DE",
+        "sc3": 7,
+        "sc4": 7,
+        "total": 14,
+        "sc3_share": 0.5
+      },
+      {
+        "lane": "CN \u2192 RS",
+        "sc3": 6,
+        "sc4": 8,
+        "total": 14,
+        "sc3_share": 0.4286
+      },
+      {
+        "lane": "JP \u2192 DE",
+        "sc3": 0,
+        "sc4": 14,
+        "total": 14,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "MY \u2192 MY",
+        "sc3": 11,
+        "sc4": 0,
+        "total": 11,
+        "sc3_share": 1.0
+      },
+      {
+        "lane": "HK \u2192 PT",
+        "sc3": 0,
+        "sc4": 11,
+        "total": 11,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "KR \u2192 HU",
+        "sc3": 2,
+        "sc4": 8,
+        "total": 10,
+        "sc3_share": 0.2
+      },
+      {
+        "lane": "DE \u2192 SG",
+        "sc3": 3,
+        "sc4": 7,
+        "total": 10,
+        "sc3_share": 0.3
+      },
+      {
+        "lane": "TW \u2192 DE",
+        "sc3": 4,
+        "sc4": 5,
+        "total": 9,
+        "sc3_share": 0.4444
+      },
+      {
+        "lane": "DE \u2192 MY",
+        "sc3": 4,
+        "sc4": 5,
+        "total": 9,
+        "sc3_share": 0.4444
+      },
+      {
+        "lane": "JP \u2192 PL",
+        "sc3": 0,
+        "sc4": 8,
+        "total": 8,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "JP \u2192 IT",
+        "sc3": 0,
+        "sc4": 8,
+        "total": 8,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "CN \u2192 IT",
+        "sc3": 0,
+        "sc4": 8,
+        "total": 8,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "IT \u2192 CN",
+        "sc3": 0,
+        "sc4": 7,
+        "total": 7,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "JP \u2192 CZ",
+        "sc3": 0,
+        "sc4": 7,
+        "total": 7,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "VN \u2192 HU",
+        "sc3": 3,
+        "sc4": 3,
+        "total": 6,
+        "sc3_share": 0.5
+      },
+      {
+        "lane": "SG \u2192 DE",
+        "sc3": 0,
+        "sc4": 6,
+        "total": 6,
+        "sc3_share": 0.0
+      }
+    ],
+    "CW06": [
+      {
+        "lane": "CN \u2192 DE",
+        "sc3": 67,
+        "sc4": 149,
+        "total": 216,
+        "sc3_share": 0.3102
+      },
+      {
+        "lane": "CN \u2192 HU",
+        "sc3": 29,
+        "sc4": 81,
+        "total": 110,
+        "sc3_share": 0.2636
+      },
+      {
+        "lane": "DE \u2192 CN",
+        "sc3": 14,
+        "sc4": 49,
+        "total": 63,
+        "sc3_share": 0.2222
+      },
+      {
+        "lane": "CN \u2192 RO",
+        "sc3": 15,
+        "sc4": 15,
+        "total": 30,
+        "sc3_share": 0.5
+      },
+      {
+        "lane": "CN \u2192 CZ",
+        "sc3": 7,
+        "sc4": 18,
+        "total": 25,
+        "sc3_share": 0.28
+      },
+      {
+        "lane": "JP \u2192 CZ",
+        "sc3": 0,
+        "sc4": 25,
+        "total": 25,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "TW \u2192 DE",
+        "sc3": 7,
+        "sc4": 15,
+        "total": 22,
+        "sc3_share": 0.3182
+      },
+      {
+        "lane": "HK \u2192 DE",
+        "sc3": 5,
+        "sc4": 12,
+        "total": 17,
+        "sc3_share": 0.2941
+      },
+      {
+        "lane": "JP \u2192 DE",
+        "sc3": 0,
+        "sc4": 17,
+        "total": 17,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "DE \u2192 MY",
+        "sc3": 9,
+        "sc4": 6,
+        "total": 15,
+        "sc3_share": 0.6
+      },
+      {
+        "lane": "DE \u2192 DE",
+        "sc3": 14,
+        "sc4": 0,
+        "total": 14,
+        "sc3_share": 1.0
+      },
+      {
+        "lane": "HK \u2192 HU",
+        "sc3": 5,
+        "sc4": 8,
+        "total": 13,
+        "sc3_share": 0.3846
+      },
+      {
+        "lane": "MY \u2192 HU",
+        "sc3": 8,
+        "sc4": 4,
+        "total": 12,
+        "sc3_share": 0.6667
+      },
+      {
+        "lane": "VN \u2192 DE",
+        "sc3": 4,
+        "sc4": 7,
+        "total": 11,
+        "sc3_share": 0.3636
+      },
+      {
+        "lane": "MY \u2192 DE",
+        "sc3": 1,
+        "sc4": 8,
+        "total": 9,
+        "sc3_share": 0.1111
+      },
+      {
+        "lane": "CN \u2192 SI",
+        "sc3": 5,
+        "sc4": 4,
+        "total": 9,
+        "sc3_share": 0.5556
+      },
+      {
+        "lane": "TW \u2192 HU",
+        "sc3": 0,
+        "sc4": 8,
+        "total": 8,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "DE \u2192 TW",
+        "sc3": 1,
+        "sc4": 7,
+        "total": 8,
+        "sc3_share": 0.125
+      },
+      {
+        "lane": "DE \u2192 ID",
+        "sc3": 2,
+        "sc4": 6,
+        "total": 8,
+        "sc3_share": 0.25
+      },
+      {
+        "lane": "TH \u2192 DE",
+        "sc3": 5,
+        "sc4": 2,
+        "total": 7,
+        "sc3_share": 0.7143
+      },
+      {
+        "lane": "CN \u2192 IT",
+        "sc3": 0,
+        "sc4": 7,
+        "total": 7,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "DE \u2192 SG",
+        "sc3": 2,
+        "sc4": 5,
+        "total": 7,
+        "sc3_share": 0.2857
+      },
+      {
+        "lane": "HK \u2192 RO",
+        "sc3": 1,
+        "sc4": 5,
+        "total": 6,
+        "sc3_share": 0.1667
+      },
+      {
+        "lane": "HK \u2192 ES",
+        "sc3": 0,
+        "sc4": 6,
+        "total": 6,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "JP \u2192 PL",
+        "sc3": 0,
+        "sc4": 5,
+        "total": 5,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "DE \u2192 TH",
+        "sc3": 1,
+        "sc4": 4,
+        "total": 5,
+        "sc3_share": 0.2
+      },
+      {
+        "lane": "IT \u2192 CN",
+        "sc3": 0,
+        "sc4": 5,
+        "total": 5,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "CN \u2192 RS",
+        "sc3": 1,
+        "sc4": 4,
+        "total": 5,
+        "sc3_share": 0.2
+      },
+      {
+        "lane": "CN \u2192 PL",
+        "sc3": 3,
+        "sc4": 2,
+        "total": 5,
+        "sc3_share": 0.6
+      },
+      {
+        "lane": "JP \u2192 GB",
+        "sc3": 0,
+        "sc4": 5,
+        "total": 5,
+        "sc3_share": 0.0
+      }
+    ],
+    "CW07": [
+      {
+        "lane": "CN \u2192 DE",
+        "sc3": 97,
+        "sc4": 126,
+        "total": 223,
+        "sc3_share": 0.435
+      },
+      {
+        "lane": "CN \u2192 HU",
+        "sc3": 72,
+        "sc4": 48,
+        "total": 120,
+        "sc3_share": 0.6
+      },
+      {
+        "lane": "DE \u2192 CN",
+        "sc3": 23,
+        "sc4": 88,
+        "total": 111,
+        "sc3_share": 0.2072
+      },
+      {
+        "lane": "DE \u2192 DE",
+        "sc3": 65,
+        "sc4": 0,
+        "total": 65,
+        "sc3_share": 1.0
+      },
+      {
+        "lane": "CN \u2192 CN",
+        "sc3": 57,
+        "sc4": 0,
+        "total": 57,
+        "sc3_share": 1.0
+      },
+      {
+        "lane": "CN \u2192 PT",
+        "sc3": 0,
+        "sc4": 39,
+        "total": 39,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "CN \u2192 RO",
+        "sc3": 20,
+        "sc4": 8,
+        "total": 28,
+        "sc3_share": 0.7143
+      },
+      {
+        "lane": "CN \u2192 HR",
+        "sc3": 23,
+        "sc4": 1,
+        "total": 24,
+        "sc3_share": 0.9583
+      },
+      {
+        "lane": "HK \u2192 HU",
+        "sc3": 13,
+        "sc4": 9,
+        "total": 22,
+        "sc3_share": 0.5909
+      },
+      {
+        "lane": "DE \u2192 TH",
+        "sc3": 0,
+        "sc4": 21,
+        "total": 21,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "HR \u2192 HU",
+        "sc3": 19,
+        "sc4": 0,
+        "total": 19,
+        "sc3_share": 1.0
+      },
+      {
+        "lane": "HK \u2192 DE",
+        "sc3": 6,
+        "sc4": 13,
+        "total": 19,
+        "sc3_share": 0.3158
+      },
+      {
+        "lane": "TW \u2192 DE",
+        "sc3": 8,
+        "sc4": 9,
+        "total": 17,
+        "sc3_share": 0.4706
+      },
+      {
+        "lane": "CN \u2192 CZ",
+        "sc3": 7,
+        "sc4": 9,
+        "total": 16,
+        "sc3_share": 0.4375
+      },
+      {
+        "lane": "JP \u2192 DE",
+        "sc3": 0,
+        "sc4": 14,
+        "total": 14,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "HK \u2192 PT",
+        "sc3": 0,
+        "sc4": 14,
+        "total": 14,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "MY \u2192 DE",
+        "sc3": 5,
+        "sc4": 9,
+        "total": 14,
+        "sc3_share": 0.3571
+      },
+      {
+        "lane": "CN \u2192 RS",
+        "sc3": 7,
+        "sc4": 5,
+        "total": 12,
+        "sc3_share": 0.5833
+      },
+      {
+        "lane": "MY \u2192 HU",
+        "sc3": 6,
+        "sc4": 5,
+        "total": 11,
+        "sc3_share": 0.5455
+      },
+      {
+        "lane": "TH \u2192 DE",
+        "sc3": 7,
+        "sc4": 3,
+        "total": 10,
+        "sc3_share": 0.7
+      },
+      {
+        "lane": "DE \u2192 ID",
+        "sc3": 3,
+        "sc4": 6,
+        "total": 9,
+        "sc3_share": 0.3333
+      },
+      {
+        "lane": "JP \u2192 CZ",
+        "sc3": 0,
+        "sc4": 9,
+        "total": 9,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "VN \u2192 DE",
+        "sc3": 5,
+        "sc4": 3,
+        "total": 8,
+        "sc3_share": 0.625
+      },
+      {
+        "lane": "TW \u2192 HU",
+        "sc3": 4,
+        "sc4": 3,
+        "total": 7,
+        "sc3_share": 0.5714
+      },
+      {
+        "lane": "DE \u2192 KR",
+        "sc3": 0,
+        "sc4": 7,
+        "total": 7,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "TH \u2192 HU",
+        "sc3": 2,
+        "sc4": 4,
+        "total": 6,
+        "sc3_share": 0.3333
+      },
+      {
+        "lane": "CN \u2192 PL",
+        "sc3": 4,
+        "sc4": 2,
+        "total": 6,
+        "sc3_share": 0.6667
+      },
+      {
+        "lane": "DE \u2192 TW",
+        "sc3": 1,
+        "sc4": 5,
+        "total": 6,
+        "sc3_share": 0.1667
+      },
+      {
+        "lane": "KR \u2192 HU",
+        "sc3": 2,
+        "sc4": 4,
+        "total": 6,
+        "sc3_share": 0.3333
+      },
+      {
+        "lane": "CZ \u2192 CN",
+        "sc3": 0,
+        "sc4": 5,
+        "total": 5,
+        "sc3_share": 0.0
+      }
+    ],
+    "CW08": [
+      {
+        "lane": "CN \u2192 DE",
+        "sc3": 88,
+        "sc4": 143,
+        "total": 231,
+        "sc3_share": 0.381
+      },
+      {
+        "lane": "CN \u2192 HU",
+        "sc3": 54,
+        "sc4": 57,
+        "total": 111,
+        "sc3_share": 0.4865
+      },
+      {
+        "lane": "DE \u2192 CN",
+        "sc3": 30,
+        "sc4": 32,
+        "total": 62,
+        "sc3_share": 0.4839
+      },
+      {
+        "lane": "DE \u2192 DE",
+        "sc3": 54,
+        "sc4": 0,
+        "total": 54,
+        "sc3_share": 1.0
+      },
+      {
+        "lane": "CN \u2192 CN",
+        "sc3": 54,
+        "sc4": 0,
+        "total": 54,
+        "sc3_share": 1.0
+      },
+      {
+        "lane": "CN \u2192 PT",
+        "sc3": 0,
+        "sc4": 45,
+        "total": 45,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "HK \u2192 DE",
+        "sc3": 7,
+        "sc4": 30,
+        "total": 37,
+        "sc3_share": 0.1892
+      },
+      {
+        "lane": "CN \u2192 RO",
+        "sc3": 23,
+        "sc4": 9,
+        "total": 32,
+        "sc3_share": 0.7188
+      },
+      {
+        "lane": "CN \u2192 HR",
+        "sc3": 27,
+        "sc4": 2,
+        "total": 29,
+        "sc3_share": 0.931
+      },
+      {
+        "lane": "HK \u2192 HU",
+        "sc3": 7,
+        "sc4": 18,
+        "total": 25,
+        "sc3_share": 0.28
+      },
+      {
+        "lane": "HR \u2192 HU",
+        "sc3": 23,
+        "sc4": 0,
+        "total": 23,
+        "sc3_share": 1.0
+      },
+      {
+        "lane": "CN \u2192 IT",
+        "sc3": 0,
+        "sc4": 20,
+        "total": 20,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "TW \u2192 DE",
+        "sc3": 5,
+        "sc4": 13,
+        "total": 18,
+        "sc3_share": 0.2778
+      },
+      {
+        "lane": "DE \u2192 TH",
+        "sc3": 1,
+        "sc4": 16,
+        "total": 17,
+        "sc3_share": 0.0588
+      },
+      {
+        "lane": "CN \u2192 CZ",
+        "sc3": 8,
+        "sc4": 8,
+        "total": 16,
+        "sc3_share": 0.5
+      },
+      {
+        "lane": "CN \u2192 RS",
+        "sc3": 8,
+        "sc4": 5,
+        "total": 13,
+        "sc3_share": 0.6154
+      },
+      {
+        "lane": "MY \u2192 HU",
+        "sc3": 5,
+        "sc4": 7,
+        "total": 12,
+        "sc3_share": 0.4167
+      },
+      {
+        "lane": "JP \u2192 DE",
+        "sc3": 0,
+        "sc4": 11,
+        "total": 11,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "CZ \u2192 CN",
+        "sc3": 0,
+        "sc4": 11,
+        "total": 11,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "TH \u2192 DE",
+        "sc3": 4,
+        "sc4": 6,
+        "total": 10,
+        "sc3_share": 0.4
+      },
+      {
+        "lane": "CN \u2192 PL",
+        "sc3": 7,
+        "sc4": 3,
+        "total": 10,
+        "sc3_share": 0.7
+      },
+      {
+        "lane": "VN \u2192 DE",
+        "sc3": 4,
+        "sc4": 6,
+        "total": 10,
+        "sc3_share": 0.4
+      },
+      {
+        "lane": "HK \u2192 RO",
+        "sc3": 3,
+        "sc4": 6,
+        "total": 9,
+        "sc3_share": 0.3333
+      },
+      {
+        "lane": "CN \u2192 SI",
+        "sc3": 3,
+        "sc4": 6,
+        "total": 9,
+        "sc3_share": 0.3333
+      },
+      {
+        "lane": "HK \u2192 PT",
+        "sc3": 0,
+        "sc4": 9,
+        "total": 9,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "MY \u2192 DE",
+        "sc3": 1,
+        "sc4": 8,
+        "total": 9,
+        "sc3_share": 0.1111
+      },
+      {
+        "lane": "HU \u2192 KR",
+        "sc3": 0,
+        "sc4": 7,
+        "total": 7,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "MY \u2192 MY",
+        "sc3": 7,
+        "sc4": 0,
+        "total": 7,
+        "sc3_share": 1.0
+      },
+      {
+        "lane": "MY \u2192 PT",
+        "sc3": 1,
+        "sc4": 6,
+        "total": 7,
+        "sc3_share": 0.1429
+      },
+      {
+        "lane": "TR \u2192 JP",
+        "sc3": 0,
+        "sc4": 7,
+        "total": 7,
+        "sc3_share": 0.0
+      }
+    ],
+    "CW09": [
+      {
+        "lane": "CN \u2192 DE",
+        "sc3": 105,
+        "sc4": 81,
+        "total": 186,
+        "sc3_share": 0.5645
+      },
+      {
+        "lane": "CN \u2192 HU",
+        "sc3": 64,
+        "sc4": 74,
+        "total": 138,
+        "sc3_share": 0.4638
+      },
+      {
+        "lane": "DE \u2192 CN",
+        "sc3": 22,
+        "sc4": 86,
+        "total": 108,
+        "sc3_share": 0.2037
+      },
+      {
+        "lane": "DE \u2192 DE",
+        "sc3": 67,
+        "sc4": 0,
+        "total": 67,
+        "sc3_share": 1.0
+      },
+      {
+        "lane": "CN \u2192 CN",
+        "sc3": 58,
+        "sc4": 0,
+        "total": 58,
+        "sc3_share": 1.0
+      },
+      {
+        "lane": "CN \u2192 RO",
+        "sc3": 16,
+        "sc4": 28,
+        "total": 44,
+        "sc3_share": 0.3636
+      },
+      {
+        "lane": "CN \u2192 PT",
+        "sc3": 0,
+        "sc4": 27,
+        "total": 27,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "CN \u2192 HR",
+        "sc3": 22,
+        "sc4": 0,
+        "total": 22,
+        "sc3_share": 1.0
+      },
+      {
+        "lane": "HK \u2192 DE",
+        "sc3": 8,
+        "sc4": 14,
+        "total": 22,
+        "sc3_share": 0.3636
+      },
+      {
+        "lane": "CN \u2192 CZ",
+        "sc3": 8,
+        "sc4": 13,
+        "total": 21,
+        "sc3_share": 0.381
+      },
+      {
+        "lane": "HK \u2192 HU",
+        "sc3": 6,
+        "sc4": 14,
+        "total": 20,
+        "sc3_share": 0.3
+      },
+      {
+        "lane": "HR \u2192 HU",
+        "sc3": 18,
+        "sc4": 0,
+        "total": 18,
+        "sc3_share": 1.0
+      },
+      {
+        "lane": "JP \u2192 DE",
+        "sc3": 0,
+        "sc4": 18,
+        "total": 18,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "TW \u2192 HU",
+        "sc3": 9,
+        "sc4": 8,
+        "total": 17,
+        "sc3_share": 0.5294
+      },
+      {
+        "lane": "CN \u2192 RS",
+        "sc3": 7,
+        "sc4": 8,
+        "total": 15,
+        "sc3_share": 0.4667
+      },
+      {
+        "lane": "TW \u2192 DE",
+        "sc3": 4,
+        "sc4": 10,
+        "total": 14,
+        "sc3_share": 0.2857
+      },
+      {
+        "lane": "HK \u2192 PT",
+        "sc3": 0,
+        "sc4": 12,
+        "total": 12,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "HK \u2192 RO",
+        "sc3": 1,
+        "sc4": 10,
+        "total": 11,
+        "sc3_share": 0.0909
+      },
+      {
+        "lane": "CN \u2192 SI",
+        "sc3": 6,
+        "sc4": 3,
+        "total": 9,
+        "sc3_share": 0.6667
+      },
+      {
+        "lane": "MY \u2192 MY",
+        "sc3": 8,
+        "sc4": 0,
+        "total": 8,
+        "sc3_share": 1.0
+      },
+      {
+        "lane": "VN \u2192 DE",
+        "sc3": 3,
+        "sc4": 5,
+        "total": 8,
+        "sc3_share": 0.375
+      },
+      {
+        "lane": "MY \u2192 HU",
+        "sc3": 4,
+        "sc4": 3,
+        "total": 7,
+        "sc3_share": 0.5714
+      },
+      {
+        "lane": "CN \u2192 IT",
+        "sc3": 0,
+        "sc4": 7,
+        "total": 7,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "MY \u2192 DE",
+        "sc3": 1,
+        "sc4": 6,
+        "total": 7,
+        "sc3_share": 0.1429
+      },
+      {
+        "lane": "JP \u2192 CZ",
+        "sc3": 0,
+        "sc4": 7,
+        "total": 7,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "KR \u2192 HU",
+        "sc3": 2,
+        "sc4": 4,
+        "total": 6,
+        "sc3_share": 0.3333
+      },
+      {
+        "lane": "CH \u2192 CN",
+        "sc3": 2,
+        "sc4": 4,
+        "total": 6,
+        "sc3_share": 0.3333
+      },
+      {
+        "lane": "CZ \u2192 JP",
+        "sc3": 0,
+        "sc4": 6,
+        "total": 6,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "DE \u2192 JP",
+        "sc3": 0,
+        "sc4": 6,
+        "total": 6,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "ES \u2192 CN",
+        "sc3": 0,
+        "sc4": 6,
+        "total": 6,
+        "sc3_share": 0.0
+      }
+    ],
+    "CW10": [
+      {
+        "lane": "CN \u2192 DE",
+        "sc3": 85,
+        "sc4": 113,
+        "total": 198,
+        "sc3_share": 0.4293
+      },
+      {
+        "lane": "DE \u2192 CN",
+        "sc3": 31,
+        "sc4": 95,
+        "total": 126,
+        "sc3_share": 0.246
+      },
+      {
+        "lane": "CN \u2192 HU",
+        "sc3": 50,
+        "sc4": 69,
+        "total": 119,
+        "sc3_share": 0.4202
+      },
+      {
+        "lane": "CN \u2192 CN",
+        "sc3": 60,
+        "sc4": 0,
+        "total": 60,
+        "sc3_share": 1.0
+      },
+      {
+        "lane": "DE \u2192 DE",
+        "sc3": 58,
+        "sc4": 0,
+        "total": 58,
+        "sc3_share": 1.0
+      },
+      {
+        "lane": "CN \u2192 HR",
+        "sc3": 29,
+        "sc4": 0,
+        "total": 29,
+        "sc3_share": 1.0
+      },
+      {
+        "lane": "CN \u2192 RO",
+        "sc3": 18,
+        "sc4": 11,
+        "total": 29,
+        "sc3_share": 0.6207
+      },
+      {
+        "lane": "CN \u2192 IT",
+        "sc3": 0,
+        "sc4": 24,
+        "total": 24,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "HK \u2192 HU",
+        "sc3": 6,
+        "sc4": 17,
+        "total": 23,
+        "sc3_share": 0.2609
+      },
+      {
+        "lane": "HR \u2192 HU",
+        "sc3": 23,
+        "sc4": 0,
+        "total": 23,
+        "sc3_share": 1.0
+      },
+      {
+        "lane": "HK \u2192 DE",
+        "sc3": 7,
+        "sc4": 16,
+        "total": 23,
+        "sc3_share": 0.3043
+      },
+      {
+        "lane": "CN \u2192 PT",
+        "sc3": 0,
+        "sc4": 23,
+        "total": 23,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "CN \u2192 RS",
+        "sc3": 9,
+        "sc4": 8,
+        "total": 17,
+        "sc3_share": 0.5294
+      },
+      {
+        "lane": "MY \u2192 DE",
+        "sc3": 1,
+        "sc4": 12,
+        "total": 13,
+        "sc3_share": 0.0769
+      },
+      {
+        "lane": "DE \u2192 MY",
+        "sc3": 4,
+        "sc4": 9,
+        "total": 13,
+        "sc3_share": 0.3077
+      },
+      {
+        "lane": "CN \u2192 CZ",
+        "sc3": 5,
+        "sc4": 7,
+        "total": 12,
+        "sc3_share": 0.4167
+      },
+      {
+        "lane": "TW \u2192 DE",
+        "sc3": 2,
+        "sc4": 10,
+        "total": 12,
+        "sc3_share": 0.1667
+      },
+      {
+        "lane": "HK \u2192 PT",
+        "sc3": 0,
+        "sc4": 11,
+        "total": 11,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "IT \u2192 CN",
+        "sc3": 0,
+        "sc4": 11,
+        "total": 11,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "TH \u2192 DE",
+        "sc3": 4,
+        "sc4": 6,
+        "total": 10,
+        "sc3_share": 0.4
+      },
+      {
+        "lane": "ES \u2192 CN",
+        "sc3": 0,
+        "sc4": 10,
+        "total": 10,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "VN \u2192 DE",
+        "sc3": 4,
+        "sc4": 5,
+        "total": 9,
+        "sc3_share": 0.4444
+      },
+      {
+        "lane": "JP \u2192 DE",
+        "sc3": 0,
+        "sc4": 8,
+        "total": 8,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "MY \u2192 HU",
+        "sc3": 4,
+        "sc4": 3,
+        "total": 7,
+        "sc3_share": 0.5714
+      },
+      {
+        "lane": "HK \u2192 RO",
+        "sc3": 1,
+        "sc4": 6,
+        "total": 7,
+        "sc3_share": 0.1429
+      },
+      {
+        "lane": "TW \u2192 HU",
+        "sc3": 4,
+        "sc4": 1,
+        "total": 5,
+        "sc3_share": 0.8
+      },
+      {
+        "lane": "VN \u2192 HU",
+        "sc3": 3,
+        "sc4": 2,
+        "total": 5,
+        "sc3_share": 0.6
+      },
+      {
+        "lane": "HU \u2192 HU",
+        "sc3": 3,
+        "sc4": 2,
+        "total": 5,
+        "sc3_share": 0.6
+      },
+      {
+        "lane": "PT \u2192 CN",
+        "sc3": 0,
+        "sc4": 5,
+        "total": 5,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "CN \u2192 SI",
+        "sc3": 4,
+        "sc4": 1,
+        "total": 5,
+        "sc3_share": 0.8
+      }
+    ],
+    "CW11": [
+      {
+        "lane": "CN \u2192 DE",
+        "sc3": 79,
+        "sc4": 80,
+        "total": 159,
+        "sc3_share": 0.4969
+      },
+      {
+        "lane": "DE \u2192 CN",
+        "sc3": 14,
+        "sc4": 127,
+        "total": 141,
+        "sc3_share": 0.0993
+      },
+      {
+        "lane": "CN \u2192 HU",
+        "sc3": 49,
+        "sc4": 64,
+        "total": 113,
+        "sc3_share": 0.4336
+      },
+      {
+        "lane": "CN \u2192 CN",
+        "sc3": 54,
+        "sc4": 0,
+        "total": 54,
+        "sc3_share": 1.0
+      },
+      {
+        "lane": "DE \u2192 DE",
+        "sc3": 36,
+        "sc4": 0,
+        "total": 36,
+        "sc3_share": 1.0
+      },
+      {
+        "lane": "CN \u2192 RO",
+        "sc3": 26,
+        "sc4": 8,
+        "total": 34,
+        "sc3_share": 0.7647
+      },
+      {
+        "lane": "CN \u2192 HR",
+        "sc3": 23,
+        "sc4": 0,
+        "total": 23,
+        "sc3_share": 1.0
+      },
+      {
+        "lane": "HR \u2192 HU",
+        "sc3": 21,
+        "sc4": 0,
+        "total": 21,
+        "sc3_share": 1.0
+      },
+      {
+        "lane": "CN \u2192 PT",
+        "sc3": 0,
+        "sc4": 19,
+        "total": 19,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "TW \u2192 DE",
+        "sc3": 6,
+        "sc4": 9,
+        "total": 15,
+        "sc3_share": 0.4
+      },
+      {
+        "lane": "HK \u2192 HU",
+        "sc3": 4,
+        "sc4": 9,
+        "total": 13,
+        "sc3_share": 0.3077
+      },
+      {
+        "lane": "HK \u2192 DE",
+        "sc3": 8,
+        "sc4": 5,
+        "total": 13,
+        "sc3_share": 0.6154
+      },
+      {
+        "lane": "HK \u2192 PT",
+        "sc3": 0,
+        "sc4": 11,
+        "total": 11,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "IT \u2192 CN",
+        "sc3": 0,
+        "sc4": 10,
+        "total": 10,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "CN \u2192 SI",
+        "sc3": 6,
+        "sc4": 4,
+        "total": 10,
+        "sc3_share": 0.6
+      },
+      {
+        "lane": "MY \u2192 HU",
+        "sc3": 5,
+        "sc4": 4,
+        "total": 9,
+        "sc3_share": 0.5556
+      },
+      {
+        "lane": "CN \u2192 IT",
+        "sc3": 0,
+        "sc4": 9,
+        "total": 9,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "MY \u2192 DE",
+        "sc3": 1,
+        "sc4": 8,
+        "total": 9,
+        "sc3_share": 0.1111
+      },
+      {
+        "lane": "CN \u2192 CZ",
+        "sc3": 4,
+        "sc4": 5,
+        "total": 9,
+        "sc3_share": 0.4444
+      },
+      {
+        "lane": "CN \u2192 RS",
+        "sc3": 5,
+        "sc4": 4,
+        "total": 9,
+        "sc3_share": 0.5556
+      },
+      {
+        "lane": "TW \u2192 HU",
+        "sc3": 5,
+        "sc4": 3,
+        "total": 8,
+        "sc3_share": 0.625
+      },
+      {
+        "lane": "TH \u2192 DE",
+        "sc3": 4,
+        "sc4": 3,
+        "total": 7,
+        "sc3_share": 0.5714
+      },
+      {
+        "lane": "DE \u2192 TH",
+        "sc3": 1,
+        "sc4": 6,
+        "total": 7,
+        "sc3_share": 0.1429
+      },
+      {
+        "lane": "DE \u2192 MY",
+        "sc3": 5,
+        "sc4": 2,
+        "total": 7,
+        "sc3_share": 0.7143
+      },
+      {
+        "lane": "JP \u2192 PL",
+        "sc3": 0,
+        "sc4": 6,
+        "total": 6,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "DE \u2192 VN",
+        "sc3": 0,
+        "sc4": 6,
+        "total": 6,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "KR \u2192 HU",
+        "sc3": 3,
+        "sc4": 3,
+        "total": 6,
+        "sc3_share": 0.5
+      },
+      {
+        "lane": "JP \u2192 DE",
+        "sc3": 0,
+        "sc4": 6,
+        "total": 6,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "ES \u2192 TH",
+        "sc3": 0,
+        "sc4": 5,
+        "total": 5,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "FR \u2192 CN",
+        "sc3": 0,
+        "sc4": 5,
+        "total": 5,
+        "sc3_share": 0.0
+      }
+    ],
+    "CW12": [
+      {
+        "lane": "CN \u2192 DE",
+        "sc3": 97,
+        "sc4": 136,
+        "total": 233,
+        "sc3_share": 0.4163
+      },
+      {
+        "lane": "DE \u2192 CN",
+        "sc3": 9,
+        "sc4": 123,
+        "total": 132,
+        "sc3_share": 0.0682
+      },
+      {
+        "lane": "CN \u2192 HU",
+        "sc3": 51,
+        "sc4": 69,
+        "total": 120,
+        "sc3_share": 0.425
+      },
+      {
+        "lane": "CN \u2192 CN",
+        "sc3": 62,
+        "sc4": 0,
+        "total": 62,
+        "sc3_share": 1.0
+      },
+      {
+        "lane": "CN \u2192 PT",
+        "sc3": 0,
+        "sc4": 35,
+        "total": 35,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "CN \u2192 RO",
+        "sc3": 18,
+        "sc4": 15,
+        "total": 33,
+        "sc3_share": 0.5455
+      },
+      {
+        "lane": "CN \u2192 HR",
+        "sc3": 27,
+        "sc4": 2,
+        "total": 29,
+        "sc3_share": 0.931
+      },
+      {
+        "lane": "DE \u2192 DE",
+        "sc3": 25,
+        "sc4": 0,
+        "total": 25,
+        "sc3_share": 1.0
+      },
+      {
+        "lane": "HK \u2192 HU",
+        "sc3": 12,
+        "sc4": 12,
+        "total": 24,
+        "sc3_share": 0.5
+      },
+      {
+        "lane": "HR \u2192 HU",
+        "sc3": 21,
+        "sc4": 0,
+        "total": 21,
+        "sc3_share": 1.0
+      },
+      {
+        "lane": "IT \u2192 CN",
+        "sc3": 0,
+        "sc4": 16,
+        "total": 16,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "TW \u2192 DE",
+        "sc3": 6,
+        "sc4": 10,
+        "total": 16,
+        "sc3_share": 0.375
+      },
+      {
+        "lane": "CN \u2192 RS",
+        "sc3": 10,
+        "sc4": 6,
+        "total": 16,
+        "sc3_share": 0.625
+      },
+      {
+        "lane": "JP \u2192 CZ",
+        "sc3": 0,
+        "sc4": 14,
+        "total": 14,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "HK \u2192 PT",
+        "sc3": 0,
+        "sc4": 13,
+        "total": 13,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "DE \u2192 TH",
+        "sc3": 1,
+        "sc4": 12,
+        "total": 13,
+        "sc3_share": 0.0769
+      },
+      {
+        "lane": "DE \u2192 TW",
+        "sc3": 1,
+        "sc4": 11,
+        "total": 12,
+        "sc3_share": 0.0833
+      },
+      {
+        "lane": "CN \u2192 IT",
+        "sc3": 0,
+        "sc4": 11,
+        "total": 11,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "HK \u2192 DE",
+        "sc3": 5,
+        "sc4": 5,
+        "total": 10,
+        "sc3_share": 0.5
+      },
+      {
+        "lane": "MY \u2192 HU",
+        "sc3": 5,
+        "sc4": 4,
+        "total": 9,
+        "sc3_share": 0.5556
+      },
+      {
+        "lane": "CN \u2192 CZ",
+        "sc3": 6,
+        "sc4": 3,
+        "total": 9,
+        "sc3_share": 0.6667
+      },
+      {
+        "lane": "JP \u2192 DE",
+        "sc3": 0,
+        "sc4": 9,
+        "total": 9,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "HK \u2192 RO",
+        "sc3": 1,
+        "sc4": 7,
+        "total": 8,
+        "sc3_share": 0.125
+      },
+      {
+        "lane": "CH \u2192 CN",
+        "sc3": 0,
+        "sc4": 8,
+        "total": 8,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "TH \u2192 PT",
+        "sc3": 0,
+        "sc4": 8,
+        "total": 8,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "DE \u2192 JP",
+        "sc3": 0,
+        "sc4": 8,
+        "total": 8,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "ES \u2192 CN",
+        "sc3": 0,
+        "sc4": 8,
+        "total": 8,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "TW \u2192 HU",
+        "sc3": 5,
+        "sc4": 2,
+        "total": 7,
+        "sc3_share": 0.7143
+      },
+      {
+        "lane": "VN \u2192 DE",
+        "sc3": 3,
+        "sc4": 4,
+        "total": 7,
+        "sc3_share": 0.4286
+      },
+      {
+        "lane": "MY \u2192 DE",
+        "sc3": 1,
+        "sc4": 6,
+        "total": 7,
+        "sc3_share": 0.1429
+      }
+    ],
+    "CW13": [
+      {
+        "lane": "CN \u2192 DE",
+        "sc3": 88,
+        "sc4": 86,
+        "total": 174,
+        "sc3_share": 0.5057
+      },
+      {
+        "lane": "DE \u2192 CN",
+        "sc3": 22,
+        "sc4": 130,
+        "total": 152,
+        "sc3_share": 0.1447
+      },
+      {
+        "lane": "CN \u2192 HU",
+        "sc3": 49,
+        "sc4": 45,
+        "total": 94,
+        "sc3_share": 0.5213
+      },
+      {
+        "lane": "CN \u2192 CN",
+        "sc3": 52,
+        "sc4": 0,
+        "total": 52,
+        "sc3_share": 1.0
+      },
+      {
+        "lane": "CN \u2192 RO",
+        "sc3": 21,
+        "sc4": 17,
+        "total": 38,
+        "sc3_share": 0.5526
+      },
+      {
+        "lane": "DE \u2192 DE",
+        "sc3": 36,
+        "sc4": 0,
+        "total": 36,
+        "sc3_share": 1.0
+      },
+      {
+        "lane": "CN \u2192 PT",
+        "sc3": 0,
+        "sc4": 33,
+        "total": 33,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "CN \u2192 CZ",
+        "sc3": 6,
+        "sc4": 21,
+        "total": 27,
+        "sc3_share": 0.2222
+      },
+      {
+        "lane": "CN \u2192 IT",
+        "sc3": 0,
+        "sc4": 20,
+        "total": 20,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "CN \u2192 HR",
+        "sc3": 16,
+        "sc4": 3,
+        "total": 19,
+        "sc3_share": 0.8421
+      },
+      {
+        "lane": "CN \u2192 RS",
+        "sc3": 8,
+        "sc4": 11,
+        "total": 19,
+        "sc3_share": 0.4211
+      },
+      {
+        "lane": "JP \u2192 DE",
+        "sc3": 0,
+        "sc4": 19,
+        "total": 19,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "HK \u2192 HU",
+        "sc3": 5,
+        "sc4": 13,
+        "total": 18,
+        "sc3_share": 0.2778
+      },
+      {
+        "lane": "HK \u2192 DE",
+        "sc3": 3,
+        "sc4": 14,
+        "total": 17,
+        "sc3_share": 0.1765
+      },
+      {
+        "lane": "MY \u2192 DE",
+        "sc3": 2,
+        "sc4": 15,
+        "total": 17,
+        "sc3_share": 0.1176
+      },
+      {
+        "lane": "HR \u2192 HU",
+        "sc3": 16,
+        "sc4": 0,
+        "total": 16,
+        "sc3_share": 1.0
+      },
+      {
+        "lane": "IT \u2192 CN",
+        "sc3": 0,
+        "sc4": 16,
+        "total": 16,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "MY \u2192 HU",
+        "sc3": 7,
+        "sc4": 6,
+        "total": 13,
+        "sc3_share": 0.5385
+      },
+      {
+        "lane": "TH \u2192 DE",
+        "sc3": 5,
+        "sc4": 8,
+        "total": 13,
+        "sc3_share": 0.3846
+      },
+      {
+        "lane": "DE \u2192 TH",
+        "sc3": 1,
+        "sc4": 11,
+        "total": 12,
+        "sc3_share": 0.0833
+      },
+      {
+        "lane": "TW \u2192 DE",
+        "sc3": 5,
+        "sc4": 7,
+        "total": 12,
+        "sc3_share": 0.4167
+      },
+      {
+        "lane": "CN \u2192 PL",
+        "sc3": 6,
+        "sc4": 6,
+        "total": 12,
+        "sc3_share": 0.5
+      },
+      {
+        "lane": "VN \u2192 DE",
+        "sc3": 6,
+        "sc4": 5,
+        "total": 11,
+        "sc3_share": 0.5455
+      },
+      {
+        "lane": "JP \u2192 IT",
+        "sc3": 0,
+        "sc4": 6,
+        "total": 6,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "HK \u2192 PT",
+        "sc3": 0,
+        "sc4": 6,
+        "total": 6,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "CN \u2192 AT",
+        "sc3": 5,
+        "sc4": 1,
+        "total": 6,
+        "sc3_share": 0.8333
+      },
+      {
+        "lane": "DE \u2192 MY",
+        "sc3": 4,
+        "sc4": 2,
+        "total": 6,
+        "sc3_share": 0.6667
+      },
+      {
+        "lane": "CN \u2192 ES",
+        "sc3": 5,
+        "sc4": 1,
+        "total": 6,
+        "sc3_share": 0.8333
+      },
+      {
+        "lane": "SG \u2192 DE",
+        "sc3": 2,
+        "sc4": 3,
+        "total": 5,
+        "sc3_share": 0.4
+      },
+      {
+        "lane": "PT \u2192 TH",
+        "sc3": 0,
+        "sc4": 5,
+        "total": 5,
+        "sc3_share": 0.0
+      }
+    ],
+    "CW14": [
+      {
+        "lane": "CN \u2192 DE",
+        "sc3": 92,
+        "sc4": 102,
+        "total": 194,
+        "sc3_share": 0.4742
+      },
+      {
+        "lane": "DE \u2192 CN",
+        "sc3": 31,
+        "sc4": 104,
+        "total": 135,
+        "sc3_share": 0.2296
+      },
+      {
+        "lane": "CN \u2192 HU",
+        "sc3": 60,
+        "sc4": 40,
+        "total": 100,
+        "sc3_share": 0.6
+      },
+      {
+        "lane": "CN \u2192 CN",
+        "sc3": 66,
+        "sc4": 0,
+        "total": 66,
+        "sc3_share": 1.0
+      },
+      {
+        "lane": "DE \u2192 DE",
+        "sc3": 56,
+        "sc4": 0,
+        "total": 56,
+        "sc3_share": 1.0
+      },
+      {
+        "lane": "HK \u2192 DE",
+        "sc3": 6,
+        "sc4": 25,
+        "total": 31,
+        "sc3_share": 0.1935
+      },
+      {
+        "lane": "CN \u2192 HR",
+        "sc3": 27,
+        "sc4": 3,
+        "total": 30,
+        "sc3_share": 0.9
+      },
+      {
+        "lane": "CN \u2192 RO",
+        "sc3": 15,
+        "sc4": 11,
+        "total": 26,
+        "sc3_share": 0.5769
+      },
+      {
+        "lane": "HR \u2192 HU",
+        "sc3": 24,
+        "sc4": 0,
+        "total": 24,
+        "sc3_share": 1.0
+      },
+      {
+        "lane": "HK \u2192 HU",
+        "sc3": 7,
+        "sc4": 13,
+        "total": 20,
+        "sc3_share": 0.35
+      },
+      {
+        "lane": "TW \u2192 DE",
+        "sc3": 5,
+        "sc4": 12,
+        "total": 17,
+        "sc3_share": 0.2941
+      },
+      {
+        "lane": "CN \u2192 PT",
+        "sc3": 0,
+        "sc4": 17,
+        "total": 17,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "CN \u2192 RS",
+        "sc3": 9,
+        "sc4": 7,
+        "total": 16,
+        "sc3_share": 0.5625
+      },
+      {
+        "lane": "MY \u2192 HU",
+        "sc3": 8,
+        "sc4": 7,
+        "total": 15,
+        "sc3_share": 0.5333
+      },
+      {
+        "lane": "IT \u2192 CN",
+        "sc3": 0,
+        "sc4": 14,
+        "total": 14,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "TH \u2192 DE",
+        "sc3": 5,
+        "sc4": 8,
+        "total": 13,
+        "sc3_share": 0.3846
+      },
+      {
+        "lane": "CN \u2192 PL",
+        "sc3": 7,
+        "sc4": 6,
+        "total": 13,
+        "sc3_share": 0.5385
+      },
+      {
+        "lane": "CN \u2192 CZ",
+        "sc3": 6,
+        "sc4": 4,
+        "total": 10,
+        "sc3_share": 0.6
+      },
+      {
+        "lane": "CH \u2192 CN",
+        "sc3": 3,
+        "sc4": 6,
+        "total": 9,
+        "sc3_share": 0.3333
+      },
+      {
+        "lane": "ES \u2192 CN",
+        "sc3": 0,
+        "sc4": 8,
+        "total": 8,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "MY \u2192 PT",
+        "sc3": 3,
+        "sc4": 4,
+        "total": 7,
+        "sc3_share": 0.4286
+      },
+      {
+        "lane": "MY \u2192 MY",
+        "sc3": 6,
+        "sc4": 0,
+        "total": 6,
+        "sc3_share": 1.0
+      },
+      {
+        "lane": "HK \u2192 PT",
+        "sc3": 0,
+        "sc4": 6,
+        "total": 6,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "CN \u2192 IT",
+        "sc3": 0,
+        "sc4": 6,
+        "total": 6,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "MY \u2192 DE",
+        "sc3": 1,
+        "sc4": 5,
+        "total": 6,
+        "sc3_share": 0.1667
+      },
+      {
+        "lane": "PL \u2192 CN",
+        "sc3": 0,
+        "sc4": 6,
+        "total": 6,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "GB \u2192 CN",
+        "sc3": 0,
+        "sc4": 5,
+        "total": 5,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "HK \u2192 RO",
+        "sc3": 0,
+        "sc4": 5,
+        "total": 5,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "VN \u2192 DE",
+        "sc3": 4,
+        "sc4": 1,
+        "total": 5,
+        "sc3_share": 0.8
+      },
+      {
+        "lane": "JP \u2192 DE",
+        "sc3": 0,
+        "sc4": 5,
+        "total": 5,
+        "sc3_share": 0.0
+      }
+    ],
+    "CW15": [
+      {
+        "lane": "CN \u2192 DE",
+        "sc3": 103,
+        "sc4": 92,
+        "total": 195,
+        "sc3_share": 0.5282
+      },
+      {
+        "lane": "DE \u2192 CN",
+        "sc3": 49,
+        "sc4": 132,
+        "total": 181,
+        "sc3_share": 0.2707
+      },
+      {
+        "lane": "CN \u2192 HU",
+        "sc3": 63,
+        "sc4": 41,
+        "total": 104,
+        "sc3_share": 0.6058
+      },
+      {
+        "lane": "DE \u2192 DE",
+        "sc3": 67,
+        "sc4": 0,
+        "total": 67,
+        "sc3_share": 1.0
+      },
+      {
+        "lane": "CN \u2192 CN",
+        "sc3": 56,
+        "sc4": 0,
+        "total": 56,
+        "sc3_share": 1.0
+      },
+      {
+        "lane": "CN \u2192 PT",
+        "sc3": 0,
+        "sc4": 54,
+        "total": 54,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "CN \u2192 RO",
+        "sc3": 18,
+        "sc4": 15,
+        "total": 33,
+        "sc3_share": 0.5455
+      },
+      {
+        "lane": "DE \u2192 TH",
+        "sc3": 2,
+        "sc4": 23,
+        "total": 25,
+        "sc3_share": 0.08
+      },
+      {
+        "lane": "CN \u2192 HR",
+        "sc3": 18,
+        "sc4": 2,
+        "total": 20,
+        "sc3_share": 0.9
+      },
+      {
+        "lane": "DE \u2192 MY",
+        "sc3": 7,
+        "sc4": 13,
+        "total": 20,
+        "sc3_share": 0.35
+      },
+      {
+        "lane": "HK \u2192 HU",
+        "sc3": 6,
+        "sc4": 11,
+        "total": 17,
+        "sc3_share": 0.3529
+      },
+      {
+        "lane": "HR \u2192 HU",
+        "sc3": 14,
+        "sc4": 0,
+        "total": 14,
+        "sc3_share": 1.0
+      },
+      {
+        "lane": "HK \u2192 DE",
+        "sc3": 8,
+        "sc4": 6,
+        "total": 14,
+        "sc3_share": 0.5714
+      },
+      {
+        "lane": "CN \u2192 IT",
+        "sc3": 0,
+        "sc4": 14,
+        "total": 14,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "CN \u2192 RS",
+        "sc3": 7,
+        "sc4": 7,
+        "total": 14,
+        "sc3_share": 0.5
+      },
+      {
+        "lane": "DE \u2192 SG",
+        "sc3": 2,
+        "sc4": 11,
+        "total": 13,
+        "sc3_share": 0.1538
+      },
+      {
+        "lane": "HK \u2192 PT",
+        "sc3": 0,
+        "sc4": 11,
+        "total": 11,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "TH \u2192 DE",
+        "sc3": 7,
+        "sc4": 3,
+        "total": 10,
+        "sc3_share": 0.7
+      },
+      {
+        "lane": "MY \u2192 HU",
+        "sc3": 6,
+        "sc4": 4,
+        "total": 10,
+        "sc3_share": 0.6
+      },
+      {
+        "lane": "CN \u2192 CH",
+        "sc3": 0,
+        "sc4": 10,
+        "total": 10,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "TW \u2192 DE",
+        "sc3": 6,
+        "sc4": 4,
+        "total": 10,
+        "sc3_share": 0.6
+      },
+      {
+        "lane": "MY \u2192 PT",
+        "sc3": 6,
+        "sc4": 3,
+        "total": 9,
+        "sc3_share": 0.6667
+      },
+      {
+        "lane": "CN \u2192 CZ",
+        "sc3": 7,
+        "sc4": 2,
+        "total": 9,
+        "sc3_share": 0.7778
+      },
+      {
+        "lane": "JP \u2192 DE",
+        "sc3": 0,
+        "sc4": 8,
+        "total": 8,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "CN \u2192 SI",
+        "sc3": 4,
+        "sc4": 4,
+        "total": 8,
+        "sc3_share": 0.5
+      },
+      {
+        "lane": "CN \u2192 AT",
+        "sc3": 5,
+        "sc4": 2,
+        "total": 7,
+        "sc3_share": 0.7143
+      },
+      {
+        "lane": "CZ \u2192 CN",
+        "sc3": 1,
+        "sc4": 6,
+        "total": 7,
+        "sc3_share": 0.1429
+      },
+      {
+        "lane": "VN \u2192 DE",
+        "sc3": 5,
+        "sc4": 2,
+        "total": 7,
+        "sc3_share": 0.7143
+      },
+      {
+        "lane": "HU \u2192 KR",
+        "sc3": 0,
+        "sc4": 6,
+        "total": 6,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "MY \u2192 MY",
+        "sc3": 6,
+        "sc4": 0,
+        "total": 6,
+        "sc3_share": 1.0
+      }
+    ],
+    "CW16": [
+      {
+        "lane": "CN \u2192 DE",
+        "sc3": 107,
+        "sc4": 75,
+        "total": 182,
+        "sc3_share": 0.5879
+      },
+      {
+        "lane": "CN \u2192 HU",
+        "sc3": 79,
+        "sc4": 57,
+        "total": 136,
+        "sc3_share": 0.5809
+      },
+      {
+        "lane": "DE \u2192 DE",
+        "sc3": 76,
+        "sc4": 0,
+        "total": 76,
+        "sc3_share": 1.0
+      },
+      {
+        "lane": "DE \u2192 CN",
+        "sc3": 63,
+        "sc4": 9,
+        "total": 72,
+        "sc3_share": 0.875
+      },
+      {
+        "lane": "CN \u2192 CN",
+        "sc3": 59,
+        "sc4": 0,
+        "total": 59,
+        "sc3_share": 1.0
+      },
+      {
+        "lane": "CN \u2192 RO",
+        "sc3": 18,
+        "sc4": 20,
+        "total": 38,
+        "sc3_share": 0.4737
+      },
+      {
+        "lane": "CN \u2192 PT",
+        "sc3": 0,
+        "sc4": 34,
+        "total": 34,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "HK \u2192 DE",
+        "sc3": 6,
+        "sc4": 17,
+        "total": 23,
+        "sc3_share": 0.2609
+      },
+      {
+        "lane": "CN \u2192 HR",
+        "sc3": 19,
+        "sc4": 0,
+        "total": 19,
+        "sc3_share": 1.0
+      },
+      {
+        "lane": "CN \u2192 CZ",
+        "sc3": 8,
+        "sc4": 10,
+        "total": 18,
+        "sc3_share": 0.4444
+      },
+      {
+        "lane": "HK \u2192 HU",
+        "sc3": 7,
+        "sc4": 10,
+        "total": 17,
+        "sc3_share": 0.4118
+      },
+      {
+        "lane": "HR \u2192 HU",
+        "sc3": 15,
+        "sc4": 0,
+        "total": 15,
+        "sc3_share": 1.0
+      },
+      {
+        "lane": "DE \u2192 MY",
+        "sc3": 8,
+        "sc4": 7,
+        "total": 15,
+        "sc3_share": 0.5333
+      },
+      {
+        "lane": "JP \u2192 CZ",
+        "sc3": 0,
+        "sc4": 15,
+        "total": 15,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "MY \u2192 DE",
+        "sc3": 1,
+        "sc4": 11,
+        "total": 12,
+        "sc3_share": 0.0833
+      },
+      {
+        "lane": "TW \u2192 DE",
+        "sc3": 4,
+        "sc4": 8,
+        "total": 12,
+        "sc3_share": 0.3333
+      },
+      {
+        "lane": "CN \u2192 RS",
+        "sc3": 10,
+        "sc4": 2,
+        "total": 12,
+        "sc3_share": 0.8333
+      },
+      {
+        "lane": "DE \u2192 ID",
+        "sc3": 1,
+        "sc4": 11,
+        "total": 12,
+        "sc3_share": 0.0833
+      },
+      {
+        "lane": "HK \u2192 PT",
+        "sc3": 0,
+        "sc4": 11,
+        "total": 11,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "CN \u2192 PL",
+        "sc3": 5,
+        "sc4": 4,
+        "total": 9,
+        "sc3_share": 0.5556
+      },
+      {
+        "lane": "JP \u2192 DE",
+        "sc3": 0,
+        "sc4": 8,
+        "total": 8,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "DE \u2192 TW",
+        "sc3": 2,
+        "sc4": 6,
+        "total": 8,
+        "sc3_share": 0.25
+      },
+      {
+        "lane": "TW \u2192 HU",
+        "sc3": 3,
+        "sc4": 3,
+        "total": 6,
+        "sc3_share": 0.5
+      },
+      {
+        "lane": "CH \u2192 DE",
+        "sc3": 6,
+        "sc4": 0,
+        "total": 6,
+        "sc3_share": 1.0
+      },
+      {
+        "lane": "VN \u2192 DE",
+        "sc3": 5,
+        "sc4": 1,
+        "total": 6,
+        "sc3_share": 0.8333
+      },
+      {
+        "lane": "VN \u2192 HU",
+        "sc3": 2,
+        "sc4": 3,
+        "total": 5,
+        "sc3_share": 0.4
+      },
+      {
+        "lane": "DE \u2192 TH",
+        "sc3": 3,
+        "sc4": 2,
+        "total": 5,
+        "sc3_share": 0.6
+      },
+      {
+        "lane": "CN \u2192 IT",
+        "sc3": 0,
+        "sc4": 5,
+        "total": 5,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "DE \u2192 SG",
+        "sc3": 1,
+        "sc4": 4,
+        "total": 5,
+        "sc3_share": 0.2
+      },
+      {
+        "lane": "TW \u2192 PT",
+        "sc3": 0,
+        "sc4": 4,
+        "total": 4,
+        "sc3_share": 0.0
+      }
+    ],
+    "CW17": [
+      {
+        "lane": "DE \u2192 CN",
+        "sc3": 43,
+        "sc4": 148,
+        "total": 191,
+        "sc3_share": 0.2251
+      },
+      {
+        "lane": "CN \u2192 DE",
+        "sc3": 71,
+        "sc4": 106,
+        "total": 177,
+        "sc3_share": 0.4011
+      },
+      {
+        "lane": "CN \u2192 HU",
+        "sc3": 79,
+        "sc4": 41,
+        "total": 120,
+        "sc3_share": 0.6583
+      },
+      {
+        "lane": "DE \u2192 DE",
+        "sc3": 37,
+        "sc4": 0,
+        "total": 37,
+        "sc3_share": 1.0
+      },
+      {
+        "lane": "CN \u2192 CN",
+        "sc3": 27,
+        "sc4": 0,
+        "total": 27,
+        "sc3_share": 1.0
+      },
+      {
+        "lane": "CN \u2192 RO",
+        "sc3": 17,
+        "sc4": 4,
+        "total": 21,
+        "sc3_share": 0.8095
+      },
+      {
+        "lane": "CN \u2192 RS",
+        "sc3": 6,
+        "sc4": 15,
+        "total": 21,
+        "sc3_share": 0.2857
+      },
+      {
+        "lane": "HK \u2192 HU",
+        "sc3": 4,
+        "sc4": 15,
+        "total": 19,
+        "sc3_share": 0.2105
+      },
+      {
+        "lane": "IT \u2192 CN",
+        "sc3": 0,
+        "sc4": 19,
+        "total": 19,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "CN \u2192 HR",
+        "sc3": 18,
+        "sc4": 0,
+        "total": 18,
+        "sc3_share": 1.0
+      },
+      {
+        "lane": "HK \u2192 DE",
+        "sc3": 7,
+        "sc4": 10,
+        "total": 17,
+        "sc3_share": 0.4118
+      },
+      {
+        "lane": "TW \u2192 DE",
+        "sc3": 1,
+        "sc4": 16,
+        "total": 17,
+        "sc3_share": 0.0588
+      },
+      {
+        "lane": "TH \u2192 PT",
+        "sc3": 0,
+        "sc4": 16,
+        "total": 16,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "CN \u2192 CZ",
+        "sc3": 7,
+        "sc4": 8,
+        "total": 15,
+        "sc3_share": 0.4667
+      },
+      {
+        "lane": "HR \u2192 HU",
+        "sc3": 14,
+        "sc4": 0,
+        "total": 14,
+        "sc3_share": 1.0
+      },
+      {
+        "lane": "MY \u2192 DE",
+        "sc3": 1,
+        "sc4": 13,
+        "total": 14,
+        "sc3_share": 0.0714
+      },
+      {
+        "lane": "JP \u2192 DE",
+        "sc3": 0,
+        "sc4": 14,
+        "total": 14,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "DE \u2192 ID",
+        "sc3": 1,
+        "sc4": 12,
+        "total": 13,
+        "sc3_share": 0.0769
+      },
+      {
+        "lane": "TH \u2192 DE",
+        "sc3": 3,
+        "sc4": 8,
+        "total": 11,
+        "sc3_share": 0.2727
+      },
+      {
+        "lane": "CZ \u2192 CN",
+        "sc3": 0,
+        "sc4": 11,
+        "total": 11,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "CN \u2192 PL",
+        "sc3": 6,
+        "sc4": 4,
+        "total": 10,
+        "sc3_share": 0.6
+      },
+      {
+        "lane": "ES \u2192 CN",
+        "sc3": 0,
+        "sc4": 10,
+        "total": 10,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "MY \u2192 HU",
+        "sc3": 3,
+        "sc4": 6,
+        "total": 9,
+        "sc3_share": 0.3333
+      },
+      {
+        "lane": "MY \u2192 PT",
+        "sc3": 4,
+        "sc4": 5,
+        "total": 9,
+        "sc3_share": 0.4444
+      },
+      {
+        "lane": "DE \u2192 JP",
+        "sc3": 0,
+        "sc4": 9,
+        "total": 9,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "VN \u2192 HU",
+        "sc3": 5,
+        "sc4": 3,
+        "total": 8,
+        "sc3_share": 0.625
+      },
+      {
+        "lane": "TH \u2192 IT",
+        "sc3": 0,
+        "sc4": 8,
+        "total": 8,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "DE \u2192 MY",
+        "sc3": 5,
+        "sc4": 3,
+        "total": 8,
+        "sc3_share": 0.625
+      },
+      {
+        "lane": "HK \u2192 RO",
+        "sc3": 1,
+        "sc4": 6,
+        "total": 7,
+        "sc3_share": 0.1429
+      },
+      {
+        "lane": "CZ \u2192 TH",
+        "sc3": 7,
+        "sc4": 0,
+        "total": 7,
+        "sc3_share": 1.0
+      }
+    ],
+    "CW18": [
+      {
+        "lane": "CN \u2192 DE",
+        "sc3": 74,
+        "sc4": 35,
+        "total": 109,
+        "sc3_share": 0.6789
+      },
+      {
+        "lane": "CN \u2192 HU",
+        "sc3": 56,
+        "sc4": 17,
+        "total": 73,
+        "sc3_share": 0.7671
+      },
+      {
+        "lane": "DE \u2192 CN",
+        "sc3": 42,
+        "sc4": 21,
+        "total": 63,
+        "sc3_share": 0.6667
+      },
+      {
+        "lane": "CN \u2192 CN",
+        "sc3": 46,
+        "sc4": 0,
+        "total": 46,
+        "sc3_share": 1.0
+      },
+      {
+        "lane": "DE \u2192 DE",
+        "sc3": 44,
+        "sc4": 0,
+        "total": 44,
+        "sc3_share": 1.0
+      },
+      {
+        "lane": "CN \u2192 RO",
+        "sc3": 9,
+        "sc4": 7,
+        "total": 16,
+        "sc3_share": 0.5625
+      },
+      {
+        "lane": "TH \u2192 DE",
+        "sc3": 8,
+        "sc4": 6,
+        "total": 14,
+        "sc3_share": 0.5714
+      },
+      {
+        "lane": "CN \u2192 CZ",
+        "sc3": 6,
+        "sc4": 6,
+        "total": 12,
+        "sc3_share": 0.5
+      },
+      {
+        "lane": "TH \u2192 RO",
+        "sc3": 0,
+        "sc4": 11,
+        "total": 11,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "MY \u2192 HU",
+        "sc3": 6,
+        "sc4": 4,
+        "total": 10,
+        "sc3_share": 0.6
+      },
+      {
+        "lane": "DE \u2192 TH",
+        "sc3": 1,
+        "sc4": 9,
+        "total": 10,
+        "sc3_share": 0.1
+      },
+      {
+        "lane": "HK \u2192 HU",
+        "sc3": 3,
+        "sc4": 6,
+        "total": 9,
+        "sc3_share": 0.3333
+      },
+      {
+        "lane": "TW \u2192 HU",
+        "sc3": 7,
+        "sc4": 1,
+        "total": 8,
+        "sc3_share": 0.875
+      },
+      {
+        "lane": "HU \u2192 KR",
+        "sc3": 0,
+        "sc4": 8,
+        "total": 8,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "JP \u2192 DE",
+        "sc3": 0,
+        "sc4": 8,
+        "total": 8,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "IT \u2192 CN",
+        "sc3": 0,
+        "sc4": 6,
+        "total": 6,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "TW \u2192 DE",
+        "sc3": 5,
+        "sc4": 1,
+        "total": 6,
+        "sc3_share": 0.8333
+      },
+      {
+        "lane": "DE \u2192 MY",
+        "sc3": 4,
+        "sc4": 2,
+        "total": 6,
+        "sc3_share": 0.6667
+      },
+      {
+        "lane": "CN \u2192 HR",
+        "sc3": 5,
+        "sc4": 0,
+        "total": 5,
+        "sc3_share": 1.0
+      },
+      {
+        "lane": "CH \u2192 CN",
+        "sc3": 1,
+        "sc4": 4,
+        "total": 5,
+        "sc3_share": 0.2
+      },
+      {
+        "lane": "HR \u2192 HU",
+        "sc3": 5,
+        "sc4": 0,
+        "total": 5,
+        "sc3_share": 1.0
+      },
+      {
+        "lane": "CH \u2192 DE",
+        "sc3": 5,
+        "sc4": 0,
+        "total": 5,
+        "sc3_share": 1.0
+      },
+      {
+        "lane": "HK \u2192 ES",
+        "sc3": 0,
+        "sc4": 5,
+        "total": 5,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "VN \u2192 HU",
+        "sc3": 4,
+        "sc4": 0,
+        "total": 4,
+        "sc3_share": 1.0
+      },
+      {
+        "lane": "DE \u2192 VN",
+        "sc3": 0,
+        "sc4": 4,
+        "total": 4,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "DE \u2192 TW",
+        "sc3": 3,
+        "sc4": 1,
+        "total": 4,
+        "sc3_share": 0.75
+      },
+      {
+        "lane": "DE \u2192 ID",
+        "sc3": 1,
+        "sc4": 3,
+        "total": 4,
+        "sc3_share": 0.25
+      },
+      {
+        "lane": "HU \u2192 HU",
+        "sc3": 3,
+        "sc4": 0,
+        "total": 3,
+        "sc3_share": 1.0
+      },
+      {
+        "lane": "CZ \u2192 TH",
+        "sc3": 3,
+        "sc4": 0,
+        "total": 3,
+        "sc3_share": 1.0
+      },
+      {
+        "lane": "MY \u2192 MY",
+        "sc3": 3,
+        "sc4": 0,
+        "total": 3,
+        "sc3_share": 1.0
+      }
+    ],
+    "CW19": [
+      {
+        "lane": "DE \u2192 CN",
+        "sc3": 55,
+        "sc4": 133,
+        "total": 188,
+        "sc3_share": 0.2926
+      },
+      {
+        "lane": "CN \u2192 DE",
+        "sc3": 56,
+        "sc4": 93,
+        "total": 149,
+        "sc3_share": 0.3758
+      },
+      {
+        "lane": "CN \u2192 HU",
+        "sc3": 30,
+        "sc4": 62,
+        "total": 92,
+        "sc3_share": 0.3261
+      },
+      {
+        "lane": "DE \u2192 DE",
+        "sc3": 44,
+        "sc4": 0,
+        "total": 44,
+        "sc3_share": 1.0
+      },
+      {
+        "lane": "CN \u2192 RO",
+        "sc3": 14,
+        "sc4": 15,
+        "total": 29,
+        "sc3_share": 0.4828
+      },
+      {
+        "lane": "HK \u2192 DE",
+        "sc3": 4,
+        "sc4": 14,
+        "total": 18,
+        "sc3_share": 0.2222
+      },
+      {
+        "lane": "CN \u2192 PT",
+        "sc3": 0,
+        "sc4": 18,
+        "total": 18,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "CN \u2192 CN",
+        "sc3": 14,
+        "sc4": 0,
+        "total": 14,
+        "sc3_share": 1.0
+      },
+      {
+        "lane": "HK \u2192 PT",
+        "sc3": 0,
+        "sc4": 12,
+        "total": 12,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "MY \u2192 DE",
+        "sc3": 1,
+        "sc4": 11,
+        "total": 12,
+        "sc3_share": 0.0833
+      },
+      {
+        "lane": "TW \u2192 DE",
+        "sc3": 3,
+        "sc4": 9,
+        "total": 12,
+        "sc3_share": 0.25
+      },
+      {
+        "lane": "ES \u2192 CN",
+        "sc3": 0,
+        "sc4": 12,
+        "total": 12,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "TH \u2192 DE",
+        "sc3": 8,
+        "sc4": 3,
+        "total": 11,
+        "sc3_share": 0.7273
+      },
+      {
+        "lane": "HK \u2192 RO",
+        "sc3": 3,
+        "sc4": 8,
+        "total": 11,
+        "sc3_share": 0.2727
+      },
+      {
+        "lane": "HK \u2192 HU",
+        "sc3": 2,
+        "sc4": 9,
+        "total": 11,
+        "sc3_share": 0.1818
+      },
+      {
+        "lane": "CH \u2192 CN",
+        "sc3": 2,
+        "sc4": 9,
+        "total": 11,
+        "sc3_share": 0.1818
+      },
+      {
+        "lane": "CN \u2192 CZ",
+        "sc3": 4,
+        "sc4": 7,
+        "total": 11,
+        "sc3_share": 0.3636
+      },
+      {
+        "lane": "CZ \u2192 CN",
+        "sc3": 0,
+        "sc4": 10,
+        "total": 10,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "PL \u2192 CN",
+        "sc3": 0,
+        "sc4": 9,
+        "total": 9,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "DE \u2192 MY",
+        "sc3": 3,
+        "sc4": 6,
+        "total": 9,
+        "sc3_share": 0.3333
+      },
+      {
+        "lane": "DE \u2192 TW",
+        "sc3": 2,
+        "sc4": 7,
+        "total": 9,
+        "sc3_share": 0.2222
+      },
+      {
+        "lane": "DE \u2192 TH",
+        "sc3": 2,
+        "sc4": 7,
+        "total": 9,
+        "sc3_share": 0.2222
+      },
+      {
+        "lane": "VN \u2192 DE",
+        "sc3": 3,
+        "sc4": 6,
+        "total": 9,
+        "sc3_share": 0.3333
+      },
+      {
+        "lane": "VN \u2192 HU",
+        "sc3": 5,
+        "sc4": 3,
+        "total": 8,
+        "sc3_share": 0.625
+      },
+      {
+        "lane": "JP \u2192 DE",
+        "sc3": 0,
+        "sc4": 8,
+        "total": 8,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "MY \u2192 HU",
+        "sc3": 1,
+        "sc4": 7,
+        "total": 8,
+        "sc3_share": 0.125
+      },
+      {
+        "lane": "CN \u2192 IT",
+        "sc3": 0,
+        "sc4": 8,
+        "total": 8,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "DE \u2192 SG",
+        "sc3": 4,
+        "sc4": 4,
+        "total": 8,
+        "sc3_share": 0.5
+      },
+      {
+        "lane": "TH \u2192 IT",
+        "sc3": 0,
+        "sc4": 6,
+        "total": 6,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "DE \u2192 VN",
+        "sc3": 0,
+        "sc4": 6,
+        "total": 6,
+        "sc3_share": 0.0
+      }
+    ],
+    "CW20": [
+      {
+        "lane": "DE \u2192 CN",
+        "sc3": 24,
+        "sc4": 174,
+        "total": 198,
+        "sc3_share": 0.1212
+      },
+      {
+        "lane": "CN \u2192 DE",
+        "sc3": 61,
+        "sc4": 85,
+        "total": 146,
+        "sc3_share": 0.4178
+      },
+      {
+        "lane": "CN \u2192 HU",
+        "sc3": 16,
+        "sc4": 35,
+        "total": 51,
+        "sc3_share": 0.3137
+      },
+      {
+        "lane": "IT \u2192 CN",
+        "sc3": 0,
+        "sc4": 38,
+        "total": 38,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "CN \u2192 PT",
+        "sc3": 0,
+        "sc4": 28,
+        "total": 28,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "HK \u2192 HU",
+        "sc3": 4,
+        "sc4": 12,
+        "total": 16,
+        "sc3_share": 0.25
+      },
+      {
+        "lane": "JP \u2192 CZ",
+        "sc3": 0,
+        "sc4": 16,
+        "total": 16,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "DE \u2192 TH",
+        "sc3": 2,
+        "sc4": 13,
+        "total": 15,
+        "sc3_share": 0.1333
+      },
+      {
+        "lane": "DE \u2192 DE",
+        "sc3": 14,
+        "sc4": 0,
+        "total": 14,
+        "sc3_share": 1.0
+      },
+      {
+        "lane": "HK \u2192 DE",
+        "sc3": 4,
+        "sc4": 10,
+        "total": 14,
+        "sc3_share": 0.2857
+      },
+      {
+        "lane": "DE \u2192 TW",
+        "sc3": 2,
+        "sc4": 12,
+        "total": 14,
+        "sc3_share": 0.1429
+      },
+      {
+        "lane": "DE \u2192 ID",
+        "sc3": 6,
+        "sc4": 8,
+        "total": 14,
+        "sc3_share": 0.4286
+      },
+      {
+        "lane": "MY \u2192 HU",
+        "sc3": 6,
+        "sc4": 5,
+        "total": 11,
+        "sc3_share": 0.5455
+      },
+      {
+        "lane": "CN \u2192 CZ",
+        "sc3": 6,
+        "sc4": 5,
+        "total": 11,
+        "sc3_share": 0.5455
+      },
+      {
+        "lane": "JP \u2192 DE",
+        "sc3": 0,
+        "sc4": 11,
+        "total": 11,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "CZ \u2192 TH",
+        "sc3": 7,
+        "sc4": 3,
+        "total": 10,
+        "sc3_share": 0.7
+      },
+      {
+        "lane": "DE \u2192 MY",
+        "sc3": 7,
+        "sc4": 3,
+        "total": 10,
+        "sc3_share": 0.7
+      },
+      {
+        "lane": "CN \u2192 PL",
+        "sc3": 3,
+        "sc4": 7,
+        "total": 10,
+        "sc3_share": 0.3
+      },
+      {
+        "lane": "PT \u2192 TH",
+        "sc3": 0,
+        "sc4": 9,
+        "total": 9,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "CN \u2192 RO",
+        "sc3": 4,
+        "sc4": 5,
+        "total": 9,
+        "sc3_share": 0.4444
+      },
+      {
+        "lane": "ES \u2192 CN",
+        "sc3": 0,
+        "sc4": 9,
+        "total": 9,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "HK \u2192 PT",
+        "sc3": 0,
+        "sc4": 8,
+        "total": 8,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "CZ \u2192 CN",
+        "sc3": 0,
+        "sc4": 8,
+        "total": 8,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "CN \u2192 IT",
+        "sc3": 0,
+        "sc4": 7,
+        "total": 7,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "MY \u2192 DE",
+        "sc3": 1,
+        "sc4": 6,
+        "total": 7,
+        "sc3_share": 0.1429
+      },
+      {
+        "lane": "CN \u2192 RS",
+        "sc3": 0,
+        "sc4": 7,
+        "total": 7,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "DE \u2192 SG",
+        "sc3": 3,
+        "sc4": 4,
+        "total": 7,
+        "sc3_share": 0.4286
+      },
+      {
+        "lane": "FR \u2192 CN",
+        "sc3": 0,
+        "sc4": 6,
+        "total": 6,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "JP \u2192 IT",
+        "sc3": 0,
+        "sc4": 6,
+        "total": 6,
+        "sc3_share": 0.0
+      },
+      {
+        "lane": "TW \u2192 DE",
+        "sc3": 3,
+        "sc4": 3,
+        "total": 6,
+        "sc3_share": 0.5
       }
     ]
   },
@@ -3900,6 +12041,7 @@
     "Booking mix is measured by shipment COUNT, not container or volume.",
     "Weekly files are activity snapshots, not cumulative bookings \u2014 mix is volatile week to week.",
     "CW20 SC3 (200 rows) and CW18 SC4 (208 rows) appear to be PARTIAL extracts vs typical ~400-650; treat single-week values as directional. Trailing-average is more reliable.",
-    "SC4 = ocean freight (Asia origin -> Europe). SC3 = NGTM road/inland legs (LSP trucking, mostly within Europe). Only DESTINATION country is comparable across the two datasets."
+    "SC3 origin = Leg_Pick_up_Country; SC4 origin = CONSIGNOR_ADDRESS_COUNTRY. These use different sourcing logic \u2014 lane-level comparisons are directional.",
+    "SC4 = ocean freight (Asia origin -> Europe). SC3 = NGTM road/inland legs (mostly within Europe or from CN/KR via road)."
   ]
 }
