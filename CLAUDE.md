@@ -81,6 +81,32 @@ Then: `python rebaseline.py && python extract_rca.py && cp kpi_data.json rca_dat
 - Merge flow: work on dev -> verify -> `git checkout main && git merge dev && git push origin main`
 - Remote: `https://github.com/hpuri84/bosch-milestone-analysis.git`
 
+## Dual-Repo Sync (ALP monorepo)
+This dashboard is mirrored into the Maersk ALP platform monorepo
+(`Maersk-Global/alp-development-platform`) as a prototype. **Every change must land
+in BOTH repos.** This repo (hpuri84) is the **source of truth** — it holds the Python
+pipeline + raw data. The monorepo is **downstream and app-only** (no `.py`, no raw data).
+
+| | This repo (hpuri84) | ALP monorepo |
+|---|---|---|
+| Remote | `hpuri84/bosch-milestone-analysis` | `Maersk-Global/alp-development-platform` |
+| Branch | dev → main (Vercel) | `prototype/business-prototypes/bosch-milestone-analysis` |
+| Layout | `dashboard/src`, `dashboard/public` | flattened: `src`, `public` (no `dashboard/`) |
+| Worktree | — | `.../alp-development-platform/.claude/worktrees/elegant-cray-79e841/projects/business-prototypes/bosch-milestone-analysis` |
+| Deploy | Vercel on push to main | Helm on push to prototype branch → `prototype-bosch-milestone-analysis.dev.maersk-digital.net` |
+
+**Workflow after making a change:**
+1. Do the work + run the pipeline in THIS repo; build + verify on local (`cd dashboard && npx vite`).
+2. Commit + push hpuri84 (dev → merge main → Vercel).
+3. Run `./sync_to_alp.sh "<one-line summary>"` — mirrors `dashboard/src`→`src` and
+   `dashboard/public/*.json`→`public` into the ALP worktree, updates its `changes.md`,
+   builds, and commits + pushes the prototype branch (triggers the Helm dev deploy).
+   It is a safe no-op if the monorepo already matches.
+
+**Notes:** `src/assets/` (Vite scaffold cruft) is excluded from the sync. If the worktree
+path changes, find it via `git -C <alp-root> worktree list` and update `WT_ROOT` in the script.
+The monorepo can never be source-of-truth for data — data always flows hpuri84 → monorepo.
+
 ## Dependencies
 - **Python:** openpyxl (only external dep). `pip install openpyxl`
 - **Node:** React, Recharts, Vite. `cd dashboard && npm install`

@@ -39,20 +39,67 @@ function KpiCard({ title, value, sub, accent, bad }) {
 const SC3_COLOR = C.maersk;
 const SC4_COLOR = C.amber;
 
-export default function BookingMix({ data, bookingMix, selectedWeek }) {
-  const [sortDesc, setSortDesc] = useState(true);
+function CountryTable({ rows, maxTotal, targetSc3, latestWeek, label: sectionLabel, sortKey, onSort, sortDesc }) {
+  if (!rows || rows.length === 0) {
+    return <div style={{ color: C.txt3, fontSize: 13 }}>No data for {latestWeek}.</div>;
+  }
+  return (
+    <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 13 }}>
+      <thead>
+        <tr style={{ textAlign: 'right', color: C.txt3, fontSize: 11, textTransform: 'uppercase', letterSpacing: '0.04em' }}>
+          <th style={{ textAlign: 'left', padding: '6px 8px' }}>{sectionLabel}</th>
+          <th style={{ padding: '6px 8px' }}>SC3</th>
+          <th style={{ padding: '6px 8px' }}>SC4</th>
+          <th style={{ padding: '6px 8px', cursor: 'pointer', userSelect: 'none' }} onClick={onSort}>
+            Total {sortDesc ? '↓' : '↑'}
+          </th>
+          <th style={{ padding: '6px 8px', minWidth: 160 }}>SC3 share</th>
+        </tr>
+      </thead>
+      <tbody>
+        {rows.map((r) => {
+          const key = r.country || r.lane;
+          const share = r.sc3_share * 100;
+          const far = Math.abs(share - targetSc3) > 30;
+          const barW = Math.max(2, Math.min(100, (r.total / maxTotal) * 100));
+          return (
+            <tr key={key} style={{ borderTop: `1px solid ${C.border}` }}>
+              <td style={{ padding: '7px 8px', fontFamily: C.mono, fontWeight: 600, maxWidth: 240, wordBreak: 'break-word' }}>{key}</td>
+              <td style={{ padding: '7px 8px', textAlign: 'right', fontFamily: C.mono, color: SC3_COLOR }}>{r.sc3}</td>
+              <td style={{ padding: '7px 8px', textAlign: 'right', fontFamily: C.mono, color: C.amber }}>{r.sc4}</td>
+              <td style={{ padding: '7px 8px', textAlign: 'right', fontFamily: C.mono, fontWeight: 600 }}>{r.total}</td>
+              <td style={{ padding: '7px 8px' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                  <div style={{ flex: 1, height: 8, background: C.sec, borderRadius: 4, overflow: 'hidden' }}>
+                    <div style={{
+                      width: `${barW}%`, height: '100%', background: SC3_COLOR, opacity: 0.3,
+                    }} />
+                  </div>
+                  <span style={{
+                    fontFamily: C.mono, minWidth: 48, textAlign: 'right',
+                    color: far ? C.red : C.txt2, fontWeight: far ? 600 : 400,
+                  }}>{share.toFixed(1)}%</span>
+                </div>
+              </td>
+            </tr>
+          );
+        })}
+      </tbody>
+    </table>
+  );
+}
 
-  // Headline trend: prefer kpi_data array (sc3_shipments/sc4_shipments); fall back to bookingMix.weekly
+export default function BookingMix({ data, bookingMix, selectedWeek }) {
+  const [originSortDesc, setOriginSortDesc] = useState(true);
+  const [laneSortDesc, setLaneSortDesc] = useState(true);
+
   const trend = useMemo(() => {
     if (Array.isArray(data) && data.length && data[0].sc3_shipments != null) {
       return data.map((d) => {
         const sc3 = d.sc3_shipments || 0;
         const sc4 = d.sc4_shipments || 0;
         const total = sc3 + sc4;
-        return {
-          week: d.week, sc3, sc4, total,
-          sc3_share: total ? (sc3 / total) * 100 : 0,
-        };
+        return { week: d.week, sc3, sc4, total, sc3_share: total ? (sc3 / total) * 100 : 0 };
       });
     }
     if (bookingMix?.weekly) {
@@ -66,25 +113,26 @@ export default function BookingMix({ data, bookingMix, selectedWeek }) {
 
   const targetSc3 = (bookingMix?.target_sc3 ?? 0.8) * 100;
   const latestWeek = selectedWeek || bookingMix?.latest_week || (trend.length ? trend[trend.length - 1].week : null);
-
   const cur = trend.find((t) => t.week === latestWeek) || trend[trend.length - 1];
   const trail = bookingMix?.trailing4_sc3_share?.[latestWeek];
 
-  const destRows = useMemo(() => {
-    const rows = bookingMix?.by_dest_country?.[latestWeek] || [];
-    const copy = [...rows];
-    copy.sort((a, b) => (sortDesc ? b.total - a.total : a.total - b.total));
-    return copy;
-  }, [bookingMix, latestWeek, sortDesc]);
+  const originRows = useMemo(() => {
+    const rows = [...(bookingMix?.by_origin_country?.[latestWeek] || [])];
+    rows.sort((a, b) => (originSortDesc ? b.total - a.total : a.total - b.total));
+    return rows;
+  }, [bookingMix, latestWeek, originSortDesc]);
 
-  const maxDestTotal = destRows.reduce((m, r) => Math.max(m, r.total), 0) || 1;
+  const laneRows = useMemo(() => {
+    const rows = [...(bookingMix?.by_lane?.[latestWeek] || [])];
+    rows.sort((a, b) => (laneSortDesc ? b.total - a.total : a.total - b.total));
+    return rows.slice(0, 25);
+  }, [bookingMix, latestWeek, laneSortDesc]);
+
+  const maxOriginTotal = originRows.reduce((m, r) => Math.max(m, r.total), 0) || 1;
+  const maxLaneTotal = laneRows.reduce((m, r) => Math.max(m, r.total), 0) || 1;
 
   if (!bookingMix) {
-    return (
-      <div style={{ padding: 24, color: C.txt3, fontFamily: C.disp }}>
-        booking_mix.json not loaded.
-      </div>
-    );
+    return <div style={{ padding: 24, color: C.txt3, fontFamily: C.disp }}>booking_mix.json not loaded.</div>;
   }
 
   const curShare = cur ? cur.sc3_share : 0;
@@ -96,8 +144,8 @@ export default function BookingMix({ data, bookingMix, selectedWeek }) {
       <div style={{ marginBottom: 8 }}>
         <h2 style={{ fontSize: 20, fontWeight: 700, margin: 0 }}>Booking Mix — SC3 vs SC4</h2>
         <div style={{ fontSize: 13, color: C.txt2, marginTop: 4 }}>
-          Share of shipment count by scenario, against the {targetSc3.toFixed(0)}% SC3 / {(100 - targetSc3).toFixed(0)}% SC4 target.
-          Showing <span style={{ fontFamily: C.mono }}>{latestWeek}</span>.
+          Shipment count split by scenario vs {targetSc3.toFixed(0)}% SC3 / {(100 - targetSc3).toFixed(0)}% SC4 target.
+          Showing <span style={{ fontFamily: C.mono }}>{latestWeek}</span> · by origin country and lane.
         </div>
       </div>
 
@@ -137,7 +185,7 @@ export default function BookingMix({ data, bookingMix, selectedWeek }) {
               contentStyle={{ fontFamily: C.mono, fontSize: 12, borderRadius: 6, border: `1px solid ${C.border}` }}
               formatter={(v, n) => (n === 'SC3 share %' ? [`${Number(v).toFixed(1)}%`, n] : [Number(v).toLocaleString(), n])} />
             <Legend wrapperStyle={{ fontSize: 12, fontFamily: C.disp }} />
-            <Bar yAxisId="cnt" dataKey="sc3" name="SC3 count" stackId="a" fill={SC3_COLOR} radius={[0, 0, 0, 0]} />
+            <Bar yAxisId="cnt" dataKey="sc3" name="SC3 count" stackId="a" fill={SC3_COLOR} />
             <Bar yAxisId="cnt" dataKey="sc4" name="SC4 count" stackId="a" fill={SC4_COLOR} radius={[2, 2, 0, 0]} />
             <ReferenceLine yAxisId="pct" y={targetSc3} stroke={C.green} strokeDasharray="5 4"
               label={{ value: `${targetSc3.toFixed(0)}% target`, position: 'insideTopRight', fontSize: 11, fill: C.green, fontFamily: C.mono }} />
@@ -147,66 +195,52 @@ export default function BookingMix({ data, bookingMix, selectedWeek }) {
         </ResponsiveContainer>
       </div>
 
-      {/* Dest country table */}
-      <div style={{
-        background: C.card, border: `1px solid ${C.border}`, borderRadius: 8,
-        padding: '16px 18px', boxShadow: 'var(--shadow-sm)', marginBottom: 16,
-      }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 12 }}>
-          <div style={label}>Destination country distribution — {latestWeek}</div>
-          <button onClick={() => setSortDesc((s) => !s)} style={{
-            fontSize: 11, fontFamily: C.mono, cursor: 'pointer', background: C.acc,
-            border: `1px solid ${C.border}`, borderRadius: 6, padding: '4px 10px', color: C.txt2,
-          }}>
-            total {sortDesc ? '↓' : '↑'}
-          </button>
+      {/* Two-column layout for origin and lane tables */}
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(380px, 1fr))', gap: 16, marginBottom: 16 }}>
+
+        {/* Origin country table */}
+        <div style={{
+          background: C.card, border: `1px solid ${C.border}`, borderRadius: 8,
+          padding: '16px 18px', boxShadow: 'var(--shadow-sm)',
+        }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 12 }}>
+            <div style={label}>Origin country — {latestWeek}</div>
+          </div>
+          <CountryTable
+            rows={originRows}
+            maxTotal={maxOriginTotal}
+            targetSc3={targetSc3}
+            latestWeek={latestWeek}
+            label="Country"
+            sortDesc={originSortDesc}
+            onSort={() => setOriginSortDesc((s) => !s)}
+          />
+          <div style={{ fontSize: 11, color: C.txt3, marginTop: 10 }}>
+            SC3 origin = Leg_Pick_up_Country · SC4 origin = CONSIGNOR_ADDRESS_COUNTRY.
+            Red = &gt;30 pp from {targetSc3.toFixed(0)}% SC3 target.
+          </div>
         </div>
-        {destRows.length === 0 ? (
-          <div style={{ color: C.txt3, fontSize: 13 }}>No destination data for {latestWeek}.</div>
-        ) : (
-          <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 13 }}>
-            <thead>
-              <tr style={{ textAlign: 'right', color: C.txt3, fontSize: 11, textTransform: 'uppercase', letterSpacing: '0.04em' }}>
-                <th style={{ textAlign: 'left', padding: '6px 8px' }}>Country</th>
-                <th style={{ padding: '6px 8px' }}>SC3</th>
-                <th style={{ padding: '6px 8px' }}>SC4</th>
-                <th style={{ padding: '6px 8px' }}>Total</th>
-                <th style={{ padding: '6px 8px', minWidth: 160 }}>SC3 share</th>
-              </tr>
-            </thead>
-            <tbody>
-              {destRows.map((r) => {
-                const share = r.sc3_share * 100;
-                const far = Math.abs(share - targetSc3) > 30;
-                return (
-                  <tr key={r.country} style={{ borderTop: `1px solid ${C.border}` }}>
-                    <td style={{ padding: '7px 8px', fontFamily: C.mono, fontWeight: 600 }}>{r.country}</td>
-                    <td style={{ padding: '7px 8px', textAlign: 'right', fontFamily: C.mono, color: SC3_COLOR }}>{r.sc3}</td>
-                    <td style={{ padding: '7px 8px', textAlign: 'right', fontFamily: C.mono, color: C.amber }}>{r.sc4}</td>
-                    <td style={{ padding: '7px 8px', textAlign: 'right', fontFamily: C.mono, fontWeight: 600 }}>{r.total}</td>
-                    <td style={{ padding: '7px 8px' }}>
-                      <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                        <div style={{ flex: 1, height: 8, background: C.sec, borderRadius: 4, overflow: 'hidden' }}>
-                          <div style={{
-                            width: `${Math.max(2, Math.min(100, (r.total / maxDestTotal) * 100))}%`,
-                            height: '100%', background: SC3_COLOR, opacity: 0.25, position: 'relative',
-                          }} />
-                        </div>
-                        <span style={{
-                          fontFamily: C.mono, minWidth: 48, textAlign: 'right',
-                          color: far ? C.red : C.txt2, fontWeight: far ? 600 : 400,
-                        }}>{share.toFixed(1)}%</span>
-                      </div>
-                    </td>
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
-        )}
-        <div style={{ fontSize: 11, color: C.txt3, marginTop: 10 }}>
-          SC3 dest = Leg_Delivery_Country · SC4 dest = CONSIGNEE_ADDRESS_COUNTRY.
-          Red share = &gt;30pp from the {targetSc3.toFixed(0)}% SC3 target.
+
+        {/* Lane table */}
+        <div style={{
+          background: C.card, border: `1px solid ${C.border}`, borderRadius: 8,
+          padding: '16px 18px', boxShadow: 'var(--shadow-sm)',
+        }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 12 }}>
+            <div style={label}>Top lanes (origin → dest) — {latestWeek}</div>
+          </div>
+          <CountryTable
+            rows={laneRows}
+            maxTotal={maxLaneTotal}
+            targetSc3={targetSc3}
+            latestWeek={latestWeek}
+            label="Lane"
+            sortDesc={laneSortDesc}
+            onSort={() => setLaneSortDesc((s) => !s)}
+          />
+          <div style={{ fontSize: 11, color: C.txt3, marginTop: 10 }}>
+            Top 25 lanes by shipment count. Both SC3 and SC4 shipments where origin AND destination are known.
+          </div>
         </div>
       </div>
 
