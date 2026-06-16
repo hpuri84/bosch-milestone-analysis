@@ -18,7 +18,7 @@ BASE = os.path.dirname(os.path.abspath(__file__))
 RAW = os.path.join(BASE, "Bosch Milestone raw data")
 OUT = os.path.join(BASE, "dashboard", "public", "booking_mix.json")
 
-WEEKS = [f"CW{i:02d}" for i in range(1, 21)]
+WEEKS = [f"CW{i:02d}" for i in range(1, 23)]
 TARGET_SC3 = 0.80
 TARGET_SC4 = 0.20
 
@@ -153,9 +153,15 @@ def main():
     by_lane = {}
     diag = {}
 
+    skipped_no_sc3 = []
     for week in WEEKS:
         p3, p4 = sc3_path(week), sc4_path(week)
         if not (os.path.exists(p3) or os.path.exists(p4)):
+            continue
+        # Booking mix is an SC3-vs-SC4 ratio — undefined without SC3. Skip such
+        # weeks rather than emit a misleading 0%-SC3 data point.
+        if not os.path.exists(p3):
+            skipped_no_sc3.append(week)
             continue
 
         sc3, sc3_orig, sc3_dest, sc3_lanes = analyze_file(
@@ -203,6 +209,11 @@ def main():
         "SC3 origin = Leg_Pick_up_Country; SC4 origin = CONSIGNOR_ADDRESS_COUNTRY. These use different sourcing logic — lane-level comparisons are directional.",
         "SC4 = ocean freight (Asia origin -> Europe). SC3 = NGTM road/inland legs (mostly within Europe or from CN/KR via road).",
     ]
+    if skipped_no_sc3:
+        notes.append(
+            "Weeks excluded (SC3 data not yet available, booking mix undefined): "
+            + ", ".join(skipped_no_sc3) + "."
+        )
 
     payload = {
         "generated": datetime.now(timezone.utc).isoformat(),

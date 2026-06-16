@@ -18,8 +18,8 @@ from datetime import timedelta
 BASE = os.path.dirname(os.path.abspath(__file__))
 RAW_DIR = os.path.join(BASE, "Bosch Milestone raw data")
 
-WEEKS = ["CW01", "CW02", "CW03", "CW04", "CW05", "CW06", "CW07", "CW08", "CW09", "CW10", "CW11", "CW12", "CW13", "CW14", "CW15", "CW16", "CW17", "CW18", "CW19", "CW20"]
-SC3_FILES = {f"CW{i:02d}": f"Maersk NGTM SC3_2026_CW{i:02d}.xlsx" for i in range(1, 21)}
+WEEKS = ["CW01", "CW02", "CW03", "CW04", "CW05", "CW06", "CW07", "CW08", "CW09", "CW10", "CW11", "CW12", "CW13", "CW14", "CW15", "CW16", "CW17", "CW18", "CW19", "CW20", "CW21", "CW22"]
+SC3_FILES = {f"CW{i:02d}": f"Maersk NGTM SC3_2026_CW{i:02d}.xlsx" for i in range(1, 23)}
 SC3_FILES["CW10"] = "Maersk SC3_2026_CW10.xlsx"  # CW10+ has different naming
 SC3_FILES["CW11"] = "Maersk SC3_2026_CW11.xlsx"
 SC3_FILES["CW12"] = "Maersk SC3_2026_CW12.xlsx"
@@ -31,7 +31,9 @@ SC3_FILES["CW17"] = "Maersk SC3_2026_CW17.xlsx"
 SC3_FILES["CW18"] = "Maersk SC3_2026_CW18.xlsx"
 SC3_FILES["CW19"] = "Maersk SC3_2026_CW19.xlsx"
 SC3_FILES["CW20"] = "Maersk SC3_2026_CW20.xlsx"
-SC4_FILES = {f"CW{i:02d}": f"Maersk SC4_2026_CW{i:02d}.xlsx" for i in range(1, 21)}
+SC3_FILES["CW22"] = "Maersk SC3_2026_CW22.xlsx"
+SC3_FILES["CW21"] = "Maersk SC3_2026_CW21.xlsx"  # not yet delivered — SC4-only week
+SC4_FILES = {f"CW{i:02d}": f"Maersk SC4_2026_CW{i:02d}.xlsx" for i in range(1, 23)}
 SC3_CRITICAL_CODES = {"S02", "S04", "S07", "S31"}
 SC4_CRITICAL_CODES = {"S00", "S02", "S04", "S07", "S31"}
 
@@ -788,7 +790,10 @@ def extract_plausibility_rca(sc4_filepath, sc3_filepath):
     from collections import Counter
 
     sc4_violations, sc4_total, sc4_affected = extract_plausibility_rca_sc4(sc4_filepath)
-    sc3_violations, sc3_total, sc3_affected = extract_plausibility_rca_sc3(sc3_filepath)
+    if sc3_filepath:
+        sc3_violations, sc3_total, sc3_affected = extract_plausibility_rca_sc3(sc3_filepath)
+    else:
+        sc3_violations, sc3_total, sc3_affected = [], 0, set()
 
     all_violations = sc4_violations + sc3_violations
     total_shipments = sc4_total + sc3_total
@@ -860,20 +865,23 @@ def process_week(week):
     sc3_file = os.path.join(RAW_DIR, SC3_FILES[week])
     sc4_file = os.path.join(RAW_DIR, SC4_FILES[week])
 
-    if not os.path.exists(sc3_file) or not os.path.exists(sc4_file):
-        print(f"    Files missing for {week}")
+    if not os.path.exists(sc4_file):
+        print(f"    SC4 file missing for {week}")
         return None
+    sc3_present = os.path.exists(sc3_file)
+    if not sc3_present:
+        print(f"    SC3 file missing for {week} — SC4-only RCA (partial week)")
 
     # Summary data
-    sc3_summary = read_total_summary(sc3_file)
+    sc3_summary = read_total_summary(sc3_file) if sc3_present else []
     sc4_summary = read_total_summary(sc4_file)
 
     # Detail data
     sc4_details = extract_sc4_detail(sc4_file)
-    sc3_details = extract_sc3_detail(sc3_file)
+    sc3_details = extract_sc3_detail(sc3_file) if sc3_present else []
 
     # SC3 HBL mapping
-    sc3_hbl_map = build_sc3_load_to_hbl_map(sc3_file)
+    sc3_hbl_map = build_sc3_load_to_hbl_map(sc3_file) if sc3_present else {}
 
     # Build missing shipment lists
     missing_map = build_missing_shipments(sc4_details, sc3_details, sc3_hbl_map)
@@ -927,10 +935,10 @@ def process_week(week):
     # ETA & Reference RCA (SC4 only)
     eta_ref_rca = extract_eta_ref_rca(sc4_file)
 
-    # Plausibility RCA (SC3 + SC4 combined)
-    plausibility_rca = extract_plausibility_rca(sc4_file, sc3_file)
+    # Plausibility RCA (SC3 + SC4 combined; SC4-only when SC3 absent)
+    plausibility_rca = extract_plausibility_rca(sc4_file, sc3_file if sc3_present else None)
 
-    return {
+    result = {
         "week": week,
         "milestones": milestones,
         "total_missing": total_missing,
@@ -940,6 +948,9 @@ def process_week(week):
         "eta_ref_rca": eta_ref_rca,
         "plausibility_rca": plausibility_rca,
     }
+    if not sc3_present:
+        result["sc3_missing"] = True
+    return result
 
 
 def main():

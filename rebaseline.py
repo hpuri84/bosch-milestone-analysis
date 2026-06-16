@@ -32,9 +32,9 @@ import json
 BASE = os.path.dirname(os.path.abspath(__file__))
 RAW_DIR = os.path.join(BASE, "Bosch Milestone raw data")
 
-WEEKS = ["CW01", "CW02", "CW03", "CW04", "CW05", "CW06", "CW07", "CW08", "CW09", "CW10", "CW11", "CW12", "CW13", "CW14", "CW15", "CW16", "CW17", "CW18", "CW19", "CW20"]
+WEEKS = ["CW01", "CW02", "CW03", "CW04", "CW05", "CW06", "CW07", "CW08", "CW09", "CW10", "CW11", "CW12", "CW13", "CW14", "CW15", "CW16", "CW17", "CW18", "CW19", "CW20", "CW21", "CW22"]
 
-SC3_FILES = {f"CW{i:02d}": f"Maersk NGTM SC3_2026_CW{i:02d}.xlsx" for i in range(1, 21)}
+SC3_FILES = {f"CW{i:02d}": f"Maersk NGTM SC3_2026_CW{i:02d}.xlsx" for i in range(1, 23)}
 SC3_FILES["CW10"] = "Maersk SC3_2026_CW10.xlsx"  # CW10+ has different naming
 SC3_FILES["CW11"] = "Maersk SC3_2026_CW11.xlsx"
 SC3_FILES["CW12"] = "Maersk SC3_2026_CW12.xlsx"
@@ -46,7 +46,9 @@ SC3_FILES["CW17"] = "Maersk SC3_2026_CW17.xlsx"
 SC3_FILES["CW18"] = "Maersk SC3_2026_CW18.xlsx"
 SC3_FILES["CW19"] = "Maersk SC3_2026_CW19.xlsx"
 SC3_FILES["CW20"] = "Maersk SC3_2026_CW20.xlsx"
-SC4_FILES = {f"CW{i:02d}": f"Maersk SC4_2026_CW{i:02d}.xlsx" for i in range(1, 21)}
+SC3_FILES["CW22"] = "Maersk SC3_2026_CW22.xlsx"
+SC3_FILES["CW21"] = "Maersk SC3_2026_CW21.xlsx"  # not yet delivered — SC4-only week
+SC4_FILES = {f"CW{i:02d}": f"Maersk SC4_2026_CW{i:02d}.xlsx" for i in range(1, 23)}
 SC3_CRITICAL_CODES = {"S02", "S04", "S07", "S31"}
 SC4_CRITICAL_CODES = {"S00", "S02", "S04", "S07", "S31"}
 
@@ -435,15 +437,18 @@ def process_week(week):
     sc3_file = os.path.join(RAW_DIR, SC3_FILES[week])
     sc4_file = os.path.join(RAW_DIR, SC4_FILES[week])
 
-    if not os.path.exists(sc3_file):
-        print(f"    SC3 file missing: {SC3_FILES[week]}")
-        return None
+    # SC4 is mandatory; SC3 is optional (some weeks arrive SC4-first). When SC3 is
+    # absent we process SC4-only and flag the week partial so combined/SC3 metrics
+    # are read with that caveat.
     if not os.path.exists(sc4_file):
         print(f"    SC4 file missing: {SC4_FILES[week]}")
         return None
+    sc3_present = os.path.exists(sc3_file)
+    if not sc3_present:
+        print(f"    SC3 file missing: {SC3_FILES[week]} — processing SC4-only (partial week)")
 
     # Read TOTAL summary sheets
-    sc3_data = read_summary_sheet(sc3_file)
+    sc3_data = read_summary_sheet(sc3_file) if sc3_present else []
     sc4_data = read_summary_sheet(sc4_file)
 
     if not sc3_data:
@@ -468,9 +473,11 @@ def process_week(week):
 
     for svc in SERVICE_TYPES:
         # SC3 service type — try summary first, fall back to detail aggregation
-        sc3_svc_rows = read_service_summary(sc3_file, svc)
-        if not sc3_svc_rows:
-            sc3_svc_rows = read_service_detail_as_summary(sc3_file, svc)
+        sc3_svc_rows = []
+        if sc3_present:
+            sc3_svc_rows = read_service_summary(sc3_file, svc)
+            if not sc3_svc_rows:
+                sc3_svc_rows = read_service_detail_as_summary(sc3_file, svc)
         if sc3_svc_rows:
             service_breakdown["SC3"][svc] = {
                 "all": compute_kpis(sc3_svc_rows),
@@ -498,10 +505,10 @@ def process_week(week):
     eta_ref = compute_eta_and_ref(shipments)
 
     # Shipment counts (unique shipments from Shipments sheets)
-    sc3_ship_count = count_sc3_shipments(sc3_file)
+    sc3_ship_count = count_sc3_shipments(sc3_file) if sc3_present else 0
     sc4_ship_count = len(shipments)
 
-    return {
+    result = {
         "week": week,
         "critical": crit_kpis,
         "all": all_kpis,
@@ -514,6 +521,10 @@ def process_week(week):
         "service_breakdown": service_breakdown,
         **eta_ref,
     }
+    if not sc3_present:
+        # Combined (all/critical) and SC3 fields reflect SC4 only for this week.
+        result["sc3_missing"] = True
+    return result
 
 
 def fmt_pct(val):
