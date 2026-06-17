@@ -1,0 +1,297 @@
+{
+ "executive_summary": "The headline reconciles exactly to the live pipeline: of 5,949 delivered Bosch SC4 shipments (CW01-21, Maersk sole carrier), only 882 (14.8%) pass ETA-2D, but the 85% miss splits into three mechanically distinct problems that are being scored as one. 22.0% (1,307) never had a T-7 door snapshot transmitted at all (no deviation exists to be 'late' against) and 18.1% (1,075) were delivered MORE than 48h EARLY versus our own estimate -- together 40.1% of all delivered are NOT late-delivery execution. Of the 2,685 late misses, only 31 of 2,396 with port data (1.3%) also arrived >48h late at the PORT; the rest reached port on time and the lateness materialises in a 12-18 day last-mile/door window, i.e. an estimate anchored at port-arrival and never revised. BUT be honest internally: the 'early' half is OUR stale estimate (not a neutral win), 27.8% of snapshotted misses are >14 days off (hard to wave away), and 31.9% of late misses are within 7 days -- one revision (which Bosch's spec already requires) would have caught them, so 'we never revised' partly cuts against us. Two structural claims from earlier framings are REFUTED on this data and must be dropped: there are ZERO air shipments (100% ocean, 72-day median transit) and intra-EU short lanes are 0.13% -- the 'air/short-lane T-7 impossible' argument would discredit the whole case. Genuine Maersk last-mile exposure is real, narrow, and concentrated in Germany (DE 1,529 late, +11.4d median; plus Miskolc HU, severe-deviation CZ/IT cities) -- name it and own it; the pushback is about how the KPI is measured, not a denial of fault.",
+ "headline_metrics": [
+  {
+   "label": "Accepted (T-7 snapshot present AND |dev|<=48h vs delivery)",
+   "value": "882 (14.8%)",
+   "n": 5949,
+   "note": "Canonical KPI value; matches kpi_data.json exactly."
+  },
+  {
+   "label": "no_t7 -- delivered but NO T-7 door snapshot ever transmitted",
+   "value": "1,307 (22.0%)",
+   "n": 5949,
+   "note": "Counts as a miss; carries null deviation by construction -- a transmission/measurement-design gap, not late execution."
+  },
+  {
+   "label": "Delivered >48h EARLY vs estimate",
+   "value": "1,075 (18.1%)",
+   "n": 5949,
+   "note": "Cannot be a late delivery; evidence the estimate is too conservative/stale. Median 6.7d early, but 48% are >=7d early."
+  },
+  {
+   "label": "Delivered >48h LATE vs estimate",
+   "value": "2,685 (45.1%)",
+   "n": 5949,
+   "note": "The genuine-lateness pool; only 1.3% are port-late, so it is last-mile and/or frozen-estimate."
+  },
+  {
+   "label": "Overall ETA-2D accuracy",
+   "value": "14.8%",
+   "n": 5949,
+   "note": "Target 90%. Even stripping no_t7 + early, accuracy only rises to 24.7% (882/3,567)."
+  },
+  {
+   "label": "T-7 door-snapshot completeness (transmitted at all)",
+   "value": "4,642 / 5,949 = 78.0%",
+   "n": 5949,
+   "note": "Hard accuracy ceiling at ANY tolerance is 78.0% -- the 22% no_t7 floor alone makes 90% unreachable without fixing transmission."
+  }
+ ],
+ "pillars": [
+  {
+   "title": "40% of the miss is measurement design, not delivery execution -- but only the transmission half is cleanly non-fault",
+   "thesis": "22.0% no_t7 (no snapshot to be late against) + 18.1% delivered >48h EARLY = 40.1% of delivered shipments are not late-delivery failures. The no_t7 half is unambiguously a measurement/transmission issue; the early half is also not 'late', but it is OUR estimate being stale -- so it must be reframed as an estimate-basis defect, not exonerated.",
+   "evidence": [
+    "no_t7 = 1,307/5,949 = 22.0% (n=5,949); all 1,307 carry null dev_hours/direction -- there is no estimate to be late against.",
+    "early_gt48 = 1,075/5,949 = 18.1% (n=5,949); median 6.7d early, but 48.2% (518/1,075) are >=7d early and 11.2% are >=14d early.",
+    "Stripping BOTH only moves accuracy from 14.8% to 24.7% (882/3,567) -- this reclassifies failures, it does not eliminate them.",
+    "Early deliveries reach port on time (96.6% within +-48h) then take ~8.5d last-mile yet still land 6.7d before the door estimate -- positive proof the S31 estimate is inflated relative to real last-mile."
+   ],
+   "strength": "survives_with_caveat",
+   "honest_caveat": "The 'early' 18% is a Maersk estimate-quality failure, just not a LATE one. Saying '40% should not be scored as delivery performance' overreaches -- early and late are the SAME frozen-estimate defect on opposite sides of the boundary. Lead with the 22% transmission carve-out; reframe the 18% as a basis fix, do not claim it as a clean win.",
+   "bosch_counterargument": "\"You are relabelling Maersk failures as 'not our problem.' The KPI asks one thing -- can we trust the door ETA you send? In 22% you sent nothing (feasible on 100%-ocean lanes, your own data shows zero air), and in 18% you sent an estimate so stale cargo beat it by a median 6.7 and up to 117 days. Even granting your whole 40%, you still miss 3 of every 4 ETAs you bothered to transmit.\"",
+   "maersk_response": "Concede the framing: we are not asking to delete failures, we are asking to MEASURE them as the distinct things they are. Ask (a) report T-7 transmission COMPLETENESS as its own KPI line so a missing snapshot is not scored as a missed delivery, and (b) fix the S31 estimate basis + enable mandatory revision-with-reason-codes (which your spec already requires) -- that single fix collapses both the 18% early and a large share of the 45% late, because they are one defect."
+  },
+  {
+   "title": "Late door-misses are not an ocean/port problem -- the cargo arrives on time and the door estimate is port-anchored and never revised",
+   "thesis": "The genuine late pool is overwhelmingly last-mile-and-estimate, not main-leg: only 1.3% of late misses with port data also arrived >48h late at the port. The transmitted ETA behaves like a PORT time, not a door promise, so a +-48h DOOR window is structurally unmeetable regardless of execution. The 'frozen at S04 and never revised' mechanism is the most consistent explanation -- but it is INFERRED, not read off a timestamp.",
+   "evidence": [
+    "Late-miss port attribution: 31/2,396 = 1.3% port-late; 2,365/2,396 = 98.7% reached port on time (median port deviation 0.2h) (n=2,396).",
+    "The exposed eta column sits on port arrival: median(eta-ata) = -0.2h, 52% within 1h of ATA, 98.6% of ETAs before actual delivery -- while true port-to-door is 12.4d median (p90 25.6d) (n=5,344).",
+    "Median last-mile for late misses 17.5d vs 11.0d for accepted (+6.5d) (n=3,243) -- door lateness materialises after port.",
+    "Maersk's OWN requirements note (verbatim): 'we have workflow for BOSCH est delivery rely on ATA or ETA? Should we align est delivery first?' -- the estimate basis is unsettled on our side."
+   ],
+   "strength": "survives_with_caveat",
+   "honest_caveat": "CRITICAL: there is no S31 snapshot timestamp, no S04 date, and no revision count in this dataset -- t7_present is a bare boolean. We CANNOT prove 'frozen and never revised' as a measured fact; it is inferred from on-time-port + long-last-mile + the port-anchored eta column. Also a DATA-INTEGRITY landmine: dev_hours reconciles to neither (delivered-eta) nor (delivered-ata) in 99.7% of rows, so the eta/ata columns are PORT values -- cite them ONLY to show port-anchoring, never project them as 'the KPI's ETA' or Bosch can impeach the exhibit.",
+   "bosch_counterargument": "\"Show us the freeze. Your file has no snapshot timestamp and no revision count -- you are inferring 'frozen/not revised' from our spec text and presenting it as your finding. Our spec REQUIRES revision with a reason code; the absence of revision is a Maersk process failure to meet spec, not a KPI flaw. And by your OWN rollup 98.7% of late misses trace to last-mile -- the leg you operate end-to-end on a door booking.\"",
+   "maersk_response": "Do not assert the freeze as fact. Lead with what is observable: the estimate behaves like a port time and a +-48h door window cannot be met on a 12-day port-to-door leg. Concede the last-mile point up front (it removes the 'you're absolving yourselves' attack), then ask to (a) agree the estimated-delivery basis (ATA- vs ETA-derived + revision cadence) BEFORE grading, and (b) request the S31 transmission/revision log to convert inference to proof. Frame as a joint basis fix, not exoneration."
+  },
+  {
+   "title": "Widening the tolerance does not fix it -- and the 'air/short-lane structurally impossible' argument is REFUTED on this data",
+   "thesis": "The basis is the problem, not the threshold: even at +-14 days (7x the spec window) accuracy reaches only 60.5%, with a hard ceiling of 78.0% at ANY tolerance because 22% never transmitted a snapshot. The earlier 'air/short transit makes T-7 impossible' premise has ZERO instances here (100% ocean, 72-day median transit) and must be dropped. Real structural unmeetability comes from the no_t7 floor + a port-anchored estimate + a handful of gross-deviation consolidation lanes -- an explicit upper bound of ~45%, whose unassailable core is the 22% no_t7.",
+   "evidence": [
+    "What-if accuracy sweep (n=5,949, t7 required): +-48h 14.8%, +-7d 38.7%, +-14d 60.5%, +-30d 69.3%; hard ceiling 78.0% at any window.",
+    "TRANSPORT_MODE = Sea for 100% of sampled raw rows (n=1,238); only 18/4,496 (0.4%) have transit <=14d; intra-EU short lanes = 8 shipments (0.13%).",
+    "FCL/FCL/FCL (least-consolidated) is the WORST cohort at +-14d (52.9%) with the highest no_t7 (29.3%) -- so 'consolidation' cannot be the dominant structural cause; it is a +10.8pt skew, not a driver.",
+    "Upper-bound structurally-unmeetable union = 2,691 (45.2%): no_t7 1,307 + early 1,075 + late-on-gross-dev-lane 309; reconciles exactly (2,691 + 882 accepted + 2,376 genuine-late = 5,949)."
+   ],
+   "strength": "survives_with_caveat",
+   "honest_caveat": "The 45% is an explicit UPPER BOUND. The no_t7 tier (22%) is unassailable; the early tier assumes early = estimate-miss rather than genuinely beating ETA (arguable); the gross-dev-late tier (309) is the weakest, lane-level attribution. A skeptical reader can discount tiers B/C and pull the defensible floor toward 22%. The 27.8% of snapshotted misses that are >14d off are hard to call a pure measurement artifact.",
+   "bosch_counterargument": "\"You named two causes -- air and short/consolidation lanes -- and both are fiction here: zero air, 0.13% short, and your pure-container cohort fails HARDEST. Nothing is 'structurally unmeetable.' What your own +-14d test exposes is that 22% never got a snapshot and the ones you send are so wrong that ~930 land >14 days late while arriving on time at port -- a frozen, unrevised estimate. Widening tolerance is moving the goalposts to hide a process gap you control.\"",
+   "maersk_response": "Drop air/short/consolidation entirely. Lead with the two facts that hold cold: no tolerance reaches 90% (ceiling 78%), and that ceiling is set by the 22% transmission floor we own. Do NOT ask for a wider blanket tolerance. Ask instead that 2D be scored against the LATEST revised S31 estimate (not the S04 freeze) and that early delivery be treated asymmetrically -- and commit to closing the transmission gap and enabling event-driven re-estimation."
+  },
+  {
+   "title": "Genuine Maersk last-mile exposure is real but narrow -- concede it by name; do not over-concede Hungary",
+   "thesis": "Most reasoned lateness is upstream/external, and within the 15% of late misses that carry a reason, strictly destination-controllable causes are only 12.6% (51/406) -- at most 33% if the ambiguous 'delivery delayed by carrier' is read as last-mile. The genuine, defensibly-Maersk last-mile exposure concentrates in Germany; Hungary (largest destination) should NOT be conceded -- its last-mile distribution is tighter than DE and its lateness is inherited/estimate-staleness.",
+   "evidence": [
+    "Reasoned late misses (n=406, only 15.1% coverage of 2,685): strict destination-controllable 51 (12.6%, 95% CI 9.7-16.1%); broad 135 (33.3%); origin 32.8%; holiday/external 19.2%; main-leg disruption 14.8%.",
+    "48 of 51 strict destination-reason late misses are DE (hub-delay/failed-attempt at Kalefeld, Langenau Wuertt, Neustadt Sachsen, Hildesheim, Immenstadt, Leinfelden); DE last-mile median 15.6d / p90 29.6d.",
+    "DE country: 1,529 late vs 191 early, only 11% no_t7, avg +11.4d -- the core Maersk-exposed bucket (39.3% of all 5,067 failures).",
+    "HU: 1,141 delivered but only 2 destination-reason late misses; last-mile median 12.2d / p90 20.5d (tighter than DE) -- inherited/estimate, not HU door execution.",
+    "supplier_responsible=Y on only 91/5,949 (74 of 2,685 late misses = 2.8%), dominated by docs/invoice/pickup (origin) -- Bosch itself flags almost nothing as supplier-caused."
+   ],
+   "strength": "survives_with_caveat",
+   "honest_caveat": "Do NOT present 'last-mile is a minority' as a standalone defence -- Maersk's own rollup shows last_mile = 2,365/2,396 = 98.7%, and quoted without the 17-day-median context Bosch will read it as '99% = Maersk.' Reason-code coverage is only 15.1% of late misses and codes are stamped late; lean on the port-vs-door structural split, not the reason taxonomy. The 'delivery delayed by carrier' (84 rows) is genuinely ambiguous and swings the destination share from 12.6% to 33.3% -- get Bosch to define the code before conceding it.",
+   "bosch_counterargument": "\"You are cherry-picking the 15% of late shipments with a reason code and ignoring the other 85%. By your OWN data 98.7% of late misses materialise after port arrival, in the leg you control end-to-end. 'Delivery delayed by carrier' and 'by hub' are YOUR subcontracted network -- calling them upstream is self-serving. You don't get to subtract your own transmission and estimate failures and then blame the remainder on us.\"",
+   "maersk_response": "Concede DE by name and scope it to the named hubs -- own the corrective action there and own the 1,307 no_t7 as the actionable transmission item. Defend HU and the recovering CZ/Jihlava with their tighter distributions. Re-anchor the 98.7% figure with the 17.5-day median: a 17-day 'last mile' is not truck execution, it is a port-anchored estimate -- the fix is revising the estimate, not faster trucks. Genuinely execution-attributable late misses (port on-time AND plausible <=7d last-mile) are only ~60-219 of 2,685 (2.2-3.7%)."
+  }
+ ],
+ "responsibility_split": {
+  "measurement_design_pct": 40.0,
+  "estimate_staleness_structural_pct": 38.0,
+  "genuine_maersk_lastmile_pct": 22.0,
+  "notes": "Computed on the 5,949 delivered denominator, then expressed as a rough split of the 85% gap. (i) MEASUREMENT-DESIGN ~40% = no_t7 22.0% (1,307) + delivered>48h-EARLY 18.1% (1,075). Solid floor on no_t7; the early half is design-scored-as-failure but is OUR stale estimate. (ii) ESTIMATE-STALENESS / STRUCTURAL ~38% = the bulk of the 45.1% late pool that arrived on time at port (98.7% of covered late misses) and is late only against a port-anchored, never-revised estimate -- inferred, not proven via a revision log. (iii) GENUINE MAERSK LAST-MILE ~22% = the residual late exposure where slow inland execution is plausible, concentrated in DE; the DEFENSIBLE high-confidence floor here is far smaller (~2.2-3.7% of delivered: only ~60-219 misses are port-on-time AND have a plausible <=7d last-mile). The 22% is the conservative-to-Bosch ceiling for genuine exposure, the ~3% is the evidence-backed floor. Caveat: (ii) and (iii) cannot be cleanly separated without the S31 estimate-revision history -- both are consistent with the same port-on-time/door-late signature. Splits are directional, sum ~100%."
+ },
+ "hotspots": [
+  {
+   "area": "Germany (DE) -- country",
+   "dim": "dest_country",
+   "n": 2427,
+   "acc_rate": 0.18,
+   "dominant_failure_mode": "late_real",
+   "story": "39.3% of all failures; 1,529 late vs 191 early, 11% no_t7, avg +11.4d -- the core genuinely-exposed last-mile bucket.",
+   "ownership": "Maersk-lastmile"
+  },
+  {
+   "area": "Miskolc (HU)",
+   "dim": "dest_city",
+   "n": 739,
+   "acc_rate": 0.13,
+   "dominant_failure_mode": "late_real",
+   "story": "#1 single failure source (643, 12.7% of all); 289 late vs 190 early, avg +11.3d; chronic not collapsing (13.4% recent vs 13.0% pooled).",
+   "ownership": "Maersk-lastmile"
+  },
+  {
+   "area": "Braga (PT)",
+   "dim": "dest_city",
+   "n": 667,
+   "acc_rate": 0.21,
+   "dominant_failure_mode": "early",
+   "story": "#2 failures (529) but EARLY-dominant: 307 early vs 122 late, avg -3.4d -- estimate too pessimistic, not a late-delivery failure.",
+   "ownership": "measurement-design"
+  },
+  {
+   "area": "Hatvan (HU)",
+   "dim": "dest_city",
+   "n": 334,
+   "acc_rate": 0.12,
+   "dominant_failure_mode": "no_t7",
+   "story": "Only true recent collapse: 11.7% pooled -> 1.5% in CW18-21 (n=66), driven by T-7 transmission failure (no_t7 65% of recent vs 33% pooled; CW19=0/23, CW20=0/16).",
+   "ownership": "Maersk-transmission"
+  },
+  {
+   "area": "Tamm (DE)",
+   "dim": "dest_city",
+   "n": 244,
+   "acc_rate": 0.27,
+   "dominant_failure_mode": "late_real",
+   "story": "Strong genuine late signal: 122 late vs 16 early, avg +8.6d; recently stable/slightly worse.",
+   "ownership": "Maersk-lastmile"
+  },
+  {
+   "area": "Rayong (TH)",
+   "dim": "dest_city",
+   "n": 177,
+   "acc_rate": 0.02,
+   "dominant_failure_mode": "no_t7",
+   "story": "89% no_t7 -- almost no T-7 door snapshot ever sent on DE->TH export lane; structural/transmission, not late execution.",
+   "ownership": "measurement-design"
+  },
+  {
+   "area": "Jihlava (CZ)",
+   "dim": "dest_city",
+   "n": 176,
+   "acc_rate": 0.11,
+   "dominant_failure_mode": "late_real",
+   "story": "Worst avg deviation among large cities (+26.9d, 104 late vs 11 early) BUT recovering: 3.5% pre -> 40.0% recent (n=35) -- genuine + severe, do NOT list as deteriorating.",
+   "ownership": "Maersk-lastmile"
+  },
+  {
+   "area": "Juc-Herghelie (RO)",
+   "dim": "dest_city",
+   "n": 183,
+   "acc_rate": 0.19,
+   "dominant_failure_mode": "late_real",
+   "story": "Late-dominant, avg +8.8d, stable recently -- genuine RO last-mile exposure.",
+   "ownership": "Maersk-lastmile"
+  },
+  {
+   "area": "Worms (DE)",
+   "dim": "dest_city",
+   "n": 135,
+   "acc_rate": 0.11,
+   "dominant_failure_mode": "late_real",
+   "story": "105 late vs 5 early, avg +19.7d -- severe genuine lateness, cleanest of the DE tail.",
+   "ownership": "Maersk-lastmile"
+  },
+  {
+   "area": "Lane CN->DE (core import spine)",
+   "dim": "lane",
+   "n": 1597,
+   "acc_rate": 0.09,
+   "dominant_failure_mode": "late_real",
+   "story": "Only 8.7% no_t7 -- proves the T-7 capability EXISTS when the flow is integrated; the transmission gap is flow-specific, not global. Late misses here are last-mile/estimate.",
+   "ownership": "Maersk-lastmile"
+  },
+  {
+   "area": "EU-origin lanes (reverse/export, 8.6% of volume)",
+   "dim": "origin_country",
+   "n": 512,
+   "acc_rate": 0.05,
+   "dominant_failure_mode": "no_t7",
+   "story": "30.3% of ALL no_t7 misses (396) from only 8.6% of volume; 77.3% no_t7 vs 16.8% on the Asia spine. Origin CZ=100% (51/51), DE FCL=98% -- a wiring/integration blackout on side-flows.",
+   "ownership": "Maersk-transmission"
+  },
+  {
+   "area": "TH / JP / VN / CN (Asia destinations)",
+   "dim": "dest_country",
+   "n": 423,
+   "acc_rate": 0.01,
+   "dominant_failure_mode": "no_t7",
+   "story": "no_t7 TH 91%, JP 80%, VN 100%, CN 96%; where measured they skew EARLY (JP 18 early vs 3 late). Structurally unmeasured export lanes -- carve out of the genuine-performance denominator.",
+   "ownership": "structural"
+  }
+ ],
+ "bud_resolution": "There is NO literal 'Budapest' in by_dest_city -- the 'problems in BUD' question must be stated explicitly or it is ambiguous to Bosch. It resolves two ways. READING 1 (the load-bearing one): 'BUD' = the Hungarian network served via BUD airport = Miskolc + Hatvan + Maklar + Eger. The HU country block reconciles exactly to these 4 cities: 1,141 delivered, 143 accepted (13%), 998 failures. It is MIXED -- genuine last-mile lateness (430 late, avg +10.6d) dragged further by Hatvan's recent T-7 transmission collapse (26% no_t7 overall). READING 2: 'BUD' = Ceske/Cheske Budejovice (CZ), whose name contains 'Budejovice'. This is a data-quality artifact -- the same physical city is split across spellings ('Ceske Budejovice' 32 + 'Cheske Budejovice' 26 + 'CESKE BUDEJOVICE' variants); combined ~58 delivered, ~12% accepted, ~51 failures, and neither spelling cleanly clears the vol>=15 gate alone. Recommendation: when answering Bosch, name Reading 1 (HU network, 1,141/143/998) as the substantive answer and disclose Reading 2 as a spelling-split caveat -- do not let 'BUD' stand unqualified.",
+ "structurally_unmeetable": [
+  {
+   "segment": "no_t7 -- no T-7 door snapshot ever transmitted",
+   "n": 1307,
+   "why": "Cannot pass by definition (null deviation). The unassailable structural core; sets the 78.0% hard accuracy ceiling at any tolerance. Maersk-owned transmission/integration gap, fixable per-lane."
+  },
+  {
+   "segment": "Delivered >48h EARLY vs estimate",
+   "n": 1075,
+   "why": "A symmetric +-48h window penalises early arrival identically to lateness; cargo arriving ahead of a conservative/frozen estimate is scored as failure. Not a late delivery -- an estimate-basis defect (arguable as 'structural')."
+  },
+  {
+   "segment": "Late misses on gross-deviation consolidation lanes (|avg_dev_days|>14)",
+   "n": 309,
+   "why": "29 long-haul Asia->distant-EU LCL lanes where door timing swings 10-90 days (e.g. JP->PL last-mile p10 8d / median 73.5d / p90 91d); a fixed +-48h door window is near-impossible regardless of execution. WEAKEST tier -- some shipments on these lanes do pass, so only the late misses are counted."
+  },
+  {
+   "segment": "Asia export destinations (TH/JP/VN/CN/ID) -- near-total snapshot blackout",
+   "n": 423,
+   "why": "no_t7 80-100%; a T-7 +-48h door ETA is essentially never produced on these export lanes. Subset overlaps the no_t7 count above -- listed to show WHERE the structural blackout lives, not as additive."
+  },
+  {
+   "segment": "UPPER-BOUND structurally-unmeetable union (mutually exclusive: no_t7 + early + gross-dev-late)",
+   "n": 2691,
+   "why": "45.2% of the book. Reconciles exactly (2,691 + 882 accepted + 2,376 genuine-late = 5,949). Explicit upper bound: discount the early and gross-dev tiers and the defensible floor falls toward the 22% no_t7."
+  }
+ ],
+ "where_maersk_is_exposed": [
+  {
+   "area": "Germany last-mile (whole country)",
+   "n": 1529,
+   "issue": "1,529 late door-misses (avg +11.4d), only 11% no_t7 and 98% port-on-time -- genuine inland/door execution and/or frozen-estimate. The single largest and least-deniable exposure. Own it."
+  },
+  {
+   "area": "DE named-hub failures (Kalefeld, Langenau Wuertt, Neustadt Sachsen, Hildesheim, Immenstadt, Leinfelden)",
+   "n": 48,
+   "issue": "48 of 51 strict destination-reason late misses (hub-delay / failed-delivery-attempt) -- the cleanly Maersk-last-mile reason-coded events. Scope corrective action here; do not overclaim a systemic DE failure."
+  },
+  {
+   "area": "Miskolc (HU)",
+   "n": 289,
+   "issue": "289 late vs 190 early, avg +11.3d, chronic (not collapsing) -- genuine BUD-network last-mile exposure even though HU overall is defensible."
+  },
+  {
+   "area": "Severe-deviation cities (Jihlava CZ +26.9d, Settimo Torinese IT +33.5d, Kandel DE +25.0d, Worms DE +19.7d)",
+   "n": 312,
+   "issue": "Late>>early with extreme avg deviation -- where execution, not measurement design, is the problem (Jihlava is improving recently; still own the level)."
+  },
+  {
+   "area": "RO last-mile (Juc-Herghelie)",
+   "n": 73,
+   "issue": "Late-dominant avg +8.8d, on-time port, ~6d last-mile gap vs accepted RO -- genuine but smaller exposure."
+  },
+  {
+   "area": "T-7 transmission gap (no_t7) -- Maersk-owned EDI/integration",
+   "n": 1307,
+   "issue": "22% of delivered never got a snapshot; concentrated on EU-origin/CZ/Asia-export lanes (CZ origin 100%, DE FCL 98%). NOT a delivery failure but unambiguously Maersk's to fix -- the most actionable single item, and Hatvan's recent collapse (65% no_t7) shows it can regress live."
+  }
+ ],
+ "recommended_asks": [
+  "Split the KPI into THREE separate lines -- (1) T-7 transmission completeness, (2) door-forecast accuracy, (3) last-mile transit time -- so a missing snapshot is never scored as a missed delivery and the 14.8% stops conflating three root causes.",
+  "Exclude no_t7 (22%, 1,307) from the delivery-PERFORMANCE denominator and track it as its own completeness metric; co-own a transmission-integration fix on the named blackout flows (CZ origin 100%, DE FCL 98%, EU-origin reverse lanes, Asia-export DE->TH/JP).",
+  "Agree the estimated-delivery BASIS before grading: resolve Maersk's own open question (S31 derived from ATA or ETA?) and score 2D against the LATEST revised S31 estimate, not the S04-actual freeze -- per Bosch's own spec requiring revised ETAs with reason codes.",
+  "Treat early delivery asymmetrically -- a delivery arriving >48h EARLY (18%, 1,075) should not be scored identically to a late one; at minimum widen/relax the early side or exclude it from 'failure'.",
+  "Carve out / flag structurally-unmeasurable Asia export lanes (TH/JP/VN/CN, 80-100% no_t7, often delivered early where measured) where a T-7 +-48h door ETA is not currently producible -- do NOT cite an 'air-lane' rationale (zero air in this data).",
+  "Request the S31 transmission/revision log from our own systems to convert 'estimate frozen and never revised' from a defensible inference into proof (or to find where revisions ARE happening).",
+  "Maersk commits in return: close the T-7 transmission gap, enable event-driven re-estimation with reason codes, and own a destination-by-destination last-mile action plan starting with Germany (named hubs) -- so the ask is a joint fix, not a request to be let off."
+ ],
+ "data_quality_caveats": [
+  "DATA-INTEGRITY landmine: the eta/ata/delivered columns in the shipments file are PORT ETA/ATA (consolEta/consolAta), NOT the S31 door estimate -- dev_hours reconciles to neither (delivered-eta) nor (delivered-ata) in 99.7% of rows. Cite these columns ONLY to show the estimate is port-anchored; never project them as 'the KPI's ETA' or the whole exhibit can be impeached.",
+  "No S31 snapshot timestamp / S04 date / revision count exists -- t7_present is a bare boolean. 'Frozen at departure and never revised' is INFERRED (port-on-time + long last-mile + port-anchored eta), not measured. Do not state it as fact.",
+  "delay_reason coverage is only 15.1% of late misses (406/2,685; ~11% of all delivered); codes are stamped late (17-day medians) and not bucket-aligned (44 'Flight cancelled' + 16 'Delivery delayed by carrier' sit in early_gt48). Every reason-based split is indicative, not a census -- lean on the port-vs-door structural split.",
+  "supplier_responsible=Y on only 91/5,949 (74 late misses) -- too sparse to bound the origin/destination split; absence of a reason code is a workflow gap, not evidence of innocence.",
+  "City-spelling fragmentation splits the same physical destination across rows and understates per-city volume: confirmed 'Ceske Budejovice'/'Cheske Budejovice'/'CESKE BUDEJOVICE' (CZ), 'Schwabisch Gmund'/'Schwaebisch Gmuend' (DE), 'Rayong'/'Rayong Pluak Daeng' (TH), 'Lohr a Main'/'Lohr am Main', plus pervasive UPPER/Titlecase dupes (MISKOLC/Miskolc). Combine before quoting any single-city figure; use country/lane/service cuts for reliable rollups.",
+  "delivery_city != dest_city in 17.5% of rows (1,042/5,949) -- the door location itself is sometimes ambiguous, making city-level RCA indicative not exact (bucket totals unaffected).",
+  "Single carrier only: all 5,949 records are Maersk. Any 'X% concentrated in N carriers' framing is impossible -- concentration must be argued on lanes/origins (top 10 lanes = 52.3% of no_t7; EU-origin = 30.3%).",
+  "100% ocean, zero air (verified TRANSPORT_MODE in raw SC4 Excel; 72-day median transit; intra-EU short lanes 0.13%). The 'air/short-lane T-7 impossible' argument has NO instances here and must not be asserted.",
+  "Recent window = CW18-21 only; some hotspots have small recent n (Hatvan 66) and CW18 total volume is anomalously low (~66 vs ~300 typical, partial-week/ingest artifact) -- deterioration flags lean on CW19-21.",
+  "All headline figures reconcile EXACTLY to the live pipeline (882 acc / 1,307 no_t7 / 1,075 early / 2,685 late; meta.reconciled=True) -- the denominator is trustworthy; the open question is interpretive (frozen-estimate vs true last-mile), not a data error."
+ ]
+}
