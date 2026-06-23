@@ -10,8 +10,8 @@
 # Usage: ./sync_to_alp.sh "one-line summary of what changed"
 set -euo pipefail
 
-SRC="/Users/harsh.puri/Documents/work-maersk/Prototype Playground/Bosch Milestone Analysis"
-WT_ROOT="/Users/harsh.puri/Documents/work-maersk/alp-development-platform/.claude/worktrees/elegant-cray-79e841"
+SRC="/Users/harsh.puri/Documents/Harsh OS/Work/Bosch/milestone-analysis"
+WT_ROOT="/Users/harsh.puri/Documents/Harsh OS/Work/Maersk/alp-development-platform/.claude/worktrees/bosch-milestone-analysis"
 APP_REL="projects/business-prototypes/bosch-milestone-analysis"
 APP="$WT_ROOT/$APP_REL"
 BRANCH="prototype/business-prototypes/bosch-milestone-analysis"
