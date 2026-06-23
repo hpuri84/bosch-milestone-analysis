@@ -3886,5 +3886,185 @@
     "ref_comp": 0.9122,
     "ref_complete": 738,
     "ref_total": 809
+  },
+  {
+    "week": "CW23",
+    "critical": {
+      "required": 2734,
+      "available": 2398,
+      "in_time": 1798,
+      "completeness": 0.8771,
+      "timeliness": 0.6576,
+      "row_count": 8
+    },
+    "all": {
+      "required": 4396,
+      "available": 3630,
+      "in_time": 2838,
+      "completeness": 0.8258,
+      "timeliness": 0.6456,
+      "row_count": 20
+    },
+    "sc3_total": {
+      "required": 4396,
+      "available": 3630,
+      "in_time": 2838,
+      "completeness": 0.8258,
+      "timeliness": 0.6456,
+      "row_count": 20
+    },
+    "sc4_total": {
+      "required": 0,
+      "available": 0,
+      "in_time": 0,
+      "completeness": 0,
+      "timeliness": 0,
+      "row_count": 0
+    },
+    "sc3_critical": {
+      "required": 2734,
+      "available": 2398,
+      "in_time": 1798,
+      "completeness": 0.8771,
+      "timeliness": 0.6576,
+      "row_count": 8
+    },
+    "sc4_critical": {
+      "required": 0,
+      "available": 0,
+      "in_time": 0,
+      "completeness": 0,
+      "timeliness": 0,
+      "row_count": 0
+    },
+    "sc3_shipments": 551,
+    "sc4_shipments": 486,
+    "service_breakdown": {
+      "SC3": {
+        "FCL": {
+          "all": {
+            "required": 935,
+            "available": 638,
+            "in_time": 510,
+            "completeness": 0.6824,
+            "timeliness": 0.5455,
+            "row_count": 17
+          },
+          "critical": {
+            "required": 434,
+            "available": 358,
+            "in_time": 273,
+            "completeness": 0.8249,
+            "timeliness": 0.629,
+            "row_count": 7
+          }
+        },
+        "BCO": {
+          "all": {
+            "required": 1007,
+            "available": 782,
+            "in_time": 562,
+            "completeness": 0.7766,
+            "timeliness": 0.5581,
+            "row_count": 13
+          },
+          "critical": {
+            "required": 628,
+            "available": 515,
+            "in_time": 325,
+            "completeness": 0.8201,
+            "timeliness": 0.5175,
+            "row_count": 8
+          }
+        },
+        "LCL": {
+          "all": {
+            "required": 2454,
+            "available": 2210,
+            "in_time": 1766,
+            "completeness": 0.9006,
+            "timeliness": 0.7196,
+            "row_count": 13
+          },
+          "critical": {
+            "required": 1672,
+            "available": 1525,
+            "in_time": 1200,
+            "completeness": 0.9121,
+            "timeliness": 0.7177,
+            "row_count": 8
+          }
+        }
+      },
+      "SC4": {
+        "FCL": {
+          "all": {
+            "required": 1024,
+            "available": 770,
+            "in_time": 469,
+            "completeness": 0.752,
+            "timeliness": 0.458,
+            "row_count": 15
+          },
+          "critical": {
+            "required": 634,
+            "available": 534,
+            "in_time": 347,
+            "completeness": 0.8423,
+            "timeliness": 0.5473,
+            "row_count": 9
+          }
+        },
+        "BCO": {
+          "all": {
+            "required": 2375,
+            "available": 1791,
+            "in_time": 1369,
+            "completeness": 0.7541,
+            "timeliness": 0.5764,
+            "row_count": 18
+          },
+          "critical": {
+            "required": 1167,
+            "available": 969,
+            "in_time": 764,
+            "completeness": 0.8303,
+            "timeliness": 0.6547,
+            "row_count": 9
+          }
+        },
+        "LCL": {
+          "all": {
+            "required": 4374,
+            "available": 3395,
+            "in_time": 2343,
+            "completeness": 0.7762,
+            "timeliness": 0.5357,
+            "row_count": 19
+          },
+          "critical": {
+            "required": 2061,
+            "available": 1802,
+            "in_time": 1319,
+            "completeness": 0.8743,
+            "timeliness": 0.64,
+            "row_count": 9
+          }
+        }
+      }
+    },
+    "eta_2p": 0.5073,
+    "s07_acc": 209,
+    "s07_total": 412,
+    "s07_no_t7": 172,
+    "eta_2d": 0.0839,
+    "s31_acc": 26,
+    "s31_total": 310,
+    "s31_no_t7": 124,
+    "eta_2p_t7_comp": 0.5825,
+    "eta_2d_t7_comp": 0.6,
+    "ref_comp": 0.8786,
+    "ref_complete": 427,
+    "ref_total": 486
   }
 ]
