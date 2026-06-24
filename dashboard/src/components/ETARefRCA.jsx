@@ -473,11 +473,75 @@ function FilterBar({ activeSection, setActiveSection, searchTerm, setSearchTerm 
 }
 
 
-export default function ETARefRCA({ rcaData, selectedWeek, laneRcaData, laneRca2p }) {
+function CoverageStat({ label, pct, sub, color }) {
+  return (
+    <div style={{ flex: '1 1 140px', minWidth: 130 }}>
+      <div style={{
+        fontFamily: 'var(--font-display)', fontSize: '0.66rem', fontWeight: 500,
+        color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: 4,
+      }}>{label}</div>
+      <div style={{ display: 'flex', alignItems: 'baseline', gap: 6 }}>
+        <span style={{ fontFamily: 'var(--font-mono)', fontSize: '1.4rem', fontWeight: 500, color }}>
+          {pct != null ? `${(pct * 100).toFixed(1)}%` : 'N/A'}
+        </span>
+        <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.72rem', color: 'var(--text-muted)' }}>{sub}</span>
+      </div>
+    </div>
+  );
+}
+
+// T-7 milestone coverage decomposition: the headline ETA accuracy counts arrived
+// shipments with no T-7 ETA milestone as misses, so a feed/data gap reads as a
+// performance drop. This splits coverage (data) from true accuracy (performance).
+function CoverageCallout({ kpiWeek }) {
+  if (!kpiWeek) return null;
+  const mk = (total, noT7, acc) => {
+    if (!total) return null;
+    const miss = noT7 || 0;
+    const have = total - miss;
+    return { total, miss, acc, have, coverage: have / total, trueAcc: have > 0 ? acc / have : null };
+  };
+  const p = mk(kpiWeek.s07_total, kpiWeek.s07_no_t7, kpiWeek.s07_acc);
+  const d = mk(kpiWeek.s31_total, kpiWeek.s31_no_t7, kpiWeek.s31_acc);
+  if (!p && !d) return null;
+
+  const block = (title, m) => m && (
+    <div style={{ flex: '1 1 320px', minWidth: 290 }}>
+      <div style={{ fontFamily: 'var(--font-display)', fontSize: '0.8rem', fontWeight: 600, color: 'var(--text-primary)', marginBottom: 10 }}>{title}</div>
+      <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap' }}>
+        <CoverageStat label="T-7 Coverage" pct={m.coverage} sub={`${m.have}/${m.total}`} color={m.coverage < 0.9 ? '#d97706' : '#16a34a'} />
+        <CoverageStat label="True Accuracy (with T-7)" pct={m.trueAcc} sub={`${m.acc}/${m.have}`} color="#16a34a" />
+        <CoverageStat label="Missing T-7 (feed gap)" pct={m.miss / m.total} sub={`${m.miss} miss`} color="#dc2626" />
+      </div>
+    </div>
+  );
+
+  return (
+    <div style={{
+      background: 'var(--bg-card)', border: '1px solid var(--border)', borderLeft: '3px solid #d97706',
+      borderRadius: 8, padding: '14px 20px', marginBottom: 20, boxShadow: 'var(--shadow-sm)',
+    }}>
+      <div style={{
+        fontFamily: 'var(--font-display)', fontSize: '0.72rem', fontWeight: 600, color: '#b45309',
+        textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: 12,
+      }}>Milestone Coverage — why the headline ≠ performance</div>
+      <div style={{ display: 'flex', gap: 24, flexWrap: 'wrap' }}>
+        {block('ETA 2P (Port)', p)}
+        {block('ETA 2D (Door)', d)}
+      </div>
+      <div style={{ fontFamily: 'var(--font-display)', fontSize: '0.72rem', color: 'var(--text-secondary)', marginTop: 12, lineHeight: 1.5 }}>
+        The headline rate counts arrived shipments with no T-7 ETA milestone as misses. When <strong>coverage</strong> drops, the headline falls even if on-time performance holds — a missing-data signal, not a delivery one. <strong>True accuracy</strong> is measured only over shipments that have a T-7 milestone.
+      </div>
+    </div>
+  );
+}
+
+export default function ETARefRCA({ rcaData, kpiData, selectedWeek, laneRcaData, laneRca2p }) {
   const [activeSection, setActiveSection] = useState('eta_2p');
   const [searchTerm, setSearchTerm] = useState('');
 
   const weekData = rcaData?.find(d => d.week === selectedWeek);
+  const kpiWeek = kpiData?.find(d => d.week === selectedWeek);
   const etaRef = weekData?.eta_ref_rca;
   if (!etaRef) return <div style={{ color: 'var(--text-muted)', padding: 20 }}>No ETA/Reference data available for {selectedWeek}</div>;
 
@@ -570,6 +634,8 @@ export default function ETARefRCA({ rcaData, selectedWeek, laneRcaData, laneRca2
         <MetricCard label="Ref Incomplete" value={ref.incomplete} total={ref.total}
           rate={ref.total > 0 ? ref.incomplete / ref.total : null} color="#d97706" />
       </div>
+
+      <CoverageCallout kpiWeek={kpiWeek} />
 
       {/* Early vs Late breakdown */}
       <div style={{

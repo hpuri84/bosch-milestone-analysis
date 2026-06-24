@@ -300,7 +300,7 @@ export default function App() {
           <div style={LAYOUT.sectionTitle}>
             {selectedWeek} — ETA Accuracy & Reference Completeness RCA
           </div>
-          <ETARefRCA rcaData={rcaData} selectedWeek={selectedWeek} laneRcaData={laneRcaData} laneRca2p={laneRca2p} />
+          <ETARefRCA rcaData={rcaData} kpiData={data} selectedWeek={selectedWeek} laneRcaData={laneRcaData} laneRca2p={laneRca2p} />
         </div>
       )}
 
