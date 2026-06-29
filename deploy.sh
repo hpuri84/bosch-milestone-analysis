@@ -15,7 +15,7 @@ set -euo pipefail
 DRY=0; [ "${1:-}" = "--dry-run" ] && { DRY=1; shift; }
 SUMMARY="${1:-Sync dashboard from hpuri84 source of truth}"
 
-SRC="$HOME/Documents/Harsh OS/Work/Bosch/milestone-analysis"
+SRC="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 DEPLOY="$HOME/Library/Caches/bosch-milestone-analysis-deploy"   # outside ~/Documents — git needs no FDA grant
 URL="https://github.com/Maersk-Global/alp-development-platform.git"
 BRANCH="prototype/business-prototypes/bosch-milestone-analysis"
