@@ -3940,5 +3940,131 @@
     "ref_comp": 0.8786,
     "ref_complete": 427,
     "ref_total": 486
+  },
+  {
+    "week": "CW24",
+    "critical": {
+      "required": 4196,
+      "available": 3551,
+      "in_time": 2381,
+      "completeness": 0.8463,
+      "timeliness": 0.5674,
+      "row_count": 9
+    },
+    "all": {
+      "required": 8475,
+      "available": 6050,
+      "in_time": 3948,
+      "completeness": 0.7139,
+      "timeliness": 0.4658,
+      "row_count": 21
+    },
+    "sc3_total": {
+      "required": 0,
+      "available": 0,
+      "in_time": 0,
+      "completeness": 0,
+      "timeliness": 0,
+      "row_count": 0
+    },
+    "sc4_total": {
+      "required": 8475,
+      "available": 6050,
+      "in_time": 3948,
+      "completeness": 0.7139,
+      "timeliness": 0.4658,
+      "row_count": 21
+    },
+    "sc3_critical": {
+      "required": 0,
+      "available": 0,
+      "in_time": 0,
+      "completeness": 0,
+      "timeliness": 0,
+      "row_count": 0
+    },
+    "sc4_critical": {
+      "required": 4196,
+      "available": 3551,
+      "in_time": 2381,
+      "completeness": 0.8463,
+      "timeliness": 0.5674,
+      "row_count": 9
+    },
+    "sc3_shipments": 0,
+    "sc4_shipments": 524,
+    "service_breakdown": {
+      "SC3": {},
+      "SC4": {
+        "FCL": {
+          "all": {
+            "required": 982,
+            "available": 700,
+            "in_time": 419,
+            "completeness": 0.7128,
+            "timeliness": 0.4267,
+            "row_count": 15
+          },
+          "critical": {
+            "required": 612,
+            "available": 501,
+            "in_time": 320,
+            "completeness": 0.8186,
+            "timeliness": 0.5229,
+            "row_count": 9
+          }
+        },
+        "BCO": {
+          "all": {
+            "required": 2187,
+            "available": 1341,
+            "in_time": 875,
+            "completeness": 0.6132,
+            "timeliness": 0.4001,
+            "row_count": 18
+          },
+          "critical": {
+            "required": 1059,
+            "available": 820,
+            "in_time": 549,
+            "completeness": 0.7743,
+            "timeliness": 0.5184,
+            "row_count": 9
+          }
+        },
+        "LCL": {
+          "all": {
+            "required": 5306,
+            "available": 4009,
+            "in_time": 2654,
+            "completeness": 0.7556,
+            "timeliness": 0.5002,
+            "row_count": 19
+          },
+          "critical": {
+            "required": 2525,
+            "available": 2230,
+            "in_time": 1512,
+            "completeness": 0.8832,
+            "timeliness": 0.5988,
+            "row_count": 9
+          }
+        }
+      }
+    },
+    "eta_2p": 0.4608,
+    "s07_acc": 229,
+    "s07_total": 497,
+    "s07_no_t7": 160,
+    "eta_2d": 0.1085,
+    "s31_acc": 41,
+    "s31_total": 378,
+    "s31_no_t7": 209,
+    "eta_2p_t7_comp": 0.6781,
+    "eta_2d_t7_comp": 0.4471,
+    "ref_comp": 0.8683,
+    "ref_complete": 455,
+    "ref_total": 524,
+    "sc3_missing": true
   }
 ]
