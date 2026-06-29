@@ -18,7 +18,7 @@ from datetime import timedelta
 BASE = os.path.dirname(os.path.abspath(__file__))
 RAW_DIR = os.path.join(BASE, "Bosch Milestone raw data")
 
-WEEKS = ["CW01", "CW02", "CW03", "CW04", "CW05", "CW06", "CW07", "CW08", "CW09", "CW10", "CW11", "CW12", "CW13", "CW14", "CW15", "CW16", "CW17", "CW18", "CW19", "CW20", "CW21", "CW22", "CW23"]
+WEEKS = ["CW01", "CW02", "CW03", "CW04", "CW05", "CW06", "CW07", "CW08", "CW09", "CW10", "CW11", "CW12", "CW13", "CW14", "CW15", "CW16", "CW17", "CW18", "CW19", "CW20", "CW22", "CW23"]
 SC3_FILES = {f"CW{i:02d}": f"Maersk NGTM SC3_2026_CW{i:02d}.xlsx" for i in range(1, 24)}
 SC3_FILES["CW10"] = "Maersk SC3_2026_CW10.xlsx"  # CW10+ has different naming
 SC3_FILES["CW11"] = "Maersk SC3_2026_CW11.xlsx"
